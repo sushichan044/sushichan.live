@@ -96,5 +96,9 @@
     "textlint-rule-preset-japanese": "^8.0.0",
     "tsx": "^3.13.0",
     "typescript": "^5.2.2"
+  },
+  "volta": {
+    "node": "18.18.0",
+    "yarn": "3.6.4"
   }
 }
