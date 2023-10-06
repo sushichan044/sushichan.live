@@ -1,0 +1,11 @@
+{
+  "plugins": {
+    "@textlint/markdown": {
+      "extensions": [".mdx", ".md"]
+    }
+  },
+  "filters": {},
+  "rules": {
+    "preset-japanese": true
+  }
+}
