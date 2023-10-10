@@ -20,4 +20,10 @@ export default defineConfig({
       minify: false,
     },
   },
+  image: {
+    service: {
+      // https://docs.astro.build/en/guides/images/#add-simple-asset-support-for-cloudflare-deno-vercel-edge-and-netlify-edge
+      entrypoint: "astro/assets/services/noop",
+    },
+  },
 })
