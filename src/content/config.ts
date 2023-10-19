@@ -1,4 +1,4 @@
-import { defineCollection, z } from "astro:content"
+import { defineCollection, reference, z } from "astro:content"
 
 const posts = defineCollection({
   schema: z.object({
@@ -9,6 +9,7 @@ const posts = defineCollection({
     thumbnail: z.string().optional(),
     tags: z.array(z.string()).optional(),
     status: z.enum(["draft", "published", "private"]).default("draft"),
+    relatedPosts: reference("posts").array().optional(),
   }),
   type: "content",
 })
