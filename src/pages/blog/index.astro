@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content"
+import type { CollectionEntry } from "astro:content"
+
+const Posts = await getCollection("posts")
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width" name="viewport" />
+    <meta content={Astro.generator} name="generator" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>blog</h1>
+    <div>
+      {
+        Posts.map(({ data }: CollectionEntry<"posts">) => (
+          <div>
+            <h2>{data.title}</h2>
+            <p>{data.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </body>
+</html>
