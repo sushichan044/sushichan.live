@@ -25,13 +25,6 @@ module.exports = {
         patterns: ["./", "../", "~/"],
       },
     ],
-    "react/self-closing-comp": [
-      "error",
-      {
-        component: true,
-        html: true,
-      },
-    ],
     "perfectionist/sort-jsx-props": "error",
     "react/jsx-boolean-value": "warn",
     "react/jsx-curly-brace-presence": "error",
@@ -77,6 +70,15 @@ module.exports = {
         project: "./tsconfig.json",
       },
       extends: ["plugin:react/recommended", "plugin:react-hooks/recommended"],
+      rules: {
+        "react/self-closing-comp": [
+          "error",
+          {
+            component: true,
+            html: true,
+          },
+        ],
+      },
     },
     // ...
   ],
