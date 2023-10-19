@@ -1,0 +1,159 @@
+---
+title: Webアプリ制作RTA・2023夏
+description: ログインして使うタイプのWebアプリを7時間で作ってみた
+createdAt: 2023-07-21
+thumbnail: https://res.cloudinary.com/sushi-chan/image/upload/v1689893806/tech/track-share/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2023-07-21_075605_eid3wa.png
+tags:
+  - 技術
+  - Next.js
+status: published
+---
+
+こんにちは、すしです。今回は、極限まで楽をした構成を使って、7時間でWebアプリを作ってみたのでそれについて書きます。
+
+## 使ったもの
+
+- Next.js with TypeScript(App Router)
+- SCSS & TailwindCSS
+  - なぜこれらを同時に使ってみたのかは後述
+- ESLint・markuplint・stylelint・Prettier
+  - いつもの方々。これのおかげで効率が爆上がりしている
+
+## つくったもの
+
+TrackShare: https://share-track.app/
+
+リポジトリはこちら: https://github.com/sushi-chaaaan/trackshare
+
+<Message type="alert">
+  現在SpotifyのAPIの認証情報が
+  開発版のままのためお試しいただけない状態になっています。近日中に修正したします。
+</Message>
+
+![非ログイン状態](https://res.cloudinary.com/sushi-chan/image/upload/v1689893972/tech/track-share/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2023-07-21_075926_cuhofx.png)
+
+Spotifyのアカウントでログインが完了すると、現在再生中の曲や最近再生回数の多い曲をSpotifyのAPIと連携して表示できるようになります。
+
+![執筆時はたまたま響界メトロが流れてた。響界メトロはいいぞ！](https://res.cloudinary.com/sushi-chan/image/upload/v1689894110/tech/track-share/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2023-07-21_080144_gs7kna.png)
+
+また、曲名の横のTwitterのボタンをクリックすると、新しいタブでツイート画面が開き、現在再生中の曲を#NowPlayingタグにツイートできます。
+
+<TweetCard id="1682169378736070657" />
+
+### なんでこれ作ったの？
+
+もともと、自分が使うために今聴いている曲を手軽にツイートするWebアプリを作っていました。しかし、このときは
+通常のAccessTokenを用いていたため個人のアカウントに関連する情報をAPIから取得できない制約がありました。
+
+このため、ログイン付きのWebアプリに作り直したかったのですが、認証やデータベースにまだあまり詳しくないため自力で
+実装できる自信もありませんでした。というところで、最近Vercelが提供していているお手軽認証基盤のclerkが話題になっていたのを
+思い出したので、これを使ってみることにしました。
+
+https://clerk.com/
+
+Vercelのプロジェクトと直接ワンタッチで統合できてすごく楽でした。
+Spotifyでログインする設定も、Spotify側の開発ダッシュボードで認証情報を発行してClerkのダッシュボードから
+ちょっと設定するだけで完了、これはすごい。
+
+![](https://res.cloudinary.com/sushi-chan/image/upload/v1689894667/tech/track-share/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2023-07-21_081101_po3ssw.png)
+
+## Clerkがいい感じすぎる
+
+さて、先程ダッシュボードからSpotifyでログインするための設定をしました。これをNext.js側に持ってくるのが恐ろしいほど簡単で、
+サインイン用のコンポーネントもClerkから提供されているのでこれをimportして下のようなボタンコンポーネントを作るだけです。
+クリックすると画像のようなモーダルが表示され、ログイン後のリダイレクトも自動的に行われます。なんてお手軽...
+
+```tsx
+import { SignInButton } from "@clerk/nextjs"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
+import Button from "@/components/common/button"
+
+const SpotifySigninButton = () => {
+  return (
+    <SignInButton mode="modal">
+      <Button className="flex flex-row gap-x-2">
+        <span className="flex items-center justify-center h-full">
+          <FontAwesomeIcon icon="fa-brands fa-spotify" />
+        </span>
+        Sign in with Spotify
+      </Button>
+    </SignInButton>
+  )
+}
+
+export default SpotifySigninButton
+```
+
+![𝑺𝒆𝒄𝒖𝒓𝒆𝒅 𝒃𝒚 𝑪𝒍𝒆𝒓𝒌...](https://res.cloudinary.com/sushi-chan/image/upload/v1689894001/tech/track-share/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2023-07-21_075956_bv5nmi.png)
+
+また、React Server Componentでの利用も考えられていて、サーバーサイドでも簡単に現在のログイン状態やログインしているユーザーの情報を取得できます。
+**今回は、クライアント側から現在再生中の曲をリフレッシュするボタン以外はすべてServer Componentになっています。**
+
+```tsx title="サーバーサイドでユーザー情報を取得して再生回数の多い曲を取得するコンポーネントの例"
+import { currentUser } from "@clerk/nextjs"
+import { Suspense } from "react"
+
+import Item from "@/components/spotify/item"
+
+const TopItem = async () => {
+  const user = await currentUser()
+  if (!user) return <></>
+
+  const tracks = "頑張ってAPIを叩く"
+  return (
+    <Suspense fallback={<div>loading</div>}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {tracks.items.map((track) => (
+          <Item item={track} key={track.id} />
+        ))}
+      </div>
+    </Suspense>
+  )
+}
+
+export default TopItem
+```
+
+## 実際にClerkを使った所感
+
+今までもNextAuth.js(現在は Auth.jsに名称が変わったようですね)などを使って認証を実装したことはありましたが、Clerkは今までで一番簡単でした。そもそも一切認証周りの実装がいらないですからね。
+また、ユーザーのログイン情報からOAuthのAccess Tokenを取得する関数まで用意されており、これには驚きました。全体的に認証を手軽に実現しつつ、その先で開発者が行いたいことに
+専念させてくれるような印象を受けました。
+
+```tsx title="ログイン情報からOAuth Access Tokenを取得するコード"
+async function getUserSpotifyAccessToken(userId: string) {
+  // これだけで、ユーザーのログイン情報からSpotifyのAccess Tokenを取得できる。とんでもない
+  const tokens = await clerkClient.users.getUserOauthAccessToken(
+    userId,
+    "oauth_spotify",
+  )
+  return tokens
+}
+```
+
+Clerkの料金設定も、個人で簡単に使う認証つきWebアプリ程度であれば無料プランで十分な印象を受けました。
+実際にサービスを運営するなら、SMS認証やMAU上限なしなどの機能が使える有料プラン(Hobbyプランは$25/month~)を選ぶのが良さそうです。
+
+## なぜSCSSとTailwindCSSを同時に使ったのか？
+
+普段はSCSSを使っていますが、今回はあえてTailwindCSSと同時に使ってみました(もちろんこれがよくないことも理解しています)。
+具体的な使い分けとしては、コンポーネントのベースのスタイルはSCSSを使って記述し、それを実際にページなどで結合する際のマージンや
+位置調整などにTailwindCSSを使いました。
+
+私は、コンポーネントを作っていく際はmixinなどでレスポンシブ対応やダークテーマ対応を簡潔に記述できるSCSSが楽だと感じています。
+以前からこれを実際に結合していく際のマージンなどの調節のためだけに新しくページ側などにSCSS Moduleを追加するのが煩雑に感じていました。
+そこで今回はこの部分のみに限定してTailwindCSSを利用してみました。
+
+結論から言うとこれは結構書きやすかったです。ただし、これは2種類のCSS記述方法を同時に使うことになるので、それによる
+メンテナンス性の低下などのデメリットのほうが大きいように感じました。今回は、あくまでも制作時間を短縮して、また
+普段はやらない実験的なこともやってみようという試みでやってみましたが、普段なら使い分けるべきでしょうね。
+
+このサイトでもSCSSとTailwindCSSが混在してますが、TailwindCSSはMarkdown系ファイルの中でしか使えない設定になっています。
+
+<UrlCard url="https://sushichan.live/blog/post/tech/build-my-website#ブログをmdxで構築した" />
+
+## おわりに
+
+ということで、Clerkを使って7時間ほどで認証つきWebアプリを作ってみたお話でした～。思っていた数倍使いやすくて、
+今後も個人で小規模なものを作る際にはお世話になろうかなと思っています。それではまた！

@@ -1,0 +1,380 @@
+---
+title: おうちKubernetes作ろうとした
+description: kubernetes なにもわからない
+createdAt: 2022-09-02
+thumbnail: https://res.cloudinary.com/sushi-chan/image/upload/v1689712016/tech/build-my-website/k8s_klzfz1.png
+tags:
+  - 技術
+status: published
+---
+
+## HW構成
+
+- クラスタ部分
+
+Raspberry Pi 4 Model B 8GB x3
+
+- NW部分
+
+NETGEAR GS305PP(PoE+)
+
+## 開封
+
+あ(撮り忘れた)
+
+## いざセットアップ
+
+Raspberry Pi Imagerを使う。今回はOSイメージを書き込む際のオプションから事前にSSHを有効化し、ユーザーの設定、ロケールの設定を行った。
+
+OSはUbuntuServer22.04LTS(64-bit)...
+のはずだったが謎のエラーが頻発するためUbuntu Server20.04.4LTSへ変更。
+
+### Hello World
+
+```shell
+# いつもの
+sudo hostnamectl set-hostname ubuntu-k8s1 && \
+  sudo apt update && \
+  sudo apt upgrade -y && \
+  sudo apt install language-pack-ja && \
+  sudo update-locale LANG=ja_JP.UTF-8 && \
+  sudo reboot
+```
+
+### カーネル・サンダースを設定
+
+ここで動作に必要なモジュールをLoad
+
+```shell
+sudo vim /etc/modules-load.d/crio.conf
+
+overlay
+br_netfilter
+
+sudo modprobe overlay
+sudo modprobe br_netfilter
+```
+
+```shell
+sudo vim /etc/sysctl.d/k8s.conf
+
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+net.ipv4.ip_forward                 = 1
+
+sudo sysctl --system
+```
+
+## containeredを入れる
+
+コンテナを走らせるランタイム。Dockerの付属品なのでDocker Hubの手順に従う。その後初期設定まで済ませる
+
+<UrlCard url="https://docs.docker.com/engine/install" />
+
+前提パッケージのインストール
+
+```shell
+sudo apt-get update
+
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+```
+
+Dockerの鍵を追加
+
+```shell
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+```
+
+リポジトリ追加
+
+```shell
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+
+インストール
+
+```shell
+sudo apt install containerd.io
+
+sudo mkdir -p /etc/containerd
+containerd config default | sudo tee /etc/containerd/config.toml
+sudo systemctl restart containerd
+```
+
+## kubeadm入れる
+
+とりあえず[リファレンス](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)にしたがう。先に前提となるNWやOSの挙動周りの設定をする。
+なお、Kubernetesではswapを無効にする必要があるが、Raspberry Pi4では最初から無効になっていた。
+
+### ネットワーク周りの挙動の設定
+
+```shell
+# レガシーバイナリがインストールされていることを確認してください
+sudo apt-get install -y iptables arptables ebtables
+
+# レガシーバージョンに切り替えてください。
+sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+sudo update-alternatives --set arptables /usr/sbin/arptables-legacy
+sudo update-alternatives --set ebtables /usr/sbin/ebtables-legacy
+```
+
+### ufwの設定
+
+```shell
+sudo vim /etc/default/ufw
+# ipv6=noにする。
+
+# master
+sudo ufw allow 22/tcp
+sudo ufw allow 6443/tcp
+sudo ufw allow 2379:2380/tcp
+sudo ufw allow 10250/tcp
+sudo ufw allow 10259/tcp
+sudo ufw allow 10257/tcp
+sudo ufw enable
+
+# worker
+sudo ufw allow 22/tcp
+sudo ufw allow 10250/tcp
+sudo ufw allow 30000:32767/tcp
+sudo ufw enable
+```
+
+### cgroupまわり
+
+https://kuromt.hatenablog.com/entry/2019/01/03/233347を参考にして解決。
+
+```shell
+# /boot/firmware/cmdline.txtに追記して再起動
+sudo vim /boot/firmware/cmdline.txt
+
+cgroup_memory=1 cgroup_enable=memory
+
+sudo reboot
+```
+
+### hosts設定
+
+```shell
+sudo vim /etc/hosts
+
+# add k8shost
+192.168.50.101 ubuntu-k8s1
+192.168.50.102 ubuntu-k8s2
+192.168.50.103 ubuntu-k8s3
+```
+
+## kubeadmインストール
+
+その後、無事`sudo kubeadm init`。
+
+flannelの要求に従って`--pod-network-cidr`を設定。
+
+```shell
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+```
+
+ネットワークアドオンには[flannel](https://github.com/flannel-io/flannel)を採用した。
+
+```shell
+kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
+```
+
+```shell
+pi@ubuntu-k8s1:~$ kubectl get node
+NAME          STATUS     ROLES           AGE   VERSION
+ubuntu-k8s1   NotReady   control-plane   55s   v1.24.2
+```
+
+次にNodeを接続する。
+
+```shell
+sudo kubeadm join 192.168.50.101:6443 --token u3u2j2.zivudolqf5ocf7gx \
+        --discovery-token-ca-cert-hash sha256:b1becb0bedbeb669607f26a472af25fed4189898f59ca94028dbb4f69f8e4f2c
+```
+
+その後のマスターノード
+
+```shell
+pi@ubuntu-k8s1:~$ kubectl get nodes
+NAME          STATUS   ROLES           AGE     VERSION
+ubuntu-k8s1   Ready    control-plane   8m57s   v1.24.2
+ubuntu-k8s2   Ready    <none>          93s     v1.24.2
+ubuntu-k8s3   Ready    <none>          43s     v1.24.2
+```
+
+ここまできたらその他サービスの状態を確認する。
+
+```shell
+pi@ubuntu-k8s1:~$ kubectl get pods --all-namespaces
+NAMESPACE     NAME                                  READY   STATUS    RESTARTS   AGE
+kube-system   coredns-6d4b75cb6d-r7crw              1/1     Running   0          11m
+kube-system   coredns-6d4b75cb6d-vm4t5              1/1     Running   0          11m
+kube-system   etcd-ubuntu-k8s1                      1/1     Running   0          11m
+kube-system   kube-apiserver-ubuntu-k8s1            1/1     Running   0          11m
+kube-system   kube-controller-manager-ubuntu-k8s1   1/1     Running   2          11m
+kube-system   kube-flannel-ds-czpfg                 1/1     Running   0          3m23s
+kube-system   kube-flannel-ds-dz8lw                 1/1     Running   0          4m13s
+kube-system   kube-flannel-ds-mz7qp                 1/1     Running   0          10m
+kube-system   kube-proxy-6dsgw                      1/1     Running   0          4m13s
+kube-system   kube-proxy-dslts                      1/1     Running   0          3m23s
+kube-system   kube-proxy-wjgs6                      1/1     Running   0          11m
+kube-system   kube-scheduler-ubuntu-k8s1            1/1     Running   2          11m
+```
+
+Crash LoopやPending、Errorなどが出てなければとりあえず大丈夫
+**ヨシ！！！**
+
+## リモートアクセスしよう
+
+SSHにはCloudflare Zero Trustで構築したセキュアなものを用いる。
+
+1. WebダッシュボードからTunnelを生成してコマンドをコピーしてインストール。
+2. ssh.k8sx.sushichan.liveのtunnelとapplicationを通す。
+3. 鍵ペアを作成して`authorized_key`する。その後パスワードログインを無効化。
+
+## MySQLコンテナ作成
+
+基本的に[公式チュートリアル](https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-application/)を参考にしています。
+
+### とりあえずSecretを入れる
+
+```yaml
+# secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-secret
+  namespace: default
+type: Opaque
+data:
+  PASSWORD: [非公開]
+```
+
+```bash
+kubectl apply -f secret.yaml
+```
+
+## ボリューム割当
+
+```yaml
+# mysql-pv.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 20Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+```
+
+```bash
+kubectl apply -f mysql-pv.yaml
+```
+
+## サービス作る
+
+```yaml
+# mysql-deployment.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+spec:
+  ports:
+    - port: 3306
+  selector:
+    app: mysql
+  clusterIP: None
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - image: mysql:latest
+          name: mysql
+          env:
+            # Use secret in real usage
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: PASSWORD
+          ports:
+            - containerPort: 3306
+              name: mysql
+          volumeMounts:
+            - name: mysql-persistent-storage
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: mysql-persistent-storage
+          persistentVolumeClaim:
+            claimName: mysql-pv-claim
+```
+
+```bash
+kubectl apply -f mysql-deployment.yaml
+
+kubectl get pods
+
+mysql@ubuntu-k8s1:~/mysql-operator$ kubectl get pods
+NAME                     READY   STATUS    RESTARTS   AGE
+mysql-5cbb59654d-82qvj   1/1     Running   0          6s
+```
+
+### 外部アクセス
+
+```bash
+kubectl port-forward service/mysql 3306:3306
+
+# local
+mysql -h 127.0.0.1 -u root -p
+
+# server machine
+mysql -h 192.168.50.101 -u root -p
+```
+
+で外部アクセス自体はできそうだが、screenで常時実行にしないといけないのだろうか？？？めんd
+
+```bash
+kubectl expose deploy/mysql --type=LoadBalancer --port=3306 --target-port=3306 --name=mysql-load-balancer
+```

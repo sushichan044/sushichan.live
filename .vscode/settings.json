@@ -33,29 +33,17 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.trimAutoWhitespace": false
   },
-  "stylelint.validate": ["css", "scss", "astro"],
-  "auto-close-tag.activationOnLanguage": [
-    "xml",
-    "php",
-    "blade",
-    "ejs",
-    "jinja",
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "eslint.validate": [
     "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact",
-    "plaintext",
-    "markdown",
-    "vue",
-    "liquid",
-    "erb",
-    "lang-cfml",
-    "cfml",
-    "HTML (EEx)",
-    "HTML (Eex)",
-    "plist",
-    "mdx"
+    "astro"
   ],
+  "stylelint.validate": ["css", "scss", "astro"],
   "typescript.tsdk": "node_modules/typescript/lib",
   "insert-br-tag.trailingSlashLanguage": [
     "javascript",
@@ -68,9 +56,6 @@
   "conventionalCommits.scopes": ["page", "config"],
   "textlint.languages": ["markdown", "mdx"],
   "prettier.documentSelectors": ["**/*.astro"],
-  "[astro]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "tailwindCSS.experimental.classRegex": [
     ["tv\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
   ]

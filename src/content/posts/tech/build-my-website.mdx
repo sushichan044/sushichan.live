@@ -1,0 +1,69 @@
+---
+title: 勉強がてら自分のサイトを作ってみた
+description: ブログの書き味が満足いくものになった
+createdAt: 2023-06-01
+thumbnail: https://res.cloudinary.com/sushi-chan/image/upload/v1689711992/tech/build-my-website/nextjs_ho2z0d.png
+tags:
+  - 技術
+  - Next.js
+status: published
+---
+
+こんにちは、すしです。紆余曲折あって最近はWebフロントエンドを学習しているおり、その
+一環としてこのサイトを作ったりしたので構成とかその他色々書き留めます。
+
+## 構成
+
+- React(Next.js) with TypeScript
+  - v13.4からstableになった App Routerを採用しました
+- TypeScript
+- SCSS
+- TailwindCSS(Markdownのみに適用)
+- next-mdx-remote
+
+## App Routerの採用
+
+Next.jsのApp Routerは、v13.4からstableになったんですが、
+`pages`では難しかった機能ベースでのコード管理が楽でいいと思います。
+ClientとServerどちらで処理されるのかを明確にして考えながら書けるので、
+無理のある実装も自然に減るように感じています。
+
+## ブログをmdxで構築した
+
+ブログ部分にはmdxを採用しました。mdxは、Markdownの中にjsxやReact Componentが書けるもので、
+自分で定義したものを簡単に使えてとても楽です。
+加えて`next-mdx-remote`というライブラリが既にReact Server Componentに対応しているので、
+導入も極めて楽です。
+
+個人的なお気に入りポイントとしてはmdx内のみでTailwindCSSが使えるようにしたところです。
+mdx内のjsxにも簡単にスタイルを当てられるので、すべてをmdx内で完結させることができます。
+
+```mdx
+{
+
+<div className="grid grid-cols-1 md:grid-cols-2">
+  {[
+    "https://open.spotify.com/track/7tC1BMOYXstr2ROxU6fShJ?si=8c1a9c6d5f384828",
+    "https://open.spotify.com/track/62TlWZUc57JpsQQe7kZ7WP?si=2f7fd3747cd8402e",
+  ].map((url) => (
+    <SpotifyCard key={url} url={url} />
+  ))}
+</div>
+}
+```
+
+これをmdxに直接書くだけで...[^1]
+[^1]: そもそもMarkdownのノリで書けるのにいきなりJSXを挟めるのが既に最強すぎるだろ...ではある
+
+{<div className="grid grid-cols-1 md:grid-cols-2">{
+[
+"https://open.spotify.com/track/7tC1BMOYXstr2ROxU6fShJ?si=8c1a9c6d5f384828",
+"https://open.spotify.com/track/62TlWZUc57JpsQQe7kZ7WP?si=2f7fd3747cd8402e",
+
+].map((url) => <SpotifyCard key={url} url={url} />)}
+
+</div>}
+
+こんな感じ、すごく楽でいいですね。
+
+## WIP

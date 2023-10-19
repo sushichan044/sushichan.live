@@ -1,17 +1,23 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import "@/styles/global.css"
+import "@acab/reset.css"
+import "@/styles/globals.scss"
+import { ViewTransitions } from "astro:transitions"
 
 interface Props {
-  title: string
   description: string
   image?: string
+  title: string
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
-const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props
+const {
+  description = "インターネット寿司屋",
+  image = "/blog-placeholder-1.jpg",
+  title,
+} = Astro.props
 ---
 
 <!-- Global Metadata -->
@@ -19,21 +25,17 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props
 <meta content="width=device-width,initial-scale=1" name="viewport" />
 <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
 <meta content={Astro.generator} name="generator" />
+<link href="/sitemap-index.xml" rel="sitemap" />
+
+<!-- ViewTransition -->
+<ViewTransitions />
 
 <!-- Font preloads -->
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
 <link
-  as="font"
-  crossorigin
-  href="/fonts/atkinson-regular.woff"
-  rel="preload"
-  type="font/woff"
-/>
-<link
-  as="font"
-  crossorigin
-  href="/fonts/atkinson-bold.woff"
-  rel="preload"
-  type="font/woff"
+  href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Noto+Sans+JP:wght@100;400;700&family=Roboto:wght@100;400;700&display=swap"
+  rel="stylesheet"
 />
 
 <!-- Canonical URL -->
@@ -57,3 +59,4 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props
 <meta content={title} property="twitter:title" />
 <meta content={description} property="twitter:description" />
 <meta content={new URL(image, Astro.url)} property="twitter:image" />
+<meta content="@sushichan_044" property="twitter:site" />

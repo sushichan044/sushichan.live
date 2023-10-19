@@ -1,0 +1,48 @@
+$breakpoints: (
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+  "2xl": 2000px,
+);
+
+@mixin mq($size, $range: min) {
+  @media screen and (#{$range}-width: #{map-get($breakpoints, $size)}) {
+    @content;
+  }
+}
+
+@mixin scheme($scheme) {
+  @media screen and (prefers-color-scheme: #{$scheme}) {
+    @content;
+  }
+}
+
+@mixin line-clamp($count: 3) {
+  // 引数が数値以外だったらエラーを返す
+  @if type-of($count) != "number" {
+    @error 'line-clampの引数は必ず数値で指定してください';
+  }
+
+  @if $count == 1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    /* stylelint-disable-next-line value-no-vendor-prefix */
+    display: -webkit-box;
+    -webkit-line-clamp: $count;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@mixin budoux {
+  word-break: break-all;
+  overflow-wrap: anywhere;
+
+  @supports (word-break: auto-phrase) {
+    /* stylelint-disable-next-line declaration-property-value-no-unknown */
+    word-break: auto-phrase;
+  }
+}

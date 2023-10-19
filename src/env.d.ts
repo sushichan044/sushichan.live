@@ -4,7 +4,6 @@
 
 type KVNamespace = import("@cloudflare/workers-types/experimental").KVNamespace
 type ENV = {
-  SERVER_URL: string
   KV_BINDING: KVNamespace
 }
 

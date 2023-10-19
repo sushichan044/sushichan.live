@@ -1,0 +1,26 @@
+@use "./base" as base;
+
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+  font-family:
+    Roboto,
+    "Noto Sans JP",
+    system-ui,
+    -apple-system,
+    blinkmacsystemfont,
+    "Segoe UI",
+    oxygen,
+    ubuntu,
+    cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+
+  @include base.typography;
+}
+
+main {
+  flex: 1 0 auto;
+}
