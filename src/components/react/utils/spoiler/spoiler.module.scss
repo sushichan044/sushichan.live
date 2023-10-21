@@ -1,0 +1,83 @@
+@use "src/styles/config/mixins" as mix;
+@use "src/styles/variables" as var;
+
+$spoiler-color-light: #a7a7b8;
+$spoiler-color-dark: #4d4d5d;
+
+.root {
+  display: inline-block;
+  width: fit-content;
+  padding-inline: 0.25em;
+  margin-inline: 0.25em;
+  background-color: $spoiler-color-light;
+  border-radius: 0.25em;
+  transition: background-color 0.1s ease-in-out;
+
+  @include mix.scheme("dark") {
+    background-color: $spoiler-color-dark;
+  }
+}
+
+.root[aria-expanded="false"] {
+  color: transparent;
+  transition: color 0.1s ease-in-out;
+
+  .content * {
+    visibility: hidden;
+    animation: fade-out 0.1s ease-in-out;
+  }
+}
+
+.root[aria-expanded="true"] {
+  color: var.$text-color-light;
+
+  @include mix.scheme("dark") {
+    color: var.$text-color-dark;
+  }
+
+  cursor: auto;
+  transition: color 0.1s ease-in-out;
+
+  .content * {
+    visibility: visible;
+    animation: fade-in 0.1s ease-in-out;
+  }
+}
+
+.content {
+  // @include mix.content-margin;
+}
+
+@keyframes fade-in {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  50% {
+    visibility: visible;
+    opacity: 0.5;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  50% {
+    visibility: visible;
+    opacity: 0.5;
+  }
+
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
