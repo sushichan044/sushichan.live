@@ -1,0 +1,26 @@
+// color
+$theme-color-dark: #202020;
+$theme-color-dark-lighter: #2a2c34;
+$theme-color-light: #fff;
+$theme-color-light-darker: #ebebeb;
+$text-color-light: #1a1a1c;
+$text-color-dark: #e2e2e2;
+$ui-color-light: rgba($theme-color-dark, 0.4);
+$ui-color-dark: rgba($theme-color-light, 0.4);
+$hover-color: #2b78dd;
+$hover-color-lighter: #68b5fb;
+$hover-color-legacy: #3f8cf0;
+
+// layout
+$layout-max-width: 960px;
+$layout-max-width-2xl: 1440px;
+$layout-margin: 2rem;
+$content-margin: 1rem;
+$header-height: 80px;
+$footer-height: 80px;
+$layout-padding: 2.5rem;
+$layout-padding-sp: 1rem;
+
+// font
+$line-height: 1.8;
+$icon-top: calc((#{$line-height}em - 1em) / 4);
