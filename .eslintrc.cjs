@@ -9,10 +9,12 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
     "prettier",
+    "plugin:astro/recommended",
   ],
   plugins: ["simple-import-sort", "perfectionist"],
   parserOptions: {
     project: "./tsconfig.json",
+    extraFileExtensions: [".astro"],
   },
   env: {
     es6: true,
@@ -39,12 +41,8 @@ module.exports = {
       // It's the setting you need when using TypeScript.
       parserOptions: {
         parser: "@typescript-eslint/parser",
-        extraFileExtensions: [".astro"],
       },
-      extends: [
-        "plugin:astro/recommended",
-        "plugin:astro/jsx-a11y-recommended",
-      ],
+      extends: ["plugin:astro/jsx-a11y-recommended"],
       env: {
         "astro/astro": true,
       },
