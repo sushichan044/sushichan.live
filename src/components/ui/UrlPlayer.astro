@@ -1,65 +1,9 @@
 ---
-import { useId } from "react"
-
-import ReactPlayer from "react-player/lazy"
-
+import Player from "@/components/react/ui/player"
 interface Props {
   url: string
 }
 const { url } = Astro.props
-
-const twitchPlayerId = useId()
-
-const youtubePlayerOptions = (() => {
-  const videoRegex = /https:\/\/www\.youtube\.com\/watch\?.*v=(?<id>[^&]+)/
-  const playlistRegex =
-    /https:\/\/www\.youtube\.com\/playlist\?.*list=(?<id>[^&]+)/
-
-  const baseConfig = {
-    embedOptions: {
-      autoplay: 0,
-      cc_lang_pref: "ja",
-    },
-  }
-
-  if (videoRegex.test(url)) {
-    return baseConfig
-  }
-
-  if (playlistRegex.test(url)) {
-    const { groups } = playlistRegex.exec(url) ?? {}
-
-    return {
-      ...baseConfig,
-      playerVars: { listType: "playlist", list: groups?.id },
-    }
-  }
-
-  return baseConfig
-})()
 ---
 
-<ReactPlayer
-  config={{
-    youtube: { ...youtubePlayerOptions },
-    soundcloud: {
-      options: {
-        autoplay: false,
-      },
-    },
-    twitch: {
-      options: {
-        autoplay: false,
-      },
-      playerId: twitchPlayerId,
-    },
-  }}
-  class="aspect-16/9 rounded-lg [&>*]:rounded-lg [&_iframe]:rounded-lg"
-  height="100%"
-  url={url}
-  volume={0.5}
-  width="100%"
-  client:visible
-  light
-  muted
-/>
+<Player url={url} client:visible />

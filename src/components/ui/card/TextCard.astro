@@ -1,0 +1,30 @@
+---
+import Card from "@/components/base/Card.astro"
+import BudouX from "@/components/common/BudouX.astro"
+interface Props {
+  useBudouX?: boolean
+}
+
+const { useBudouX = true } = Astro.props
+---
+
+<Card>
+  <span>
+    {
+      useBudouX ? (
+        <BudouX>
+          <slot />
+        </BudouX>
+      ) : (
+        <slot />
+      )
+    }
+  </span>
+</Card>
+
+<style>
+  span {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    text-align: center;
+  }
+</style>
