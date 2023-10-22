@@ -1,0 +1,32 @@
+---
+import type { PropsWithoutStyle } from "@/utils/@types/propsWithoutStyle"
+import { tv, type VariantProps } from "tailwind-variants"
+
+type Props = PropsWithoutStyle<"a", "astro"> & {
+  variants?: VariantProps<typeof style>
+}
+
+const { variants, href, ...props } = Astro.props
+
+const style = tv({
+  base: "",
+  variants: {
+    color: {
+      primary: "text-blue-500",
+      neutral: "text-gray-500",
+    },
+    decoration: {
+      underline: "underline",
+      none: "no-underline",
+    },
+  },
+  defaultVariants: {
+    color: "neutral",
+    decoration: "underline",
+  },
+})
+---
+
+<a class:list={style({ ...variants })} href={href} {...props}>
+  <slot />
+</a>
