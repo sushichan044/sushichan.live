@@ -1,25 +1,22 @@
 ---
-import { tv } from "tailwind-variants"
+import { tv, type VariantProps } from "tailwind-variants"
 
-interface Props {
-  type?: "content" | "full"
-}
-
+type Props = VariantProps<typeof style>
 const { type = "content" } = Astro.props
 
 const style = tv({
-  defaultVariants: {
-    maxWidth: "content",
-  },
   variants: {
-    maxWidth: {
+    type: {
       content: "max-w-screen-md",
       full: "max-w-full",
     },
   },
+  defaultVariants: {
+    type: "content",
+  },
 })
 ---
 
-<div class:list={style({ maxWidth: type })}>
+<div class:list={style({ type })}>
   <slot />
 </div>

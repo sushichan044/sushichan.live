@@ -1,0 +1,32 @@
+---
+import WithCaption, {
+  type CaptionProps,
+} from "@/components/common/WithCaption.astro"
+import { tv, type VariantProps } from "tailwind-variants"
+
+type Props = VariantProps<typeof style> & CaptionProps
+
+const { round, shadow, ...props } = Astro.props
+
+const style = tv({
+  base: "mx-auto flex w-full max-w-[600px] flex-col flex-nowrap gap-1 p-2",
+  variants: {
+    round: {
+      true: "rounded-lg",
+    },
+    shadow: {
+      true: "drop-shadow-md transition-shadow duration-200 ease-out hover:drop-shadow-lg",
+    },
+  },
+  defaultVariants: {
+    round: true,
+    shadow: true,
+  },
+})
+---
+
+<div class:list={style({ round, shadow })}>
+  <WithCaption {...props}>
+    <slot />
+  </WithCaption>
+</div>
