@@ -2532,6 +2532,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/sanitize-html@npm:^2.9.3":
+  version: 2.9.3
+  resolution: "@types/sanitize-html@npm:2.9.3"
+  dependencies:
+    htmlparser2: ^8.0.0
+  checksum: 882a39ec767e0c5fd4402108db4b8e4f85ff555cf490ad8c7340d9c58c57c3ffefa33c0d248d5e67047df6f744ca60e125da5485efc18ac450783f3900178373
+  languageName: node
+  linkType: hard
+
 "@types/sax@npm:^1.2.1":
   version: 1.2.5
   resolution: "@types/sax@npm:1.2.5"
@@ -3444,6 +3453,7 @@ __metadata:
     "@types/prettier": ^3
     "@types/react": ^18.2.29
     "@types/react-dom": ^18.2.14
+    "@types/sanitize-html": ^2.9.3
     "@typescript-eslint/eslint-plugin": ^5.62.0
     "@typescript-eslint/parser": ^5.62.0
     astro: ^3.3.2
@@ -3471,6 +3481,7 @@ __metadata:
     prettier-plugin-astro: ^0.12.0
     react: ^18.2.0
     react-dom: ^18.2.0
+    sanitize-html: ^2.11.0
     sass: ^1.69.4
     satori: ^0.10.9
     stylelint: ^15.11.0
@@ -4565,7 +4576,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"deepmerge@npm:^4.3.1":
+"deepmerge@npm:^4.2.2, deepmerge@npm:^4.3.1":
   version: 4.3.1
   resolution: "deepmerge@npm:4.3.1"
   checksum: 2024c6a980a1b7128084170c4cf56b0fd58a63f2da1660dcfe977415f27b17dbe5888668b59d0b063753f3220719d5e400b7f113609489c90160bb9a5518d052
@@ -10857,6 +10868,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"parse-srcset@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "parse-srcset@npm:1.0.2"
+  checksum: 3a0380380c6082021fcce982f0b89fb8a493ce9dfd7d308e5e6d855201e80db8b90438649b31fdd82a3d6089a8ca17dccddaa2b730a718389af4c037b8539ebf
+  languageName: node
+  linkType: hard
+
 "parse5@npm:7.1.2, parse5@npm:^7.0.0, parse5@npm:^7.1.2":
   version: 7.1.2
   resolution: "parse5@npm:7.1.2"
@@ -11197,7 +11215,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.0, postcss@npm:^8.4.14, postcss@npm:^8.4.21, postcss@npm:^8.4.23, postcss@npm:^8.4.27, postcss@npm:^8.4.28":
+"postcss@npm:^8.3.11, postcss@npm:^8.4.0, postcss@npm:^8.4.14, postcss@npm:^8.4.21, postcss@npm:^8.4.23, postcss@npm:^8.4.27, postcss@npm:^8.4.28":
   version: 8.4.31
   resolution: "postcss@npm:8.4.31"
   dependencies:
@@ -12246,6 +12264,20 @@ __metadata:
   version: 2.1.2
   resolution: "safer-buffer@npm:2.1.2"
   checksum: cab8f25ae6f1434abee8d80023d7e72b598cf1327164ddab31003c51215526801e40b66c5e65d658a0af1e9d6478cadcb4c745f4bd6751f97d8644786c0978b0
+  languageName: node
+  linkType: hard
+
+"sanitize-html@npm:^2.11.0":
+  version: 2.11.0
+  resolution: "sanitize-html@npm:2.11.0"
+  dependencies:
+    deepmerge: ^4.2.2
+    escape-string-regexp: ^4.0.0
+    htmlparser2: ^8.0.0
+    is-plain-object: ^5.0.0
+    parse-srcset: ^1.0.2
+    postcss: ^8.3.11
+  checksum: 44807f22b0feb5a6a883b4bc04bcd8690ec3bbd6dacb24d6e52226ffe0c0e4fad43d6a882ce60e3884a327fae2de01e67e566e3a211491add50ff0160be2e98a
   languageName: node
   linkType: hard
 

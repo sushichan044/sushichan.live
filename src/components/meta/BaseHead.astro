@@ -60,3 +60,12 @@ const {
 <meta content={description} property="twitter:description" />
 <meta content={new URL(image, Astro.url)} property="twitter:image" />
 <meta content="@sushichan_044" property="twitter:site" />
+
+<!-- IE Buster -->
+<script
+  src="https://cdn.jsdelivr.net/npm/ie-buster@2.0.2/dist/ie-buster.min.js"
+  defer
+  nomodule></script>
+<script nomodule>
+  ieBuster.init()
+</script>

@@ -1,0 +1,10 @@
+---
+import { applyBudouXToHTML, sanitizeHTML } from "@/utils/html"
+
+const html = await Astro.slots.render("default")
+const safeHTML = sanitizeHTML(html)
+const parsedHTML = applyBudouXToHTML(safeHTML)
+---
+
+{/*eslint-disable-next-line astro/no-set-html-directive */}
+<Fragment set:html={parsedHTML} />

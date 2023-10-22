@@ -1,0 +1,25 @@
+---
+import { tv } from "tailwind-variants"
+
+interface Props {
+  type?: "content" | "full"
+}
+
+const { type = "content" } = Astro.props
+
+const style = tv({
+  defaultVariants: {
+    maxWidth: "content",
+  },
+  variants: {
+    maxWidth: {
+      content: "max-w-screen-md",
+      full: "max-w-full",
+    },
+  },
+})
+---
+
+<div class:list={style({ maxWidth: type })}>
+  <slot />
+</div>

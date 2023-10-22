@@ -41,6 +41,9 @@ export default defineConfig({
   },
   output: "server",
   site: SITE_URL,
+  server: {
+    host: true,
+  },
   vite: {
     build: {
       minify: false,
