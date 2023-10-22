@@ -8,8 +8,8 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin:tailwindcss/recommended",
     "prettier",
-    "plugin:astro/recommended",
   ],
   plugins: ["simple-import-sort", "perfectionist"],
   parserOptions: {
@@ -42,7 +42,10 @@ module.exports = {
       parserOptions: {
         parser: "@typescript-eslint/parser",
       },
-      extends: ["plugin:astro/jsx-a11y-recommended"],
+      extends: [
+        "plugin:astro/recommended",
+        "plugin:astro/jsx-a11y-recommended",
+      ],
       env: {
         "astro/astro": true,
       },

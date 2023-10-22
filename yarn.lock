@@ -3471,6 +3471,7 @@ __metadata:
     eslint-plugin-react: ^7.33.2
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-simple-import-sort: ^10.0.0
+    eslint-plugin-tailwindcss: ^3.13.0
     husky: ^8.0.3
     ie-buster: ^2.0.2
     lint-staged: ^14.0.1
@@ -5532,6 +5533,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-tailwindcss@npm:^3.13.0":
+  version: 3.13.0
+  resolution: "eslint-plugin-tailwindcss@npm:3.13.0"
+  dependencies:
+    fast-glob: ^3.2.5
+    postcss: ^8.4.4
+  peerDependencies:
+    tailwindcss: ^3.3.2
+  checksum: 0ed226300b613987e59d1374c611c374add3205b73647e8ec910ad2409a2a07f9605cb7e6e7a34bda7702946681aef4a289c6b6bcf9f1357fa6bc4e0ee8f508b
+  languageName: node
+  linkType: hard
+
 "eslint-restricted-globals@npm:^0.1.1":
   version: 0.1.1
   resolution: "eslint-restricted-globals@npm:0.1.1"
@@ -5907,7 +5920,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.2.12, fast-glob@npm:^3.2.9, fast-glob@npm:^3.3.0, fast-glob@npm:^3.3.1":
+"fast-glob@npm:^3.2.12, fast-glob@npm:^3.2.5, fast-glob@npm:^3.2.9, fast-glob@npm:^3.3.0, fast-glob@npm:^3.3.1":
   version: 3.3.1
   resolution: "fast-glob@npm:3.3.1"
   dependencies:
@@ -11215,7 +11228,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.3.11, postcss@npm:^8.4.0, postcss@npm:^8.4.14, postcss@npm:^8.4.21, postcss@npm:^8.4.23, postcss@npm:^8.4.27, postcss@npm:^8.4.28":
+"postcss@npm:^8.3.11, postcss@npm:^8.4.0, postcss@npm:^8.4.14, postcss@npm:^8.4.21, postcss@npm:^8.4.23, postcss@npm:^8.4.27, postcss@npm:^8.4.28, postcss@npm:^8.4.4":
   version: 8.4.31
   resolution: "postcss@npm:8.4.31"
   dependencies:
