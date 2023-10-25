@@ -1,4 +1,6 @@
 ---
+import Footer from "@/components/layout/Footer.astro"
+import Header from "@/components/layout/Header.astro"
 import BaseHead from "@/components/meta/BaseHead.astro"
 ---
 
@@ -7,6 +9,10 @@ import BaseHead from "@/components/meta/BaseHead.astro"
     <BaseHead description="" title="" />
   </head>
   <body>
-    <slot />
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>

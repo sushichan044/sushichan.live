@@ -1,0 +1,21 @@
+---
+import Link from "@/components/base/Link.astro"
+import NavigationMenu from "@/components/layout/NavigationMenu.astro"
+import ContentLayout from "@/components/common/ContentLayout.astro"
+---
+
+<header class="h-[80px] w-full">
+  <ContentLayout class="my-8 flex items-center justify-between">
+    <Link
+      variants={{
+        color: "neutral",
+        hoverColor: "primary",
+        decoration: "none",
+      }}
+      href="/"
+    >
+      <p class="text-base font-bold md:text-2xl">sushi-chan.live</p>
+    </Link>
+    <NavigationMenu />
+  </ContentLayout>
+</header>
