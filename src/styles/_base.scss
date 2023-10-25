@@ -1,4 +1,5 @@
 @use "./config/mixins" as mix;
+@use "./variables" as var;
 
 @mixin typography {
   font-feature-settings: "palt";
@@ -9,4 +10,29 @@
   list-style-position: inside;
 
   @include mix.budoux;
+}
+
+@mixin base-color {
+  color: var.$text-color-light;
+  background-color: var.$theme-color-light;
+
+  @include mix.scheme("dark") {
+    color: var.$text-color-dark;
+    background-color: var.$theme-color-dark;
+  }
+}
+
+@mixin base-content-layout {
+  max-width: var.$layout-max-width;
+  padding-inline: var.$layout-padding-sp;
+  margin-block: var.$layout-margin;
+  margin-inline: auto;
+
+  @include mix.mq("md") {
+    padding-inline: var.$layout-padding;
+  }
+
+  @include mix.mq("2xl") {
+    max-width: var.$layout-max-width-2xl;
+  }
 }
