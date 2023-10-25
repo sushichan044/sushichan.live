@@ -1,0 +1,32 @@
+---
+import Iconify from "@iconify/iconify"
+import SafeHTML from "@/components/utils/SafeHTML.astro"
+
+interface Props {
+  icon: string
+  class?: string
+}
+
+const { icon, class: className } = Astro.props
+
+const getIconSvg = async (icon: string) => {
+  await Iconify.loadIcon(icon)
+
+  const iconData = Iconify.getIcon(icon)
+  if (!iconData) throw new Error(`Icon ${icon} not found`)
+
+  return (
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${iconData.left} ${iconData.top} ${iconData.width} ${iconData.height}" fill="none" style="width:100%">` +
+    iconData.body +
+    "</svg>"
+  )
+}
+
+const iconHTML = await getIconSvg(icon)
+---
+
+<SafeHTML
+  class:list={className && className}
+  rawHTML={iconHTML}
+  __dangerouslyDisableSanitizer
+/>
