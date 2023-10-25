@@ -53,9 +53,10 @@ const Player = ({ url }: Props) => {
       }}
       controls
       height="100%"
+      light
       muted
       url={url}
-      volume={0.02}
+      volume={0.5}
       width="100%"
     />
   )
