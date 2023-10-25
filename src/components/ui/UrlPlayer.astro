@@ -6,4 +6,4 @@ interface Props {
 const { url } = Astro.props
 ---
 
-<Player url={url} client:visible />
+<Player client:only="react" url={url} />
