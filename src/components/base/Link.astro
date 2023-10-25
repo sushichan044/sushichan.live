@@ -9,7 +9,7 @@ type Props = PropsWithoutStyle<"a", "astro"> & {
 const { variants, href, ...props } = Astro.props
 
 const style = tv({
-  base: "",
+  base: "transition-colors ease-in-out hover:text-blue-300",
   variants: {
     color: {
       primary: "text-blue-500",
