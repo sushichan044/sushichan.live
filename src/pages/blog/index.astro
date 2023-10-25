@@ -6,6 +6,8 @@ import { getCollection } from "astro:content"
 import type { CollectionEntry } from "astro:content"
 
 const Posts = await getCollection("posts")
+
+export const prerender = true
 ---
 
 <BaseLayout>
