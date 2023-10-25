@@ -1241,6 +1241,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@iconify/iconify@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "@iconify/iconify@npm:3.1.1"
+  dependencies:
+    "@iconify/types": ^2.0.0
+  checksum: e2acd67bfcda2bba9dd4543177a22ffb0445b83d9641a265c0a4563938d365a15e55f85c85c5654c8b145c8847b402cfd82354d58329790ad8f776f97cee3b67
+  languageName: node
+  linkType: hard
+
+"@iconify/json@npm:^2.2.132":
+  version: 2.2.132
+  resolution: "@iconify/json@npm:2.2.132"
+  dependencies:
+    "@iconify/types": "*"
+    pathe: ^1.1.0
+  checksum: 06407756f11fd330298bde6dbb842ee55578035578fab029d36c9b56215047491ce514ecbba042e27ee60fa3ae64951c1d4b58a9b4567650ac05cadce0ceac1e
+  languageName: node
+  linkType: hard
+
+"@iconify/types@npm:*, @iconify/types@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@iconify/types@npm:2.0.0"
+  checksum: 029f58542c160e9d4a746869cf2e475b603424d3adf3994c5cc8d0406c47e6e04a3b898b2707840c1c5b9bd5563a1660a34b110d89fce43923baca5222f4e597
+  languageName: node
+  linkType: hard
+
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -3425,6 +3451,8 @@ __metadata:
     "@astrojs/rss": ^3.0.0
     "@astrojs/sitemap": ^3.0.2
     "@astrojs/tailwind": ^5.0.2
+    "@iconify/iconify": ^3.1.1
+    "@iconify/json": ^2.2.132
     "@markuplint/astro-parser": ^3.10.0
     "@markuplint/jsx-parser": ^3.10.0
     "@markuplint/react-spec": ^3.11.0
@@ -10853,6 +10881,13 @@ __metadata:
   version: 4.0.0
   resolution: "path-type@npm:4.0.0"
   checksum: 5b1e2daa247062061325b8fdbfd1fb56dde0a448fb1455453276ea18c60685bdad23a445dc148cf87bc216be1573357509b7d4060494a6fd768c7efad833ee45
+  languageName: node
+  linkType: hard
+
+"pathe@npm:^1.1.0":
+  version: 1.1.1
+  resolution: "pathe@npm:1.1.1"
+  checksum: 34ab3da2e5aa832ebc6a330ffe3f73d7ba8aec6e899b53b8ec4f4018de08e40742802deb12cf5add9c73b7bf719b62c0778246bd376ca62b0fb23e0dde44b759
   languageName: node
   linkType: hard
 

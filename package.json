@@ -49,6 +49,7 @@
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.2",
     "@astrojs/tailwind": "^5.0.2",
+    "@iconify/iconify": "^3.1.1",
     "@radix-ui/react-slot": "^1.0.2",
     "@resvg/resvg-js": "^2.5.0",
     "astro": "^3.3.2",
@@ -66,6 +67,7 @@
     "wrangler": "^3.13.2"
   },
   "devDependencies": {
+    "@iconify/json": "^2.2.132",
     "@markuplint/astro-parser": "^3.10.0",
     "@markuplint/jsx-parser": "^3.10.0",
     "@markuplint/react-spec": "^3.11.0",
