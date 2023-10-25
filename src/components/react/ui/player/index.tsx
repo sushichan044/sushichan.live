@@ -51,11 +51,11 @@ const Player = ({ url }: Props) => {
           playerId: twitchPlayerId,
         },
       }}
+      controls
       height="100%"
-      light
       muted
       url={url}
-      volume={0.5}
+      volume={0.02}
       width="100%"
     />
   )
