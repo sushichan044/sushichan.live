@@ -1,6 +1,7 @@
 ---
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
+import Link from "@/components/base/Link.astro"
 import { getCollection } from "astro:content"
 import type { CollectionEntry } from "astro:content"
 
@@ -12,10 +13,12 @@ const Posts = await getCollection("posts")
     <h1>blog</h1>
     <div>
       {
-        Posts.map(({ data }: CollectionEntry<"posts">) => (
+        Posts.map(({ data, slug }: CollectionEntry<"posts">) => (
           <div>
-            <h2>{data.title}</h2>
-            <p>{data.description}</p>
+            <Link href={`/blog/post/${slug}`}>
+              <h2>{data.title}</h2>
+              <p>{data.description}</p>
+            </Link>
           </div>
         ))
       }

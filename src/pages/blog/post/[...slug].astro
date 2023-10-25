@@ -1,4 +1,6 @@
 ---
+import ContentLayout from "@/components/common/ContentLayout.astro"
+import BaseLayout from "@/layouts/BaseLayout.astro"
 import { getCollection } from "astro:content"
 import type { CollectionEntry } from "astro:content"
 
@@ -20,15 +22,9 @@ const { Content } = await entry.render()
 export const prerender = true
 ---
 
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width" name="viewport" />
-    <meta content={Astro.generator} name="generator" />
-    <title>Document</title>
-  </head>
-  <body>
+<BaseLayout>
+  <ContentLayout>
     <h1>{entry.data.title}</h1>
     <Content />
-  </body>
-</html>
+  </ContentLayout>
+</BaseLayout>
