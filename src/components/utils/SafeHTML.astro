@@ -1,0 +1,23 @@
+---
+import type { JSXProps } from "@/utils/@types/jsxProps"
+import { sanitizeHTML } from "@/utils/html"
+
+type Props = Omit<JSXProps<"div", "astro">, "set:html"> & {
+  rawHTML: string
+  afterSanitize?: (html: string) => string
+  __dangerouslyDisableSanitizer?: boolean
+}
+
+const {
+  rawHTML,
+  afterSanitize,
+  __dangerouslyDisableSanitizer = false,
+  ...props
+} = Astro.props
+
+const safeHTML = __dangerouslyDisableSanitizer ? rawHTML : sanitizeHTML(rawHTML)
+const finalHTML = afterSanitize ? afterSanitize(safeHTML) : safeHTML
+---
+
+{/* eslint-disable-next-line astro/no-set-html-directive */}
+<Fragment set:html={finalHTML} {...props} />
