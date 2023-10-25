@@ -1,0 +1,91 @@
+---
+import Card from "@/components/common/Card.astro"
+import type { Metadata } from "fetch-site-metadata"
+import Link from "@/components/base/Link.astro"
+import fetchMetaData from "@/lib/fetchMetaData"
+
+type Props = {
+  url: string | URL
+}
+
+const { url: rawUrl } = Astro.props
+type ImageSet = {
+  src: string
+  alt: string
+}
+
+const getImage = ({ image, icon, title }: Metadata): ImageSet | undefined => {
+  if (image) {
+    return {
+      src: image.src,
+      alt: image.alt ?? `ogp image of ${title}`,
+    }
+  }
+
+  if (icon) {
+    return {
+      src: icon,
+      alt: `icon of ${title}`,
+    }
+  }
+
+  return undefined
+}
+
+const url = new URL(rawUrl)
+const metaData = await fetchMetaData(url.toString())
+const imageSet = getImage(metaData)
+---
+
+<Card hover>
+  <div class="mx-auto max-md:max-w-[calc(180px*1200/630)] md:w-full">
+    <Link
+      href={url}
+      target="_blank"
+      variants={{ decoration: "none", hoverColor: "neutral" }}
+    >
+      <div
+        class="flex h-[260px] flex-col flex-nowrap rounded-lg border border-solid md:h-[120px] md:flex-row [&>*]:min-w-0"
+      >
+        {
+          imageSet && (
+            <div class="shrink overflow-hidden max-md:rounded-t-[calc(0.5rem-1px)] md:rounded-s-[calc(0.5rem-1px)] ">
+              <img
+                alt={imageSet.alt ?? ""}
+                class="aspect-1200/630 h-[180px] object-cover md:h-[120px]"
+                decoding="async"
+                src={imageSet.src}
+              />
+            </div>
+          )
+        }
+        <div
+          class="flex h-[80px] shrink flex-col flex-nowrap justify-between gap-1 px-2 pt-2 md:h-[120px] md:flex-1 [&>*]:max-w-full"
+        >
+          <span class="line-clamp-1 text-lg md:line-clamp-2"
+            >{metaData.title}</span
+          >
+          <span class="hidden text-sm">{metaData.description}</span>
+          <div
+            class="relative bottom-1 start-1 flex flex-row flex-nowrap place-items-center gap-1 justify-self-end [&>*]:min-w-0"
+          >
+            {
+              metaData.icon && (
+                <img
+                  alt={metaData.title}
+                  class="rounded-sm"
+                  decoding="async"
+                  height={16}
+                  src={metaData.icon}
+                  width={16}
+                />
+              )
+            }
+            <span class="line-clamp-1 text-base md:text-lg">{url.hostname}</span
+            >
+          </div>
+        </div>
+      </div>
+    </Link>
+  </div>
+</Card>

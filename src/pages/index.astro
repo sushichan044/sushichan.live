@@ -6,6 +6,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "@/consts"
 import Spoiler from "@/components/utils/Spoiler.astro"
 import BudouX from "@/components/common/BudouX.astro"
 import Link from "@/components/base/Link.astro"
+import Message from "@/components/ui/Message.astro"
+import UrlCard from "@/components/ui/card/UrlCard.astro"
 ---
 
 <!doctype html>
@@ -15,7 +17,7 @@ import Link from "@/components/base/Link.astro"
   </head>
   <body>
     <main>
-      <MaxWidth type="content">
+      <MaxWidth type="content" center>
         <h1>🧑‍🚀 Hello, Astronaut!</h1>
         <Spoiler>ガハハ</Spoiler>
         <BudouX>
@@ -23,6 +25,14 @@ import Link from "@/components/base/Link.astro"
           3rdと、ずっとホームボタンの機種を使い続けていたので、
           強烈な物欲が出てきてしまいました。正直まだSE3を買ってから2年も経っていないのでどう考えても買い替えには早いのですが、
         </BudouX>
+        <Message type="warn">
+          今までiPhone 6s, iPhone 8, iPhone SE
+          3rdと、ずっとホームボタンの機種を使い続けていたので、
+          強烈な物欲が出てきてしまいました。正直まだSE3を買ってから2年も経っていないのでどう考えても買い替えには早いのですが、
+        </Message>
+        <Message type="warn">今まで</Message>
+        <UrlCard url="https://tailwindcss.com/docs/justify-self" />
+        <UrlCard url="https://zenn.dev/zenkigen_tech/articles/3f7db35941fd24" />
         <p>
           Welcome to the official <a href="https://astro.build/">Astro</a>
            blog starter template. This template serves as a lightweight,
