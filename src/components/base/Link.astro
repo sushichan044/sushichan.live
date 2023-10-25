@@ -7,13 +7,15 @@ type Props = PropsWithoutStyle<"a", "astro"> & {
 }
 
 const { variants, href, ...props } = Astro.props
-
 const style = tv({
-  base: "transition-colors ease-in-out hover:text-blue-300",
   variants: {
     color: {
       primary: "text-blue-500",
-      neutral: "text-gray-500",
+      neutral: "text-white",
+    },
+    hoverColor: {
+      primary: "transition-colors duration-200 hover:text-blue-300",
+      neutral: "transition-colors duration-200 hover:text-white",
     },
     decoration: {
       underline: "underline",
@@ -23,10 +25,11 @@ const style = tv({
   defaultVariants: {
     color: "neutral",
     decoration: "underline",
+    hoverColor: "primary",
   },
 })
 ---
 
-<a class:list={style({ ...variants })} href={href} {...props}>
+<a class:list={style(variants)} href={href} {...props}>
   <slot />
 </a>

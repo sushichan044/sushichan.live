@@ -6,10 +6,10 @@ import { tv, type VariantProps } from "tailwind-variants"
 
 type Props = VariantProps<typeof style> & CaptionProps
 
-const { round, shadow, ...props } = Astro.props
+const { isFigure, caption, ...props } = Astro.props
 
 const style = tv({
-  base: "mx-auto flex w-full max-w-[600px] flex-col flex-nowrap gap-1 p-2",
+  base: "flex flex-col flex-nowrap gap-1 p-2",
   variants: {
     round: {
       true: "rounded-lg",
@@ -17,16 +17,29 @@ const style = tv({
     shadow: {
       true: "drop-shadow-md transition-shadow duration-200 ease-out hover:drop-shadow-lg",
     },
+    maxWidth: {
+      full: "max-w-full",
+      content: "max-w-[600px]",
+    },
+    hover: {
+      true: "transition-transform duration-500 ease-in-out hover:-translate-y-1",
+    },
+    center: {
+      true: "mx-auto",
+    },
   },
   defaultVariants: {
     round: false,
     shadow: false,
+    maxWidth: "content",
+    hover: false,
+    center: true,
   },
 })
 ---
 
-<div class:list={style({ round, shadow })}>
-  <WithCaption {...props}>
+<div class:list={style(props)}>
+  <WithCaption caption={caption} isFigure={isFigure}>
     <slot />
   </WithCaption>
 </div>

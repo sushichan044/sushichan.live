@@ -1,0 +1,16 @@
+---
+import Card from "@/components/common/Card.astro"
+import Message, {
+  type Props as MessageProps,
+} from "@/components/ui/Message.astro"
+
+type Props = MessageProps
+
+const props = Astro.props
+---
+
+<Card>
+  <Message {...props}>
+    <slot />
+  </Message>
+</Card>
