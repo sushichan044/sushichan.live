@@ -1,0 +1,9 @@
+---
+import NavMenu from "@/components/react/layout/navigation/navigationMenu"
+
+const pathName = Astro.url.pathname
+
+const topPath = `/${pathName.split("/")[1]}`
+---
+
+<NavMenu topPath={topPath} />
