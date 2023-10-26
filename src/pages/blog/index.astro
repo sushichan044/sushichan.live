@@ -4,24 +4,30 @@ import BaseLayout from "@/layouts/BaseLayout.astro"
 import Link from "@/components/base/Link.astro"
 import { getCollection } from "astro:content"
 import type { CollectionEntry } from "astro:content"
+import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
 
-const Posts = await getCollection("posts")
+const Posts = await getCollection(
+  "posts",
+  (entry) => entry.data.status === "published",
+)
 
 export const prerender = true
 ---
 
 <BaseLayout>
   <ContentLayout>
-    <h1>blog</h1>
-    <div>
+    <div class="grid grid-cols-2 gap-4">
       {
         Posts.map(({ data, slug }: CollectionEntry<"posts">) => (
-          <div>
-            <Link href={`/blog/post/${slug}`}>
+          <Link href={`/blog/post/${slug}`} rel="prefetch">
+            <span class="flex flex-col flex-nowrap rounded-lg border p-2">
+              <CloudinaryImage
+                alt={`thumbnail of ${slug}`}
+                src={data.thumbnail}
+              />
               <h2>{data.title}</h2>
-              <p>{data.description}</p>
-            </Link>
-          </div>
+            </span>
+          </Link>
         ))
       }
     </div>

@@ -1,11 +1,15 @@
 ---
 import ContentLayout from "@/components/common/ContentLayout.astro"
+import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import { getCollection } from "astro:content"
 import type { CollectionEntry } from "astro:content"
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("posts")
+  const blogEntries = await getCollection(
+    "posts",
+    (entry) => entry.data.status === "published",
+  )
   return blogEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
@@ -25,6 +29,7 @@ export const prerender = true
 <BaseLayout>
   <ContentLayout>
     <h1>{entry.data.title}</h1>
+    <CloudinaryImage alt={entry.data.title} src={entry.data.thumbnail} />
     <Content />
   </ContentLayout>
 </BaseLayout>
