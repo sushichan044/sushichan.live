@@ -12,13 +12,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@acab/reset.css@npm:^0.8.0":
-  version: 0.8.0
-  resolution: "@acab/reset.css@npm:0.8.0"
-  checksum: ce52702f94527bdb3e1cf37e315c346265d78eadc83325c618058591c341f5b4acf6bf031ad38bdfb824135b7ee7ca20638705102f2e5b05b37d5f8942c67d54
-  languageName: node
-  linkType: hard
-
 "@alloc/quick-lru@npm:^5.2.0":
   version: 5.2.0
   resolution: "@alloc/quick-lru@npm:5.2.0"
@@ -3051,6 +3044,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@unocss/reset@npm:^0.57.1":
+  version: 0.57.1
+  resolution: "@unocss/reset@npm:0.57.1"
+  checksum: 922057588d3f706924102a55297d385e84677c8d7523164be5b86768b3c7622dfed722ecc3c737a0e690e400c1a5b8bf8ac93d56d39b57010bd58a12f48bc024
+  languageName: node
+  linkType: hard
+
 "@vitejs/plugin-react@npm:^4.0.4":
   version: 4.1.0
   resolution: "@vitejs/plugin-react@npm:4.1.0"
@@ -3677,7 +3677,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "beta.sushichan.live@workspace:."
   dependencies:
-    "@acab/reset.css": ^0.8.0
     "@astrojs/cloudflare": ^7.6.1
     "@astrojs/mdx": ^1.1.3
     "@astrojs/prefetch": ^0.4.1
@@ -3701,6 +3700,7 @@ __metadata:
     "@types/sanitize-html": ^2.9.3
     "@typescript-eslint/eslint-plugin": ^5.62.0
     "@typescript-eslint/parser": ^5.62.0
+    "@unocss/reset": ^0.57.1
     astro: ^3.3.4
     astro-auto-import: ^0.3.1
     astro-eslint-parser: ^0.16.0
