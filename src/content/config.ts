@@ -6,7 +6,7 @@ const posts = defineCollection({
     description: z.string(),
     createdAt: z.coerce.date(),
     updatedAt: z.coerce.date().optional(),
-    thumbnail: z.string().optional(),
+    thumbnail: z.string().url(),
     tags: z.array(z.string()).optional(),
     status: z.enum(["draft", "published", "private"]).default("draft"),
     relatedPosts: reference("posts").array().optional(),
