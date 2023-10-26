@@ -1,0 +1,23 @@
+---
+import { getCloudinaryImageSize } from "@/lib/cloudinary"
+import Image from "@/components/base/Image.astro"
+
+type Props = {
+  src: string
+  alt?: string
+}
+
+const { src, alt } = Astro.props
+
+const size = await getCloudinaryImageSize(src)
+const altIsEmpty = alt === "" || alt === undefined
+---
+
+<div class="flex flex-col flex-nowrap">
+  <Image
+    alt={altIsEmpty ? "" : alt}
+    height={size.height}
+    src={src}
+    width={size.width}
+  />
+</div>
