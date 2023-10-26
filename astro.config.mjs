@@ -33,6 +33,13 @@ export default defineConfig({
       // https://docs.astro.build/en/guides/images/#add-simple-asset-support-for-cloudflare-deno-vercel-edge-and-netlify-edge
       entrypoint: "astro/assets/services/noop",
     },
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "/sushi-chan/**",
+      },
+    ],
   },
   integrations: [
     ...mdxIntegrations,
