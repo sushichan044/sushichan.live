@@ -7,7 +7,7 @@ type Props = PropsWithoutStyle<"a", "astro"> & {
 }
 
 const { variants, href, ...props } = Astro.props
-const style = tv({
+export const style = tv({
   variants: {
     color: {
       primary: "text-blue-500",

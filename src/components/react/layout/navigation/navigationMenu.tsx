@@ -4,11 +4,11 @@ import React from "react"
 import type { ComponentProps } from "react"
 
 import styles from "@/components/react/layout/navigation/styles.module.scss"
+import { style } from "@/components/base/Link.astro"
 
 type NavLinkProps = ComponentProps<typeof NavMenu.Link> & {
   topPath: string
 }
-
 const NavLink: React.FC<NavLinkProps> = ({
   href,
   children,
@@ -24,7 +24,12 @@ const NavLink: React.FC<NavLinkProps> = ({
       className={styles.indicator}
       {...props}
     >
-      <a href={href}>{children}</a>
+      <a
+        className={style({ color: "neutral", decoration: "none" })}
+        href={href}
+      >
+        {children}
+      </a>
     </NavMenu.Link>
   )
 }
