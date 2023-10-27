@@ -1,12 +1,13 @@
 import { tv } from "tailwind-variants"
 
 const ButtonStyle = tv({
-  base: "text-white duration-200",
+  base: "text-light duration-200 dark:text-dark",
   variants: {
     color: {
       primary: "bg-blue-500 hover:bg-blue-700",
       secondary: "bg-gray-500 hover:bg-gray-700",
-      transparent: "border bg-inherit hover:opacity-75",
+      transparent:
+        "border border-solid border-custom-theme-light bg-inherit hover:opacity-75 dark:border-custom-theme-dark",
     },
     size: {
       small: "rounded px-2 py-1 text-sm",

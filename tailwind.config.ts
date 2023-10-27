@@ -14,6 +14,18 @@ const config: Config = {
         "3/2": "3 / 2",
         "1/1": "1 / 1",
       },
+      textColor: {
+        light: "#1a1a1c",
+        dark: "#e2e2e2",
+      },
+      colors: {
+        custom: {
+          "theme-light": "#202020",
+          "theme-dark": "#e2e2e2",
+          "little-light": "rgba(32,32,32, 0.4)",
+          "little-dark": "rgba(226,226,226, 0.4)",
+        },
+      },
     },
   },
   plugins: [],

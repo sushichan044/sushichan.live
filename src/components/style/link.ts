@@ -4,11 +4,11 @@ const LinkStyle = tv({
   variants: {
     color: {
       primary: "text-blue-500",
-      neutral: "text-white",
+      neutral: "text-light dark:text-dark",
     },
     hoverColor: {
-      primary: "transition-colors duration-200 hover:text-blue-300",
-      neutral: "transition-colors duration-200 hover:text-white",
+      primary: "transition-colors duration-200 hover:text-blue-600",
+      neutral: "transition-colors duration-200 hover:text-blue-600",
     },
     decoration: {
       underline: "underline",
