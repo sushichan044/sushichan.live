@@ -1,0 +1,19 @@
+---
+import type { PropsWithoutStyle } from "@/utils/@types/propsWithoutStyle"
+import ButtonStyle from "@/components/style/button"
+
+type Props = PropsWithoutStyle<"a", "astro">
+
+const { href, ...props } = Astro.props
+---
+
+<a
+  class:list={[
+    ButtonStyle({ size: "2xl", color: "transparent" }),
+    "inline-block w-fit",
+  ]}
+  href={href}
+  {...props}
+>
+  <slot />
+</a>
