@@ -1,6 +1,6 @@
 import { tv } from "tailwind-variants"
 
-export const LinkStyle = tv({
+const LinkStyle = tv({
   variants: {
     color: {
       primary: "text-blue-500",
@@ -21,3 +21,5 @@ export const LinkStyle = tv({
     hoverColor: "primary",
   },
 })
+
+export default LinkStyle

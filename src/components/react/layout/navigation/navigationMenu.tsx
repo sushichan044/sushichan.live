@@ -4,7 +4,7 @@ import React from "react"
 import type { ComponentProps } from "react"
 
 import styles from "@/components/react/layout/navigation/styles.module.scss"
-import { LinkStyle } from "@/components/style/link"
+import LinkStyle from "@/components/style/link"
 
 type NavLinkProps = ComponentProps<typeof NavMenu.Link> & {
   topPath: string
