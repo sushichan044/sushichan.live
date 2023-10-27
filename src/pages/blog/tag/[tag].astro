@@ -1,7 +1,10 @@
 ---
+import Link from "@/components/base/Link.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import { getAllTags, getPostsWithTags } from "@/lib/blogPost"
+import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
+import ContentLayout from "@/components/common/ContentLayout.astro"
 
 export async function getStaticPaths() {
   const tags = await getAllTags()
@@ -23,14 +26,22 @@ export const prerender = true
 
 <BaseLayout>
   <BaseSEO description={description} title={title} />
-  {
-    posts.map(({ data, slug }) => (
-      <article>
-        <h2>
-          <a href={`/blog/post/${slug}`}>{data.title}</a>
-        </h2>
-        <p>{data.description}</p>
-      </article>
-    ))
-  }
+  <ContentLayout>
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+      {
+        posts.map(({ data, slug }) => (
+          <Link href={`/blog/post/${slug}`} rel="prefetch">
+            <span class="flex flex-col flex-nowrap rounded-lg border p-2">
+              <CloudinaryImage
+                alt={`thumbnail of ${slug}`}
+                fetchPriority="high"
+                src={data.thumbnail}
+              />
+              <h2>{data.title}</h2>
+            </span>
+          </Link>
+        ))
+      }
+    </div>
+  </ContentLayout>
 </BaseLayout>
