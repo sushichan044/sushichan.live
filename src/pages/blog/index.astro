@@ -5,6 +5,7 @@ import Link from "@/components/base/Link.astro"
 import { getCollection } from "astro:content"
 import type { CollectionEntry } from "astro:content"
 import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
+import BaseSEO from "@/components/meta/BaseSEO.astro"
 
 const Posts = await getCollection(
   "posts",
@@ -15,6 +16,12 @@ export const prerender = true
 ---
 
 <BaseLayout>
+  <BaseSEO
+    description="いろいろ書いているブログ"
+    slot="seo"
+    title="すしにっき"
+    disableTitleTemplate
+  />
   <ContentLayout>
     <div class="grid grid-cols-2 gap-4">
       {

@@ -2,11 +2,17 @@
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import BudouX from "@/components/common/BudouX.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
+import BaseSEO from "@/components/meta/BaseSEO.astro"
 
 export const prerender = true
 ---
 
 <BaseLayout>
+  <BaseSEO
+    description="プライバシーポリシーのページ"
+    slot="seo"
+    title="プライバシーポリシー"
+  />
   <ContentLayout>
     <h1>プライバシーポリシー</h1>
     <h2>Googleアナリティクスについて</h2>

@@ -1,12 +1,14 @@
 ---
 import Link from "@/components/base/Link.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
+import BaseSEO from "@/components/meta/BaseSEO.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 
 export const prerender = true
 ---
 
 <BaseLayout>
+  <BaseSEO description="すしのへやのトップページ" slot="seo" title="ホーム" />
   <ContentLayout>
     <p>
       このサイトはβ版です。
