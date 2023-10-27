@@ -11,6 +11,8 @@ const { title, description, disableTitleTemplate = false } = Astro.props
 
 const titleDefault = disableTitleTemplate ? undefined : "すしのへや"
 const titleTemplate = disableTitleTemplate ? undefined : "%s - すしのへや"
+
+const DefaultOGPUrl = new URL("/images/ogp.png", Astro.url)
 ---
 
 <SEO
@@ -18,11 +20,11 @@ const titleTemplate = disableTitleTemplate ? undefined : "%s - すしのへや"
     basic: {
       title: title,
       type: "website",
-      image: "/images/ogp.png",
+      image: DefaultOGPUrl.toString(),
       url: Astro.url,
     },
     image: {
-      url: "/images/ogp.png",
+      url: DefaultOGPUrl,
       width: 1200,
       height: 630,
       alt: "すしのへや",
@@ -36,7 +38,7 @@ const titleTemplate = disableTitleTemplate ? undefined : "%s - すしのへや"
     card: "summary_large_image",
     title: title,
     description: description,
-    image: "/images/ogp.png",
+    image: DefaultOGPUrl,
   }}
   description={description}
   title={title}
