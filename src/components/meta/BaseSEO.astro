@@ -1,0 +1,45 @@
+---
+import { SEO } from "astro-seo"
+
+interface Props {
+  title: string
+  description: string
+  disableTitleTemplate?: boolean
+}
+
+const { title, description, disableTitleTemplate = false } = Astro.props
+
+const titleDefault = disableTitleTemplate ? undefined : "すしのへや"
+const titleTemplate = disableTitleTemplate ? undefined : "%s - すしのへや"
+---
+
+<SEO
+  openGraph={{
+    basic: {
+      title: title,
+      type: "website",
+      image: "/images/ogp.png",
+      url: Astro.url,
+    },
+    image: {
+      url: "/images/ogp.png",
+      width: 1200,
+      height: 630,
+      alt: "すしのへや",
+    },
+    optional: {
+      description: description,
+      locale: "ja_JP",
+    },
+  }}
+  twitter={{
+    card: "summary_large_image",
+    title: title,
+    description: description,
+    image: "/images/ogp.png",
+  }}
+  description={description}
+  title={title}
+  titleDefault={titleDefault}
+  titleTemplate={titleTemplate}
+/>
