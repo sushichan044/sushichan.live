@@ -1,0 +1,27 @@
+---
+import ContentLayout from "@/components/common/ContentLayout.astro"
+import Footer from "@/components/layout/Footer.astro"
+import Header from "@/components/layout/Header.astro"
+import BaseHead from "@/components/meta/BaseHead.astro"
+import BaseSEO from "@/components/meta/BaseSEO.astro"
+import LinkButton from "@/components/ui/button/LinkButton.astro"
+---
+
+<html lang="ja">
+  <head>
+    <BaseHead />
+    <BaseSEO description="Page not found" title="Not Found" />
+  </head>
+  <body>
+    <Header />
+    <main class="flex">
+      <ContentLayout class="flex flex-1 items-center">
+        <div class="flex w-full flex-col flex-nowrap items-center gap-48">
+          <h1 class="text-center text-5xl font-bold">404 Not Found</h1>
+          <LinkButton href="/">ホームへ戻る</LinkButton>
+        </div>
+      </ContentLayout>
+    </main>
+    <Footer />
+  </body>
+</html>
