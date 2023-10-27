@@ -1,5 +1,6 @@
 ---
 import ContentLayout from "@/components/common/ContentLayout.astro"
+import Icon from "@/components/common/Icon.astro"
 import Footer from "@/components/layout/Footer.astro"
 import Header from "@/components/layout/Header.astro"
 import BaseHead from "@/components/meta/BaseHead.astro"
@@ -17,6 +18,11 @@ import LinkButton from "@/components/ui/button/LinkButton.astro"
     <main class="flex">
       <ContentLayout class="flex flex-1 items-center">
         <div class="flex w-full flex-col flex-nowrap items-center gap-48">
+          <div class="flex flex-row text-5xl">
+            4
+            <Icon icon="fa6-regular:face-meh-blank" size="2xl" />
+             4
+          </div>
           <h1 class="text-center text-5xl font-bold">404 Not Found</h1>
           <LinkButton href="/">ホームへ戻る</LinkButton>
         </div>
