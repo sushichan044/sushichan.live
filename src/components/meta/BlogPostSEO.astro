@@ -1,0 +1,47 @@
+---
+import { SEO } from "astro-seo"
+import type { CollectionEntry } from "astro:content"
+
+type Props = {
+  entry: CollectionEntry<"posts">
+}
+
+const {
+  entry: { data },
+} = Astro.props
+---
+
+<SEO
+  openGraph={{
+    basic: {
+      title: data.title,
+      type: "article",
+      image: data.thumbnail,
+    },
+    image: {
+      url: data.thumbnail,
+      width: 1200,
+      height: 630,
+      alt: data.title,
+    },
+    article: {
+      publishedTime: data.createdAt.toISOString(),
+      modifiedTime: data.updatedAt?.toISOString(),
+      tags: data.tags,
+    },
+    optional: {
+      description: data.description,
+      locale: "ja_JP",
+    },
+  }}
+  twitter={{
+    title: data.title,
+    description: data.description,
+    card: "summary_large_image",
+    image: data.thumbnail,
+  }}
+  description={data.description}
+  title={data.title}
+  titleDefault="すしにっき"
+  titleTemplate="%s - すしにっき"
+/>
