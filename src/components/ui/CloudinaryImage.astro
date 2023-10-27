@@ -1,14 +1,16 @@
 ---
 import { cloudinaryLoader, getCloudinaryImageSize } from "@/lib/cloudinary"
-import Image from "@/components/base/Image.astro"
+import Image, { type ImageFetchPriority } from "@/components/base/Image.astro"
 import { declareLet } from "@/utils/declareLet"
 
 type Props = {
   src: string
   alt?: string
+  quality?: number
+  fetchPriority?: ImageFetchPriority
 }
 
-const { src, alt } = Astro.props
+const { src, alt, quality = 75, fetchPriority } = Astro.props
 
 const rawSize = await getCloudinaryImageSize(src)
 const altIsEmpty = alt === "" || alt === undefined
@@ -27,13 +29,14 @@ const size = declareLet(() => {
 const optimizedSrc = cloudinaryLoader({
   src,
   width: size.width,
-  quality: 75,
+  quality: quality,
 })
 ---
 
 <div class="flex flex-col flex-nowrap">
   <Image
     alt={altIsEmpty ? "" : alt}
+    fetchpriority={fetchPriority}
     height={size.height}
     src={optimizedSrc}
     width={size.width}

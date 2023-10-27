@@ -6,6 +6,8 @@ const MAX_WIDTH = 960
 
 type Props = RemoteImageProps
 
+export type ImageFetchPriority = RemoteImageProps["fetchpriority"]
+
 let { src, width, height, alt = "image alt", ...props } = Astro.props
 
 const size = declareLet(() => {
