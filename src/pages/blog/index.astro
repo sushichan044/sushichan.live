@@ -2,15 +2,12 @@
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import Link from "@/components/base/Link.astro"
-import { getCollection } from "astro:content"
 import type { CollectionEntry } from "astro:content"
 import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
+import { getAllPosts } from "@/lib/blogPost"
 
-const Posts = await getCollection(
-  "posts",
-  (entry) => entry.data.status === "published",
-)
+const posts = await getAllPosts()
 
 export const prerender = true
 ---
@@ -25,7 +22,7 @@ export const prerender = true
   <ContentLayout>
     <div class="grid grid-cols-2 gap-4">
       {
-        Posts.map(({ data, slug }: CollectionEntry<"posts">) => (
+        posts.map(({ data, slug }: CollectionEntry<"posts">) => (
           <Link href={`/blog/post/${slug}`} rel="prefetch">
             <span class="flex flex-col flex-nowrap rounded-lg border p-2">
               <CloudinaryImage

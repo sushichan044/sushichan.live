@@ -1,0 +1,36 @@
+---
+import BaseSEO from "@/components/meta/BaseSEO.astro"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import { getAllTags, getPostsWithTags } from "@/lib/blogPost"
+
+export async function getStaticPaths() {
+  const tags = await getAllTags()
+  return tags.map((tag) => ({ params: { tag }, props: { tag } }))
+}
+
+type Props = {
+  tag: string
+}
+
+const { tag } = Astro.props
+const posts = await getPostsWithTags([tag])
+
+const title = `タグ 「${tag}」 の記事`
+const description = `タグ 「${tag}」 の記事一覧です。`
+
+export const prerender = true
+---
+
+<BaseLayout>
+  <BaseSEO description={description} title={title} />
+  {
+    posts.map(({ data, slug }) => (
+      <article>
+        <h2>
+          <a href={`/blog/post/${slug}`}>{data.title}</a>
+        </h2>
+        <p>{data.description}</p>
+      </article>
+    ))
+  }
+</BaseLayout>

@@ -3,14 +3,11 @@ import ContentLayout from "@/components/common/ContentLayout.astro"
 import BlogSEO from "@/components/meta/BlogPostSEO.astro"
 import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
-import { getCollection } from "astro:content"
+import { getAllPosts } from "@/lib/blogPost"
 import type { CollectionEntry } from "astro:content"
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection(
-    "posts",
-    (entry) => entry.data.status === "published",
-  )
+  const blogEntries = await getAllPosts()
   return blogEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
