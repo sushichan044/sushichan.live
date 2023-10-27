@@ -17,13 +17,19 @@ import LinkButton from "@/components/ui/button/LinkButton.astro"
     <Header />
     <main class="flex">
       <ContentLayout class="flex flex-1 items-center">
-        <div class="flex w-full flex-col flex-nowrap items-center gap-48">
-          <div class="flex flex-row text-5xl">
-            4
-            <Icon icon="fa6-regular:face-meh-blank" size="2xl" />
-             4
+        <div class="flex w-full flex-col flex-nowrap items-center gap-y-48">
+          <div class="flex w-full flex-col flex-nowrap items-center gap-y-4">
+            <div
+              aria-level="404"
+              class="flex flex-row items-center gap-x-2 text-8xl font-bold"
+              role="heading"
+            >
+              <span>4</span>
+              <Icon icon="fa6-regular:face-meh-blank" size="7xl" />
+              <span>4</span>
+            </div>
+            <span class="text-center text-5xl">Not Found</span>
           </div>
-          <h1 class="text-center text-5xl font-bold">404 Not Found</h1>
           <LinkButton href="/">ホームへ戻る</LinkButton>
         </div>
       </ContentLayout>
