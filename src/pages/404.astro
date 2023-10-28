@@ -22,7 +22,8 @@ export const prerender = true
         <div class="flex w-full flex-col flex-nowrap items-center gap-y-48">
           <div class="flex w-full flex-col flex-nowrap items-center gap-y-4">
             <div
-              aria-level="404"
+              aria-label="404 Not Found"
+              aria-level="1"
               class="flex flex-row items-center gap-x-2 text-8xl font-bold"
               role="heading"
             >
@@ -30,7 +31,7 @@ export const prerender = true
               <Icon icon="fa6-regular:face-meh-blank" size="7xl" />
               <span>4</span>
             </div>
-            <span class="text-center text-5xl">Not Found</span>
+            <span class="text-center text-5xl font-bold">Not Found</span>
           </div>
           <LinkButton href="/">ホームへ戻る</LinkButton>
         </div>
