@@ -2,6 +2,7 @@
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BlogSEO from "@/components/meta/BlogPostSEO.astro"
 import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
+import NetabareAlert from "@/components/ui/NetabareAlert.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import { getAllPosts } from "@/lib/blogPost"
 import type { CollectionEntry } from "astro:content"
@@ -21,14 +22,29 @@ type Props = {
 const { entry } = Astro.props
 const { Content } = await entry.render()
 
+const netabareFeatures = entry.data.netabare || []
+const includeNetabare = netabareFeatures.length > 0
+
 export const prerender = true
 ---
 
 <BaseLayout>
   <BlogSEO entry={entry} slot="seo" />
   <ContentLayout>
-    <h1>{entry.data.title}</h1>
-    <CloudinaryImage alt={entry.data.title} src={entry.data.thumbnail} />
-    <Content />
+    {
+      includeNetabare ? (
+        <NetabareAlert netabareFeatures={netabareFeatures}>
+          <h1>{entry.data.title}</h1>
+          <CloudinaryImage alt={entry.data.title} src={entry.data.thumbnail} />
+          <Content />
+        </NetabareAlert>
+      ) : (
+        <>
+          <h1>{entry.data.title}</h1>
+          <CloudinaryImage alt={entry.data.title} src={entry.data.thumbnail} />
+          <Content />
+        </>
+      )
+    }
   </ContentLayout>
 </BaseLayout>
