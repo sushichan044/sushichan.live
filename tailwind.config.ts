@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss"
 
+import daisyui, { type Config as DaisyConfig } from "daisyui"
+
 const config: Config = {
   corePlugins: {
     preflight: false,
@@ -28,7 +30,8 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [daisyui],
+  // daisyui: {} satisfies DaisyConfig,
 }
 
 export default config
