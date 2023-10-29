@@ -49,7 +49,8 @@ const { netabareFeatures } = Astro.props
           content?.removeAttribute("aria-hidden")
           content?.removeAttribute("style")
         } else {
-          history.back()
+          // history.length == 1 は、新しいタブで開いた場合
+          history.length == 1 ? (location.href = "/blog") : history.back()
         }
       })
 
