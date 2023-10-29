@@ -1,0 +1,70 @@
+---
+type Props = {
+  netabareFeatures: string[]
+}
+const { netabareFeatures } = Astro.props
+---
+
+<netabare-alert>
+  <dialog class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+      <h3 class="text-lg font-bold">
+        このコンテンツは以下のネタバレを含みます！
+      </h3>
+      <div class="py-4">
+        <ul>
+          {netabareFeatures.map((feature) => <li>{feature}</li>)}
+        </ul>
+      </div>
+      <div class="modal-action">
+        <form method="dialog">
+          <div class="flex flex-row flex-nowrap gap-x-8">
+            <button class="btn btn-error">閲覧しない</button>
+            <button class="btn btn-success">承諾して閲覧する</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </dialog>
+  <div aria-hidden="true" style="display:none" data-content>
+    <slot />
+  </div>
+</netabare-alert>
+
+<script>
+  class NetabareAlert extends HTMLElement {
+    constructor() {
+      super()
+
+      const dialog = this.querySelector("dialog")
+      const backButton = this.querySelector(".btn-error")
+      const acceptButton = this.querySelector(".btn-success")
+      const content = this.querySelector("div[data-content]")
+
+      dialog?.addEventListener("close", () => {
+        const returnValue = dialog.returnValue
+
+        if (returnValue === "true") {
+          dialog?.remove()
+          content?.removeAttribute("aria-hidden")
+          content?.removeAttribute("style")
+        } else {
+          history.back()
+        }
+      })
+
+      backButton?.addEventListener("click", (e) => {
+        e.preventDefault()
+        dialog?.close("false")
+      })
+
+      acceptButton?.addEventListener("click", (e) => {
+        e.preventDefault()
+        dialog?.close("true")
+      })
+
+      dialog?.showModal()
+    }
+  }
+  customElements.define("netabare-alert", NetabareAlert)
+</script>
