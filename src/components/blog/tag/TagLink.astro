@@ -1,0 +1,11 @@
+---
+import Link from "@/components/base/Link.astro"
+
+type Props = {
+  tag: string
+}
+
+const { tag } = Astro.props
+---
+
+<Link href={`/blog/tag/${tag}`}>{`#${tag}`}</Link>

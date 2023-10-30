@@ -1,0 +1,8 @@
+---
+import { getAllTags } from "@/lib/blogPost"
+import TagLinkFlex from "@/components/blog/tag/TagLinkFlex.astro"
+
+const allTags = await getAllTags()
+---
+
+<TagLinkFlex tags={allTags} />
