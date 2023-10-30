@@ -6,6 +6,10 @@ import sitemap from "@astrojs/sitemap"
 import tailwind from "@astrojs/tailwind"
 import { defineConfig } from "astro/config"
 import AutoImport from "astro-auto-import"
+import rehypeKatex from "rehype-katex"
+import remarkEmoji from "remark-emoji"
+import remarkMath from "remark-math"
+import remarkUnwrapImages from "remark-unwrap-images"
 
 // eslint-disable-next-line no-restricted-imports
 import { SITE_URL } from "./src/consts"
@@ -56,6 +60,15 @@ export default defineConfig({
     shikiConfig: {
       theme: "one-dark-pro",
       wrap: true,
+    },
+    gfm: true,
+    remarkPlugins: [remarkEmoji, remarkMath, remarkUnwrapImages],
+    rehypePlugins: [rehypeKatex],
+    remarkRehype: {
+      footnoteLabel: "脚注",
+      footnoteLabelProperties: { className: ["footnote-label"] },
+      footnoteLabelTagName: "p",
+      footnoteBackLabel: "本文へ戻る",
     },
   },
   output: "server",
