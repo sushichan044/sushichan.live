@@ -484,7 +484,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.20.7":
+"@babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.20.7, @babel/runtime@npm:^7.21.0":
   version: 7.23.2
   resolution: "@babel/runtime@npm:7.23.2"
   dependencies:
@@ -3720,6 +3720,8 @@ __metadata:
     astro-seo: ^0.8.0
     budoux: ^0.5.2
     daisyui: latest
+    date-fns: ^2.30.0
+    date-fns-tz: ^2.0.0
     eslint: ^8.52.0
     eslint-config-astro: ^1.0.8
     eslint-config-prettier: ^9.0.0
@@ -4712,6 +4714,24 @@ __metadata:
     whatwg-mimetype: ^3.0.0
     whatwg-url: ^12.0.0
   checksum: 006e869b5bf079647949a3e9b1dd69d84b2d5d26e6b01c265485699bc96e83817d4b5aae758b2910a4c58c0601913f3a0034121c1ca2da268e9a244c57515b15
+  languageName: node
+  linkType: hard
+
+"date-fns-tz@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "date-fns-tz@npm:2.0.0"
+  peerDependencies:
+    date-fns: ">=2.0.0"
+  checksum: a6553603a9d26dd9669326c99a58a2335ac550bc060c74b86a5ad9e1de73c9d4e3e5236f0f552f990e616e4e8dcc2b6a637913a04d2e04396e6a9f8ae83c73da
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^2.30.0":
+  version: 2.30.0
+  resolution: "date-fns@npm:2.30.0"
+  dependencies:
+    "@babel/runtime": ^7.21.0
+  checksum: f7be01523282e9bb06c0cd2693d34f245247a29098527d4420628966a2d9aad154bd0e90a6b1cf66d37adcb769cd108cf8a7bd49d76db0fb119af5cdd13644f4
   languageName: node
   linkType: hard
 
