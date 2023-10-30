@@ -4,13 +4,11 @@ import type { CollectionEntry } from "astro:content"
 import BlogFrontMatter from "@/components/blog/BlogFrontMatter.astro"
 import BlogStyle from "@/components/blog/BlogStyle.astro"
 import MDXRenderer from "@/components/blog/MDXRenderer.astro"
-import Toc from "@/components/blog/Toc.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BlogPostSEO from "@/components/meta/BlogPostSEO.astro"
 import NetabareWrapper from "@/components/ui/NetabareWrapper.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import { getAllPosts } from "@/lib/blogPost"
-
 export async function getStaticPaths() {
   const blogEntries = await getAllPosts()
   return blogEntries.map((entry) => ({

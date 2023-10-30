@@ -1,0 +1,18 @@
+@use "./variables" as var;
+@use "./config/mixins" as mix;
+
+p > code {
+  padding-inline: 0.25em;
+  margin-inline: 0.5em;
+  background-color: var.$theme-color-light-darker;
+  border-radius: 0.25em;
+
+  @include mix.scheme("dark") {
+    background-color: var.$theme-color-dark-lighter;
+  }
+}
+
+.astro-code {
+  padding: 1rem;
+  border-radius: 0.5rem;
+}

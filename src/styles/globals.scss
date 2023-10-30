@@ -90,3 +90,15 @@ h6 {
     font-size: 1.125rem;
   }
 }
+
+body pre,
+body code {
+  font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+// react-tweetのコンポーネント自身がmarginを持っているので、
+// それを無効化するために、ここでmarginを0にしている。
+.react-tweet-theme {
+  --tweet-container-margin: 0 !important;
+}
