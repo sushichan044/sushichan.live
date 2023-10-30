@@ -9,9 +9,7 @@ const { netabareList, backIfNewTab = "/" } = Astro.props
 <netabare-alert data-back-to={backIfNewTab}>
   <dialog class="modal modal-bottom sm:modal-middle">
     <div class="modal-box">
-      <h3 class="text-lg font-bold">
-        このコンテンツは以下のネタバレを含みます！
-      </h3>
+      <h3 class="text-lg font-bold">このページは以下のネタバレを含みます！</h3>
       <div class="py-4">
         <ul>
           {netabareList.map((feature) => <li>{feature}</li>)}

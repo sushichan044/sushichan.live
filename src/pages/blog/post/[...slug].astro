@@ -3,10 +3,10 @@ import BlogFrontMatter from "@/components/blog/BlogFrontMatter.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BlogStyle from "@/components/blog/BlogStyle.astro"
 import BlogPostSEO from "@/components/meta/BlogPostSEO.astro"
-import NetabareAlert from "@/components/ui/NetabareAlert.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import { getAllPosts } from "@/lib/blogPost"
 import type { CollectionEntry } from "astro:content"
+import NetabareWrapper from "@/components/ui/NetabareWrapper.astro"
 
 export async function getStaticPaths() {
   const blogEntries = await getAllPosts()
@@ -23,32 +23,18 @@ type Props = {
 const { entry } = Astro.props
 const { Content } = await entry.render()
 
-const netabareList =
-  entry.data.netabare && entry.data.netabare.length > 0
-    ? entry.data.netabare
-    : []
-const includeNetabare = netabareList.length > 0
-
 export const prerender = true
 ---
 
 <BaseLayout>
   <BlogPostSEO entry={entry} slot="seo" />
-  <ContentLayout>
+  <ContentLayout asElement="article">
     <BlogFrontMatter entry={entry} />
     <div class="divider"></div>
-    {
-      includeNetabare ? (
-        <NetabareAlert backIfNewTab="/blog" netabareList={netabareList}>
-          <BlogStyle>
-            <Content />
-          </BlogStyle>
-        </NetabareAlert>
-      ) : (
-        <BlogStyle>
-          <Content />
-        </BlogStyle>
-      )
-    }
+    <NetabareWrapper netabareList={entry.data.netabare}>
+      <BlogStyle>
+        <Content />
+      </BlogStyle>
+    </NetabareWrapper>
   </ContentLayout>
 </BaseLayout>
