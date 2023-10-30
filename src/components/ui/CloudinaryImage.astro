@@ -4,18 +4,17 @@ import Image from "@/components/base/Image.astro"
 import { declareLet } from "@/utils/declareLet"
 import type { HTMLAttributes } from "astro/types"
 
-type ImageProps = {
+type ImgProps = Omit<
+  HTMLAttributes<"img">,
+  "width" | "height" | "src" | "alt" | "quality" | "priority"
+>
+
+export type Props = ImgProps & {
   src: string
   alt?: string
   quality?: number
   priority?: boolean
 }
-
-type Props = Omit<
-  HTMLAttributes<"img">,
-  "width" | "height" | keyof ImageProps
-> &
-  ImageProps
 
 const { src, alt, quality = 75, ...props } = Astro.props
 

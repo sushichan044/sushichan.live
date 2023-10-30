@@ -10,11 +10,13 @@ const { isFigure, caption } = Astro.props
 const CaptionTag = isFigure ? "figcaption" : "span"
 ---
 
-<slot />
-{
-  caption && (
-    <CaptionTag class="justify-center text-center text-base">
-      {caption}
-    </CaptionTag>
-  )
-}
+<div class="flex flex-col gap-1">
+  <slot />
+  {
+    caption && (
+      <CaptionTag class="inline-block justify-center text-center text-base">
+        {caption}
+      </CaptionTag>
+    )
+  }
+</div>

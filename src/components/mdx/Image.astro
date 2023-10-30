@@ -1,0 +1,17 @@
+---
+import CloudinaryImage, {
+  type Props as CloudinaryImageProps,
+} from "@/components/ui/CloudinaryImage.astro"
+import WithCaption from "@/components/common/WithCaption.astro"
+import Card from "@/components/common/Card.astro"
+
+type Props = CloudinaryImageProps
+
+const { alt, src, ...props } = Astro.props
+---
+
+<Card>
+  <WithCaption caption={alt} isFigure={false}>
+    <CloudinaryImage alt={alt} class="rounded-lg" src={src} {...props} />
+  </WithCaption>
+</Card>

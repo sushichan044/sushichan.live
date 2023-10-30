@@ -15,12 +15,12 @@ const mdxIntegrations = [
     imports: [
       "./src/components/common/BudouX.astro",
       "./src/components/common/Icon.astro",
-      "./src/components/ui/CloudinaryImage.astro",
       "./src/components/ui/card/MessageCard.astro",
       "./src/components/ui/card/PlayerCard.astro",
       "./src/components/ui/card/TextCard.astro",
       // "./src/components/ui/card/UrlCard.astro",
       "./src/components/utils/Spoiler.astro",
+      { "/src/components/mdx/Image.astro": [["default", "img"]] },
     ],
   }),
   mdx(),
