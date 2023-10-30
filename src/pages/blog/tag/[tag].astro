@@ -18,14 +18,14 @@ type Props = {
 const { tag } = Astro.props
 const posts = await getPostsWithTags([tag])
 
-const title = `タグ 「${tag}」 の記事`
+const title = `タグ 「${tag}」 の記事 - すしにっき`
 const description = `タグ 「${tag}」 の記事一覧です。`
 
 export const prerender = true
 ---
 
 <BaseLayout>
-  <BaseSEO description={description} title={title} />
+  <BaseSEO description={description} title={title} disableTitleTemplate />
   <ContentLayout>
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
       {
