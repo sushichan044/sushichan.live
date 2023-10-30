@@ -1,13 +1,14 @@
 ---
+import type { CollectionEntry } from "astro:content"
+
 import BlogFrontMatter from "@/components/blog/BlogFrontMatter.astro"
-import ContentLayout from "@/components/common/ContentLayout.astro"
 import BlogStyle from "@/components/blog/BlogStyle.astro"
+import MDXRenderer from "@/components/blog/MDXRenderer.astro"
+import ContentLayout from "@/components/common/ContentLayout.astro"
 import BlogPostSEO from "@/components/meta/BlogPostSEO.astro"
+import NetabareWrapper from "@/components/ui/NetabareWrapper.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import { getAllPosts } from "@/lib/blogPost"
-import type { CollectionEntry } from "astro:content"
-import NetabareWrapper from "@/components/ui/NetabareWrapper.astro"
-import Image from "@/components/mdx/Image.astro"
 
 export async function getStaticPaths() {
   const blogEntries = await getAllPosts()
@@ -34,7 +35,7 @@ export const prerender = true
     <div class="divider"></div>
     <NetabareWrapper netabareList={entry.data.netabare}>
       <BlogStyle>
-        <Content components={{ img: Image }} />
+        <MDXRenderer content={Content} />
       </BlogStyle>
     </NetabareWrapper>
   </ContentLayout>
