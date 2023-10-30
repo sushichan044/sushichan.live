@@ -2,36 +2,65 @@
 import type { CollectionEntry } from "astro:content"
 import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
 import BudouX from "@/components/common/BudouX.astro"
+import Icon from "@/components/common/Icon.astro"
+import { dtTool } from "@/lib/date"
+import TagLinkFlex from "@/components/blog/tag/TagLinkFlex.astro"
 
 type Props = {
-  post: CollectionEntry<"posts">
+  entry: CollectionEntry<"posts">
 }
 
-const { post } = Astro.props
+const { entry } = Astro.props
+
+const createdAt = dtTool.formatInJst(
+  dtTool.replaceTzWithJst(entry.data.createdAt),
+  "yyyy/MM/dd",
+)
+const updatedAt = entry.data.updatedAt
+  ? dtTool.formatInJst(
+      dtTool.replaceTzWithJst(entry.data.updatedAt),
+      "yyyy/MM/dd",
+    )
+  : undefined
 ---
 
-<div>
-  <div
-    class="aspect-16/9 overflow-hidden rounded-t-[calc(0.5rem-1px)]"
-    data-image
-  >
+<div
+  class="flex flex-col flex-nowrap place-content-center gap-4 md:flex-row-reverse"
+>
+  <div class="aspect-auto overflow-hidden rounded-lg md:w-[50%]">
     <CloudinaryImage
-      alt={`thumbnail of ${post.slug}`}
+      alt={`thumbnail of ${entry.slug}`}
       class="h-full w-full object-cover"
       fetchPriority="high"
-      src={post.data.thumbnail}
+      src={entry.data.thumbnail}
     />
   </div>
-  <div>
-    <h1>
-      <BudouX>{post.data.title}</BudouX>
+  <div class="flex flex-col flex-nowrap gap-2">
+    <h1 class="text-xl md:text-4xl">
+      <BudouX>{entry.data.title}</BudouX>
     </h1>
-    <p>
-      <BudouX>{post.data.description}</BudouX>
-    </p>
-    <div>
-      <span></span><span></span>
+    <BudouX>{entry.data.description}</BudouX>
+    <div class="flex flex-row flex-nowrap gap-3">
+      <div class="flex flex-row flex-nowrap items-center justify-center gap-2">
+        <Icon class="text-blue-500" icon="fa6-solid:pen" />
+        <span>{createdAt}</span>
+      </div>
+      {
+        updatedAt && (
+          <div class="flex flex-row flex-nowrap items-center justify-center gap-2">
+            <Icon class="text-blue-500" icon="fa6-solid:arrow-rotate-right" />
+            <span>{updatedAt}</span>
+          </div>
+        )
+      }
     </div>
-    {post.data.tags && <div />}
+    {entry.data.tags && <TagLinkFlex tags={entry.data.tags} />}
   </div>
 </div>
+
+<style>
+  span {
+    display: inline-block;
+    width: fit-content;
+  }
+</style>
