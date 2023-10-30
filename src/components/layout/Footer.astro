@@ -6,7 +6,11 @@ import ContentLayout from "@/components/common/ContentLayout.astro"
 <footer class="h-[80px] w-full">
   <ContentLayout class="flex items-center justify-between gap-4">
     <p>© 2023 sushi-chan</p>
-    <Link href="/legal/privacy" variants={{ decoration: "none" }}>
+    <Link
+      href="/legal/privacy"
+      rel="prefetch-intent"
+      variants={{ decoration: "none" }}
+    >
       プライバシーポリシー
     </Link>
   </ContentLayout>

@@ -30,7 +30,7 @@ export const prerender = true
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
       {
         posts.map(({ data, slug }) => (
-          <Link href={`/blog/post/${slug}`} rel="prefetch">
+          <Link href={`/blog/post/${slug}`} rel="prefetch-intent">
             <span class="flex flex-col flex-nowrap rounded-lg border p-2">
               <CloudinaryImage
                 alt={`thumbnail of ${slug}`}
