@@ -17,6 +17,7 @@ const mdxIntegrations = [
       "./src/components/common/Icon.astro",
       "./src/components/ui/card/MessageCard.astro",
       "./src/components/ui/card/PlayerCard.astro",
+      "./src/components/ui/card/SpotifyCard.astro",
       "./src/components/ui/card/TextCard.astro",
       "./src/components/ui/card/UrlCard.astro",
       "./src/components/ui/card/TweetCard.astro",

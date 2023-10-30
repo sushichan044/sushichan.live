@@ -1,0 +1,15 @@
+---
+import Card, { type CardProps } from "@/components/common/Card.astro"
+import Spotify from "@/components/ui/Spotify.astro"
+
+interface Props extends CardProps {
+  url: string
+  shape?: "square" | "wide"
+}
+
+const { url, shape, ...props } = Astro.props
+---
+
+<Card shadow {...props}>
+  <Spotify link={url} shape={shape} />
+</Card>
