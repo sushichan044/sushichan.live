@@ -20,7 +20,6 @@ const mdxIntegrations = [
       "./src/components/ui/card/TextCard.astro",
       // "./src/components/ui/card/UrlCard.astro",
       "./src/components/utils/Spoiler.astro",
-      { "/src/components/mdx/Image.astro": [["default", "img"]] },
     ],
   }),
   mdx(),
