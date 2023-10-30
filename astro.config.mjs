@@ -66,5 +66,8 @@ export default defineConfig({
     build: {
       minify: false,
     },
+    ssr: {
+      noExternal: ["react-tweet"],
+    },
   },
 })
