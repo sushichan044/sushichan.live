@@ -4,11 +4,18 @@ import { Image as AstroImage, type RemoteImageProps } from "astro:assets"
 
 const MAX_WIDTH = 960
 
-type Props = RemoteImageProps
+type Props = RemoteImageProps & {
+  priority?: boolean
+}
 
-export type ImageFetchPriority = RemoteImageProps["fetchpriority"]
-
-let { src, width, height, alt = "image alt", ...props } = Astro.props
+let {
+  src,
+  width,
+  height,
+  alt = "image alt",
+  priority = false,
+  ...props
+} = Astro.props
 
 const size = declareLet(() => {
   let w = Number(width)
@@ -28,5 +35,6 @@ const size = declareLet(() => {
   sizes="(max-width: 768px) 100vw, 50vw"
   src={src}
   width={size.width}
+  {...priority && { loading: "eager", fetchpriority: "high" }}
   {...props}
 />

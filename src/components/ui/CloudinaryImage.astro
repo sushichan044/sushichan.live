@@ -1,6 +1,6 @@
 ---
 import { cloudinaryLoader, getCloudinaryImageSize } from "@/lib/cloudinary"
-import Image, { type ImageFetchPriority } from "@/components/base/Image.astro"
+import Image from "@/components/base/Image.astro"
 import { declareLet } from "@/utils/declareLet"
 import type { HTMLAttributes } from "astro/types"
 
@@ -8,7 +8,7 @@ type ImageProps = {
   src: string
   alt?: string
   quality?: number
-  fetchPriority?: ImageFetchPriority
+  priority?: boolean
 }
 
 type Props = Omit<
@@ -17,7 +17,7 @@ type Props = Omit<
 > &
   ImageProps
 
-const { src, alt, quality = 75, fetchPriority, ...props } = Astro.props
+const { src, alt, quality = 75, ...props } = Astro.props
 
 const rawSize = await getCloudinaryImageSize(src)
 const altIsEmpty = alt === "" || alt === undefined
@@ -42,7 +42,6 @@ const optimizedSrc = cloudinaryLoader({
 
 <Image
   alt={altIsEmpty ? "" : alt}
-  fetchpriority={fetchPriority}
   height={size.height}
   src={optimizedSrc}
   width={size.width}
