@@ -34,8 +34,8 @@ const formattedDate = dtTool.formatInJst(
         <CloudinaryImage
           alt={`thumbnail of ${post.slug}`}
           class="h-full w-full object-cover"
-          fetchPriority="high"
           src={post.data.thumbnail}
+          priority
         />
       </div>
       <span>{formattedDate}</span>
