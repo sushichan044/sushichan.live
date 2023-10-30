@@ -10,4 +10,4 @@ const applyBudouXToHTML = (html: string): string => {
   return parser.translateHTMLString(html)
 }
 
-export { applyBudouXToHTML,sanitizeHTML }
+export { applyBudouXToHTML, sanitizeHTML }

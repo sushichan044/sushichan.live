@@ -1,4 +1,4 @@
-import { type CollectionEntry,getCollection } from "astro:content"
+import { type CollectionEntry, getCollection } from "astro:content"
 
 type sortAction = (
   a: CollectionEntry<"posts">,
@@ -49,4 +49,4 @@ const getAllTags = async () => {
   return [...new Set(tags)]
 }
 
-export { getAllPosts, getAllTags,getPostsWithTags }
+export { getAllPosts, getAllTags, getPostsWithTags }
