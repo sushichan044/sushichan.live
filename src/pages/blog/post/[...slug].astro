@@ -22,8 +22,8 @@ type Props = {
 const { entry } = Astro.props
 const { Content } = await entry.render()
 
-const netabareFeatures = entry.data.netabare || []
-const includeNetabare = netabareFeatures.length > 0
+const netabareList = entry.data.netabare || []
+const includeNetabare = netabareList.length > 0
 
 export const prerender = true
 ---
@@ -31,19 +31,15 @@ export const prerender = true
 <BaseLayout>
   <BlogSEO entry={entry} slot="seo" />
   <ContentLayout>
+    <h1>{entry.data.title}</h1>
+    <CloudinaryImage alt={entry.data.title} src={entry.data.thumbnail} />
     {
       includeNetabare ? (
-        <NetabareAlert netabareFeatures={netabareFeatures}>
-          <h1>{entry.data.title}</h1>
-          <CloudinaryImage alt={entry.data.title} src={entry.data.thumbnail} />
+        <NetabareAlert backIfNewTab="/blog" netabareList={netabareList}>
           <Content />
         </NetabareAlert>
       ) : (
-        <>
-          <h1>{entry.data.title}</h1>
-          <CloudinaryImage alt={entry.data.title} src={entry.data.thumbnail} />
-          <Content />
-        </>
+        <Content />
       )
     }
   </ContentLayout>

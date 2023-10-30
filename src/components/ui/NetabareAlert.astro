@@ -1,11 +1,12 @@
 ---
 type Props = {
-  netabareFeatures: string[]
+  netabareList: string[]
+  backIfNewTab?: string
 }
-const { netabareFeatures } = Astro.props
+const { netabareList, backIfNewTab = "/" } = Astro.props
 ---
 
-<netabare-alert>
+<netabare-alert data-back-to={backIfNewTab}>
   <dialog class="modal modal-bottom sm:modal-middle">
     <div class="modal-box">
       <h3 class="text-lg font-bold">
@@ -13,12 +14,12 @@ const { netabareFeatures } = Astro.props
       </h3>
       <div class="py-4">
         <ul>
-          {netabareFeatures.map((feature) => <li>{feature}</li>)}
+          {netabareList.map((feature) => <li>{feature}</li>)}
         </ul>
       </div>
       <div class="modal-action">
         <form method="dialog">
-          <div class="flex flex-row flex-nowrap gap-x-8">
+          <div class="flex flex-row flex-nowrap gap-x-4">
             <button class="btn btn-error">閲覧しない</button>
             <button class="btn btn-success">承諾して閲覧する</button>
           </div>
@@ -40,6 +41,7 @@ const { netabareFeatures } = Astro.props
       const backButton = this.querySelector(".btn-error")
       const acceptButton = this.querySelector(".btn-success")
       const content = this.querySelector("div[data-content]")
+      const backTo = this.dataset.backTo ?? "/"
 
       dialog?.addEventListener("close", () => {
         const returnValue = dialog.returnValue
@@ -50,7 +52,7 @@ const { netabareFeatures } = Astro.props
           content?.removeAttribute("style")
         } else {
           // history.length == 1 は、新しいタブで開いた場合
-          history.length == 1 ? (location.href = "/blog") : history.back()
+          history.length == 1 ? (location.href = backTo) : history.back()
         }
       })
 
