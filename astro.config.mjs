@@ -67,7 +67,7 @@ export default defineConfig({
     remarkRehype: {
       footnoteLabel: "脚注",
       footnoteLabelProperties: { className: ["footnote-label"] },
-      footnoteLabelTagName: "p",
+      footnoteLabelTagName: "div",
       footnoteBackLabel: "本文へ戻る",
     },
   },

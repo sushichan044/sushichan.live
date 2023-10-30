@@ -1,0 +1,41 @@
+[data-footnote-ref] {
+  margin-left: 0.125em;
+  font-weight: 700;
+  color: rgb(59 130 246);
+
+  &:hover,
+  &:focus {
+    color: rgb(37 99 235);
+  }
+
+  &::before {
+    content: "[";
+  }
+
+  &::after {
+    content: "]";
+  }
+}
+
+[data-footnote-backref] {
+  font-weight: 700;
+}
+
+[data-footnotes] ol {
+  list-style-type: decimal;
+}
+
+.footnote-label {
+  text-decoration: underline;
+  text-underline-offset: 0.5em;
+}
+
+[data-footnote-backref] * {
+  text-underline-offset: 0.25em;
+}
+
+[data-footnote-backref]::before {
+  margin-inline-end: -1px;
+  text-underline-offset: 0.25em;
+  content: "戻る";
+}
