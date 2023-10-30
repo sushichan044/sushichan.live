@@ -10,7 +10,7 @@ const { isFigure, caption } = Astro.props
 const CaptionTag = isFigure ? "figcaption" : "span"
 ---
 
-<div class="flex w-full flex-col items-center gap-1">
+<div class="flex w-full flex-col items-center gap-1 [&>*]:w-full">
   <slot />
   {
     caption && (
