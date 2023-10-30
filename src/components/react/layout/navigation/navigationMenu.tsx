@@ -1,7 +1,7 @@
 "use client"
 import * as NavMenu from "@radix-ui/react-navigation-menu"
-import React from "react"
 import type { ComponentProps } from "react"
+import React from "react"
 
 import styles from "@/components/react/layout/navigation/styles.module.scss"
 import LinkStyle from "@/components/style/link"

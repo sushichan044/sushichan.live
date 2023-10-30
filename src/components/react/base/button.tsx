@@ -1,6 +1,7 @@
-import type { PropsWithoutStyle } from "@/utils/@types/propsWithoutStyle"
 import type React from "react"
 import { tv, type VariantProps } from "tailwind-variants"
+
+import type { PropsWithoutStyle } from "@/utils/@types/propsWithoutStyle"
 
 const style = tv({})
 

@@ -1,10 +1,11 @@
 ---
 import type { CollectionEntry } from "astro:content"
-import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
+
+import TagLinkFlex from "@/components/blog/tag/TagLinkFlex.astro"
 import BudouX from "@/components/common/BudouX.astro"
 import Icon from "@/components/common/Icon.astro"
+import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
 import { dtTool } from "@/lib/date"
-import TagLinkFlex from "@/components/blog/tag/TagLinkFlex.astro"
 
 type Props = {
   entry: CollectionEntry<"posts">

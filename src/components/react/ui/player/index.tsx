@@ -1,5 +1,5 @@
-import ReactPlayer from "react-player"
 import React, { useId } from "react"
+import ReactPlayer from "react-player"
 
 type Props = {
   url: string

@@ -1,10 +1,10 @@
 ---
-import ContentLayout from "@/components/common/ContentLayout.astro"
-import BaseLayout from "@/layouts/BaseLayout.astro"
-import BlogPostCard from "@/components/blog/BlogPostCard.astro"
-import BaseSEO from "@/components/meta/BaseSEO.astro"
-import { getAllPosts } from "@/lib/blogPost"
 import AllTags from "@/components/blog/AllTags.astro"
+import BlogPostCard from "@/components/blog/BlogPostCard.astro"
+import ContentLayout from "@/components/common/ContentLayout.astro"
+import BaseSEO from "@/components/meta/BaseSEO.astro"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import { getAllPosts } from "@/lib/blogPost"
 
 const posts = await getAllPosts((a, b) => {
   if (a.data.createdAt < b.data.createdAt) return 1

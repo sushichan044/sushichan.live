@@ -1,8 +1,9 @@
 ---
-import { cloudinaryLoader, getCloudinaryImageSize } from "@/lib/cloudinary"
-import Image from "@/components/base/Image.astro"
-import { declareLet } from "@/utils/declareLet"
 import type { HTMLAttributes } from "astro/types"
+
+import Image from "@/components/base/Image.astro"
+import { cloudinaryLoader, getCloudinaryImageSize } from "@/lib/cloudinary"
+import { declareLet } from "@/utils/declareLet"
 
 type ImgProps = Omit<
   HTMLAttributes<"img">,

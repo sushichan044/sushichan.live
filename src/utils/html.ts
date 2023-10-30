@@ -1,5 +1,5 @@
-import _sanitizeHtml from "sanitize-html"
 import { loadDefaultJapaneseParser } from "budoux"
+import _sanitizeHtml from "sanitize-html"
 
 const sanitizeHTML = (html: string) => {
   return _sanitizeHtml(html)
@@ -10,4 +10,4 @@ const applyBudouXToHTML = (html: string): string => {
   return parser.translateHTMLString(html)
 }
 
-export { sanitizeHTML, applyBudouXToHTML }
+export { applyBudouXToHTML,sanitizeHTML }

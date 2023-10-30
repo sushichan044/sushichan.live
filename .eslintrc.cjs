@@ -30,6 +30,8 @@ module.exports = {
     "perfectionist/sort-jsx-props": "error",
     "react/jsx-boolean-value": "warn",
     "react/jsx-curly-brace-presence": "error",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
   },
   overrides: [
     {

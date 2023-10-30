@@ -1,9 +1,9 @@
 ---
+import BlogPostCard from "@/components/blog/BlogPostCard.astro"
+import ContentLayout from "@/components/common/ContentLayout.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import { getAllTags, getPostsWithTags } from "@/lib/blogPost"
-import ContentLayout from "@/components/common/ContentLayout.astro"
-import BlogPostCard from "@/components/blog/BlogPostCard.astro"
 
 export async function getStaticPaths() {
   const tags = await getAllTags()
