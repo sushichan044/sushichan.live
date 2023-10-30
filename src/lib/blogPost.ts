@@ -1,13 +1,26 @@
-import { getCollection } from "astro:content"
+import { getCollection, type CollectionEntry } from "astro:content"
 
-const getAllPosts = async () => {
+type sortAction = (
+  a: CollectionEntry<"posts">,
+  b: CollectionEntry<"posts">,
+) => number
+
+const getAllPosts = async (sortAction?: sortAction) => {
   const posts = await getCollection("posts", ({ data }) => {
     return import.meta.env.DEV || data.status === "published"
   })
+
+  if (sortAction !== undefined) {
+    return posts.sort(sortAction)
+  }
+
   return posts
 }
 
-const getPostsWithTags = async (tags: string[] | undefined) => {
+const getPostsWithTags = async (
+  tags: string[] | undefined,
+  sortAction?: sortAction,
+) => {
   const posts = await getAllPosts()
   if (tags === undefined) {
     return posts
@@ -18,6 +31,10 @@ const getPostsWithTags = async (tags: string[] | undefined) => {
     }
     return tags.some((tag) => postTags.includes(tag))
   })
+
+  if (sortAction !== undefined) {
+    return postsWithTag.sort(sortAction)
+  }
   return postsWithTag
 }
 
