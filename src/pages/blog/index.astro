@@ -5,7 +5,11 @@ import BlogPostCard from "@/components/blog/BlogPostCard.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
 import { getAllPosts } from "@/lib/blogPost"
 
-const posts = await getAllPosts()
+const posts = await getAllPosts((a, b) => {
+  if (a.data.createdAt < b.data.createdAt) return 1
+  if (a.data.createdAt > b.data.createdAt) return -1
+  return 0
+})
 
 export const prerender = true
 ---

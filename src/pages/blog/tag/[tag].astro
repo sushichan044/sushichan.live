@@ -15,7 +15,11 @@ type Props = {
 }
 
 const { tag } = Astro.props
-const posts = await getPostsWithTags([tag])
+const posts = await getPostsWithTags([tag], (a, b) => {
+  if (a.data.createdAt < b.data.createdAt) return 1
+  if (a.data.createdAt > b.data.createdAt) return -1
+  return 0
+})
 
 const title = `タグ 「${tag}」 の記事 - すしにっき`
 const description = `タグ 「${tag}」 の記事一覧です。`
