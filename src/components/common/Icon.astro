@@ -5,9 +5,10 @@ import { tv, type VariantProps } from "tailwind-variants"
 
 type Props = VariantProps<typeof style> & {
   icon: string
+  class?: string
 }
 
-const { icon, size } = Astro.props
+const { icon, class: className, ...props } = Astro.props
 
 const style = tv({
   base: "aspect-square",
@@ -51,7 +52,7 @@ const iconHTML = await getIconSvg(icon)
 ---
 
 <SafeHTML
-  class:list={style({ size })}
+  class:list={[style(props), className && className]}
   rawHTML={iconHTML}
   __dangerouslyDisableSanitizer
   asDiv
