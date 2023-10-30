@@ -21,16 +21,16 @@ const formattedDate = dtTool.formatInJst(
 <article>
   <Link href={`/blog/post/${post.slug}`} variants={{ decoration: "none" }}>
     <div
-      class="flex h-full flex-col flex-nowrap gap-2 rounded-lg outline outline-1 outline-slate-700 dark:outline-slate-400 pb-5 text-center"
+      class="flex h-full flex-col flex-nowrap gap-2 rounded-lg pb-5 text-center outline outline-1 outline-slate-700 dark:outline-slate-400"
     >
       <div
-        data-image
         class="aspect-16/9 overflow-hidden rounded-t-[calc(0.5rem-1px)]"
+        data-image
       >
         <CloudinaryImage
           alt={`thumbnail of ${post.slug}`}
+          class="h-full w-full object-cover"
           fetchPriority="high"
-          class="object-cover w-full h-full"
           src={post.data.thumbnail}
         />
       </div>
