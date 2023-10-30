@@ -1,16 +1,16 @@
 ---
-import Card from "@/components/common/Card.astro"
+import Card, { type CardProps } from "@/components/common/Card.astro"
 import Message, {
   type Props as MessageProps,
 } from "@/components/ui/Message.astro"
 
-type Props = MessageProps
+type Props = CardProps & MessageProps
 
-const props = Astro.props
+const { type, ...props } = Astro.props
 ---
 
-<Card>
-  <Message {...props}>
+<Card {...props}>
+  <Message type={type}>
     <slot />
   </Message>
 </Card>

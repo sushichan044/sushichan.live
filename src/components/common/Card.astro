@@ -5,7 +5,9 @@ import WithCaption, {
   type CaptionProps,
 } from "@/components/common/WithCaption.astro"
 
-type Props = VariantProps<typeof style> & CaptionProps
+export type CardProps = VariantProps<typeof style> & CaptionProps
+
+type Props = CardProps
 
 const { isFigure, caption, ...props } = Astro.props
 

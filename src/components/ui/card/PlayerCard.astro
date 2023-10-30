@@ -1,13 +1,13 @@
 ---
-import Card from "@/components/common/Card.astro"
+import Card, { type CardProps } from "@/components/common/Card.astro"
 import UrlPlayer from "@/components/ui/UrlPlayer.astro"
 
-interface Props {
+interface Props extends CardProps {
   url: string
 }
-const { url } = Astro.props
+const { url, ...props } = Astro.props
 ---
 
-<Card shadow>
+<Card shadow {...props}>
   <UrlPlayer url={url} />
 </Card>

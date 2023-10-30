@@ -1,15 +1,15 @@
 ---
 import BudouX from "@/components/common/BudouX.astro"
-import Card from "@/components/common/Card.astro"
-interface Props {
+import Card, { type CardProps } from "@/components/common/Card.astro"
+interface Props extends CardProps {
   useBudouX?: boolean
 }
 
-const { useBudouX = true } = Astro.props
+const { useBudouX = true, ...props } = Astro.props
 ---
 
-<Card>
-  <span>
+<Card {...props}>
+  <span class="text-center [font-size:_clamp(1.5rem,1.3503rem+0.9581vw,2.5rem)]">
     {
       useBudouX ? (
         <BudouX>
@@ -21,10 +21,3 @@ const { useBudouX = true } = Astro.props
     }
   </span>
 </Card>
-
-<style>
-  span {
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
-    text-align: center;
-  }
-</style>
