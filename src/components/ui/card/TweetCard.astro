@@ -1,0 +1,14 @@
+---
+import Card, { type CardProps } from "@/components/common/Card.astro"
+import Tweet from "@/components/ui/twitter/Tweet.astro"
+
+interface Props extends CardProps {
+  id: string
+}
+
+const { id, ...props } = Astro.props
+---
+
+<Card {...props}>
+  <Tweet id={id} />
+</Card>

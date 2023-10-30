@@ -1,0 +1,14 @@
+---
+import Card, { type CardProps } from "@/components/common/Card.astro"
+import Timeline from "@/components/ui/twitter/Timeline.astro"
+
+interface Props extends CardProps {
+  id: string
+}
+
+const { id, ...props } = Astro.props
+---
+
+<Card {...props}>
+  <Timeline id={id} />
+</Card>
