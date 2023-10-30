@@ -11,9 +11,7 @@ const { headings, depth } = Astro.props
 const matchedHeadings = headings.filter((heading) => heading.depth === depth)
 ---
 
-<nav
-  class="flex flex-col gap-4 rounded-lg bg-zinc-200 p-4 dark:bg-zinc-700/60"
->
+<nav class="flex flex-col gap-4 rounded-lg bg-zinc-200 p-4 dark:bg-zinc-700/60">
   <p class="text-2xl font-bold">目次</p>
   <div
     class="flex flex-col flex-nowrap justify-center gap-1 rounded-lg text-lg font-bold"
