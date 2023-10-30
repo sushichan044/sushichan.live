@@ -17,10 +17,6 @@
   }
 }
 
-[data-footnote-backref] {
-  font-weight: 700;
-}
-
 [data-footnotes] ol {
   list-style-type: decimal;
 }
@@ -28,6 +24,16 @@
 .footnote-label {
   text-decoration: underline;
   text-underline-offset: 0.5em;
+}
+
+[data-footnote-backref] {
+  font-weight: 700;
+  color: rgb(59 130 246);
+
+  &:hover,
+  &:focus {
+    color: rgb(37 99 235);
+  }
 }
 
 [data-footnote-backref] * {
