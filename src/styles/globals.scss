@@ -25,3 +25,13 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+ul,
+ol {
+  padding-inline-start: 1.5rem;
+  list-style-type: disc;
+
+  > * {
+    margin-block: 0.5rem;
+  }
+}
