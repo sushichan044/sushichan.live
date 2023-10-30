@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from "astro:content"
+import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
+import BudouX from "@/components/common/BudouX.astro"
+
+type Props = {
+  post: CollectionEntry<"posts">
+}
+
+const { post } = Astro.props
+---
+
+<div>
+  <div
+    class="aspect-16/9 overflow-hidden rounded-t-[calc(0.5rem-1px)]"
+    data-image
+  >
+    <CloudinaryImage
+      alt={`thumbnail of ${post.slug}`}
+      class="h-full w-full object-cover"
+      fetchPriority="high"
+      src={post.data.thumbnail}
+    />
+  </div>
+  <div>
+    <h1>
+      <BudouX>{post.data.title}</BudouX>
+    </h1>
+    <p>
+      <BudouX>{post.data.description}</BudouX>
+    </p>
+    <div>
+      <span></span><span></span>
+    </div>
+    {post.data.tags && <div />}
+  </div>
+</div>
