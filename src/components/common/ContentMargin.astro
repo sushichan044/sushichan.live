@@ -1,0 +1,18 @@
+---
+import type { HTMLTag } from "astro/types"
+import s from "@/components/common/content-margin.module.scss"
+import type { AstroProps } from "@/utils/@types/jsxProps"
+
+type Props<T extends HTMLTag> = {
+  asElement?: T
+  class?: string
+  props?: AstroProps<T>
+}
+
+const { asElement, class: className, ...props } = Astro.props
+const Component = asElement ?? "div"
+---
+
+<Component class:list={[s.root, className && className]} {...props}>
+  <slot />
+</Component>
