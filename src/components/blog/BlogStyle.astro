@@ -8,6 +8,6 @@ type Props = {
 const { class: className, ...props } = Astro.props
 ---
 
-<article class:list={[s.root, className && className]} {...props}>
+<div class:list={[s.root, className && className]} {...props}>
   <slot />
-</article>
+</div>

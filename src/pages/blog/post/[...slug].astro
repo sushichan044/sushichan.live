@@ -1,7 +1,7 @@
 ---
 import BlogFrontMatter from "@/components/blog/BlogFrontMatter.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
-import BlogArticle from "@/components/blog/BlogArticle.astro"
+import BlogStyle from "@/components/blog/BlogStyle.astro"
 import BlogPostSEO from "@/components/meta/BlogPostSEO.astro"
 import NetabareAlert from "@/components/ui/NetabareAlert.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
@@ -35,18 +35,20 @@ export const prerender = true
 <BaseLayout>
   <BlogPostSEO entry={entry} slot="seo" />
   <ContentLayout>
-    <BlogArticle>
-      <BlogFrontMatter entry={entry} />
-      <div class="divider"></div>
-      {
-        includeNetabare ? (
-          <NetabareAlert backIfNewTab="/blog" netabareList={netabareList}>
+    <BlogFrontMatter entry={entry} />
+    <div class="divider"></div>
+    {
+      includeNetabare ? (
+        <NetabareAlert backIfNewTab="/blog" netabareList={netabareList}>
+          <BlogStyle>
             <Content />
-          </NetabareAlert>
-        ) : (
+          </BlogStyle>
+        </NetabareAlert>
+      ) : (
+        <BlogStyle>
           <Content />
-        )
-      }
-    </BlogArticle>
+        </BlogStyle>
+      )
+    }
   </ContentLayout>
 </BaseLayout>
