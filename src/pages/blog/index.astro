@@ -1,8 +1,7 @@
 ---
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
-import Link from "@/components/base/Link.astro"
-import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
+import BlogPostCard from "@/components/blog/BlogPostCard.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
 import { getAllPosts } from "@/lib/blogPost"
 
@@ -19,21 +18,12 @@ export const prerender = true
     disableTitleTemplate
   />
   <ContentLayout>
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-      {
-        posts.map(({ data, slug }) => (
-          <Link href={`/blog/post/${slug}`} rel="prefetch">
-            <span class="flex flex-col flex-nowrap rounded-lg border p-2">
-              <CloudinaryImage
-                alt={`thumbnail of ${slug}`}
-                fetchPriority="high"
-                src={data.thumbnail}
-              />
-              <h2>{data.title}</h2>
-            </span>
-          </Link>
-        ))
-      }
+    <div class="my-4 flex flex-col flex-nowrap gap-2">
+      <h1 class="text-2xl font-bold">すしにっき</h1>
+      <p>様々な文字を書いています</p>
+    </div>
+    <div class="grid w-full grid-cols-1 justify-stretch gap-4 md:grid-cols-2">
+      {posts.map((post) => <BlogPostCard post={post} />)}
     </div>
   </ContentLayout>
 </BaseLayout>

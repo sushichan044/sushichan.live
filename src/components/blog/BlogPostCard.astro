@@ -1,0 +1,43 @@
+---
+import type { CollectionEntry } from "astro:content"
+import Link from "@/components/base/Link.astro"
+import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
+import BudouX from "@/components/common/BudouX.astro"
+
+import { dtTool } from "@/lib/date"
+
+type Props = {
+  post: CollectionEntry<"posts">
+}
+
+const { post } = Astro.props
+
+const formattedDate = dtTool.formatInJst(
+  dtTool.replaceTzWithJst(post.data.createdAt),
+  "yyyy/MM/dd",
+)
+---
+
+<article>
+  <Link href={`/blog/post/${post.slug}`} variants={{ decoration: "none" }}>
+    <div
+      class="flex h-full flex-col flex-nowrap gap-2 rounded-lg outline outline-1 outline-slate-700 dark:outline-slate-400 pb-5 text-center"
+    >
+      <div
+        data-image
+        class="aspect-16/9 overflow-hidden rounded-t-[calc(0.5rem-1px)]"
+      >
+        <CloudinaryImage
+          alt={`thumbnail of ${post.slug}`}
+          fetchPriority="high"
+          class="object-cover w-full h-full"
+          src={post.data.thumbnail}
+        />
+      </div>
+      <span>{formattedDate}</span>
+      <h2 class="inline-block px-2 text-xl font-bold">
+        <BudouX>{post.data.title}</BudouX>
+      </h2>
+    </div>
+  </Link>
+</article>
