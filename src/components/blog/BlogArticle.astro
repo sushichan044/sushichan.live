@@ -1,0 +1,13 @@
+---
+import s from "@/components/blog/blog-article.module.scss"
+
+type Props = {
+  class?: string
+}
+
+const { class: className, ...props } = Astro.props
+---
+
+<article class:list={[s.root, className && className]} {...props}>
+  <slot />
+</article>
