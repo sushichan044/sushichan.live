@@ -18,7 +18,7 @@ const mdxIntegrations = [
       "./src/components/ui/card/MessageCard.astro",
       "./src/components/ui/card/PlayerCard.astro",
       "./src/components/ui/card/TextCard.astro",
-      // "./src/components/ui/card/UrlCard.astro",
+      "./src/components/ui/card/UrlCard.astro",
       "./src/components/ui/card/TweetCard.astro",
       "./src/components/ui/card/TimelineCard.astro",
       "./src/components/utils/Spoiler.astro",
@@ -67,7 +67,7 @@ export default defineConfig({
       minify: false,
     },
     ssr: {
-      noExternal: ["react-tweet"],
+      noExternal: ["react-tweet", "fetch-site-metadata"],
     },
   },
 })
