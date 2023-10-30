@@ -1,7 +1,8 @@
 ---
+import BlogFrontMatter from "@/components/blog/BlogFrontMatter.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
+import ContentMargin from "@/components/common/ContentMargin.astro"
 import BlogPostSEO from "@/components/meta/BlogPostSEO.astro"
-import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
 import NetabareAlert from "@/components/ui/NetabareAlert.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import { getAllPosts } from "@/lib/blogPost"
@@ -22,7 +23,10 @@ type Props = {
 const { entry } = Astro.props
 const { Content } = await entry.render()
 
-const netabareList = entry.data.netabare || []
+const netabareList =
+  entry.data.netabare && entry.data.netabare.length > 0
+    ? entry.data.netabare
+    : []
 const includeNetabare = netabareList.length > 0
 
 export const prerender = true
@@ -31,16 +35,18 @@ export const prerender = true
 <BaseLayout>
   <BlogPostSEO entry={entry} slot="seo" />
   <ContentLayout>
-    <h1>{entry.data.title}</h1>
-    <CloudinaryImage alt={entry.data.title} src={entry.data.thumbnail} />
-    {
-      includeNetabare ? (
-        <NetabareAlert backIfNewTab="/blog" netabareList={netabareList}>
+    <ContentMargin asElement="article">
+      <BlogFrontMatter entry={entry} />
+      <div class="divider"></div>
+      {
+        includeNetabare ? (
+          <NetabareAlert backIfNewTab="/blog" netabareList={netabareList}>
+            <Content />
+          </NetabareAlert>
+        ) : (
           <Content />
-        </NetabareAlert>
-      ) : (
-        <Content />
-      )
-    }
+        )
+      }
+    </ContentMargin>
   </ContentLayout>
 </BaseLayout>

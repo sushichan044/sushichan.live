@@ -4,6 +4,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro"
 import BlogPostCard from "@/components/blog/BlogPostCard.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
 import { getAllPosts } from "@/lib/blogPost"
+import AllTags from "@/components/blog/AllTags.astro"
 
 const posts = await getAllPosts((a, b) => {
   if (a.data.createdAt < b.data.createdAt) return 1
@@ -25,6 +26,7 @@ export const prerender = true
     <div class="my-4 flex flex-col flex-nowrap gap-2">
       <h1 class="text-2xl font-bold">すしにっき</h1>
       <p>様々な文字を書いています</p>
+      <AllTags />
     </div>
     <div class="grid w-full grid-cols-1 justify-stretch gap-4 md:grid-cols-2">
       {posts.map((post) => <BlogPostCard post={post} />)}
