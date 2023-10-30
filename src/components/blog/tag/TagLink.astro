@@ -8,8 +8,6 @@ type Props = {
 const { tag } = Astro.props
 ---
 
-<span class="underline-offset-2">
-  <Link href={`/blog/tag/${tag}`}>
-    {`#${tag}`}
-  </Link>
-</span>
+<Link href={`/blog/tag/${tag}`}>
+  {`#${tag}`}
+</Link>

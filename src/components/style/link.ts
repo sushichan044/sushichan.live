@@ -11,7 +11,7 @@ const LinkStyle = tv({
       neutral: "transition-colors duration-200",
     },
     decoration: {
-      underline: "underline",
+      underline: "underline underline-offset-[3px]",
       none: "no-underline",
     },
   },
