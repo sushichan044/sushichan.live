@@ -1,14 +1,19 @@
 ---
+import type { MarkdownHeading } from "astro"
 import type { AstroComponentFactory } from "astro/runtime/server/index.js"
 
 import Link from "@/components/base/Link.astro"
+import Toc from "@/components/blog/Toc.astro"
 import Image from "@/components/mdx/Image.astro"
 
 type Props = {
   content: AstroComponentFactory
+  headings?: MarkdownHeading[]
 }
 
-const { content: Content } = Astro.props
+const { content: Content, headings } = Astro.props
 ---
+
+{headings && headings.length > 0 && <Toc depth={2} headings={headings} />}
 
 <Content components={{ img: Image, a: Link }} />

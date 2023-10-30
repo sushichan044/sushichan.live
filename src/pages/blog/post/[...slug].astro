@@ -4,6 +4,7 @@ import type { CollectionEntry } from "astro:content"
 import BlogFrontMatter from "@/components/blog/BlogFrontMatter.astro"
 import BlogStyle from "@/components/blog/BlogStyle.astro"
 import MDXRenderer from "@/components/blog/MDXRenderer.astro"
+import Toc from "@/components/blog/Toc.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BlogPostSEO from "@/components/meta/BlogPostSEO.astro"
 import NetabareWrapper from "@/components/ui/NetabareWrapper.astro"
@@ -23,7 +24,7 @@ type Props = {
 }
 
 const { entry } = Astro.props
-const { Content } = await entry.render()
+const { Content, headings } = await entry.render()
 
 export const prerender = true
 ---
@@ -35,7 +36,7 @@ export const prerender = true
     <div class="divider"></div>
     <NetabareWrapper netabareList={entry.data.netabare}>
       <BlogStyle>
-        <MDXRenderer content={Content} />
+        <MDXRenderer content={Content} headings={headings} />
       </BlogStyle>
     </NetabareWrapper>
   </ContentLayout>
