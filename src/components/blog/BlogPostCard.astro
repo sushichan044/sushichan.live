@@ -18,14 +18,17 @@ const formattedDate = dtTool.formatInJst(
 )
 ---
 
-<article class:list={[post.data.status !== "published" && "bg-yellow-500"]}>
+<article>
   <Link
     href={`/blog/post/${post.slug}`}
     rel="prefetch-intent"
     variants={{ decoration: "none" }}
   >
     <div
-      class="flex h-full flex-col flex-nowrap gap-2 rounded-lg pb-5 text-center outline outline-1 outline-slate-700 dark:outline-slate-400"
+      class:list={[
+        "flex h-full flex-col flex-nowrap gap-2 rounded-lg pb-5 text-center outline outline-1 outline-slate-700 dark:outline-slate-400",
+        post.data.status !== "published" && "bg-yellow-500",
+      ]}
     >
       <div
         class="aspect-16/9 overflow-hidden rounded-t-[calc(0.5rem-1px)]"
