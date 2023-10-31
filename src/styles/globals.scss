@@ -1,5 +1,6 @@
 @use "./base" as base;
 @use "./config/mixins" as mixin;
+@use "./variables" as var;
 
 body {
   display: flex;
@@ -21,6 +22,10 @@ body {
 
   @include base.typography;
   @include base.base-color;
+}
+
+* {
+  letter-spacing: var.$letter-spacing;
 }
 
 main {
