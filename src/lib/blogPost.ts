@@ -7,7 +7,11 @@ type sortAction = (
 
 const getAllPosts = async (sortAction?: sortAction) => {
   const posts = await getCollection("posts", ({ data }) => {
-    return import.meta.env.DEV || data.status === "published"
+    return (
+      import.meta.env.DEV ||
+      import.meta.env.SHOW_ALL_POST === "true" || // this is for preview on cloudflare pages
+      data.status === "published"
+    )
   })
 
   if (sortAction !== undefined) {
