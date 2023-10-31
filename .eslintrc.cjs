@@ -7,7 +7,6 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:jsx-a11y/recommended",
     "plugin:tailwindcss/recommended",
     "prettier",
   ],
@@ -72,7 +71,11 @@ module.exports = {
       parserOptions: {
         project: "./tsconfig.json",
       },
-      extends: ["plugin:react/recommended", "plugin:react-hooks/recommended"],
+      extends: [
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:jsx-a11y/recommended",
+      ],
       rules: {
         "react/self-closing-comp": [
           "error",
