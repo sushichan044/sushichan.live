@@ -1,3 +1,5 @@
+import { declareLet } from "@/utils/declareLet"
+
 type ImageLoaderOption = {
   src: string
   width: number
@@ -17,13 +19,7 @@ const cloudinaryLoaderBase = ({
 }: ImageLoaderOption) => {
   // src = https://res.cloudinary.com/sushi-chan/image/upload/v1689696723/blog/my-first-walk/b1iajynl60c0uvmdapfi.jpg
   const imageIdentifier = getCloudinaryIdentifier(src)
-  const params = [
-    "f_auto",
-    "c_limit",
-    `w_${width}`,
-    `q_${quality || "auto"}`,
-    "f_webp",
-  ]
+  const params = ["c_limit", `w_${width}`, `q_${quality || "auto"}`, "f_webp"]
   if (blur) params.push("e_blur:1600")
   return `https://res.cloudinary.com/sushi-chan/image/upload/${params.join(
     ",",
@@ -47,10 +43,19 @@ export const getCloudinaryImageSize = async (
     const isJson = res.headers.get("content-type")?.includes("application/json")
     const data = isJson ? await res.json() : await res.text()
     if (res.ok && isJson) {
-      return {
-        width: data?.input?.width,
-        height: data?.input?.height,
-      }
+      const width = declareLet(() => {
+        if (data?.output?.width !== null) {
+          return data?.output?.width
+        }
+        return 1200
+      })
+      const height = declareLet(() => {
+        if (data?.output?.height !== null) {
+          return data?.output?.height
+        }
+        return 900
+      })
+      return { width, height }
     } else {
       console.error(data)
     }
