@@ -9,6 +9,7 @@ import BlogPostSEO from "@/components/meta/BlogPostSEO.astro"
 import NetabareWrapper from "@/components/ui/NetabareWrapper.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import { getAllPosts } from "@/lib/blogPost"
+
 export async function getStaticPaths() {
   const blogEntries = await getAllPosts()
   return blogEntries.map((entry) => ({
@@ -32,9 +33,9 @@ export const prerender = true
   <ContentLayout asElement="article">
     <BlogFrontMatter entry={entry} />
     <div class="divider"></div>
-    <NetabareWrapper netabareList={entry.data.netabare}>
+    <NetabareWrapper backIfNewTab="/blog" netabareList={entry.data.netabare}>
       <BlogStyle>
-        <MDXRenderer content={Content} headings={headings} />
+        <MDXRenderer content={Content} headings={headings} tocDepth={6} />
       </BlogStyle>
     </NetabareWrapper>
   </ContentLayout>

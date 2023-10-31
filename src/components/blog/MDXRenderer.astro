@@ -8,12 +8,24 @@ import Image from "@/components/mdx/Image.astro"
 
 type Props = {
   content: AstroComponentFactory
-  headings?: MarkdownHeading[]
-}
+} & (
+  | {
+      headings: MarkdownHeading[]
+      tocDepth: number
+    }
+  | {
+      headings?: undefined
+      tocDepth?: undefined
+    }
+)
 
-const { content: Content, headings } = Astro.props
+const { content: Content, headings, tocDepth } = Astro.props
 ---
 
-{headings && headings.length > 0 && <Toc depth={2} headings={headings} />}
+{
+  headings && headings.length > 0 && (
+    <Toc depth={tocDepth} headings={headings} />
+  )
+}
 
 <Content components={{ img: Image, a: Link }} />
