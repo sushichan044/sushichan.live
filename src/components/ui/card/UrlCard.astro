@@ -4,12 +4,14 @@ import type { Metadata } from "fetch-site-metadata"
 import Link from "@/components/base/Link.astro"
 import Card, { type CardProps } from "@/components/common/Card.astro"
 import fetchMetaData from "@/lib/fetchMetaData"
+import { declareLet } from "@/utils/declareLet"
 
 interface Props extends CardProps {
   url: string | URL
 }
 
 const { url: rawUrl, ...props } = Astro.props
+
 type ImageSet = {
   src: string
   alt: string
@@ -33,7 +35,13 @@ const getImage = ({ image, icon, title }: Metadata): ImageSet | undefined => {
   return undefined
 }
 
-const url = new URL(rawUrl)
+const url = declareLet(() => {
+  if (typeof rawUrl === "string" && rawUrl.startsWith("/")) {
+    return new URL(rawUrl, Astro.url)
+  }
+
+  return new URL(rawUrl)
+})
 const metaData = await fetchMetaData(url.toString())
 const imageSet = getImage(metaData)
 ---
