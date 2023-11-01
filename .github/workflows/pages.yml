@@ -49,19 +49,19 @@ jobs:
           # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
           wranglerVersion: '3'
 
-  notify:
-    needs: build-and-deploy
-    name: Notify to GitHub
-    runs-on: ubuntu-latest
-    steps:
-      - name: Add Status Check Details
-        uses: LouisBrunner/checks-action@v1.6.2
-        if: always()
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          name: Deploy to Cloudflare Pages
-          status: "completed"
-          conclusion: ${{needs.build-and-deploy.result}}
-          details_url: ${{needs.build-and-deploy.outputs.url}}
-          output: |
-            {"title": "Deploy to Cloudflare Pages", "summary": "Deployed to ${{needs.build-and-deploy.outputs.url}}"}
+  # notify:
+  #   needs: build-and-deploy
+  #   name: Notify to GitHub
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Add Status Check Details
+  #       uses: LouisBrunner/checks-action@v1.6.2
+  #       if: always()
+  #       with:
+  #         token: ${{ secrets.GITHUB_TOKEN }}
+  #         name: Deploy to Cloudflare Pages
+  #         status: "completed"
+  #         conclusion: ${{needs.build-and-deploy.result}}
+  #         details_url: ${{needs.build-and-deploy.outputs.url}}
+  #         output: |
+  #           {"title": "Deploy to Cloudflare Pages", "summary": "Deployed to ${{needs.build-and-deploy.outputs.url}}"}
