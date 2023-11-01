@@ -11,9 +11,12 @@ runs:
   steps:
     - name: Setup GitHub CLI
       run: |
-        type {gh actions-cache} >/dev/null 2>&1 && \
-          gh extension install actions/gh-actions-cache || \
-          echo "gh-actions-cache already installed"
+        if [[ $(gh extension list) == *actions/gh-actions-cache* ]]; then
+          echo "gh-actions-cache extension already installed."
+        else
+          echo "Installing gh-actions-cache extension..."
+          gh extension install actions/gh-actions-cache
+        fi
       shell: bash
       env:
         GH_TOKEN: ${{ inputs.github-token }}
