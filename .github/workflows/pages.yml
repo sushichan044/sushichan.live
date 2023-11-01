@@ -17,6 +17,9 @@ jobs:
           node-version-file: "package.json"
           cache: "yarn"
 
+      - name: Use yarn v4
+        run: yarn policies set-version berry
+
       - name: Install Dependencies
         run: yarn install --immutable
 
