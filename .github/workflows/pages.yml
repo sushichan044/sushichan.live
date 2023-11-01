@@ -88,7 +88,7 @@ jobs:
           gh extension install actions/gh-actions-cache
 
           echo "Fetching cache info..."
-          oldCacheKey=$(gh cache list -R "${REPO}" -B "${BRANCH}" --key "${OS}-astro-assets" --sort last-used --order asc | cut -f 1 | sed -e '$d')
+          oldCacheKey=$(gh cache list --repo "${REPO}" --branch "${BRANCH}" --key "${OS}-astro-assets" --sort last-used --order asc | cut -f 1 | sed -e '$d')
 
           if [ -z "$oldCacheKey" ]; then
             echo "No old cache found."
@@ -100,7 +100,7 @@ jobs:
           echo "Deleting old caches..."
 
           for key in $oldCacheKey; do
-            gh cache delete "${key}" -R "${REPO}" -B "${BRANCH}" --confirm
+            gh cache delete "${key}" --repo "${REPO}" --branch "${BRANCH}" --confirm
           done
 
           echo "Successfully deleted old caches."
