@@ -26,11 +26,27 @@ jobs:
       - name: Install Dependencies
         run: yarn install --immutable
 
+      - name: Restore cached Astro Assets
+        id: restore-astro-assets
+        uses: actions/cache/restore@v3
+        with:
+          path: |
+            node_modules/.astro
+          key: ${{ runner.os }}-primes
+
       - name: Build
         run: yarn run build
         env:
           TWEET_API_URL: ${{secrets.TWEET_API_URL}}
           SHOW_ALL_POST: ${{github.ref_name != 'main'}}
+
+      - name: Cache Astro Assets
+        id: cache-astro-assets
+        uses: actions/cache/save@v3
+        with:
+          path: |
+            node_modules/.astro
+          key: ${{ steps.restore-astro-assets.outputs.cache-primary-key }}
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
