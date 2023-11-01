@@ -1,0 +1,37 @@
+inputs:
+  cache-key-prefix:
+    description: The prefix of the cache key you wan to clean up
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup GitHub CLI
+      run: gh extension install actions/gh-actions-cache
+      shell: bash
+
+    - name: Clean old caches
+      run: |
+        echo "Fetching cache info..."
+        oldCacheKeys=$(gh actions-cache list -R "${REPO}" -B "${BRANCH}" --key "${CACHE_KEY_PREFIX}" --sort last-used --order asc | cut -f 1 | sed -e '$d')
+
+        if [ -z "$oldCacheKey" ]; then
+          echo "No old cache found."
+          exit 0
+        fi
+
+        set +e
+        echo "$(echo "$oldCacheKeys" | wc -l) old caches found."
+        echo "Cleaning old caches..."
+
+        for key in $oldCacheKeys; do
+          gh actions-cache delete "${key}" -R "${REPO}" -B "${BRANCH}" --confirm
+        done
+
+        echo "Successfully deleted old caches."
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        REPO: ${{ github.repository }}
+        BRANCH: ${{ github.ref }}
+        CACHE_KEY_PREFIX: ${{ inputs.cache-key-prefix }}
