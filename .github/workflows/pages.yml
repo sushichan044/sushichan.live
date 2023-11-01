@@ -14,34 +14,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: "package.json"
-
-      - name: Use yarn v4
-        run: yarn policies set-version berry
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
-        shell: bash
-
-      - name: Restore cached yarn packages
-        id: restore-yarn-cache
-        uses: actions/cache/restore@v3
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-cache-${{ hashFiles('**/yarn.lock','.yarnrc.yml') }}
-
-      - name: Install Dependencies
-        run: yarn install --immutable
-
-      - name: Cache yarn packages
-        uses: actions/cache/save@v3
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ steps.restore-yarn-cache.outputs.cache-primary-key }}
+      - name: Setup Node.js and Install dependencies with yarn berry
+        uses: "./.github/actions/setup-node-yarn-berry"
 
       - name: Restore cached Astro Assets
         id: restore-astro-assets

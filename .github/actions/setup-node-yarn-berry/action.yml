@@ -1,0 +1,31 @@
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: "package.json"
+
+    - name: Use yarn berry
+      run: yarn policies set-version berry
+
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+      shell: bash
+
+    - name: Restore cached yarn packages
+      id: restore-yarn-cache
+      uses: actions/cache/restore@v3
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-cache-${{ hashFiles('**/yarn.lock','.yarnrc.yml') }}
+
+    - name: Install Dependencies
+      run: yarn install --immutable
+
+    - name: Cache yarn packages
+      uses: actions/cache/save@v3
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ steps.restore-yarn-cache.outputs.cache-primary-key }}
