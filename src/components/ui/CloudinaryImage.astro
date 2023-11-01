@@ -23,7 +23,7 @@ const rawSize = await getCloudinaryImageSize(src)
 const altIsEmpty = alt === "" || alt === undefined
 
 const size = declareLet(() => {
-  const MAX_WIDTH = 960
+  const MAX_WIDTH = 1080
   let w = rawSize.width
   let h = rawSize.height
   if (w > MAX_WIDTH) {
