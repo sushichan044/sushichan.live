@@ -86,6 +86,7 @@ jobs:
 
       - name: Delete Old Astro Asset Cache if there is a new one
         run: |
+          echo "gh cache list --repo "${REPO}" --branch "${BRANCH}" --key "${OS}-astro-assets""
           gh extension install actions/gh-actions-cache
 
           echo "Fetching cache info..."
