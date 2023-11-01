@@ -8,7 +8,7 @@ const posts = defineCollection({
     updatedAt: z.coerce.date().optional(),
     thumbnail: z.string().url(),
     tags: z.array(z.string()).optional(),
-    netabare: z.array(z.string()).optional(),
+    alert: z.array(z.string()).optional(),
     status: z.enum(["draft", "published", "private"]).default("draft"),
     relatedPosts: reference("posts").array().optional(),
   }),
