@@ -1,0 +1,113 @@
+name: deploy to Cloudflare Pages
+
+on: push
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy to Cloudflare Pages
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+      actions: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: "package.json"
+
+      - name: Use yarn v4
+        run: yarn policies set-version berry
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+        shell: bash
+
+      - name: Restore cached yarn packages
+        id: restore-yarn-cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-cache-${{ hashFiles('**/yarn.lock','.yarnrc.yml') }}
+
+      - name: Install Dependencies
+        run: yarn install --immutable
+
+      - name: Cache yarn packages
+        uses: actions/cache/save@v3
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ steps.restore-yarn-cache.outputs.cache-primary-key }}
+
+      - name: Restore cached Astro Assets
+        id: restore-astro-assets
+        uses: actions/cache/restore@v3
+        with:
+          path: |
+            node_modules/.astro
+          key: ${{ runner.os }}-astro-assets-${{ hashFiles('node_modules/.astro/assets/**') }}
+          restore-keys: |
+            ${{ runner.os }}-astro-assets-
+
+      - name: Build
+        run: yarn run build
+        env:
+          TWEET_API_URL: ${{ secrets.TWEET_API_URL }}
+          SHOW_ALL_POST: ${{ github.ref_name != 'main' }}
+
+      - name: Cache Astro Assets
+        id: cache-astro-assets
+        uses: actions/cache/save@v3
+        with:
+          path: |
+            node_modules/.astro
+          key: ${{ runner.os }}-astro-assets-${{ hashFiles('node_modules/.astro/assets/**') }}
+
+      - name: Delete old Astro asset cache if newer cache created in current branch
+        run: |
+          gh extension install actions/gh-actions-cache
+
+          echo "Fetching cache info..."
+          oldCacheKey=$(gh actions-cache list -R "${REPO}" -B "${BRANCH}" --key "${OS}-astro-assets" --sort last-used --order asc | cut -f 1 | sed -e '$d')
+
+          if [ -z "$oldCacheKey" ]; then
+            echo "No old cache found."
+            exit 0
+          fi
+
+          ## Setting this to not fail the workflow while deleting cache keys.
+          set +e
+          echo "Deleting old caches..."
+
+          for key in $oldCacheKey; do
+            gh actions-cache delete "${key}" -R "${REPO}" -B "${BRANCH}" --confirm
+          done
+
+          echo "Successfully deleted old caches."
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          BRANCH: ${{ github.ref }}
+          OS: ${{ runner.os }}
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: ${{ vars.CLOUDFLARE_PAGES_PROJECT_NAME }}
+          directory: "dist"
+          # Optional: Enable this if you want to have GitHub Deployments triggered
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          # Optional: Switch what branch you are publishing to.
+          # By default this will be the branch which triggered this workflow
+          # branch: main
+          # Optional: Change the working directory
+          # workingDirectory: my-site
+          # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
+          wranglerVersion: "3"
