@@ -11,16 +11,27 @@ $spoiler-color-dark: #4d4d5d;
   margin-inline: 0.25em;
   background-color: $spoiler-color-light;
   border-radius: 0.25em;
-  transition: background-color 0.1s ease-in-out;
+  transition:
+    background-color 0.1s ease-in-out,
+    color 0.1s ease-in-out;
 
   @include mix.scheme("dark") {
     background-color: $spoiler-color-dark;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: #767691;
+    transition: background-color 0.1s ease-in-out;
+
+    @include mix.scheme("dark") {
+      background-color: #74748b;
+    }
   }
 }
 
 .root[aria-expanded="false"] {
   color: transparent;
-  transition: color 0.1s ease-in-out;
 
   .content * {
     visibility: hidden;
@@ -29,14 +40,13 @@ $spoiler-color-dark: #4d4d5d;
 }
 
 .root[aria-expanded="true"] {
-  color: var.$text-color-light;
+  color: var.$text-color-dark;
 
   @include mix.scheme("dark") {
     color: var.$text-color-dark;
   }
 
   cursor: auto;
-  transition: color 0.1s ease-in-out;
 
   .content * {
     visibility: visible;
