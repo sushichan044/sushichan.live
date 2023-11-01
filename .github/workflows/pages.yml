@@ -64,7 +64,7 @@ jobs:
         with:
           path: |
             node_modules/.astro
-          key: ${{ steps.restore-astro-assets.outputs.cache-primary-key }}
+          key: ${{ runner.os }}-astro-assets-${{ hashFiles('node_modules/.astro/assets/**') }}
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
