@@ -34,7 +34,7 @@ runs:
         echo "Successfully deleted old caches."
       shell: bash
       env:
-        GITHUB_TOKEN: ${{ inputs.github-token }}
+        GH_TOKEN: ${{ inputs.github-token }}
         REPO: ${{ github.repository }}
         BRANCH: ${{ github.ref }}
         CACHE_KEY_PREFIX: ${{ inputs.cache-key-prefix }}
