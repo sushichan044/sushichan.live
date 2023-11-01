@@ -1,37 +1,45 @@
 ---
+import Icon from "@/components/common/Icon.astro"
 type Props = {
-  netabareList: string[]
   backIfNewTab?: string
 }
-const { netabareList, backIfNewTab = "/" } = Astro.props
+const { backIfNewTab = "/" } = Astro.props
 ---
 
-<netabare-alert data-back-to={backIfNewTab}>
+<page-alert data-back-to={backIfNewTab}>
   <dialog class="modal modal-bottom sm:modal-middle">
     <div class="modal-box">
-      <h3 class="text-lg font-bold">このページは以下のネタバレを含みます！</h3>
-      <div class="py-4">
-        <ul>
-          {netabareList.map((feature) => <li>{feature}</li>)}
-        </ul>
-      </div>
-      <div class="modal-action">
-        <form method="dialog">
-          <div class="flex flex-row flex-nowrap gap-x-4">
-            <button class="btn btn-error">閲覧しない</button>
-            <button class="btn btn-success">承諾して閲覧する</button>
-          </div>
-        </form>
+      <div class="flex flex-col flex-nowrap gap-y-2">
+        <div class="flex flex-row flex-nowrap items-center gap-x-1 text-xl">
+          <Icon
+            class="text-yellow-400"
+            icon="fa6-solid:triangle-exclamation"
+            size="xl"
+          />
+          <span>注意</span>
+        </div>
+        <h3 class="text-lg font-bold">このページは以下の内容を含みます！</h3>
+        <div>
+          <slot name="alert-content" />
+        </div>
+        <div class="modal-action">
+          <form method="dialog">
+            <div class="flex flex-row flex-nowrap gap-x-4">
+              <button class="btn btn-error">閲覧しない</button>
+              <button class="btn btn-success">承諾して閲覧する</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </dialog>
   <div aria-hidden="true" style="display:none" data-content>
     <slot />
   </div>
-</netabare-alert>
+</page-alert>
 
 <script>
-  class NetabareAlert extends HTMLElement {
+  class PageAlert extends HTMLElement {
     constructor() {
       super()
 
@@ -67,5 +75,5 @@ const { netabareList, backIfNewTab = "/" } = Astro.props
       dialog?.showModal()
     }
   }
-  customElements.define("netabare-alert", NetabareAlert)
+  customElements.define("page-alert", PageAlert)
 </script>
