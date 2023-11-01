@@ -58,5 +58,8 @@
   "prettier.documentSelectors": ["**/*.astro"],
   "tailwindCSS.experimental.classRegex": [
     ["tv\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-  ]
+  ],
+  "emmet.includeLanguages": {
+    "mdx": "html"
+  }
 }
