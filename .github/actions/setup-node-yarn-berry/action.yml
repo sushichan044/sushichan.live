@@ -3,7 +3,6 @@ runs:
   steps:
     - name: Setup Node.js
       uses: actions/setup-node@v4
-      shell: bash
       with:
         node-version-file: "package.json"
 
@@ -19,7 +18,6 @@ runs:
     - name: Restore cached yarn packages
       id: restore-yarn-cache
       uses: actions/cache/restore@v3
-      shell: bash
       with:
         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
         key: ${{ runner.os }}-yarn-cache-${{ hashFiles('**/yarn.lock','.yarnrc.yml') }}
@@ -30,7 +28,6 @@ runs:
 
     - name: Cache yarn packages
       uses: actions/cache/save@v3
-      shell: bash
       with:
         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
         key: ${{ steps.restore-yarn-cache.outputs.cache-primary-key }}
