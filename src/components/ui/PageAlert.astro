@@ -3,15 +3,25 @@ import Icon from "@/components/common/Icon.astro"
 type Props = {
   backIfNewTab?: string
 }
+
+const titleId = crypto.randomUUID()
+const descriptionId = crypto.randomUUID()
+
 const { backIfNewTab = "/" } = Astro.props
 ---
 
 <page-alert data-back-to={backIfNewTab}>
-  <dialog class="modal modal-bottom sm:modal-middle">
+  <dialog
+    aria-describedby={descriptionId}
+    aria-labelledby={titleId}
+    class="modal modal-bottom sm:modal-middle"
+    role="alertdialog"
+  >
     <div class="modal-box">
       <div class="flex flex-col flex-nowrap gap-y-2">
         <div
           class="flex flex-row flex-nowrap items-center gap-x-1 text-xl font-bold"
+          id={titleId}
         >
           <Icon
             class="text-yellow-400"
@@ -20,9 +30,11 @@ const { backIfNewTab = "/" } = Astro.props
           />
           <span>注意</span>
         </div>
-        <h3 class="text-lg font-bold">このページは以下の内容を含みます！</h3>
-        <div>
-          <slot name="alert-content" />
+        <div id={descriptionId}>
+          <h3 class="text-lg font-bold">このページは以下の内容を含みます！</h3>
+          <div>
+            <slot name="alert-content" />
+          </div>
         </div>
         <div class="modal-action">
           <form method="dialog">
