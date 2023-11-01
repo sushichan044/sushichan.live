@@ -32,7 +32,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{runner.os }}-yarn-cache-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-cache-${{ hashFiles('**/yarn.lock','.yarnrc.yml') }}
 
       - name: Install Dependencies
         run: yarn install --immutable
@@ -41,7 +41,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{steps.restore-yarn-cache.outputs.cache-primary-key}}
+          key: ${{ steps.restore-yarn-cache.outputs.cache-primary-key }}
 
       - name: Restore cached Astro Assets
         id: restore-astro-assets
@@ -54,8 +54,8 @@ jobs:
       - name: Build
         run: yarn run build
         env:
-          TWEET_API_URL: ${{secrets.TWEET_API_URL}}
-          SHOW_ALL_POST: ${{github.ref_name != 'main'}}
+          TWEET_API_URL: ${{ secrets.TWEET_API_URL }}
+          SHOW_ALL_POST: ${{ github.ref_name != 'main' }}
 
       - name: Cache Astro Assets
         id: cache-astro-assets
@@ -69,8 +69,8 @@ jobs:
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{secrets.CLOUDFLARE_ACCOUNT_ID}}
-          projectName: ${{vars.CLOUDFLARE_PAGES_PROJECT_NAME}}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: ${{ vars.CLOUDFLARE_PAGES_PROJECT_NAME }}
           directory: "dist"
           # Optional: Enable this if you want to have GitHub Deployments triggered
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
@@ -81,20 +81,3 @@ jobs:
           # workingDirectory: my-site
           # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
           wranglerVersion: '3'
-
-  # notify:
-  #   needs: build-and-deploy
-  #   name: Notify to GitHub
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Add Status Check Details
-  #       uses: LouisBrunner/checks-action@v1.6.2
-  #       if: always()
-  #       with:
-  #         token: ${{ secrets.GITHUB_TOKEN }}
-  #         name: Deploy to Cloudflare Pages
-  #         status: "completed"
-  #         conclusion: ${{needs.build-and-deploy.result}}
-  #         details_url: ${{needs.build-and-deploy.outputs.url}}
-  #         output: |
-  #           {"title": "Deploy to Cloudflare Pages", "summary": "Deployed to ${{needs.build-and-deploy.outputs.url}}"}
