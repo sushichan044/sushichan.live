@@ -9,7 +9,7 @@ type Props = CardProps & MessageProps
 const { type, ...props } = Astro.props
 ---
 
-<Card {...props}>
+<Card maxWidth="full" {...props}>
   <Message type={type}>
     <slot />
   </Message>
