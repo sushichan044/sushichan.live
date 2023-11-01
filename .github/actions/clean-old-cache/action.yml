@@ -1,17 +1,27 @@
 inputs:
   cache-key-prefix:
     description: The prefix of the cache key you wan to clean up
-    required: true
+    required: false
+    default: ""
   github-token:
     description: The GitHub token to use for authentication
     required: true
+  leave-latest:
+    description: Whether to leave the latest cache
+    required: false
+    default: true
+  ref:
+    description: The branch to clean up
+    required: false
+    default: ${{ github.ref }}
+
 
 runs:
   using: "composite"
   steps:
     - name: Setup GitHub CLI
       run: |
-        if [[ $(gh extension list) == *actions/gh-actions-cache* ]]; then
+        if [[ $(gh extension list) =~ "actions/gh-actions-cache" ]]; then
           echo "gh-actions-cache extension already installed."
         else
           echo "Installing gh-actions-cache extension..."
@@ -24,7 +34,11 @@ runs:
     - name: Clean old caches
       run: |
         echo "Fetching cache info..."
-        oldCacheKeys=$(gh actions-cache list -R "${REPO}" -B "${BRANCH}" --key "${CACHE_KEY_PREFIX}" --sort last-used --order asc | cut -f 1 | sed -e '$d')
+        oldCacheKeys=$(gh actions-cache list -R "${REPO}" -B "${BRANCH}" --key "${CACHE_KEY_PREFIX}" --sort last-used --order asc | cut -f 1)
+
+        if [ "${LEAVE_LATEST}" = true ]; then
+          oldCacheKeys=$(echo "$oldCacheKeys" | sed -e '$d')
+        fi
 
         if [ -z "$oldCacheKey" ]; then
           echo "No old cache found."
@@ -44,5 +58,6 @@ runs:
       env:
         GH_TOKEN: ${{ inputs.github-token }}
         REPO: ${{ github.repository }}
-        BRANCH: ${{ github.ref }}
+        BRANCH: ${{ inputs.ref }}
         CACHE_KEY_PREFIX: ${{ inputs.cache-key-prefix }}
+        LEAVE_LATEST: ${{ inputs.leave-latest }}
