@@ -61,5 +61,8 @@
   ],
   "emmet.includeLanguages": {
     "mdx": "html"
+  },
+  "files.associations": {
+    "**/.github/**/action.{yml,yaml}": "github-actions-workflow"
   }
 }

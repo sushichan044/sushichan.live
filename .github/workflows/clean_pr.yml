@@ -1,0 +1,25 @@
+# https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows#force-deleting-cache-entries
+name: cleanup caches by a branch
+on:
+  pull_request:
+    types:
+      - closed
+  workflow_dispatch:
+
+permissions:
+  # https://docs.github.com/en/rest/actions/cache?apiVersion=2022-11-28#delete-github-actions-caches-for-a-repository-using-a-cache-key
+  actions: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Cleanup
+        uses: "./.actions/clean-old-cache"
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          leave-latest: false
+          ref: ${{ github.head_ref }}
