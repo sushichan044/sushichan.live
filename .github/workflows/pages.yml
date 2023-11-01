@@ -109,5 +109,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
-          BRANCH: ${{ github.head_ref }}
+          BRANCH: ${{ github.ref_name }}
           OS: ${{ runner.os }}
