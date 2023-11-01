@@ -15,6 +15,7 @@ runs:
 
     - name: Clean old caches
       run: |
+        echo "${GH_TOKEN}, ${REPO}, ${BRANCH}, ${CACHE_KEY_PREFIX}"
         echo "Fetching cache info..."
         oldCacheKeys=$(gh actions-cache list -R "${REPO}" -B "${BRANCH}" --key "${CACHE_KEY_PREFIX}" --sort last-used --order asc | cut -f 1 | sed -e '$d')
 
