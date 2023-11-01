@@ -8596,7 +8596,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:15":
+"lint-staged@npm:^15.0.2":
   version: 15.0.2
   resolution: "lint-staged@npm:15.0.2"
   dependencies:
@@ -14140,7 +14140,7 @@ __metadata:
     fetch-site-metadata: ^0.1.3
     husky: ^8.0.3
     ie-buster: ^2.0.2
-    lint-staged: 15
+    lint-staged: ^15.0.2
     markuplint: ^3.14.0
     npm-check-updates: ^16.14.6
     postcss-html: ^1.5.0
