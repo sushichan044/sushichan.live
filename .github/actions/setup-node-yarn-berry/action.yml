@@ -36,3 +36,4 @@ runs:
       uses: "./.github/actions/clean-old-cache"
       with:
         cache-key-prefix: ${{runner.os}}-yarn-cache-
+        github-token: ${{secrets.GITHUB_TOKEN}}

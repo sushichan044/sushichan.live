@@ -2,6 +2,9 @@ inputs:
   cache-key-prefix:
     description: The prefix of the cache key you wan to clean up
     required: true
+  github-token:
+    description: The GitHub token to use for authentication
+    required: true
 
 runs:
   using: "composite"
@@ -31,7 +34,7 @@ runs:
         echo "Successfully deleted old caches."
       shell: bash
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ inputs.github-token }}
         REPO: ${{ github.repository }}
         BRANCH: ${{ github.ref }}
         CACHE_KEY_PREFIX: ${{ inputs.cache-key-prefix }}
