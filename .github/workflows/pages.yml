@@ -16,6 +16,8 @@ jobs:
 
       - name: Setup Node.js and Install dependencies with yarn berry
         uses: "./.github/actions/setup-node-yarn-berry"
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Restore cached Astro Assets
         id: restore-astro-assets
