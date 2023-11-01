@@ -72,7 +72,7 @@ jobs:
           gh extension install actions/gh-actions-cache
 
           echo "Fetching cache info..."
-          oldCacheKey=$(gh actions-cache list -R "${REPO}" -B "${BRANCH}" --key "${OS}-astro-assets" --sort last-used --order asc | cut -f 1 | sed -e '$d')
+          oldCacheKey=$(gh actions-cache list -R "${REPO}" -B "${BRANCH}" --key "${OS}-astro-assets-" --sort last-used --order asc | cut -f 1 | sed -e '$d')
 
           if [ -z "$oldCacheKey" ]; then
             echo "No old cache found."
