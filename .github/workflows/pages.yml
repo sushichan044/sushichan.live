@@ -1,7 +1,6 @@
 name: deploy to Cloudflare Pages
 
-on:
-  push
+on: push
 
 jobs:
   build-and-deploy:
@@ -49,7 +48,9 @@ jobs:
         with:
           path: |
             node_modules/.astro
-          key: ${{ runner.os }}-astro-assets
+          key: ${{ runner.os }}-astro-assets-${{ hashFiles('node_modules/.astro/assets/**') }}
+          restore-keys: |
+            ${{ runner.os }}-astro-assets-
 
       - name: Build
         run: yarn run build
@@ -80,4 +81,4 @@ jobs:
           # Optional: Change the working directory
           # workingDirectory: my-site
           # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
-          wranglerVersion: '3'
+          wranglerVersion: "3"
