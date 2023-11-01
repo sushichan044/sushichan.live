@@ -1,0 +1,60 @@
+name: deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - **
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy to Cloudflare Pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: "package.json"
+          cache: "yarn"
+
+      - name: Install Dependencies
+        run: yarn install --immutable
+
+      - name: Build
+        run: yarn run build
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{secrets.CLOUDFLARE_ACCOUNT_ID}}
+          projectName: ${{vars.CLOUDFLARE_PAGES_PROJECT_NAME}}
+          directory: "dist"
+          # Optional: Enable this if you want to have GitHub Deployments triggered
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          # Optional: Switch what branch you are publishing to.
+          # By default this will be the branch which triggered this workflow
+          # branch: main
+          # Optional: Change the working directory
+          # workingDirectory: my-site
+          # Optional: Change the Wrangler version, allows you to point to a specific version or a tag such as `beta`
+          wranglerVersion: '3'
+
+  notify:
+    needs: build-and-deploy
+    name: Notify to GitHub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add Status Check Details
+        uses: LouisBrunner/checks-action@v1.6.2
+        if: always()
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: Deploy to Cloudflare Pages
+          status: "completed"
+          conclusion: ${{needs.build-and-deploy.result}}
+          details_url: ${{needs.build-and-deploy.outputs.url}}
+          output: |
+            {"title": "Deploy to Cloudflare Pages", "summary": "Deployed to ${{needs.build-and-deploy.outputs.url}}"}
