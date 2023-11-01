@@ -28,6 +28,7 @@ jobs:
         shell: bash
 
       - name: Restore cached yarn packages
+        id: restore-yarn-cache
         uses: actions/cache/restore@v3
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -40,7 +41,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{steps.yarn-cache-dir-path.outputs.cache-primary-key}}
+          key: ${{steps.restore-yarn-cache.outputs.cache-primary-key}}
 
       - name: Restore cached Astro Assets
         id: restore-astro-assets
