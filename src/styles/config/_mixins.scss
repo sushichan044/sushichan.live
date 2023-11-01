@@ -46,3 +46,11 @@ $breakpoints: (
     word-break: auto-phrase;
   }
 }
+
+@mixin text-wrap-balance {
+  text-wrap: wrap;
+
+  @supports (text-wrap: balance) {
+    text-wrap: balance;
+  }
+}
