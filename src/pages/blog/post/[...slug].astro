@@ -6,7 +6,7 @@ import BlogStyle from "@/components/blog/BlogStyle.astro"
 import MDXRenderer from "@/components/blog/MDXRenderer.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BlogPostSEO from "@/components/meta/BlogPostSEO.astro"
-import NetabareWrapper from "@/components/ui/NetabareWrapper.astro"
+import PageAlertWrapper from "@/components/ui/PageAlertWrapper.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import { getAllPosts } from "@/lib/blogPost"
 
@@ -25,6 +25,8 @@ type Props = {
 const { entry } = Astro.props
 const { Content, headings } = await entry.render()
 
+const showAlert = entry.data.alert && entry.data.alert.length > 0
+
 export const prerender = true
 ---
 
@@ -33,10 +35,20 @@ export const prerender = true
   <ContentLayout asElement="article">
     <BlogFrontMatter entry={entry} />
     <div class="divider"></div>
-    <NetabareWrapper backIfNewTab="/blog" netabareList={entry.data.netabare}>
+    <PageAlertWrapper backIfNewTab="/blog">
+      {
+        showAlert && (
+          // HACK: https://github.com/withastro/astro/issues/6318
+          <ul slot={showAlert && "alert"}>
+            {entry.data.alert?.map((n) => (
+              <li>{n}</li>
+            ))}
+          </ul>
+        )
+      }
       <BlogStyle>
         <MDXRenderer content={Content} headings={headings} tocDepth={2} />
       </BlogStyle>
-    </NetabareWrapper>
+    </PageAlertWrapper>
   </ContentLayout>
 </BaseLayout>

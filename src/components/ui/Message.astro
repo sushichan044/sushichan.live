@@ -9,12 +9,12 @@ export type Props = RequiredKey<VariantProps<typeof style>, "type">
 const { type } = Astro.props
 
 const style = tv({
-  base: "mx-auto flex w-full flex-row flex-nowrap items-baseline gap-4 rounded-lg p-4",
+  base: "mx-auto flex w-full flex-row flex-nowrap items-center gap-4 rounded-lg p-4",
   variants: {
     type: {
-      warn: "bg-yellow-300 dark:bg-yellow-600",
-      alert: "bg-red-300 dark:bg-red-600",
-      info: "bg-sky-300 dark:bg-sky-600",
+      warn: "bg-yellow-300 dark:bg-yellow-700",
+      alert: "bg-red-300 dark:bg-red-700",
+      info: "bg-sky-300 dark:bg-sky-700",
     },
   },
 })
