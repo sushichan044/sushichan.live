@@ -1,12 +1,17 @@
 ---
 import Footer from "@/components/layout/Footer.astro"
 import Header from "@/components/layout/Header.astro"
+import type { Props as HeadProps } from "@/components/meta/BaseHead.astro"
 import BaseHead from "@/components/meta/BaseHead.astro"
+
+type Props = HeadProps
+
+const props = Astro.props
 ---
 
 <html lang="ja">
   <head>
-    <BaseHead />
+    <BaseHead {...props} />
     <slot name="seo" />
   </head>
   <body>
