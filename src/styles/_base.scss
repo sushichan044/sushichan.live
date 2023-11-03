@@ -6,7 +6,11 @@
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  list-style-position: inside;
+
+  ul,
+  ol {
+    list-style-position: inside;
+  }
 
   @include mix.budoux;
 }
