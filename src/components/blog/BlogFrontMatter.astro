@@ -30,7 +30,10 @@ const updatedAt = entry.data.updatedAt
   transition:animate="fade"
   transition:name={entry.slug}
 >
-  <div class="aspect-auto overflow-hidden rounded-lg md:w-[50%]">
+  <div
+    class="aspect-auto overflow-hidden rounded-lg md:w-[50%]"
+    transition:name={`thumb-${entry.slug}`}
+  >
     <CloudinaryImage
       alt={`thumbnail of ${entry.slug}`}
       class="h-full w-full object-cover"

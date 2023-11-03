@@ -18,7 +18,7 @@ const formattedDate = dtTool.formatInJst(
 )
 ---
 
-<article transition:animate="fade" transition:name={post.slug}>
+<article transition:animate="fade" transition:name={`card-${post.slug}`}>
   <Link
     href={`/blog/post/${post.slug}`}
     rel="prefetch-intent"
@@ -32,6 +32,7 @@ const formattedDate = dtTool.formatInJst(
     >
       <div
         class="aspect-16/9 overflow-hidden rounded-t-[calc(0.5rem-1px)]"
+        transition:name={`thumb-${post.slug}`}
         data-image
       >
         <CloudinaryImage
