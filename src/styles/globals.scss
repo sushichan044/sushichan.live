@@ -28,6 +28,10 @@ body {
   letter-spacing: var.$letter-spacing;
 }
 
+::view-transition-group(*) {
+  animation-duration: 1s;
+}
+
 main {
   flex: 1 0 auto;
 }

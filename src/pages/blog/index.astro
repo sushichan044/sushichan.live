@@ -3,7 +3,7 @@ import AllTags from "@/components/blog/AllTags.astro"
 import BlogPostCard from "@/components/blog/BlogPostCard.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
-import BaseLayout from "@/layouts/BaseLayout.astro"
+import BlogLayout from "@/layouts/BlogLayout.astro"
 import { getAllPosts } from "@/lib/blogPost"
 
 const posts = await getAllPosts((a, b) => {
@@ -15,7 +15,7 @@ const posts = await getAllPosts((a, b) => {
 export const prerender = true
 ---
 
-<BaseLayout>
+<BlogLayout>
   <BaseSEO
     description="いろいろ書いているブログ"
     slot="seo"
@@ -32,4 +32,4 @@ export const prerender = true
       {posts.map((post) => <BlogPostCard post={post} />)}
     </div>
   </ContentLayout>
-</BaseLayout>
+</BlogLayout>

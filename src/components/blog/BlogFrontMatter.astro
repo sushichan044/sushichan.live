@@ -27,6 +27,8 @@ const updatedAt = entry.data.updatedAt
 
 <div
   class="flex flex-col flex-nowrap place-content-between gap-4 md:flex-row-reverse"
+  transition:animate="fade"
+  transition:name={entry.slug}
 >
   <div class="aspect-auto overflow-hidden rounded-lg md:w-[50%]">
     <CloudinaryImage

@@ -7,7 +7,7 @@ import MDXRenderer from "@/components/blog/MDXRenderer.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BlogPostSEO from "@/components/meta/BlogPostSEO.astro"
 import PageAlertWrapper from "@/components/ui/PageAlertWrapper.astro"
-import BaseLayout from "@/layouts/BaseLayout.astro"
+import BlogLayout from "@/layouts/BlogLayout.astro"
 import { getAllPosts } from "@/lib/blogPost"
 
 export async function getStaticPaths() {
@@ -30,7 +30,7 @@ const showAlert = entry.data.alert && entry.data.alert.length > 0
 export const prerender = true
 ---
 
-<BaseLayout>
+<BlogLayout>
   <BlogPostSEO entry={entry} slot="seo" />
   <ContentLayout asElement="article">
     <BlogFrontMatter entry={entry} />
@@ -51,4 +51,4 @@ export const prerender = true
       </BlogStyle>
     </PageAlertWrapper>
   </ContentLayout>
-</BaseLayout>
+</BlogLayout>

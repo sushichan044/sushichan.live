@@ -6,9 +6,16 @@ import "@/styles/globals.scss"
 import "@/styles/highlight.scss"
 import "@/styles/gfm-footnote.scss"
 import "katex/dist/katex.min.css"
-// import { ViewTransitions } from "astro:transitions"
+
+import { ViewTransitions } from "astro:transitions"
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+
+export interface Props {
+  useViewTransitions?: boolean
+}
+
+const { useViewTransitions = false } = Astro.props
 ---
 
 <!-- Global Metadata -->
@@ -47,7 +54,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 />
 
 <!-- ViewTransition -->
-<!-- <ViewTransitions fallback="swap" /> -->
+{useViewTransitions && <ViewTransitions fallback="animate" />}
+<!-- <ViewTransitions fallback="animate" /> -->
 
 <!-- Font preloads -->
 <link href="https://fonts.googleapis.com" rel="preconnect" />

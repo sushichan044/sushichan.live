@@ -2,7 +2,7 @@
 import BlogPostCard from "@/components/blog/BlogPostCard.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
-import BaseLayout from "@/layouts/BaseLayout.astro"
+import BlogLayout from "@/layouts/BlogLayout.astro"
 import { getAllTags, getPostsWithTags } from "@/lib/blogPost"
 
 export async function getStaticPaths() {
@@ -30,7 +30,7 @@ const description = `タグ 「${tag}」 の記事一覧です。`
 export const prerender = true
 ---
 
-<BaseLayout>
+<BlogLayout>
   <BaseSEO description={description} title={title} disableTitleTemplate />
   <ContentLayout>
     <h1 class="my-4 text-2xl font-bold">{`タグ 「${tag}」 の記事`}</h1>
@@ -38,4 +38,4 @@ export const prerender = true
       {posts.map((post) => <BlogPostCard post={post} />)}
     </div>
   </ContentLayout>
-</BaseLayout>
+</BlogLayout>
