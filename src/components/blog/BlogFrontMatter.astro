@@ -26,14 +26,11 @@ const updatedAt = entry.data.updatedAt
 ---
 
 <div
-  class="flex flex-col flex-nowrap place-content-between gap-4 md:flex-row-reverse"
+  class="flex flex-col flex-nowrap place-content-between gap-4"
   transition:animate="fade"
-  transition:name={entry.slug}
+  transition:name={`card-${entry.slug}`}
 >
-  <div
-    class="aspect-auto overflow-hidden rounded-lg md:w-[50%]"
-    transition:name={`thumb-${entry.slug}`}
-  >
+  <div class="aspect-auto overflow-hidden rounded-lg">
     <CloudinaryImage
       alt={`thumbnail of ${entry.slug}`}
       class="h-full w-full object-cover"
@@ -41,7 +38,7 @@ const updatedAt = entry.data.updatedAt
       priority
     />
   </div>
-  <div class="flex flex-col flex-nowrap gap-2">
+  <div class="flex flex-col flex-nowrap gap-2 md:gap-4">
     <h1 class="text-xl md:text-4xl">
       <BudouX>{entry.data.title}</BudouX>
     </h1>
