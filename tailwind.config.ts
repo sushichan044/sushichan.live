@@ -22,8 +22,8 @@ const config: Config = {
       },
       colors: {
         custom: {
-          "theme-light": "#202020",
-          "theme-dark": "#e2e2e2",
+          "theme-light": "#e2e2e2",
+          "theme-dark": "#202020",
           "little-light": "rgba(32,32,32, 0.4)",
           "little-dark": "rgba(226,226,226, 0.4)",
         },

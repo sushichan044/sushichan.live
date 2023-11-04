@@ -7,7 +7,7 @@ const ButtonStyle = tv({
       primary: "bg-blue-500 hover:bg-blue-700",
       secondary: "bg-gray-500 hover:bg-gray-700",
       transparent:
-        "border border-solid border-custom-theme-light bg-inherit hover:opacity-75 dark:border-custom-theme-dark",
+        "border border-solid border-custom-theme-dark bg-inherit hover:opacity-75 dark:border-custom-theme-light",
     },
     size: {
       small: "rounded px-2 py-1 text-sm",
