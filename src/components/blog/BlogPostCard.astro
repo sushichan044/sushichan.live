@@ -18,7 +18,11 @@ const formattedDate = dtTool.formatInJst(
 )
 ---
 
-<article transition:animate="fade" transition:name={`card-${post.slug}`}>
+<article
+  class="bg-custom-theme-light md:bg-custom-theme-dark"
+  transition:animate="fade"
+  transition:name={`card-${post.slug}`}
+>
   <Link
     href={`/blog/post/${post.slug}`}
     rel="prefetch-intent"
