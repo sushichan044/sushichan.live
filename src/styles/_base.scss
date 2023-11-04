@@ -32,6 +32,7 @@
   margin-inline: auto;
 
   @include mix.mq("md") {
+    max-width: min(80%, var.$layout-max-width);
     padding-inline: var.$layout-padding;
   }
 
