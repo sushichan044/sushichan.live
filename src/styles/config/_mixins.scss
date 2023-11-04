@@ -18,6 +18,12 @@ $breakpoints: (
   }
 }
 
+@mixin reduce-motion {
+  @media screen and (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
 @mixin line-clamp($count: 3) {
   // 引数が数値以外だったらエラーを返す
   @if type-of($count) != "number" {

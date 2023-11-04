@@ -2,6 +2,14 @@
 @use "./config/mixins" as mixin;
 @use "./variables" as var;
 
+:root {
+  scroll-behavior: smooth;
+
+  @include mixin.reduce-motion {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   display: flex;
   flex-flow: column nowrap;
@@ -28,7 +36,7 @@ body {
   letter-spacing: var.$letter-spacing;
 }
 
-::view-transition-group(*) {
+*::view-transition-group(*) {
   animation-duration: 1.5s;
 }
 
