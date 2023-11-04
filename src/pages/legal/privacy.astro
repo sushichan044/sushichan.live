@@ -1,8 +1,10 @@
 ---
-import BudouX from "@/components/common/BudouX.astro"
+import BlogStyle from "@/components/blog/BlogStyle.astro"
+import MDXRenderer from "@/components/blog/MDXRenderer.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
+import Content from "@/pages/legal/_privacy.mdx"
 
 export const prerender = true
 ---
@@ -14,20 +16,8 @@ export const prerender = true
     title="プライバシーポリシー"
   />
   <ContentLayout>
-    <h1>プライバシーポリシー</h1>
-    <h2>Googleアナリティクスについて</h2>
-    <BudouX>
-      本サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を使用しています。
-      Googleアナリティクスはデータの収集のためにクッキーを使用しています。
-      データは匿名で収集されており、個人を特定するものではありません。
-    </BudouX>
-    <span>
-      Googleアナリティクスの詳細については、以下の外部サイトよりご確認ください。
-      Googleアナリティクス利用規約:<br />
-       https://marketingplatform.google.com/about/analytics/terms/jp/
-      Googleプライバシーポリシー:<br />
-       https://policies.google.com/privacy?hl=ja ポリシーと規約:<br />
-       https://policies.google.com/technologies/partner-sites?hl=ja
-    </span>
+    <BlogStyle>
+      <MDXRenderer content={Content} />
+    </BlogStyle>
   </ContentLayout>
 </BaseLayout>
