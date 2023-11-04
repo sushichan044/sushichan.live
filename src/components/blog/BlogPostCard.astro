@@ -19,7 +19,10 @@ const formattedDate = dtTool.formatInJst(
 ---
 
 <article
-  class="bg-custom-theme-light md:bg-custom-theme-dark"
+  class:list={[
+    "overflow-hidden rounded-lg bg-custom-theme-light outline outline-1 outline-slate-700 dark:bg-custom-theme-dark dark:outline-slate-400",
+    post.data.status !== "published" && "bg-yellow-500 dark:bg-yellow-700",
+  ]}
   transition:animate="fade"
   transition:name={`card-${post.slug}`}
 >
@@ -28,12 +31,7 @@ const formattedDate = dtTool.formatInJst(
     rel="prefetch-intent"
     variants={{ decoration: "none" }}
   >
-    <div
-      class:list={[
-        "flex h-full flex-col flex-nowrap gap-2 rounded-lg pb-5 text-center outline outline-1 outline-slate-700 dark:outline-slate-400",
-        post.data.status !== "published" && "bg-yellow-500",
-      ]}
-    >
+    <div class="flex h-full flex-col flex-nowrap gap-2 pb-5 text-center">
       <div
         class="aspect-16/9 overflow-hidden rounded-t-[calc(0.5rem-1px)]"
         data-image
