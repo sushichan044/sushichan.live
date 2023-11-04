@@ -31,7 +31,12 @@ export const prerender = true
 ---
 
 <BlogLayout>
-  <BaseSEO description={description} title={title} disableTitleTemplate />
+  <BaseSEO
+    description={description}
+    slot="seo"
+    title={title}
+    disableTitleTemplate
+  />
   <ContentLayout>
     <h1 class="my-4 text-2xl font-bold">{`タグ 「${tag}」 の記事`}</h1>
     <div class="grid w-full grid-cols-1 justify-stretch gap-4 md:grid-cols-2">
