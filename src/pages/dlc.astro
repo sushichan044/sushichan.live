@@ -1,0 +1,21 @@
+---
+import Link from "@/components/base/Link.astro"
+import BlogStyle from "@/components/blog/BlogStyle.astro"
+import ContentLayout from "@/components/common/ContentLayout.astro"
+import BaseSEO from "@/components/meta/BaseSEO.astro"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+
+export const prerender = true
+---
+
+<BaseLayout>
+  <BaseSEO description="おまけページ" slot="seo" title="DLC" />
+  <ContentLayout>
+    <BlogStyle>
+      <h1>DLCへようこそ...</h1>
+      <Link href="https://beta.sushichan-live.pages.dev/">
+        このサイトのβ版(たまに先行公開コンテンツが現れる)
+      </Link>
+    </BlogStyle>
+  </ContentLayout>
+</BaseLayout>
