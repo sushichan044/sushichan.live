@@ -10,8 +10,8 @@ const getAllPosts = async (sortAction?: sortAction) => {
     if (import.meta.env.DEV) return true
 
     if (
-      import.meta.env.SHOW_ALL_POST === true ||
-      import.meta.env.SHOW_ALL_POST === "true"
+      import.meta.env.SHOW_DRAFT_POST === true ||
+      import.meta.env.SHOW_DRAFT_POST === "true"
     ) {
       return data.status !== "private"
     }
