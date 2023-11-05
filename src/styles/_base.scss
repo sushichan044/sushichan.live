@@ -7,11 +7,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  ul,
-  ol {
-    list-style-position: inside;
-  }
-
   @include mix.budoux;
 }
 
