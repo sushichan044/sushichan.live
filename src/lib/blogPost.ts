@@ -8,9 +8,9 @@ type sortAction = (
 const getAllPosts = async (sortAction?: sortAction) => {
   const posts = await getCollection("posts", ({ data }) => {
     return (
-      import.meta.env.DEV ||
-      import.meta.env.SHOW_ALL_POST === true || // this is for preview on cloudflare pages
-      import.meta.env.SHOW_ALL_POST === "true" || // this is for preview on cloudflare pages
+      // import.meta.env.DEV ||
+      (import.meta.env.SHOW_ALL_POST === true && data.status !== "private") || // this is for preview on cloudflare pages
+      (import.meta.env.SHOW_ALL_POST === "true" && data.status !== "private") || // this is for preview on cloudflare pages
       data.status === "published"
     )
   })
