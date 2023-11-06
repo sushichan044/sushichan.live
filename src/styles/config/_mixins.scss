@@ -44,8 +44,8 @@ $breakpoints: (
 }
 
 @mixin budoux {
-  word-break: keep-all;
-  overflow-wrap: anywhere;
+  word-break: break-all;
+  overflow-wrap: break-word;
 
   @supports (word-break: auto-phrase) {
     /* stylelint-disable-next-line declaration-property-value-no-unknown */
