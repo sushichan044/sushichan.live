@@ -8,16 +8,31 @@ $ uptime
 > 19 years
 ```
 
-<div class="flex flex-row flex-nowrap gap-x-8 items-center justify-center">
-    <Link href="https://x.com/sushichan_044" title="My twitter" target="_blank">
-        <Icon icon="fa6-brands:x-twitter" size="5xl" />
-    </Link>
-    <Link href="https://github.com/sushi-chaaaan" target="_blank">
-        <Icon icon="fa6-brands:github" size="5xl" />
-    </Link>
-    <Link href="mailto:mail@sushichan.live" target="_blank" title="mail to me">
-        <Icon icon="fa6-regular:envelope" size="5xl"/>
-    </Link>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+  <Link variants={{decoration: "none"}} href="https://x.com/sushichan_044" title="My main twitter" target="_blank">
+    <div class="flex flex-row gap-x-2 outline outline-1 rounded-lg p-2 items-center outline-slate-700 dark:outline-slate-500">
+      <Icon icon="fa6-brands:x-twitter" size="2xl" />
+      <span>X</span>
+    </div>
+  </Link>
+  <Link variants={{decoration: "none"}} href="https://x.com/sushi_chan_sub" title="My main twitter" target="_blank">
+    <div class="flex flex-row gap-x-2 outline outline-1 rounded-lg p-2 items-center outline-slate-700 dark:outline-slate-500">
+      <Icon icon="fa6-brands:x-twitter" size="2xl" />
+      <span>X (sub)</span>
+    </div>
+  </Link>
+  <Link variants={{decoration: "none"}} href="https://github.com/sushi-chaaaan" target="_blank">
+    <div class="flex flex-row gap-x-2 outline outline-1 rounded-lg p-2 items-center outline-slate-700 dark:outline-slate-500">
+      <Icon icon="fa6-brands:github" size="2xl" />
+      <span>GitHub</span>
+    </div>
+  </Link>
+  <Link variants={{decoration: "none"}} href="mailto:mail@sushichan.live" target="_blank" title="mail to me">
+    <div class="flex flex-row gap-x-2 outline outline-1 rounded-lg p-2 items-center outline-slate-700 dark:outline-slate-500">
+      <Icon icon="fa6-regular:envelope" size="2xl"/>
+      <span>Mail</span>
+    </div>
+  </Link>
 </div>
 
 ## Hobby
