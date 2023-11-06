@@ -8,6 +8,8 @@ const html = await Astro.slots.render("default")
 
 <SafeHTML
   afterSanitize={(html) => applyBudouXToHTML(html)}
+  as="Fragment"
   class:list={s.root}
   rawHTML={html}
+  __dangerouslyDisableSanitizer
 />
