@@ -6,21 +6,21 @@ type Props = Omit<JSXProps<"div", "astro">, "set:html"> & {
   rawHTML: string
   afterSanitize?: (html: string) => string
   __dangerouslyDisableSanitizer?: boolean
-  asDiv?: boolean
+  as?: "div" | "span" | "Fragment"
 }
 
 const {
   rawHTML,
   afterSanitize,
   __dangerouslyDisableSanitizer = false,
-  asDiv = true,
+  as = "div",
   ...props
 } = Astro.props
 
 const safeHTML = __dangerouslyDisableSanitizer ? rawHTML : sanitizeHTML(rawHTML)
 const finalHTML = afterSanitize ? afterSanitize(safeHTML) : safeHTML
 
-const Component = asDiv ? "div" : Fragment
+const Component = as === "Fragment" ? Fragment : as
 ---
 
 {/* eslint-disable-next-line astro/no-set-html-directive */}
