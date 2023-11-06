@@ -17,6 +17,7 @@ import { SITE_URL } from "./src/consts"
 const mdxIntegrations = [
   AutoImport({
     imports: [
+      "./src/components/base/Link.astro",
       "./src/components/common/BudouX.astro",
       "./src/components/common/Icon.astro",
       "./src/components/ui/card/MessageCard.astro",

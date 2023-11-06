@@ -1,0 +1,20 @@
+---
+import BlogStyle from "@/components/blog/BlogStyle.astro"
+import MDXRenderer from "@/components/blog/MDXRenderer.astro"
+import ContentLayout from "@/components/common/ContentLayout.astro"
+import BaseSEO from "@/components/meta/BaseSEO.astro"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import Content from "@/pages/about/_about.mdx"
+
+export const prerender = true
+---
+
+<BaseLayout>
+  <BaseSEO description="About me" slot="seo" title="About me" />
+  <ContentLayout>
+    <BlogStyle>
+      <h1 style={{ marginBlock: 0 }}>About me</h1>
+      <MDXRenderer content={Content} />
+    </BlogStyle>
+  </ContentLayout>
+</BaseLayout>
