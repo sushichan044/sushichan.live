@@ -10,8 +10,8 @@ const getAllPosts = async (sortAction?: sortAction) => {
     if (import.meta.env.DEV) return true
 
     if (
-      (import.meta.env.DEV && import.meta.env.SHOW_DRAFT_POST === true) ||
-      (import.meta.env.DEV && import.meta.env.SHOW_DRAFT_POST === "true")
+      import.meta.env.SHOW_DRAFT_POST === true ||
+      import.meta.env.SHOW_DRAFT_POST === "true"
     ) {
       return data.status !== "private" && data.status !== "preview"
     }
@@ -28,8 +28,6 @@ const getAllPosts = async (sortAction?: sortAction) => {
 
 const getAllPreviewPosts = async (sortAction?: sortAction) => {
   const posts = await getCollection("posts", ({ data }) => {
-    if (import.meta.env.PROD) return false
-
     return data.status === "preview"
   })
 
