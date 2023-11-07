@@ -9,7 +9,9 @@ const posts = defineCollection({
     thumbnail: z.string().url(),
     tags: z.array(z.string()).optional(),
     alert: z.array(z.string()).optional(),
-    status: z.enum(["draft", "published", "private"]).default("draft"),
+    status: z
+      .enum(["draft", "published", "private", "preview"])
+      .default("draft"),
     relatedPosts: reference("posts").array().optional(),
   }),
   type: "content",

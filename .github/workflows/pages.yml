@@ -33,7 +33,7 @@ jobs:
         run: yarn run build
         env:
           TWEET_API_URL: ${{ secrets.TWEET_API_URL }}
-          SHOW_DRAFT_POST: ${{ github.ref_name != 'main' }}
+          SHOW_DRAFT_POST: ${{ github.ref_name != 'main' && github.ref_name != 'beta' }}
 
       - name: Cache Astro Assets
         id: cache-astro-assets

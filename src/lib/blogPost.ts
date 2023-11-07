@@ -13,10 +13,22 @@ const getAllPosts = async (sortAction?: sortAction) => {
       import.meta.env.SHOW_DRAFT_POST === true ||
       import.meta.env.SHOW_DRAFT_POST === "true"
     ) {
-      return data.status !== "private"
+      return data.status !== "private" && data.status !== "preview"
     }
 
     return data.status === "published"
+  })
+
+  if (sortAction !== undefined) {
+    return posts.sort(sortAction)
+  }
+
+  return posts
+}
+
+const getAllPreviewPosts = async (sortAction?: sortAction) => {
+  const posts = await getCollection("posts", ({ data }) => {
+    return data.status === "preview"
   })
 
   if (sortAction !== undefined) {
@@ -58,4 +70,4 @@ const getAllTags = async () => {
   return [...new Set(tags)]
 }
 
-export { getAllPosts, getAllTags, getPostsWithTags }
+export { getAllPosts, getAllPreviewPosts, getAllTags, getPostsWithTags }

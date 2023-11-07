@@ -1,0 +1,54 @@
+---
+import type { CollectionEntry } from "astro:content"
+
+import BlogFrontMatter from "@/components/blog/BlogFrontMatter.astro"
+import BlogStyle from "@/components/blog/BlogStyle.astro"
+import MDXRenderer from "@/components/blog/MDXRenderer.astro"
+import ContentLayout from "@/components/common/ContentLayout.astro"
+import BlogPostSEO from "@/components/meta/BlogPostSEO.astro"
+import PageAlertWrapper from "@/components/ui/PageAlertWrapper.astro"
+import BlogLayout from "@/layouts/BlogLayout.astro"
+import { getAllPreviewPosts } from "@/lib/blogPost"
+
+export async function getStaticPaths() {
+  const previewEntries = await getAllPreviewPosts()
+  return previewEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }))
+}
+
+type Props = {
+  entry: CollectionEntry<"posts">
+}
+
+const { entry } = Astro.props
+const { Content, headings } = await entry.render()
+
+const showAlert = entry.data.alert && entry.data.alert.length > 0
+
+export const prerender = true
+---
+
+<BlogLayout>
+  <BlogPostSEO entry={entry} slot="seo" />
+  <ContentLayout asElement="article">
+    <BlogFrontMatter entry={entry} />
+    <div class="divider"></div>
+    <PageAlertWrapper backIfNewTab="/blog">
+      {
+        showAlert && (
+          // HACK: https://github.com/withastro/astro/issues/6318
+          <ul slot={showAlert && "alert"}>
+            {entry.data.alert?.map((n) => (
+              <li>{n}</li>
+            ))}
+          </ul>
+        )
+      }
+      <BlogStyle>
+        <MDXRenderer content={Content} headings={headings} tocDepth={2} />
+      </BlogStyle>
+    </PageAlertWrapper>
+  </ContentLayout>
+</BlogLayout>
