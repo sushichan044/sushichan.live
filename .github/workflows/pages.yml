@@ -32,7 +32,7 @@ jobs:
       - name: Build
         run: yarn run build
         env:
-          NODE_ENV: ${{ github.ref_name == 'main' && 'production' || 'development' }}
+          NODE_ENV: ${{ (github.ref_name == 'main' || github.ref_name == 'beta') && 'production' || 'development' }}
           TWEET_API_URL: ${{ secrets.TWEET_API_URL }}
           SHOW_DRAFT_POST: ${{ github.ref_name != 'main' && github.ref_name != 'beta' }}
 
