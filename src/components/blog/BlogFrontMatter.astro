@@ -59,11 +59,22 @@ const updatedAt = entry.data.updatedAt
     </div>
     {entry.data.tags && <TagLinkFlex tags={entry.data.tags} />}
     {
-      entry.data.status !== "published" && (
+      entry.data.status === "published" ||
+        (entry.data.status === "draft" && (
+          <div class="alert alert-warning">
+            <Icon icon="fa6-solid:circle-exclamation" />
+            <BudouX>
+              この記事は下書きです。 本番ビルド時には表示されません。
+            </BudouX>
+          </div>
+        ))
+    }
+    {
+      entry.data.status === "preview" && (
         <div class="alert alert-warning">
           <Icon icon="fa6-solid:circle-exclamation" />
           <BudouX>
-            この記事は下書きです。 本番ビルド時には表示されません。
+            この記事はプレビューです。記事一覧には表示されません。
           </BudouX>
         </div>
       )
