@@ -28,6 +28,8 @@ const getAllPosts = async (sortAction?: sortAction) => {
 
 const getAllPreviewPosts = async (sortAction?: sortAction) => {
   const posts = await getCollection("posts", ({ data }) => {
+    if (import.meta.env.PROD) return false
+
     return data.status === "preview"
   })
 
