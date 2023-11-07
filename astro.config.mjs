@@ -61,7 +61,6 @@ export default defineConfig({
   markdown: {
     shikiConfig: {
       theme: "one-dark-pro",
-      wrap: true,
     },
     gfm: true,
     remarkPlugins: [remarkEmoji, remarkMath, remarkUnwrapImages],
