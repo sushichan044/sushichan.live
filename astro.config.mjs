@@ -1,6 +1,5 @@
 import cloudflare from "@astrojs/cloudflare"
 import mdx from "@astrojs/mdx"
-import prefetch from "@astrojs/prefetch"
 import react from "@astrojs/react"
 import sitemap from "@astrojs/sitemap"
 import tailwind from "@astrojs/tailwind"
@@ -37,7 +36,7 @@ const mdxIntegrations = [
 // https://astro.build/config
 export default defineConfig({
   adapter: cloudflare(),
-  experimental: { devOverlay: true },
+  experimental: { devOverlay: true, contentCollectionCache: true },
   image: {
     service: {
       // https://docs.astro.build/en/guides/images/#add-simple-asset-support-for-cloudflare-deno-vercel-edge-and-netlify-edge
@@ -51,13 +50,7 @@ export default defineConfig({
       },
     ],
   },
-  integrations: [
-    ...mdxIntegrations,
-    sitemap(),
-    react(),
-    tailwind(),
-    prefetch(),
-  ],
+  integrations: [...mdxIntegrations, sitemap(), react(), tailwind()],
   markdown: {
     shikiConfig: {
       theme: "one-dark-pro",
@@ -73,6 +66,9 @@ export default defineConfig({
     },
   },
   output: "server",
+  prefetch: {
+    defaultStrategy: "viewport",
+  },
   site: SITE_URL,
   server: {
     host: true,

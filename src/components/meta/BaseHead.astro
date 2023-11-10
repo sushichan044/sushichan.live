@@ -54,8 +54,7 @@ const { useViewTransitions = false } = Astro.props
 />
 
 <!-- ViewTransition -->
-{useViewTransitions && <ViewTransitions fallback="none" />}
-<!-- <ViewTransitions fallback="animate" /> -->
+{useViewTransitions && <ViewTransitions fallback="none" handleForms />}
 
 <!-- Font preloads -->
 <link href="https://fonts.googleapis.com" rel="preconnect" />
