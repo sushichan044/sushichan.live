@@ -7,6 +7,7 @@ import { defineConfig } from "astro/config"
 import AutoImport from "astro-auto-import"
 import rehypeKatex from "rehype-katex"
 import remarkEmoji from "remark-emoji"
+import remarkCodeTitles from "remark-flexible-code-titles"
 import remarkMath from "remark-math"
 import remarkUnwrapImages from "remark-unwrap-images"
 
@@ -56,7 +57,12 @@ export default defineConfig({
       theme: "one-dark-pro",
     },
     gfm: true,
-    remarkPlugins: [remarkEmoji, remarkMath, remarkUnwrapImages],
+    remarkPlugins: [
+      remarkEmoji,
+      remarkMath,
+      remarkUnwrapImages,
+      remarkCodeTitles,
+    ],
     rehypePlugins: [rehypeKatex],
     remarkRehype: {
       footnoteLabel: "脚注",

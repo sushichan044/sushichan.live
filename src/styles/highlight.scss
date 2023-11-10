@@ -12,7 +12,33 @@ p > code {
   }
 }
 
-.astro-code {
-  padding: 1rem;
+.remark-code-container {
+  display: flex;
+  flex-flow: column nowrap;
+
+  > * {
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+  }
+}
+
+.remark-code-title {
+  width: 100%;
+  background-color: var.$theme-color-light-darker;
+  border-bottom: 1px solid var.$ui-color-dark;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+
+  @include mix.scheme("dark") {
+    background-color: var.$theme-color-dark-lighter;
+  }
+}
+
+.remark-code-container:has(.remark-code-title) > .astro-code {
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.remark-code-container:not(:has(.remark-code-title)) > .astro-code {
   border-radius: 0.5rem;
 }

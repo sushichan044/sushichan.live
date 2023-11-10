@@ -91,7 +91,7 @@ export default SpotifySigninButton
 また、React Server Componentでの利用も考えられていて、サーバーサイドでも簡単に現在のログイン状態やログインしているユーザーの情報を取得できます。
 **今回は、クライアント側から現在再生中の曲をリフレッシュするボタン以外はすべてServer Componentになっています。**
 
-```tsx title="サーバーサイドでユーザー情報を取得して再生回数の多い曲を取得するコンポーネントの例"
+```tsx:サーバーサイドでユーザー情報を取得して再生回数の多い曲を取得するコンポーネントの例
 import { currentUser } from "@clerk/nextjs"
 import { Suspense } from "react"
 
@@ -122,7 +122,7 @@ export default TopItem
 また、ユーザーのログイン情報からOAuthのAccess Tokenを取得する関数まで用意されており、これには驚きました。全体的に認証を手軽に実現しつつ、その先で開発者が行いたいことに
 専念させてくれるような印象を受けました。
 
-```tsx title="ログイン情報からOAuth Access Tokenを取得するコード"
+```tsx:ログイン情報からOAuthAccessTokenを取得するコード
 async function getUserSpotifyAccessToken(userId: string) {
   // これだけで、ユーザーのログイン情報からSpotifyのAccess Tokenを取得できる。とんでもない
   const tokens = await clerkClient.users.getUserOauthAccessToken(
