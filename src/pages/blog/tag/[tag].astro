@@ -1,4 +1,7 @@
 ---
+import { fade } from "astro:transitions"
+
+import AllTags from "@/components/blog/AllTags.astro"
 import BlogPostCard from "@/components/blog/BlogPostCard.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
@@ -38,7 +41,15 @@ export const prerender = true
     disableTitleTemplate
   />
   <ContentLayout>
-    <h1 class="my-4 text-2xl font-bold">{`タグ 「${tag}」 の記事`}</h1>
+    <div class="my-4 flex flex-col flex-nowrap gap-2">
+      <h1
+        class="text-2xl font-bold"
+        transition:animate={fade({ duration: 1000 })}
+      >
+        {`タグ 「${tag}」 の記事`}
+      </h1>
+      <AllTags />
+    </div>
     <div class="grid w-full grid-cols-1 justify-stretch gap-4 md:grid-cols-2">
       {posts.map((post) => <BlogPostCard post={post} />)}
     </div>

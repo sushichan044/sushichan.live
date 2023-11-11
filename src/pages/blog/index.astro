@@ -1,4 +1,6 @@
 ---
+import { fade } from "astro:transitions"
+
 import AllTags from "@/components/blog/AllTags.astro"
 import BlogPostCard from "@/components/blog/BlogPostCard.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
@@ -24,8 +26,12 @@ export const prerender = true
   />
   <ContentLayout>
     <div class="my-4 flex flex-col flex-nowrap gap-2">
-      <h1 class="text-2xl font-bold">すしにっき</h1>
-      <p>様々な文字を書いています</p>
+      <h1
+        class="text-2xl font-bold"
+        transition:animate={fade({ duration: 1000 })}
+      >
+        すしにっき
+      </h1>
       <AllTags />
     </div>
     <div class="grid w-full grid-cols-1 justify-stretch gap-4 md:grid-cols-2">
