@@ -31,7 +31,7 @@ const config: Config = {
     },
   },
   plugins: [daisyui],
-  // daisyui: {} satisfies DaisyConfig,
+  daisyui: { logs: false } satisfies DaisyConfig,
 }
 
 export default config
