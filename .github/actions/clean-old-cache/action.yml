@@ -15,7 +15,6 @@ inputs:
     required: false
     default: ${{ github.ref }}
 
-
 runs:
   using: "composite"
   steps:
