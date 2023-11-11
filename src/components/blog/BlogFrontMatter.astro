@@ -59,7 +59,7 @@ const updatedAt = entry.data.updatedAt
     </div>
     {entry.data.tags && <TagLinkFlex tags={entry.data.tags} />}
     {
-      (entry.data.status === "published" || entry.data.status === "draft") && (
+      entry.data.status === "draft" && (
         <div class="alert alert-warning">
           <Icon icon="fa6-solid:circle-exclamation" />
           <BudouX>
