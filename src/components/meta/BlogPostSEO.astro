@@ -2,6 +2,8 @@
 import type { CollectionEntry } from "astro:content"
 import { SEO } from "astro-seo"
 
+import { dtTool } from "@/lib/date"
+
 type Props = {
   entry: CollectionEntry<"posts">
 }
@@ -9,6 +11,11 @@ type Props = {
 const {
   entry: { data },
 } = Astro.props
+
+const createdAt = dtTool.replaceTzWithJst(data.createdAt).toISOString()
+const updatedAt = data.updatedAt
+  ? dtTool.replaceTzWithJst(data.updatedAt).toISOString()
+  : undefined
 ---
 
 <SEO
@@ -25,13 +32,14 @@ const {
       alt: data.title,
     },
     article: {
-      publishedTime: data.createdAt.toISOString(),
-      modifiedTime: data.updatedAt?.toISOString(),
+      publishedTime: createdAt,
+      modifiedTime: updatedAt,
       tags: data.tags,
     },
     optional: {
       description: data.description,
       locale: "ja_JP",
+      siteName: "すしにっき",
     },
   }}
   twitter={{
@@ -39,6 +47,7 @@ const {
     description: data.description,
     card: "summary_large_image",
     image: data.thumbnail,
+    creator: "@sushichan_044",
   }}
   description={data.description}
   title={data.title}

@@ -32,6 +32,7 @@ const DefaultOGPUrl = new URL("/images/ogp.png", Astro.url)
     optional: {
       description: description,
       locale: "ja_JP",
+      siteName: "すしのへや",
     },
   }}
   twitter={{
@@ -39,6 +40,7 @@ const DefaultOGPUrl = new URL("/images/ogp.png", Astro.url)
     title: title,
     description: description,
     image: DefaultOGPUrl,
+    creator: "@sushichan_044",
   }}
   description={description}
   title={title}
