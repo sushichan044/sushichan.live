@@ -21,6 +21,7 @@ const formattedDate = dtTool.formatInJst(
 <article
   class:list={[
     "overflow-hidden rounded-lg bg-custom-theme-light outline outline-1 outline-slate-700 dark:bg-custom-theme-dark dark:outline-slate-400",
+    "group/article",
     post.data.status !== "published" && "bg-yellow-500 dark:bg-yellow-700",
   ]}
   transition:animate="fade"
@@ -37,8 +38,12 @@ const formattedDate = dtTool.formatInJst(
         data-image
       >
         <CloudinaryImage
+          class:list={[
+            "h-full w-full object-cover",
+            "transition-transform duration-1000 ease-in-out will-change-transform",
+            "group-hover/article:scale-105",
+          ]}
           alt={`thumbnail of ${post.slug}`}
-          class="h-full w-full object-cover"
           src={post.data.thumbnail}
           priority
         />
