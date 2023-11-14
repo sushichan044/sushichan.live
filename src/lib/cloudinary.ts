@@ -3,8 +3,23 @@ import { declareLet } from "@/utils/declareLet"
 type ImageLoaderOption = {
   src: string
   width: number
+  height?: number
   quality?: number
+  crop?:
+    | "fill"
+    | "lfill"
+    | "fill_pad"
+    | "crop"
+    | "thumb"
+    | "scale"
+    | "fit"
+    | "limit"
+    | "mfit"
+    | "pad"
+    | "lpad"
+    | "mpad"
   blur?: boolean
+  extraParams?: string[]
 }
 
 export const getCloudinaryIdentifier = (src: string) => {
@@ -15,12 +30,17 @@ const cloudinaryLoaderBase = ({
   src,
   width,
   quality,
+  crop = "limit",
+  height = undefined,
   blur = false,
+  extraParams = [],
 }: ImageLoaderOption) => {
   // src = https://res.cloudinary.com/sushi-chan/image/upload/v1689696723/blog/my-first-walk/b1iajynl60c0uvmdapfi.jpg
   const imageIdentifier = getCloudinaryIdentifier(src)
-  const params = ["c_limit", `w_${width}`, `q_${quality || "auto"}`, "f_webp"]
+  const params = [`c_${crop}`, `w_${width}`, `q_${quality || "auto"}`, "f_webp"]
+  if (height) params.push(`h_${height}`)
   if (blur) params.push("e_blur:1600")
+  if (extraParams.length > 0) params.push(...extraParams)
   return `https://res.cloudinary.com/sushi-chan/image/upload/${params.join(
     ",",
   )}/${imageIdentifier}`
@@ -33,6 +53,16 @@ export const cloudinaryMetadataLoader = (src: string) => {
 
 export function cloudinaryLoader({ src, width, quality }: ImageLoaderOption) {
   return cloudinaryLoaderBase({ src, width, quality })
+}
+
+export function cloudinaryOGPLoader(src: string) {
+  return cloudinaryLoaderBase({
+    src,
+    width: 1200,
+    height: 630,
+    quality: 80,
+    crop: "lfill",
+  })
 }
 
 export const getCloudinaryImageSize = async (
