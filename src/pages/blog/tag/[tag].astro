@@ -6,7 +6,7 @@ import BlogPostCard from "@/components/blog/BlogPostCard.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
 import BlogLayout from "@/layouts/BlogLayout.astro"
-import { getAllTags, getPostsWithTags } from "@/lib/blogPost"
+import { getAllTags, getPostsByTags } from "@/lib/blogPost"
 
 export async function getStaticPaths() {
   const tags = await getAllTags()
@@ -21,7 +21,7 @@ type Props = {
 }
 
 const { tag } = Astro.props
-const posts = await getPostsWithTags([tag], (a, b) => {
+const posts = await getPostsByTags([tag], (a, b) => {
   if (a.data.createdAt < b.data.createdAt) return 1
   if (a.data.createdAt > b.data.createdAt) return -1
   return 0

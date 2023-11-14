@@ -38,7 +38,7 @@ const getAllPreviewPosts = async (sortAction?: sortAction) => {
   return posts
 }
 
-const getPostsWithTags = async (
+const getPostsByTags = async (
   tags: string[] | undefined,
   sortAction?: sortAction,
 ) => {
@@ -70,4 +70,4 @@ const getAllTags = async () => {
   return [...new Set(tags)]
 }
 
-export { getAllPosts, getAllPreviewPosts, getAllTags, getPostsWithTags }
+export { getAllPosts, getAllPreviewPosts, getAllTags, getPostsByTags }
