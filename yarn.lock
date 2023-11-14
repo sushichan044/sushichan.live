@@ -9137,6 +9137,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"marked@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "marked@npm:10.0.0"
+  bin:
+    marked: bin/marked.js
+  checksum: 5882b04a5f0d619757b281f09a67eb8f9e966299083748b51b144b482c56527161cc4dee3ef8e334926c84b7c6ad2bb5c48af5855a52c6ae460131175e3fb93f
+  languageName: node
+  linkType: hard
+
 "markuplint@npm:^3.14.0":
   version: 3.14.0
   resolution: "markuplint@npm:3.14.0"
@@ -14415,6 +14424,7 @@ __metadata:
     husky: "npm:^8.0.3"
     ie-buster: "npm:^2.0.2"
     lint-staged: "npm:^15.0.2"
+    marked: "npm:^10.0.0"
     markuplint: "npm:^3.14.0"
     npm-check-updates: "npm:^16.14.6"
     postcss-html: "npm:^1.5.0"

@@ -60,6 +60,7 @@
     "date-fns-tz": "^2.0.0",
     "fetch-site-metadata": "^0.1.3",
     "ie-buster": "^2.0.2",
+    "marked": "^10.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-player": "^2.13.0",
