@@ -7,8 +7,10 @@ import MDXRenderer from "@/components/blog/MDXRenderer.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BlogPostSEO from "@/components/meta/BlogPostSEO.astro"
 import PageAlertWrapper from "@/components/ui/PageAlertWrapper.astro"
+import SafeHTML from "@/components/utils/SafeHTML.astro"
 import BlogLayout from "@/layouts/BlogLayout.astro"
 import { getAllPreviewPosts } from "@/lib/blogPost"
+import { parseMarkdownArray } from "@/utils/markdown"
 
 export async function getStaticPaths() {
   const previewEntries = await getAllPreviewPosts()
@@ -28,6 +30,9 @@ const { Content, headings } = await entry.render()
 const showAlert = entry.data.alert && entry.data.alert.length > 0
 
 export const prerender = true
+
+const alerts = entry.data.alert || []
+const parsedAlerts = await parseMarkdownArray(alerts)
 ---
 
 <BlogLayout>
@@ -40,8 +45,10 @@ export const prerender = true
         showAlert && (
           // HACK: https://github.com/withastro/astro/issues/6318
           <ul slot={showAlert && "alert"}>
-            {entry.data.alert?.map((n) => (
-              <li>{n}</li>
+            {parsedAlerts?.map((n) => (
+              <li>
+                <SafeHTML rawHTML={n} />
+              </li>
             ))}
           </ul>
         )
