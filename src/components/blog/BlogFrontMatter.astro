@@ -1,18 +1,22 @@
 ---
 import type { CollectionEntry } from "astro:content"
+import type { ReadTimeResults } from "reading-time"
 
 import TagLinkFlex from "@/components/blog/tag/TagLinkFlex.astro"
 import BudouX from "@/components/common/BudouX.astro"
 import Icon from "@/components/common/Icon.astro"
 import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
 import { dtTool } from "@/lib/date"
+import { roundReadTime } from "@/utils/markdown"
 
 type Props = {
   entry: CollectionEntry<"posts">
+  readTime?: ReadTimeResults
 }
 
-const { entry } = Astro.props
+const { entry, readTime } = Astro.props
 
+const roundedMinutesRead = roundReadTime(readTime)
 const createdAt = dtTool.formatInJst(
   dtTool.replaceTzWithJst(entry.data.createdAt),
   "yyyy/MM/dd",
@@ -53,6 +57,14 @@ const updatedAt = entry.data.updatedAt
           <div class="flex flex-row flex-nowrap items-center justify-center gap-2">
             <Icon class="text-blue-500" icon="fa6-solid:arrow-rotate-right" />
             <span>{updatedAt}</span>
+          </div>
+        )
+      }
+      {
+        roundedMinutesRead !== undefined && (
+          <div class="flex flex-row flex-nowrap items-center justify-center gap-2">
+            <Icon class="text-blue-500" icon="fa6-solid:clock" />
+            <span>{roundedMinutesRead} min to read</span>
           </div>
         )
       }

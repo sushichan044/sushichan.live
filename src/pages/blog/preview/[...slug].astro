@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content"
+import type { ReadTimeResults } from "reading-time"
 
 import BlogFrontMatter from "@/components/blog/BlogFrontMatter.astro"
 import BlogStyle from "@/components/blog/BlogStyle.astro"
@@ -25,20 +26,23 @@ type Props = {
 }
 
 const { entry } = Astro.props
-const { Content, headings } = await entry.render()
+const renderResult = await entry.render()
 
 const showAlert = entry.data.alert && entry.data.alert.length > 0
 
-export const prerender = true
-
+const readTime = renderResult.remarkPluginFrontmatter?.minutesRead as
+  | ReadTimeResults
+  | undefined
 const alerts = entry.data.alert || []
 const parsedAlerts = await parseMarkdownArray(alerts)
+
+export const prerender = true
 ---
 
 <BlogLayout>
   <BlogPostSEO entry={entry} slot="seo" />
   <ContentLayout asElement="article">
-    <BlogFrontMatter entry={entry} />
+    <BlogFrontMatter entry={entry} readTime={readTime} />
     <div class="divider"></div>
     <PageAlertWrapper backIfNewTab="/blog">
       {
@@ -54,7 +58,7 @@ const parsedAlerts = await parseMarkdownArray(alerts)
         )
       }
       <BlogStyle>
-        <MDXRenderer content={Content} headings={headings} tocDepth={2} />
+        <MDXRenderer tocDepth={2} {...renderResult} />
       </BlogStyle>
     </PageAlertWrapper>
   </ContentLayout>

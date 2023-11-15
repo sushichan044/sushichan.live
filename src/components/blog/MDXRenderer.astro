@@ -7,7 +7,8 @@ import Toc from "@/components/blog/Toc.astro"
 import Image from "@/components/mdx/Image.astro"
 
 type Props = {
-  content: AstroComponentFactory
+  Content: AstroComponentFactory
+  remarkPluginFrontmatter?: Record<string, unknown>
 } & (
   | {
       headings: MarkdownHeading[]
@@ -19,7 +20,7 @@ type Props = {
     }
 )
 
-const { content: Content, headings, tocDepth } = Astro.props
+const { Content, headings, tocDepth } = Astro.props
 ---
 
 {

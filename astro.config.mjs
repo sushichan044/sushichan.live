@@ -13,6 +13,8 @@ import remarkUnwrapImages from "remark-unwrap-images"
 
 // eslint-disable-next-line no-restricted-imports
 import { SITE_URL } from "./src/consts"
+// eslint-disable-next-line no-restricted-imports
+import { remarkReadingTime } from "./src/lib/remarkReadingTime.mjs"
 
 const mdxIntegrations = [
   AutoImport({
@@ -62,6 +64,7 @@ export default defineConfig({
       remarkMath,
       remarkUnwrapImages,
       remarkCodeTitles,
+      remarkReadingTime,
     ],
     rehypePlugins: [rehypeKatex],
     remarkRehype: {

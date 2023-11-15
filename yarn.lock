@@ -12613,6 +12613,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"reading-time@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "reading-time@npm:1.5.0"
+  checksum: 0f730852fd4fb99e5f78c5b0cf36ab8c3fa15db96f87d9563843f6fd07a47864273ade539ebb184b785b728cde81a70283aa2d9b80cba5ca03b81868be03cabc
+  languageName: node
+  linkType: hard
+
 "redent@npm:^3.0.0":
   version: 3.0.0
   resolution: "redent@npm:3.0.0"
@@ -14426,6 +14433,7 @@ __metadata:
     lint-staged: "npm:^15.0.2"
     marked: "npm:^10.0.0"
     markuplint: "npm:^3.14.0"
+    mdast-util-to-string: "npm:^4.0.0"
     npm-check-updates: "npm:^16.14.6"
     postcss-html: "npm:^1.5.0"
     prettier: "npm:^3.1.0"
@@ -14434,6 +14442,7 @@ __metadata:
     react-dom: "npm:^18.2.0"
     react-player: "npm:^2.13.0"
     react-tweet: "npm:^3.1.1"
+    reading-time: "npm:^1.5.0"
     rehype-katex: "npm:^7.0.0"
     remark-emoji: "npm:^4.0.1"
     remark-flexible-code-titles: "npm:^1.1.3"
