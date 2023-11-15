@@ -16,7 +16,7 @@ type Props = {
 
 const { entry, readTime } = Astro.props
 
-const roundedMinutesRead = roundReadTime(readTime)
+const roundedMinutesRead = roundReadTime(readTime, 1)
 const createdAt = dtTool.formatInJst(
   dtTool.replaceTzWithJst(entry.data.createdAt),
   "yyyy/MM/dd",

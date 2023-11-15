@@ -12,10 +12,13 @@ async function parseMarkdownArray(array: string[]) {
   return await Promise.all(array.map((item) => parseMarkdown(item)))
 }
 
-const roundReadTime = (readTime?: ReadTimeResults): number | undefined => {
+const roundReadTime = (
+  readTime?: ReadTimeResults,
+  multiple?: number,
+): number | undefined => {
   const rounded = declareLet(() => {
     if (readTime === undefined) return undefined
-    return roundToNearestMultiple(readTime.minutes, 5)
+    return roundToNearestMultiple(readTime.minutes, multiple ?? 5)
   })
   return rounded === 0 ? 1 : rounded
 }
