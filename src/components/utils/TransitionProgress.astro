@@ -50,7 +50,7 @@ import "@/components/utils/transition-progress.css"
   }
 
   const finishProgress = () => {
-    if (intervalId) {
+    if (intervalId !== undefined) {
       window.clearInterval(intervalId)
       intervalId = undefined
     }
