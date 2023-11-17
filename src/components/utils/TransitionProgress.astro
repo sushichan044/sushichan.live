@@ -39,12 +39,15 @@ import "@/components/utils/transition-progress.css"
     }, 100)
   }
 
-  const stopProgress = () => {
+  const finishProgress = () => {
     if (intervalId) {
       window.clearInterval(intervalId)
       intervalId = null
     }
     N.done()
+    setTimeout(() => {
+      N.remove()
+    }, 500)
   }
 
   setupProgress("/blog")
@@ -55,7 +58,7 @@ import "@/components/utils/transition-progress.css"
   })
 
   document.addEventListener("astro:page-load", () => {
-    stopProgress()
+    finishProgress()
   })
 
   document.addEventListener("astro:after-swap", () => {
