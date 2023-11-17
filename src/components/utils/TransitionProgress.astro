@@ -27,6 +27,9 @@ import "@/components/utils/transition-progress.css"
           targetUrl.pathname !== window.location.pathname // ignore same pathname hash changes
         ) {
           startProgress()
+          setTimeout(() => {
+            finishProgress()
+          }, 30000)
         }
       })
     }
