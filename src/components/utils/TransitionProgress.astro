@@ -18,6 +18,11 @@ import "@/components/utils/transition-progress.css"
   const setupProgress = (pathName: string) => {
     if (!viewTransitionAvailable) return false
 
+    window.addEventListener("popstate", (e) => {
+      if (e.state == null || e.state?.intraPage) return false
+      startProgress()
+    })
+
     for (const elem of document.querySelectorAll("a")) {
       elem.addEventListener("click", (e) => {
         const targetUrl = new URL(elem.href)
@@ -52,24 +57,16 @@ import "@/components/utils/transition-progress.css"
       window.clearInterval(intervalId)
       intervalId = undefined
     }
-    N.done()
-    setTimeout(() => {
-      N.remove()
-    }, 500)
+    if (N.isStarted()) {
+      N.done()
+      setTimeout(() => {
+        N.remove()
+      }, 500)
+    }
   }
-
-  setupProgress("/blog")
-
-  window.addEventListener("popstate", (e) => {
-    if (e.state == null || e.state?.intraPage) return false
-    startProgress()
-  })
 
   document.addEventListener("astro:page-load", () => {
     finishProgress()
-  })
-
-  document.addEventListener("astro:after-swap", () => {
     setupProgress("/blog")
   })
 </script>
