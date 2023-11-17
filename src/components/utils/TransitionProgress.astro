@@ -41,10 +41,7 @@ import "@/components/utils/transition-progress.css"
   }
 
   const startProgress = () => {
-    if (N.isStarted()) {
-      N.done()
-      N.remove()
-    }
+    if (N.isStarted()) return false
 
     N.start()
     intervalId = window.setInterval(() => {
