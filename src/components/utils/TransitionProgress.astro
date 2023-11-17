@@ -13,7 +13,7 @@ import "@/components/utils/transition-progress.css"
     parent: "#progress-container",
   })
 
-  let intervalId: number | null = null
+  let intervalId: number | undefined = undefined
 
   const setupProgress = (pathName: string) => {
     if (!viewTransitionAvailable) return false
@@ -29,13 +29,18 @@ import "@/components/utils/transition-progress.css"
           startProgress()
           setTimeout(() => {
             finishProgress()
-          }, 30000)
+          }, 10000)
         }
       })
     }
   }
 
   const startProgress = () => {
+    if (N.isStarted()) {
+      N.done()
+      N.remove()
+    }
+
     N.start()
     intervalId = window.setInterval(() => {
       N.inc()
@@ -45,7 +50,7 @@ import "@/components/utils/transition-progress.css"
   const finishProgress = () => {
     if (intervalId) {
       window.clearInterval(intervalId)
-      intervalId = null
+      intervalId = undefined
     }
     N.done()
     setTimeout(() => {
