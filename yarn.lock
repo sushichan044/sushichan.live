@@ -2852,6 +2852,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/nprogress@npm:^0":
+  version: 0.2.3
+  resolution: "@types/nprogress@npm:0.2.3"
+  checksum: cac0fe73aca79bc1472a1556f56303df72026f2fcd8dbe311fe84b1f46e454b9040c1e69223d94e3bf156a5986382170c52ebda19aa70f555f1b6855d8f744a6
+  languageName: node
+  linkType: hard
+
 "@types/parse5@npm:^6.0.0":
   version: 6.0.3
   resolution: "@types/parse5@npm:6.0.3"
@@ -11323,6 +11330,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nprogress@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "nprogress@npm:0.2.0"
+  checksum: eab9a923a1ad1eed71a455ecfbc358442dd9bcd71b9fa3fa1c67eddf5159360b182c218f76fca320c97541a1b45e19ced04e6dcb044a662244c5419f8ae9e821
+  languageName: node
+  linkType: hard
+
 "nwsapi@npm:^2.2.4":
   version: 2.2.7
   resolution: "nwsapi@npm:2.2.7"
@@ -14439,6 +14453,7 @@ __metadata:
     "@textlint/textlint-plugin-markdown": "npm:^13.4.0"
     "@types/eslint": "npm:8.44.7"
     "@types/node": "npm:20.9.1"
+    "@types/nprogress": "npm:^0"
     "@types/prettier": "npm:^3"
     "@types/react": "npm:^18.2.37"
     "@types/react-dom": "npm:^18.2.15"
@@ -14472,6 +14487,7 @@ __metadata:
     markuplint: "npm:^3.14.0"
     mdast-util-to-string: "npm:^4.0.0"
     npm-check-updates: "npm:^16.14.6"
+    nprogress: "npm:^0.2.0"
     postcss-html: "npm:^1.5.0"
     prettier: "npm:^3.1.0"
     prettier-plugin-astro: "npm:^0.12.2"

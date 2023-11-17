@@ -1,8 +1,10 @@
 ---
+import TransitionProgress from "@/components/utils/TransitionProgress.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 ---
 
 <BaseLayout useViewTransitions>
   <slot name="seo" slot="seo" />
   <slot />
+  <TransitionProgress />
 </BaseLayout>

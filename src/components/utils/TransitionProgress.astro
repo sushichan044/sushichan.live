@@ -1,0 +1,80 @@
+---
+import "@/components/utils/transition-progress.css"
+---
+
+<div id="progress-container" transition:persist></div>
+
+<script>
+  import { viewTransitionAvailable } from "@/utils/htmlHelper"
+  import N from "nprogress"
+
+  N.configure({
+    showSpinner: false,
+    parent: "#progress-container",
+  })
+
+  let intervalId: number | null = null
+
+  const setupProgress = (pathName: string) => {
+    if (!viewTransitionAvailable) return false
+
+    for (const elem of document.querySelectorAll("a")) {
+      elem.addEventListener("click", (e) => {
+        const targetUrl = new URL(elem.href)
+        if (
+          targetUrl.origin === window.location.origin && // same origin
+          targetUrl.pathname.startsWith(pathName) &&
+          targetUrl.pathname !== window.location.pathname // ignore same pathname hash changes
+        ) {
+          startProgress()
+        }
+      })
+    }
+  }
+
+  const startProgress = () => {
+    if (!viewTransitionAvailable) return false
+
+    N.start()
+    intervalId = window.setInterval(() => {
+      N.inc()
+    }, 100)
+  }
+
+  const stopProgress = () => {
+    if (!viewTransitionAvailable) return false
+
+    if (intervalId) {
+      window.clearInterval(intervalId)
+      intervalId = null
+    }
+    N.done()
+  }
+
+  setupProgress("/blog")
+
+  window.addEventListener("popstate", (e) => {
+    if (e.state == null || e.state?.intraPage) return false
+    startProgress()
+  })
+
+  document.addEventListener("astro:page-load", () => {
+    stopProgress()
+  })
+
+  document.addEventListener("astro:after-swap", () => {
+    setupProgress("/blog")
+  })
+</script>
+
+<style>
+  /* stylelint-disable-next-line selector-max-id */
+  #progress-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 99999;
+    height: 3px;
+  }
+</style>
