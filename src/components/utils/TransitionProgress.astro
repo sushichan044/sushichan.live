@@ -33,8 +33,6 @@ import "@/components/utils/transition-progress.css"
   }
 
   const startProgress = () => {
-    if (!viewTransitionAvailable) return false
-
     N.start()
     intervalId = window.setInterval(() => {
       N.inc()
@@ -42,8 +40,6 @@ import "@/components/utils/transition-progress.css"
   }
 
   const stopProgress = () => {
-    if (!viewTransitionAvailable) return false
-
     if (intervalId) {
       window.clearInterval(intervalId)
       intervalId = null
