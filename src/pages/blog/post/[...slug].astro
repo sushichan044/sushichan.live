@@ -43,7 +43,6 @@ export const prerender = true
   <BlogPostSEO entry={entry} slot="seo" />
   <ContentLayout asElement="article">
     <BlogFrontMatter entry={entry} readTime={readTime} />
-    <div class="divider"></div>
     <PageAlertWrapper backIfNewTab="/blog">
       {
         showAlert && (
