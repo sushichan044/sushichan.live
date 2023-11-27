@@ -40,7 +40,7 @@ export const prerender = true
 ---
 
 <BlogLayout>
-  <BlogPostSEO entry={entry} slot="seo" />
+  <BlogPostSEO entry={entry} slot="seo" isPreview />
   <ContentLayout asElement="article">
     <BlogFrontMatter entry={entry} readTime={readTime} />
     <div class="divider"></div>

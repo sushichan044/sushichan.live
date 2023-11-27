@@ -5,9 +5,15 @@ interface Props {
   title: string
   description: string
   disableTitleTemplate?: boolean
+  isHiddenPage?: boolean
 }
 
-const { title, description, disableTitleTemplate = false } = Astro.props
+const {
+  title,
+  description,
+  disableTitleTemplate = false,
+  isHiddenPage = false,
+} = Astro.props
 
 const titleDefault = disableTitleTemplate ? undefined : "すしのへや"
 const titleTemplate = disableTitleTemplate ? undefined : "%s - すしのへや"
@@ -46,4 +52,5 @@ const DefaultOGPUrl = new URL("/images/ogp.png", Astro.url)
   title={title}
   titleDefault={titleDefault}
   titleTemplate={titleTemplate}
+  {...isHiddenPage && { noindex: true, nofollow: true }}
 />
