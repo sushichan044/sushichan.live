@@ -2,7 +2,7 @@
 title: 第73回調布祭Webサイトを支えた技術
 description: ':igyo:'
 createdAt: 2023-12-01
-thumbnail: https://res.cloudinary.com/sushi-chan/image/upload/v1701190622/tech/chofu-fes-website/IMG_0645_mix7iv.jpg
+thumbnail: https://res.cloudinary.com/sushi-chan/image/upload/v1701280464/tech/chofusai-2023-website/IMG_0645_mix7iv_qkbnco.jpg
 tags:
   - 雑記
   - 技術
@@ -15,25 +15,217 @@ status: preview
   この記事は第73回調布祭実行委員会に許可を取って公開しています。
 </MessageCard>
 
-この記事は[UEC Advent Calendar 2023](https://adventar.org/calendars/8698)の1日目の記事です。
+<span class="text-xl">この記事は[UEC Advent Calendar 2023](https://adventar.org/calendars/8698)の1日目の記事です。</span>
 
 
 <UrlCard url="https://adventar.org/calendars/8698" />
 
-こんにちは、 [すし](/about)です。 大学では[調布祭実行委員会](https://twitter.com/chofu_festival)や[VLL](https://twitter.com/uec_VL_Lab)で技術面のサポートをしています。
+こんにちは、 [すし](/about)です。 大学では[調布祭実行委員会](https://twitter.com/chofu_festival)や[バーチャルライブ研究会](https://twitter.com/uec_VL_Lab)で技術面のサポートをしています。
 
 つい先日、2023年11月24日から26日にかけて開催された、電気通信大学の大学祭「第73回調布祭」において、
 Webサイト制作という形で運営に参加させていただきました。
 
-~~その直後に完全に新しい内容で記事を書く時間と気力がない~~
-自分の中での振り返りや技術的メリット・デメリットなどを書き残しておきたいので、
-急遽予定を変更してこの記事を書くことにしました。
+自分の中での振り返りや技術的メリット・デメリットなどを書き残しておきたいので、[^1]
+当初の予定トピックを変更してこの記事を書くことにしました。
+
+[^1]:あとそもそも疲れすぎてて完全に新しい内容で記事を書く気力がないです。悲しいね。
 
 ということで、カレンダー1日目からマニアックな記事になってしまいすが、何卒よろしくお願いします。
 
-## 前日譚
+<UrlCard caption="完成した第73回調布祭公式Webサイト" url="https://73rd.chofusai.jp" />
 
-ことの発端は2022年の11月頃でした。当時私はサークルに所属しておらず、そろそろなんかやりたいな...
-と思っていたのですが、その時はちょうど調布祭が終わったタイミングで、Twitt...Xで調布祭実行委員会(以下◯調と表記します)の募集を見かけたわけですよ。
+## 使用した技術やインフラの話
 
-<TextCard caption="入会">Webできるようにしてえな❗</TextCard>
+主に使用した技術やインフラは以下の通りです。
+
+- [Next.js (App Router, v13)](#nextjsapp-router)
+- [SCSS Modules](#scss-modules)
+- [Markdown](#markdown)
+- Cloudflare (CDN)
+- Vercel (Hosting)
+
+ということで、実際にそれを選んだ理由や、そのメリット・デメリットなどをつらつら書いていきます。
+
+### Next.js(App Router)
+
+実はもともとNext.jsを使うこと自体は決まっていました。
+
+というのも、[2023年度新歓サイト](https://shinkan.chofusai.jp)を制作する際にNext.js(Pages Router)を使っており、
+できればそこから大きな変更を加えたくなかったからです。やはり、ファイルベースルーティングや組み込みの画像最適化など、
+絶妙にかゆいところに手の届く機能が多く、非常に便利なのは間違いありません。
+
+<UrlCard url="https://shinkan.chofusai.jp" caption="今見るとかなり雑に感じる、これもまた成長だね" />
+
+ということで、特に何もなければPages Routerを使うはずでしたが、本格的に環境構築や制作の準備を始める直前にビッグニュースが飛び込んできました。
+
+<TweetCard id="1654156302531063812" />
+
+<TextCard>**App Router Stable?!?!?!?!?!**</TextCard>
+
+#### App Routerのメリット
+
+私はもともとPages Routerの書き方はかなり思想が強いように感じており、一般的なhtmlと同じ構造で書けるApp Routerの方が、下の代へ引き継いでいくものには向いていると感じていました。
+
+下にはそれぞれの一番上の層で読み込まれるコンポーネントを載せていますが、やっぱりひと目見て自然で誰にでも分かりやすい、<span class="text-xl">**驚きが最小である**</span>のはApp Routerの方だと思うんですよね。
+
+```tsx:_document.tsx(PagesRouter)
+import { Head, Html, Main, NextScript } from 'next/document'
+
+export default function Document() {
+  return (
+    <Html
+      lang="ja"
+      prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# website: https://ogp.me/ns/website#"
+    >
+      <Head />
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  )
+}
+```
+
+```tsx:layout.tsx(AppRouter)
+import Footer from '@/components/layout/footer'
+import Favicons from '@/components/meta/favicons'
+import { fontClass } from '@/lib/font'
+import TwitterScript from '@/lib/twitter'
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="ja">
+      <Favicons />
+      <body className={fontClass}>
+        {children}
+        <Footer />
+        <TwitterScript />
+      </body>
+    </html>
+  )
+}
+```
+
+今フロントエンド全体を見てもhtml標準、WebAPI標準に回帰していく動きがあるように感じており、App Routerは非常に理にかなった選択肢として考えられます。
+
+あともう1つApp Routerを使いたかった大きな理由があって、**MetaDataAPI**が非常に便利なんですよね。
+
+<UrlCard url="https://nextjs.org/docs/app/building-your-application/optimizing/metadata" />
+
+これを使うとMetaDataをコンポーネントやページから分離した状態で扱えるので、非常に見通しがよく、動的なページにおけるMetaDataの生成も関数一つで完結します。
+これは本当に便利でした。:igyo:
+
+以上の理由から、安定版になったばかりではありますが、より直感的で将来的にも読みやすそうなApp Routerを採用することにしました。
+
+#### App Routerのデメリット
+
+とはいえ大きな変更が多いのも事実で、移行の面でデメリットが発生しました。
+
+App Routerでは、React Server Componentと呼ばれる概念がデフォルトになっています。
+よって、何も設定しなければサーバー上でレンダリングされて、ブラウザには最終的なHTMLが渡されます。
+
+<UrlCard url="https://nextjs.org/docs/app/building-your-application/rendering/server-components" />
+
+このため、`useEffect()`のようなブラウザ側でしか動かないコードを使う場合は明示的に分割する必要があり、
+コンポーネント数が増加しやすい傾向にあります。
+
+ただしこれは、今までの書き方では動かなくなる場合があるというだけで、それ以外の観点では大きなメリットになります。
+今まですべてクライアント側で処理していたものを、機密を伴うデータフェッチや整形はサーバー側、クライアント側は表示のみというように分割することで、
+より高速な表示とセキュリティの向上が期待されます。
+
+### SCSS Modules
+
+App Routerを熱弁してたら頭のおかしい分量になってきたのでここからは短めにいきます。
+
+CSSに関しては、SCSSもしくはTailwind CSSの二択で悩んでいました。
+しかし、アニメーションや複雑なグリッドレイアウト、細かいフォントサイズの調整などが想定されたことから、SCSSを採用することにしました。
+mixinを正しく使えば、Media Queryなどを手軽に書けるので、Tailwindと比べてもそこまで苦しくない記述量で済みます。
+
+
+
+例えば、調布祭公式Webサイトのトップページに表示されるこれは、CSS Gridの`grid-area`でレイアウトを組んでいます。
+フォントサイズも`font-size: clamp(1rem, 1.25rem, 5vw);`などでかなり細かく調整しています。
+これはTailwindでやるとかえって面倒になります。
+
+![調布祭公式Webサイトのファーストビュー](https://res.cloudinary.com/sushi-chan/image/upload/v1701280468/tech/chofusai-2023-website/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2023-11-30_025304_iugfcb.png)
+
+ただし、Tailwindが提供するユーティリティクラスは非常に良質なものが多く、その中身は大いに参考にしています。
+あとデザイントークンがある程度決まっているのもかなり良く、別にTailwindがだめだという話ではないのです。
+あと最近は、個人的に使い方を確立したのでむしろTailwindを使っていることのほうが多いです。
+
+閑話休題。
+
+SCSS Moduleを使う場合のデメリットとしては、個別にSCSS Moduleファイルを増やしていくことになるのでファイル数の増加がしんどいです。
+Tailwindだとページ内でコンポーネントを配置する際のMarginなどを手軽に指定できていいんですが、
+これもやはりわざわざ`page.module.scss`のようなファイルを増やすことになります。まあ事故を起こさずに複雑なスタイルを適用することとトレードオフ[^2]なので仕方ないですね。
+
+[^2]:
+    <div>
+      <span>見たな 聴いてね</span>
+      <PlayerCard caption="トレードオフ / 棗いつき" url="https://www.youtube.com/watch?v=pvI0JB0y9XM" />
+    </div>
+
+
+### Markdown
+
+なんでMarkdown...？と思われた方もいるかもしれませんが、実は今回、一部ページコンテンツと企画データの管理にMarkdownが使用されています。
+
+例えばこのページで使われています。
+
+<UrlCard url="https://www.chofusai.jp/news/panflet" />
+
+このページの実態は、`/article/news/panflet.md`というMarkdownファイルにあります。
+
+それを内製ライブラリを使って
+
+1. `/news`以下のページを生成する際に自動で `/arcitle/news` 以下のMarkdownを探索する
+2. ファイル名に対応するパスを振り分ける
+
+のような手順を踏むことで擬似的なファイルベースルーティングを実現しています。
+また、この際Markdownのフロントマターに必要な情報も書くことで、効率よくページを生成できるようにしています。
+
+ちなみにこのライブラリを試験実装したのが[旧個人サイト](https://old.sushichan.live)内のブログだったりします。[^3]
+
+[^3]:
+    <div>
+      <span>つまり急に旧個人サイトをNext.js(App Router)で作ったのは伏線だったわけです。HTML・CSS・JS歴2ヶ月の人間が直感的に使えるしまあ行けるのではと思って採用した</span>
+      <UrlCard url="/blog/post/tech/build-my-website" />
+    </div>
+
+```tsx:app/news/[...slug]/page.tsx
+export type NewsObject = {
+  date: Date
+  tag: '全体' | '企業様・個人様向け' | '来場者様向け'
+  label: string
+  url?: string
+}
+
+export default async function Page({ params: { slug } }: PageProps) {
+  const mdx = getMDX<NewsObject>({
+    sourceDirectory: 'article/news',
+    fileName: slug.join('/'),
+  })
+  if (!mdx) {
+    notFound()
+  }
+
+  const content = await compileMDX({
+    isRaw: false,
+    mdxFile: mdx.fileMetaData,
+  })
+
+  return (
+    <MainContainer>
+      {content}
+    </MainContainer>
+  )
+}
+```
+
+
+## こだわりポイント
