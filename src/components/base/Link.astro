@@ -4,7 +4,7 @@ import type { VariantProps } from "tailwind-variants"
 import LinkStyle from "@/components/style/link"
 import type { PropsWithoutStyle } from "@/utils/@types/propsWithoutStyle"
 
-type Props = PropsWithoutStyle<"a", "astro"> & {
+export type Props = PropsWithoutStyle<"a", "astro"> & {
   variants?: VariantProps<typeof LinkStyle>
 }
 

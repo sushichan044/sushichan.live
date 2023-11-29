@@ -7,9 +7,10 @@ import SafeHTML from "@/components/utils/SafeHTML.astro"
 type Props = VariantProps<typeof style> & {
   icon: string
   class?: string
+  as?: "div" | "span" | "Fragment"
 }
 
-const { icon, class: className, ...props } = Astro.props
+const { icon, class: className, as = "div", ...props } = Astro.props
 
 const style = tv({
   base: "aspect-square",
@@ -53,8 +54,8 @@ const iconHTML = await getIconSvg(icon)
 ---
 
 <SafeHTML
-  as="div"
-  class:list={[style(props), className && className]}
+  as={as}
+  class:list={[style(props), className && className, "inline-block"]}
   rawHTML={iconHTML}
   __dangerouslyDisableSanitizer
 />

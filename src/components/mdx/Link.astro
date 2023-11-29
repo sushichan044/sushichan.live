@@ -1,0 +1,42 @@
+---
+import { type Props as BaseLinkProps } from "@/components/base/Link.astro"
+import BaseLink from "@/components/base/Link.astro"
+import { declareLet } from "@/utils/declareLet"
+
+type Props = BaseLinkProps
+
+const { href, ...rest } = Astro.props
+
+type hrefInfo = {
+  href: BaseLinkProps["href"]
+  isExternal: boolean
+}
+
+const { href: url, isExternal }: hrefInfo = declareLet(() => {
+  if (href == null)
+    return {
+      href: href,
+      isExternal: false,
+    }
+
+  let url: string | URL
+  let isExternal: boolean
+
+  if (typeof href === "string") {
+    if (href.startsWith("/")) {
+      url = new URL(href, Astro.url)
+      isExternal = false
+    } else {
+      url = new URL(href)
+      isExternal = true
+    }
+  } else {
+    url = href
+    isExternal = url.host !== Astro.url.host
+  }
+  return { href: url, isExternal }
+})
+const target = isExternal ? "_blank" : "_self"
+---
+
+<BaseLink href={url} target={target} {...rest}><slot /></BaseLink>
