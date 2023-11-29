@@ -11,6 +11,4 @@ type Props = PropsWithoutStyle<"a", "astro"> & {
 const { variants, href, ...props } = Astro.props
 ---
 
-<a class:list={LinkStyle(variants)} href={href} {...props}>
-  <slot />
-</a>
+<a class:list={LinkStyle(variants)} href={href} {...props}><slot /></a>
