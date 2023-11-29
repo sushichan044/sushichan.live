@@ -4,7 +4,7 @@ import { tv, type VariantProps } from "tailwind-variants"
 import WithCaption, {
   type CaptionProps,
 } from "@/components/common/WithCaption.astro"
-
+import s from "@/components/utils/content-visibility.module.scss"
 export type CardProps = VariantProps<typeof style> & CaptionProps
 
 type Props = CardProps
@@ -41,7 +41,7 @@ const style = tv({
 })
 ---
 
-<div class:list={style(props)}>
+<div class:list={[style(props), s.root]}>
   <WithCaption caption={caption} isFigure={isFigure}>
     <slot />
   </WithCaption>
