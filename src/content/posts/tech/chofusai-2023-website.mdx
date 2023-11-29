@@ -30,7 +30,7 @@ Webサイト制作という形で運営に参加させていただきました�
 
 [^1]:あとそもそも疲れすぎてて完全に新しい内容で記事を書く気力がないです。悲しいね。
 
-ということで、カレンダー1日目からマニアックな記事になってしまいすが、何卒よろしくお願いします。
+ということで、カレンダー1日目からマニアックな記事になってしまいますが、対戦よろしくお願いします。
 
 <UrlCard caption="完成した第73回調布祭公式Webサイト" url="https://73rd.chofusai.jp" />
 
@@ -66,7 +66,7 @@ Webサイト制作という形で運営に参加させていただきました�
 
 私はもともとPages Routerの書き方はかなり思想が強いように感じており、一般的なhtmlと同じ構造で書けるApp Routerの方が、下の代へ引き継いでいくものには向いていると感じていました。
 
-下にはそれぞれの一番上の層で読み込まれるコンポーネントを載せていますが、やっぱりひと目見て自然で誰にでも分かりやすい、<span class="text-xl">**驚きが最小である**</span>のはApp Routerの方だと思うんですよね。
+{/* 下にはそれぞれの一番上の層で読み込まれるコンポーネントを載せていますが、やっぱりひと目見て自然で誰にでも分かりやすい、<span class="text-xl">**驚きが最小である**</span>のはApp Routerの方だと思うんですよね。
 
 ```tsx:_document.tsx(PagesRouter)
 import { Head, Html, Main, NextScript } from 'next/document'
@@ -109,9 +109,9 @@ export default function RootLayout({
     </html>
   )
 }
-```
+``` */}
 
-今フロントエンド全体を見てもhtml標準、WebAPI標準に回帰していく動きがあるように感じており、App Routerは非常に理にかなった選択肢として考えられます。
+今フロントエンド全体を見てもhtml標準、WebAPI標準に回帰していく動きがあるように感じており、App Routerは非常に理にかなった将来性のある選択肢として考えられます。
 
 あともう1つApp Routerを使いたかった大きな理由があって、**MetaDataAPI**が非常に便利なんですよね。
 
@@ -140,19 +140,16 @@ App Routerでは、React Server Componentと呼ばれる概念がデフォルト
 
 ### SCSS Modules
 
-App Routerを熱弁してたら頭のおかしい分量になってきたのでここからは短めにいきます。
-
 CSSに関しては、SCSSもしくはTailwind CSSの二択で悩んでいました。
-しかし、アニメーションや複雑なグリッドレイアウト、細かいフォントサイズの調整などが想定されたことから、SCSSを採用することにしました。
-mixinを正しく使えば、Media Queryなどを手軽に書けるので、Tailwindと比べてもそこまで苦しくない記述量で済みます。
+しかし、アニメーションや複雑なCSSプロパティの使用が想定されたので、SCSSを採用することにしました。
+mixinを正しく使えばMedia Queryなども手軽に書けるので、Tailwindと比べてもそこまで苦しくない記述量で済みます。
 
-
-
+{/*
 例えば、調布祭公式Webサイトのトップページに表示されるこれは、CSS Gridの`grid-area`でレイアウトを組んでいます。
 フォントサイズも`font-size: clamp(1rem, 1.25rem, 5vw);`などでかなり細かく調整しています。
 これはTailwindでやるとかえって面倒になります。
 
-![調布祭公式Webサイトのファーストビュー](https://res.cloudinary.com/sushi-chan/image/upload/v1701280468/tech/chofusai-2023-website/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2023-11-30_025304_iugfcb.png)
+![調布祭公式Webサイトのファーストビュー](https://res.cloudinary.com/sushi-chan/image/upload/v1701280468/tech/chofusai-2023-website/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2023-11-30_025304_iugfcb.png) */}
 
 ただし、Tailwindが提供するユーティリティクラスは非常に良質なものが多く、その中身は大いに参考にしています。
 あとデザイントークンがある程度決まっているのもかなり良く、別にTailwindがだめだという話ではないのです。
@@ -161,8 +158,8 @@ mixinを正しく使えば、Media Queryなどを手軽に書けるので、Tail
 閑話休題。
 
 SCSS Moduleを使う場合のデメリットとしては、個別にSCSS Moduleファイルを増やしていくことになるのでファイル数の増加がしんどいです。
-Tailwindだとページ内でコンポーネントを配置する際のMarginなどを手軽に指定できていいんですが、
-これもやはりわざわざ`page.module.scss`のようなファイルを増やすことになります。まあ事故を起こさずに複雑なスタイルを適用することとトレードオフ[^2]なので仕方ないですね。
+Tailwindだと、ページ内でコンポーネントを配置する際にMarginなどを直接指定できていいんですが、
+SCSS Moduleではいちいち`page.module.scss`のようなファイルを増やすことになります。まあ事故を起こさずに複雑なスタイルを適用することとトレードオフ[^2]なので仕方ないですね。
 
 [^2]:
     <div>
@@ -179,11 +176,9 @@ Tailwindだとページ内でコンポーネントを配置する際のMarginな
 
 <UrlCard url="https://www.chofusai.jp/news/panflet" />
 
-このページの実態は、`/article/news/panflet.md`というMarkdownファイルにあります。
+このページの実態は、独立したMarkdownファイルであり、それを内製ライブラリを使って
 
-それを内製ライブラリを使って
-
-1. `/news`以下のページを生成する際に自動で `/arcitle/news` 以下のMarkdownを探索する
+1. `/news`以下のページを生成する際に指定したディレクトリ以下のMarkdownを探索する
 2. ファイル名に対応するパスを振り分ける
 
 のような手順を踏むことで擬似的なファイルベースルーティングを実現しています。
@@ -197,35 +192,6 @@ Tailwindだとページ内でコンポーネントを配置する際のMarginな
       <UrlCard url="/blog/post/tech/build-my-website" />
     </div>
 
-```tsx:app/news/[...slug]/page.tsx
-export type NewsObject = {
-  date: Date
-  tag: '全体' | '企業様・個人様向け' | '来場者様向け'
-  label: string
-  url?: string
-}
-
-export default async function Page({ params: { slug } }: PageProps) {
-  const mdx = getMDX<NewsObject>({
-    sourceDirectory: 'article/news',
-    fileName: slug.join('/'),
-  })
-  if (!mdx) {
-    notFound()
-  }
-
-  const content = await compileMDX({
-    isRaw: false,
-    mdxFile: mdx.fileMetaData,
-  })
-
-  return (
-    <MainContainer>
-      {content}
-    </MainContainer>
-  )
-}
-```
 
 
 ## こだわりポイント
