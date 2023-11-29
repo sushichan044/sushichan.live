@@ -23,7 +23,7 @@ const { href: url, isExternal }: hrefInfo = declareLet(() => {
   let isExternal: boolean
 
   if (typeof href === "string") {
-    if (href.startsWith("/")) {
+    if (href.startsWith("/") || href.startsWith("#")) {
       url = new URL(href, Astro.url)
       isExternal = false
     } else {
