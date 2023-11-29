@@ -49,8 +49,14 @@ const formattedDate = dtTool.formatInJst(
         />
       </div>
       <span>{formattedDate}</span>
-      <h2 class="inline-block px-2 text-xl font-bold">
-        <BudouX>{post.data.title}</BudouX>
+      <h2
+        class="inline-block px-2 text-xl font-bold"
+        transition:animate="fade"
+        transition:name={`title-${post.slug}`}
+      >
+        <BudouX>
+          {post.data.title}
+        </BudouX>
       </h2>
     </div>
   </Link>
