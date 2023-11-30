@@ -2627,13 +2627,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:8.44.7":
-  version: 8.44.7
-  resolution: "@types/eslint@npm:8.44.7"
+"@types/eslint@npm:8.44.8":
+  version: 8.44.8
+  resolution: "@types/eslint@npm:8.44.8"
   dependencies:
     "@types/estree": "npm:*"
     "@types/json-schema": "npm:*"
-  checksum: 447b55ccff47668fc63466728e7e598ae16a03de8d489350e855b6020ad16f58a703e75b875376dd6cd5fcab630311a805fa7f934476637ea35819f01c9db3ca
+  checksum: 610966753add984f6ac9f00eeb766691e141e66a7e20b724a45ad077f60e8cd8fd7874b7e655e93537e54873cc5711cd6f57728474e08b478407cd942f098263
   languageName: node
   linkType: hard
 
@@ -2774,12 +2774,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:20.10.0, @types/node@npm:^20.1.0":
+"@types/node@npm:*, @types/node@npm:^20.1.0":
   version: 20.10.0
   resolution: "@types/node@npm:20.10.0"
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: f379e57d9d28cb5f3d8eab943de0c54a0ca2f95ee356e1fe2a1a4fa718b740103ae522c50ce107cffd52c3642ef3244cfc55bf5369081dd6c48369c8587b21ae
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:20.10.1":
+  version: 20.10.1
+  resolution: "@types/node@npm:20.10.1"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: c1b4b5a33f57bd39a8a0d074f27e3e370fccc6cda6a1c46caa48cc4c1687677cfdbffd9dc93fc803c6d355696dd9c73cd6f6507c749f61f83beb7326aec077d2
   languageName: node
   linkType: hard
 
@@ -5709,6 +5718,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-compat-utils@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "eslint-compat-utils@npm:0.1.2"
+  peerDependencies:
+    eslint: ">=6.0.0"
+  checksum: 023fe1422eb5dfebe71e118fe144836f28c06b1f4d55ef4c1c42ec2dbfa3e09f19287b0092881aad307429cf247fec9ade603e050392033106d26bc981d82ee5
+  languageName: node
+  linkType: hard
+
 "eslint-config-astro@npm:^1.0.8":
   version: 1.0.8
   resolution: "eslint-config-astro@npm:1.0.8"
@@ -5734,19 +5752,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-astro@npm:^0.29.1":
-  version: 0.29.1
-  resolution: "eslint-plugin-astro@npm:0.29.1"
+"eslint-plugin-astro@npm:^0.30.0":
+  version: 0.30.0
+  resolution: "eslint-plugin-astro@npm:0.30.0"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
     "@jridgewell/sourcemap-codec": "npm:^1.4.14"
     "@typescript-eslint/types": "npm:^5.25.0"
     astro-eslint-parser: "npm:^0.16.0"
+    eslint-compat-utils: "npm:^0.1.2"
     postcss: "npm:^8.4.14"
     postcss-selector-parser: "npm:^6.0.10"
   peerDependencies:
     eslint: ">=7.0.0"
-  checksum: 0feab74cf7cd08a9a3f6ed570b3b21323fc2e8421f440ccd6a613dabcaa0de4040853f0b4dbfea7e3cd3b22f25169007cf26cc02a90449ec7d3ff9d6d079850b
+  checksum: 0831f97ed871156926fa2ae106cd2a6905149086e79e16bb90f71ef69e8ab160e0dce5cbbaf4230cf84b035ca72b0c77277406fff23dc6cccd923a231801e7dc
   languageName: node
   linkType: hard
 
@@ -14409,8 +14428,8 @@ __metadata:
     "@radix-ui/react-slot": "npm:^1.0.2"
     "@resvg/resvg-js": "npm:^2.6.0"
     "@textlint/textlint-plugin-markdown": "npm:^13.4.1"
-    "@types/eslint": "npm:8.44.7"
-    "@types/node": "npm:20.10.0"
+    "@types/eslint": "npm:8.44.8"
+    "@types/node": "npm:20.10.1"
     "@types/nprogress": "npm:^0"
     "@types/prettier": "npm:^3"
     "@types/react": "npm:^18.2.39"
@@ -14430,7 +14449,7 @@ __metadata:
     eslint: "npm:^8.54.0"
     eslint-config-astro: "npm:^1.0.8"
     eslint-config-prettier: "npm:^9.0.0"
-    eslint-plugin-astro: "npm:^0.29.1"
+    eslint-plugin-astro: "npm:^0.30.0"
     eslint-plugin-jsx-a11y: "npm:^6.8.0"
     eslint-plugin-perfectionist: "npm:^2.5.0"
     eslint-plugin-react: "npm:^7.33.2"
@@ -14474,7 +14493,7 @@ __metadata:
     tailwindcss: "npm:^3.3.5"
     textlint: "npm:^13.4.1"
     textlint-rule-preset-japanese: "npm:^8.0.0"
-    tsx: "npm:^4.6.0"
+    tsx: "npm:^4.6.1"
     typescript: "npm:^5.3.2"
     wrangler: "npm:^3.17.1"
   languageName: unknown
@@ -15095,9 +15114,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:^4.6.0":
-  version: 4.6.0
-  resolution: "tsx@npm:4.6.0"
+"tsx@npm:^4.6.1":
+  version: 4.6.1
+  resolution: "tsx@npm:4.6.1"
   dependencies:
     esbuild: "npm:~0.18.20"
     fsevents: "npm:~2.3.3"
@@ -15107,7 +15126,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: e7ce784b93fb98d052670b6cbe79f5c090fc80e6c5b1f2cb31ed65eef92a68dcf4499a68e8fb427074e775d1955ec61f7485b9e893b65c5f1e0ba2898c84b890
+  checksum: 6c0291d7f3016d40fcd6b7014d77aef07c8051e19b480287381e5c5fb348aaf6dda2fa35b85ec2b9d1e83a45f9f6feb1992b5b630f8c06cc9dbdd8312ce39f41
   languageName: node
   linkType: hard
 

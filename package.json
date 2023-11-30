@@ -20,6 +20,7 @@
     "markuplint": "markuplint \"./**/*.{jsx,tsx,astro}\"",
     "markuplint:precommit": "markuplint --no-color --problem-only \"./**/*.{jsx,tsx,astro}\"",
     "ncu": "ncu -u --target minor",
+    "ncu:dry": "ncu --target minor",
     "ncu:latest": "ncu --target latest"
   },
   "lint-staged": {
@@ -86,8 +87,8 @@
     "@markuplint/jsx-parser": "^3.12.0",
     "@markuplint/react-spec": "^3.13.0",
     "@textlint/textlint-plugin-markdown": "^13.4.1",
-    "@types/eslint": "8.44.7",
-    "@types/node": "20.10.0",
+    "@types/eslint": "8.44.8",
+    "@types/node": "20.10.1",
     "@types/nprogress": "^0",
     "@types/prettier": "^3",
     "@types/react": "^18.2.39",
@@ -100,7 +101,7 @@
     "eslint": "^8.54.0",
     "eslint-config-astro": "^1.0.8",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-astro": "^0.29.1",
+    "eslint-plugin-astro": "^0.30.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-perfectionist": "^2.5.0",
     "eslint-plugin-react": "^7.33.2",
@@ -125,7 +126,7 @@
     "stylelint-value-no-unknown-custom-properties": "^5.0.0",
     "textlint": "^13.4.1",
     "textlint-rule-preset-japanese": "^8.0.0",
-    "tsx": "^4.6.0",
+    "tsx": "^4.6.1",
     "typescript": "^5.3.2"
   },
   "volta": {
