@@ -79,51 +79,6 @@ Webサイト制作という形で運営に参加させていただきました�
 
 私はもともと、Pages RouterにはNext.js独特のコードがかなり多く、一般的なhtmlと同じ構造で書けるApp Routerの方が下の代へ引き継いでいくのに適していると考えていました。
 
-{/* 下にはそれぞれの一番上の層で読み込まれるコンポーネントを載せていますが、やっぱりひと目見て自然で誰にでも分かりやすい、<span class="text-xl">**驚きが最小である**</span>のはApp Routerの方だと思うんですよね。
-
-```tsx:_document.tsx(PagesRouter)
-import { Head, Html, Main, NextScript } from 'next/document'
-
-export default function Document() {
-  return (
-    <Html
-      lang="ja"
-      prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# website: https://ogp.me/ns/website#"
-    >
-      <Head />
-      <body>
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
-  )
-}
-```
-
-```tsx:layout.tsx(AppRouter)
-import Footer from '@/components/layout/footer'
-import Favicons from '@/components/meta/favicons'
-import { fontClass } from '@/lib/font'
-import TwitterScript from '@/lib/twitter'
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="ja">
-      <Favicons />
-      <body className={fontClass}>
-        {children}
-        <Footer />
-        <TwitterScript />
-      </body>
-    </html>
-  )
-}
-``` */}
-
 今フロントエンド全体を見てもhtml標準、WebAPI標準に回帰していく動きがあり、App RouterはPages Routerと比較した際により将来性のある選択肢として考えられます。
 
 あともう1つApp Routerを使いたかった大きな理由があって、**MetaDataAPI**が非常に便利なんですよね。
@@ -150,35 +105,6 @@ App Routerでは、React Server Componentと呼ばれる概念がデフォルト
 ただしこれは、今までの書き方では動かなくなる場合があるというだけで、それ以外の観点では大きなメリットになります。
 今まですべてクライアント側で処理していたものを、機密を伴うデータフェッチや整形はサーバー側、クライアント側は表示のみというように分割することで、
 より高速な表示とセキュリティの向上が期待されます。
-
-{/* ### SCSS Modules
-
-CSSに関しては、SCSSもしくはTailwind CSSの二択で悩んでいましたが、アニメーションや複雑なCSSプロパティの使用が想定されたのでSCSSを採用することにしました。
-mixinを正しく使えばMedia Queryなども手軽に書けるので、Tailwindと比べてもそこまで苦しくない記述量で済みます。
-
-
-例えば、調布祭公式Webサイトのトップページに表示されるこれは、CSS Gridの`grid-area`でレイアウトを組んでいます。
-フォントサイズも`font-size: clamp(1rem, 1.25rem, 5vw);`などでかなり細かく調整しています。
-これはTailwindでやるとかえって面倒になります。
-
-![調布祭公式Webサイトのファーストビュー](https://res.cloudinary.com/sushi-chan/image/upload/v1701280468/tech/chofusai-2023-website/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2023-11-30_025304_iugfcb.png)
-
-ただし、Tailwindが提供するユーティリティクラスは非常に良質なものが多く、その中身は大いに参考にしています。
-あとデザイントークンがある程度決まっているのもかなり良く、別にTailwindがだめだという話ではないのです。
-あと最近は、個人的に使い方を確立したのでむしろTailwindを使っていることのほうが多いです。
-
-閑話休題
-
-SCSS Moduleを使う場合のデメリットとしては、個別にSCSS Moduleファイルを増やしていくことになるのでファイル数の増加がしんどいです。
-Tailwindだと、ページ内でコンポーネントを配置する際にMarginなどを直接指定できていいんですが、
-SCSS Moduleではいちいち`page.module.scss`のようなファイルを増やすことになります。まあ事故を起こさずに複雑なスタイルを適用することとトレードオフ[^2]なので仕方ないですね。 */}
-{/*
-[^2]:
-    <div>
-      <span>見たな 聴いてね</span>
-      <PlayerCard caption="トレードオフ / 棗いつき" url="https://www.youtube.com/watch?v=pvI0JB0y9XM" />
-    </div> */}
-
 
 ### Markdown
 
