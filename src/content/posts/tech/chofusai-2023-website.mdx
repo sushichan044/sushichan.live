@@ -48,17 +48,16 @@ Webサイト制作という形で運営に参加させていただきました�
 大変好評だった学内マップや、企画一覧ページの検索機能は主にいーちゃん([@e_chan1007_u](https://twitter.com/e_chan1007_u))がゴリゴリ実装してくれました。
 今の私では絶対力が足りません。偉業すぎる。改めて感謝の意を表します。
 
-## 使用した技術やインフラの話
+## 使用した技術やインフラ
 
 主に使用した技術やインフラは以下の通りです。
 
 - [Next.js (App Router, v13)](#nextjsapp-router)
-- [SCSS Modules](#scss-modules)
 - [Markdown](#markdown)
-- Cloudflare (CDN)
-- Vercel (Hosting)
+- [Cloudflare (CDN)](#cloudflare)
+- [Vercel (Hosting)](#vercel)
 
-ということで、実際にそれを選んだ理由や、そのメリット・デメリットなどをつらつら書いていきます。
+ということで、それを選んだ理由や、メリット・デメリットなどをつらつら書いていきます。
 
 ### Next.js(App Router)
 
@@ -152,34 +151,33 @@ App Routerでは、React Server Componentと呼ばれる概念がデフォルト
 今まですべてクライアント側で処理していたものを、機密を伴うデータフェッチや整形はサーバー側、クライアント側は表示のみというように分割することで、
 より高速な表示とセキュリティの向上が期待されます。
 
-### SCSS Modules
+{/* ### SCSS Modules
 
-CSSに関しては、SCSSもしくはTailwind CSSの二択で悩んでいました。
-しかし、アニメーションや複雑なCSSプロパティの使用が想定されたので、SCSSを採用することにしました。
+CSSに関しては、SCSSもしくはTailwind CSSの二択で悩んでいましたが、アニメーションや複雑なCSSプロパティの使用が想定されたのでSCSSを採用することにしました。
 mixinを正しく使えばMedia Queryなども手軽に書けるので、Tailwindと比べてもそこまで苦しくない記述量で済みます。
 
-{/*
+
 例えば、調布祭公式Webサイトのトップページに表示されるこれは、CSS Gridの`grid-area`でレイアウトを組んでいます。
 フォントサイズも`font-size: clamp(1rem, 1.25rem, 5vw);`などでかなり細かく調整しています。
 これはTailwindでやるとかえって面倒になります。
 
-![調布祭公式Webサイトのファーストビュー](https://res.cloudinary.com/sushi-chan/image/upload/v1701280468/tech/chofusai-2023-website/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2023-11-30_025304_iugfcb.png) */}
+![調布祭公式Webサイトのファーストビュー](https://res.cloudinary.com/sushi-chan/image/upload/v1701280468/tech/chofusai-2023-website/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2023-11-30_025304_iugfcb.png)
 
 ただし、Tailwindが提供するユーティリティクラスは非常に良質なものが多く、その中身は大いに参考にしています。
 あとデザイントークンがある程度決まっているのもかなり良く、別にTailwindがだめだという話ではないのです。
 あと最近は、個人的に使い方を確立したのでむしろTailwindを使っていることのほうが多いです。
 
-閑話休題。
+閑話休題
 
 SCSS Moduleを使う場合のデメリットとしては、個別にSCSS Moduleファイルを増やしていくことになるのでファイル数の増加がしんどいです。
 Tailwindだと、ページ内でコンポーネントを配置する際にMarginなどを直接指定できていいんですが、
-SCSS Moduleではいちいち`page.module.scss`のようなファイルを増やすことになります。まあ事故を起こさずに複雑なスタイルを適用することとトレードオフ[^2]なので仕方ないですね。
-
+SCSS Moduleではいちいち`page.module.scss`のようなファイルを増やすことになります。まあ事故を起こさずに複雑なスタイルを適用することとトレードオフ[^2]なので仕方ないですね。 */}
+{/*
 [^2]:
     <div>
       <span>見たな 聴いてね</span>
       <PlayerCard caption="トレードオフ / 棗いつき" url="https://www.youtube.com/watch?v=pvI0JB0y9XM" />
-    </div>
+    </div> */}
 
 
 ### Markdown
@@ -190,22 +188,53 @@ SCSS Moduleではいちいち`page.module.scss`のようなファイルを増や
 
 <UrlCard url="https://www.chofusai.jp/news/panflet" />
 
-このページの実態は、独立したMarkdownファイルであり、それを内製ライブラリを使って
+このページの実態は独立したMarkdownファイルであり、それを内製ライブラリを使って
 
 1. `/news`以下のページを生成する際に指定したディレクトリ以下のMarkdownを探索する
 2. ファイル名に対応するパスを振り分ける
 
 のような手順を踏むことで擬似的なファイルベースルーティングを実現しています。
 また、この際Markdownのフロントマターに必要な情報も書くことで、効率よくページを生成できるようにしています。
+企画データの管理も同様の方法で行いました。かなり楽で良かった。
 
 ちなみにこのライブラリを試験実装したのが[旧個人サイト](https://old.sushichan.live)内のブログだったりします。[^3]
 
 [^3]:
     <div>
-      <span>つまり急に旧個人サイトをNext.js(App Router)で作ったのは伏線だったわけです。HTML・CSS・JS歴2ヶ月の人間が直感的に使えるしまあ行けるのではと思って採用した</span>
+      <span>急に旧個人サイトをNext.js(App Router)で作ったのは調布祭の準備の一環でした。</span>
       <UrlCard url="/blog/post/tech/build-my-website" />
     </div>
 
+### Cloudflare
 
+いわずと知れたつよつよCDN+αですね。私が導入を推し進めました。
 
-## こだわりポイント
+実際にした設定は多数あるため割愛しますが、これにより<span class="text-xl font-bold">75%</span>のアクセスをCDNで処理できました。
+また、当然CDNからのレスポンスはオリジンからのものより速く、103 Eary Hintなども併用したので、パフォーマンスの向上に繋がりました。
+
+![Cloudflareの帯域幅分析。総トラフィック約30GBのうち22.5GBをCDN上のキャッシュでさばいている。](https://res.cloudinary.com/sushi-chan/image/upload/v1701318570/tech/chofusai-2023-website/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2023-11-30_132841_iomalu.png "帯域幅を22.5GB削減できました。")
+
+また、過去の調布祭ページなどを記録用として静的ホスティングするのにCloudflare Pagesを使用しています。第73回サイトもいずれこちらに移行する予定です。
+
+### Vercel
+
+まあNext.jsを使うならVercelでしょう。特に深い意味はないです。
+
+<span class="text-xl font-bold">...というのは嘘で、</span>実は当初はCloudflare Pagesにデプロイする予定でした。
+というのもVercelは無料枠での帯域幅に月間100GBという制限があるのに対し、Cloudflare Pagesは事実上無制限だったからです。
+
+ただ、どうしても当時Cloudflare Pagesのようなエッジ上でNext.jsの画像最適化をコストを抑えながら動かす方法がなく、
+調布祭サイトで最も帯域を抑えやすいのは画像などの静的アセットの最適化であると判断したので、Vercelに変更しました。[^4]
+
+[^4]:
+    <div>
+      <span>近日中にCloudflareの画像最適化に変更が入るので、それが完了するとかなり現実的に使えるようになります。</span>
+      <UrlCard caption="この前の大規模障害が原因で少し遅れているらしい" url="https://blog.cloudflare.com/merging-images-and-image-resizing/" />
+    </div>
+
+## 特に意識したこと
+
+### 可能な限り使用帯域幅を抑える工夫をした
+
+調布祭サイトは、当然ながら開催期間中はアクセスが集中します。さらに、もともと学内の電波状況がいいとは言えない状態なため、
+通信速度がある程度落ちた状態でも高速に読み込める必要がありました。
