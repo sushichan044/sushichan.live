@@ -14443,6 +14443,7 @@ __metadata:
     astro-eslint-parser: "npm:^0.16.0"
     astro-seo: "npm:^0.8.0"
     budoux: "npm:^0.6.1"
+    clsx: "npm:^2.0.0"
     daisyui: "npm:latest"
     date-fns: "npm:^2.30.0"
     date-fns-tz: "npm:^2.0.0"

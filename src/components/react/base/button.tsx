@@ -1,23 +1,34 @@
-import type React from "react"
-import { tv, type VariantProps } from "tailwind-variants"
+"use client"
 
-import type { PropsWithoutStyle } from "@/utils/@types/propsWithoutStyle"
+import React from "react"
+import type { VariantProps } from "tailwind-variants"
 
-const style = tv({})
+import ButtonStyle from "@/components/style/button"
 
-export type ButtonVariants = VariantProps<typeof style>
-
-type ButtonProps = Omit<PropsWithoutStyle<"button", "react">, "role"> & {
+type ButtonProps = Omit<React.ComponentProps<"button">, "role"> & {
   role: React.HTMLAttributes<HTMLButtonElement>["role"]
 }
+
+type ButtonVariantProps = VariantProps<typeof ButtonStyle>
+
 type Props = ButtonProps & {
-  variants?: ButtonVariants
+  variants?: ButtonVariantProps
   children: React.ReactNode
 }
 
-const Button = ({ children, onClick, ...props }: Props) => {
+const Button = ({
+  children,
+  className,
+  onClick,
+  variants,
+  ...props
+}: Props) => {
   return (
-    <button onClick={onClick} {...props}>
+    <button
+      className={ButtonStyle({ ...variants, className })}
+      onClick={onClick}
+      {...props}
+    >
       {children}
     </button>
   )

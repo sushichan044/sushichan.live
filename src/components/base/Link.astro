@@ -1,14 +1,27 @@
 ---
+import type { HTMLAttributes } from "astro/types"
+import { clsx } from "clsx"
 import type { VariantProps } from "tailwind-variants"
 
 import LinkStyle from "@/components/style/link"
-import type { PropsWithoutStyle } from "@/utils/@types/propsWithoutStyle"
 
-export type Props = PropsWithoutStyle<"a", "astro"> & {
+export type Props = HTMLAttributes<"a"> & {
   variants?: VariantProps<typeof LinkStyle>
 }
 
-const { variants, href, ...props } = Astro.props
+const {
+  variants,
+  class: className,
+  "class:list": classList,
+  href,
+  ...props
+} = Astro.props
+
+const mergedClass = clsx(className, classList)
 ---
 
-<a class:list={[LinkStyle(variants)]} href={href} {...props}><slot /></a>
+<a
+  class:list={[LinkStyle({ ...variants, class: mergedClass })]}
+  href={href}
+  {...props}><slot /></a
+>

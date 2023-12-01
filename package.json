@@ -57,6 +57,7 @@
     "astro-auto-import": "^0.4.1",
     "astro-seo": "^0.8.0",
     "budoux": "^0.6.1",
+    "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
     "date-fns-tz": "^2.0.0",
     "fetch-site-metadata": "^0.1.3",
