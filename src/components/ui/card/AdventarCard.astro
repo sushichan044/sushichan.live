@@ -1,0 +1,19 @@
+---
+import Card, { type CardProps } from "@/components/common/Card.astro"
+
+interface Props extends CardProps {
+  id: string
+}
+
+const { id, ...props } = Astro.props
+const src = `https://adventar.org/calendars/${id}/embed`
+---
+
+<Card {...props}>
+  <iframe
+    class="rounded-lg overflow-hidden"
+    src={src}
+    height="437"
+    title="Adventar Embed"
+    loading="lazy"></iframe>
+</Card>
