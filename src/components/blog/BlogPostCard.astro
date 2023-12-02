@@ -12,10 +12,8 @@ type Props = {
 
 const { post } = Astro.props
 
-const formattedDate = dtTool.formatInJst(
-  dtTool.replaceTzWithJst(post.data.createdAt),
-  "yyyy/MM/dd",
-)
+const createdAt = dtTool.replaceTzWithJst(post.data.createdAt)
+const createdAtSring = dtTool.formatInJst(createdAt, "yyyy/MM/dd")
 ---
 
 <article
@@ -48,7 +46,7 @@ const formattedDate = dtTool.formatInJst(
           priority
         />
       </div>
-      <span>{formattedDate}</span>
+      <time datetime={createdAt.toISOString()}>{createdAtSring}</time>
       <h2
         class="inline-block px-2 text-xl font-bold"
         transition:animate="fade"
