@@ -51,56 +51,64 @@ const updatedAtDate = declareLet(() => {
       </BudouX>
     </h1>
     <BudouX>{entry.data.description}</BudouX>
-    <div class="flex flex-row flex-wrap gap-x-3 gap-y-[6px]">
-      <div class="flex flex-row flex-nowrap items-center justify-center gap-2">
-        <Icon class="text-blue-500" icon="fa6-solid:pen" />
-        <time datetime={createdAtDate.toISOString()}
-          >{dtTool.formatInJst(createdAtDate, "yyyy/MM/dd")}</time
+    <div class="flex flex-col flex-nowrap gap-2">
+      <div class="flex flex-row flex-wrap gap-x-4 gap-y-[6px]">
+        <div
+          class="flex flex-row flex-nowrap items-center justify-center gap-1"
         >
+          <Icon class="text-blue-500" icon="fa6-solid:pen" size="md" />
+          <time datetime={createdAtDate.toISOString()}
+            >{dtTool.formatInJst(createdAtDate, "yyyy/MM/dd")}</time
+          >
+        </div>
+        {
+          updatedAtDate && (
+            <div class="flex flex-row flex-nowrap items-center justify-center gap-1">
+              <Icon
+                class="text-blue-500"
+                icon="fa6-solid:arrow-rotate-right"
+                size="md"
+              />
+              <time datetime={updatedAtDate.toISOString()}>
+                {dtTool.formatInJst(
+                  dtTool.replaceTzWithJst(updatedAtDate),
+                  "yyyy/MM/dd",
+                )}
+              </time>
+            </div>
+          )
+        }
+        {
+          roundedMinutesRead !== undefined && (
+            <div class="flex flex-row flex-nowrap items-center justify-center gap-1">
+              <Icon class="text-blue-500" icon="fa6-solid:clock" />
+              <span>{roundedMinutesRead} min to read</span>
+            </div>
+          )
+        }
       </div>
+      {entry.data.tags && <TagLinkFlex tags={entry.data.tags} />}
       {
-        updatedAtDate && (
-          <div class="flex flex-row flex-nowrap items-center justify-center gap-2">
-            <Icon class="text-blue-500" icon="fa6-solid:arrow-rotate-right" />
-            <time datetime={updatedAtDate.toISOString()}>
-              {dtTool.formatInJst(
-                dtTool.replaceTzWithJst(updatedAtDate),
-                "yyyy/MM/dd",
-              )}
-            </time>
+        entry.data.status === "draft" && (
+          <div class="alert alert-warning">
+            <Icon icon="fa6-solid:circle-exclamation" />
+            <BudouX>
+              この記事は下書きです。 本番ビルド時には表示されません。
+            </BudouX>
           </div>
         )
       }
       {
-        roundedMinutesRead !== undefined && (
-          <div class="flex flex-row flex-nowrap items-center justify-center gap-2">
-            <Icon class="text-blue-500" icon="fa6-solid:clock" />
-            <span>{roundedMinutesRead} min to read</span>
+        entry.data.status === "preview" && (
+          <div class="alert alert-warning">
+            <Icon icon="fa6-solid:circle-exclamation" />
+            <BudouX>
+              この記事はプレビューです。記事一覧には表示されません。
+            </BudouX>
           </div>
         )
       }
     </div>
-    {entry.data.tags && <TagLinkFlex tags={entry.data.tags} />}
-    {
-      entry.data.status === "draft" && (
-        <div class="alert alert-warning">
-          <Icon icon="fa6-solid:circle-exclamation" />
-          <BudouX>
-            この記事は下書きです。 本番ビルド時には表示されません。
-          </BudouX>
-        </div>
-      )
-    }
-    {
-      entry.data.status === "preview" && (
-        <div class="alert alert-warning">
-          <Icon icon="fa6-solid:circle-exclamation" />
-          <BudouX>
-            この記事はプレビューです。記事一覧には表示されません。
-          </BudouX>
-        </div>
-      )
-    }
   </div>
 </div>
 
