@@ -39,8 +39,13 @@ const mdxIntegrations = [
 
 // https://astro.build/config
 export default defineConfig({
-  adapter: cloudflare(),
-  experimental: { devOverlay: true, contentCollectionCache: true },
+  adapter: cloudflare({
+    runtime: {
+      mode: "off",
+      type: "pages",
+    },
+  }),
+  experimental: { contentCollectionCache: true },
   image: {
     service: {
       // https://docs.astro.build/en/guides/images/#add-simple-asset-support-for-cloudflare-deno-vercel-edge-and-netlify-edge
