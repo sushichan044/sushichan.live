@@ -1334,13 +1334,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@iconify/json@npm:^2.2.154":
-  version: 2.2.154
-  resolution: "@iconify/json@npm:2.2.154"
+"@iconify/json@npm:^2.2.155":
+  version: 2.2.155
+  resolution: "@iconify/json@npm:2.2.155"
   dependencies:
     "@iconify/types": "npm:*"
     pathe: "npm:^1.1.0"
-  checksum: 7c6556ea2a057120b5b34a7200f6d4779ed4ef39234e4d3f11ef4112708896acca68e42e9f53119e1ed6217c9d8fc8924822928f08d034777e43b1575fd0d4b8
+  checksum: 60e5017b5c75c693197a0511d0d9461faabcffe34fb4f607532241d93038325639882ec40e38012774fda6a134833295e57fbe3f0d6ed1e6d4a35a48f8e84b76
   languageName: node
   linkType: hard
 
@@ -2941,7 +2941,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.1.0":
+"@types/node@npm:*":
   version: 20.10.0
   resolution: "@types/node@npm:20.10.0"
   dependencies:
@@ -2950,7 +2950,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.10.4":
+"@types/node@npm:20.10.4, @types/node@npm:^20.1.0":
   version: 20.10.4
   resolution: "@types/node@npm:20.10.4"
   dependencies:
@@ -3032,14 +3032,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.2.42":
-  version: 18.2.42
-  resolution: "@types/react@npm:18.2.42"
+"@types/react@npm:^18.2.43":
+  version: 18.2.43
+  resolution: "@types/react@npm:18.2.43"
   dependencies:
     "@types/prop-types": "npm:*"
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 2946d78c1f9a220a4dfedd7995b8bcba47235b19756bf3dd845c604bb24fff8d0ff5be81c0c98ac7f4488791e8c7e6cbcc4898c40c0209d74a1223b8fbfb994f
+  checksum: 10477a50fbd3c0cc5b8a2ade679f442717f68fb27c8460b2aa1d3256cd18c48f742bbe5b9ee37a8c4c5f832ffa37b3a23c09fd96dd880a8e3182d8929c05e803
   languageName: node
   linkType: hard
 
@@ -11983,7 +11983,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:*, prettier@npm:^3.0.0, prettier@npm:^3.1.0":
+"prettier@npm:*, prettier@npm:^3.0.0":
   version: 3.1.0
   resolution: "prettier@npm:3.1.0"
   bin:
@@ -11998,6 +11998,15 @@ __metadata:
   bin:
     prettier: bin-prettier.js
   checksum: 463ea8f9a0946cd5b828d8cf27bd8b567345cf02f56562d5ecde198b91f47a76b7ac9eae0facd247ace70e927143af6135e8cf411986b8cb8478784a4d6d724a
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "prettier@npm:3.1.1"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: facc944ba20e194ff4db765e830ffbcb642803381f0d2033ed397e79904fa4ccc877dc25ad68f42d36985c01d051c990ca1b905fb83d2d7d65fe69e4386fa1a3
   languageName: node
   linkType: hard
 
@@ -14073,9 +14082,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint@npm:^16.0.1":
-  version: 16.0.1
-  resolution: "stylelint@npm:16.0.1"
+"stylelint@npm:^16.0.2":
+  version: 16.0.2
+  resolution: "stylelint@npm:16.0.2"
   dependencies:
     "@csstools/css-parser-algorithms": "npm:^2.3.2"
     "@csstools/css-tokenizer": "npm:^2.2.1"
@@ -14117,7 +14126,7 @@ __metadata:
     write-file-atomic: "npm:^5.0.1"
   bin:
     stylelint: bin/stylelint.mjs
-  checksum: 957bc845dfe76216c571567f10bdf209e93592146024a3e726d860c7dcc42b84ed2a5ef4a722784e07aa371709d49f0d21dc9abd66a3a36fdbbaafb1b9cee2de
+  checksum: 5ec755e209beb1877ff40d50f18c1ebb05bf251925da1f98f28fb3911e4031195eb86adaf641ac5cdb01ba973f4c999bc0c6b0270d08c1d5c070adbdd9e734cf
   languageName: node
   linkType: hard
 
@@ -14195,7 +14204,7 @@ __metadata:
     "@astrojs/tailwind": "npm:^5.0.3"
     "@cloudflare/workers-types": "npm:^4.20231121.0"
     "@iconify/iconify": "npm:^3.1.1"
-    "@iconify/json": "npm:^2.2.154"
+    "@iconify/json": "npm:^2.2.155"
     "@markuplint/astro-parser": "npm:^3.12.0"
     "@markuplint/jsx-parser": "npm:^3.12.0"
     "@markuplint/react-spec": "npm:^3.13.0"
@@ -14207,7 +14216,7 @@ __metadata:
     "@types/node": "npm:20.10.4"
     "@types/nprogress": "npm:^0"
     "@types/prettier": "npm:^3"
-    "@types/react": "npm:^18.2.42"
+    "@types/react": "npm:^18.2.43"
     "@types/react-dom": "npm:^18.2.17"
     "@types/sanitize-html": "npm:^2.9.5"
     "@typescript-eslint/eslint-plugin": "npm:^5.62.0"
@@ -14242,7 +14251,7 @@ __metadata:
     npm-check-updates: "npm:^16.14.11"
     nprogress: "npm:^0.2.0"
     postcss-html: "npm:^1.5.0"
-    prettier: "npm:^3.1.0"
+    prettier: "npm:^3.1.1"
     prettier-plugin-astro: "npm:^0.12.2"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
@@ -14257,7 +14266,7 @@ __metadata:
     sanitize-html: "npm:^2.11.0"
     sass: "npm:^1.69.5"
     satori: "npm:^0.10.11"
-    stylelint: "npm:^16.0.1"
+    stylelint: "npm:^16.0.2"
     stylelint-a11y: "npm:^1.2.3"
     stylelint-config-html: "npm:^1.1.0"
     stylelint-config-recess-order: "npm:^4.4.0"
