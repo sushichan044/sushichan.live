@@ -1,8 +1,10 @@
 /** @type {import("stylelint").Config} */
 export default {
   extends: [
+    "stylelint-config-recommended",
     "stylelint-config-standard-scss",
     "stylelint-config-sass-guidelines",
+    "stylelint-config-tailwindcss/scss",
     "stylelint-config-recess-order",
     "stylelint-config-html/astro",
     "stylelint-config-html/html",
