@@ -7,19 +7,42 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/stylistic",
     "plugin:tailwindcss/recommended",
     "prettier",
   ],
-  plugins: ["simple-import-sort", "perfectionist"],
+  plugins: ["@typescript-eslint", "simple-import-sort", "perfectionist"],
   parserOptions: {
     project: "./tsconfig.json",
     extraFileExtensions: [".astro"],
+    tsconfigRootDir: __dirname,
   },
   env: {
     es6: true,
     node: true,
   },
   rules: {
+    // v6 で recommended から削除されたものを有効化
+    "no-extra-semi": "off",
+    "@typescript-eslint/no-extra-semi": "error",
+    // v6 で strict に移動したルールを有効化
+    "@typescript-eslint/no-non-null-assertion": "warn",
+    // v6 で recommended に追加されたルールを無効化
+    "@typescript-eslint/no-duplicate-enum-values": "off",
+    "@typescript-eslint/no-unsafe-declaration-merging": "off",
+    // stylistic を有効にしたため v5 の recommended にないルールを無効化
+    "@typescript-eslint/array-type": "off",
+    "@typescript-eslint/ban-tslint-comment": "off",
+    "@typescript-eslint/class-literal-property-style": "off",
+    "@typescript-eslint/consistent-generic-constructors": "off",
+    "@typescript-eslint/consistent-indexed-object-style": "off",
+    "@typescript-eslint/consistent-type-assertions": "off",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/no-confusing-non-null-assertion": "off",
+    "@typescript-eslint/prefer-for-of": "off",
+    "@typescript-eslint/prefer-function-type": "off",
+    "require-await": "off",
+    "@typescript-eslint/require-await": "error",
     "no-restricted-imports": [
       "error",
       {
