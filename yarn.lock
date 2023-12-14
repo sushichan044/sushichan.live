@@ -92,11 +92,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/mdx@npm:2.0.0":
-  version: 2.0.0
-  resolution: "@astrojs/mdx@npm:2.0.0"
+"@astrojs/markdown-remark@npm:4.0.1":
+  version: 4.0.1
+  resolution: "@astrojs/markdown-remark@npm:4.0.1"
   dependencies:
-    "@astrojs/markdown-remark": "npm:4.0.0"
+    "@astrojs/prism": "npm:^3.0.0"
+    github-slugger: "npm:^2.0.0"
+    import-meta-resolve: "npm:^4.0.0"
+    mdast-util-definitions: "npm:^6.0.0"
+    rehype-raw: "npm:^7.0.0"
+    rehype-stringify: "npm:^10.0.0"
+    remark-gfm: "npm:^4.0.0"
+    remark-parse: "npm:^11.0.0"
+    remark-rehype: "npm:^11.0.0"
+    remark-smartypants: "npm:^2.0.0"
+    shikiji: "npm:^0.6.13"
+    unified: "npm:^11.0.4"
+    unist-util-visit: "npm:^5.0.0"
+    vfile: "npm:^6.0.1"
+  checksum: f8f91c49040ec6057d7b9b672159471701a52bac14b77b1dc08f35c55874a3548f18c20d4e86e3e4130955b80396627c32a52d61049cffb5e64a50eb38bedda0
+  languageName: node
+  linkType: hard
+
+"@astrojs/mdx@npm:2.0.1":
+  version: 2.0.1
+  resolution: "@astrojs/mdx@npm:2.0.1"
+  dependencies:
+    "@astrojs/markdown-remark": "npm:4.0.1"
     "@mdx-js/mdx": "npm:^3.0.0"
     acorn: "npm:^8.11.2"
     es-module-lexer: "npm:^1.4.1"
@@ -112,8 +134,8 @@ __metadata:
     unist-util-visit: "npm:^5.0.0"
     vfile: "npm:^6.0.1"
   peerDependencies:
-    astro: ^4.0.0-beta.0
-  checksum: ff7dc2e2de0289c715603c009f120cd3cbdcfdcc2a1541a8dd4e2116bea066fb74d19b200da811b143068b879ea07fae5b535812922f9269b753cf3ff15b4808
+    astro: ^4.0.0
+  checksum: 9fc79778bd6f2d2d64c50ddca1ed220f3e5016d0614f2c186a616ce438b1ed628d416cf341bbb12fd0e1898ffce3bde7b6880f94ab702c00969a8ae758ed7e6c
   languageName: node
   linkType: hard
 
@@ -1334,13 +1356,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@iconify/json@npm:^2.2.155":
-  version: 2.2.155
-  resolution: "@iconify/json@npm:2.2.155"
+"@iconify/json@npm:^2.2.157":
+  version: 2.2.157
+  resolution: "@iconify/json@npm:2.2.157"
   dependencies:
     "@iconify/types": "npm:*"
     pathe: "npm:^1.1.0"
-  checksum: 60e5017b5c75c693197a0511d0d9461faabcffe34fb4f607532241d93038325639882ec40e38012774fda6a134833295e57fbe3f0d6ed1e6d4a35a48f8e84b76
+  checksum: 0aad95934982a5aa018ac6828a40e3574421b47cd2d46192210ac032bd57bc14f852ee423780001d299785f8b50afb7a1a3166e7d6ef00c5a8bfe36a81f59876
   languageName: node
   linkType: hard
 
@@ -2803,13 +2825,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:8.44.8":
-  version: 8.44.8
-  resolution: "@types/eslint@npm:8.44.8"
+"@types/eslint@npm:8.44.9":
+  version: 8.44.9
+  resolution: "@types/eslint@npm:8.44.9"
   dependencies:
     "@types/estree": "npm:*"
     "@types/json-schema": "npm:*"
-  checksum: 610966753add984f6ac9f00eeb766691e141e66a7e20b724a45ad077f60e8cd8fd7874b7e655e93537e54873cc5711cd6f57728474e08b478407cd942f098263
+  checksum: e9da4e4c7b7c9014b17d40007e36f02f3b5dd55c43bb05928b52dd9c19f2a8fb7971a851a4e7a11625c3c69da286c5baf55de2f8bb900b1a4cfb5145a4491b37
   languageName: node
   linkType: hard
 
@@ -3032,14 +3054,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.2.43":
-  version: 18.2.43
-  resolution: "@types/react@npm:18.2.43"
+"@types/react@npm:^18.2.45":
+  version: 18.2.45
+  resolution: "@types/react@npm:18.2.45"
   dependencies:
     "@types/prop-types": "npm:*"
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10477a50fbd3c0cc5b8a2ade679f442717f68fb27c8460b2aa1d3256cd18c48f742bbe5b9ee37a8c4c5f832ffa37b3a23c09fd96dd880a8e3182d8929c05e803
+  checksum: 4cc650c47ffb88baac29fb7a74e842e4af4a55f437086ef70250fdc75f0a5f2fcf8adc272d05ab2e00b1de6e14613296881271caee037dadf9130fdeb498c59e
   languageName: node
   linkType: hard
 
@@ -9247,12 +9269,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"marked@npm:^11.0.1":
-  version: 11.0.1
-  resolution: "marked@npm:11.0.1"
+"marked@npm:^11.1.0":
+  version: 11.1.0
+  resolution: "marked@npm:11.1.0"
   bin:
     marked: bin/marked.js
-  checksum: 9cb65db2c9f8eb1b578858de7e6ca931d41872fb19eefb44a722eead70a4faaf10a4cbd990a97f9e2af05f1bd0b7e16448154b8069dfbaf138d547df3336cb10
+  checksum: 6a1cecaa849e47b11a060c068ca4d48f8aa9e203cd39d59b3f55dc43c5ea860af3ee341eeb02d985ecbee8d835a1377a170ca416716608e1a14b8b0b3599fa0f
   languageName: node
   linkType: hard
 
@@ -10399,9 +10421,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"miniflare@npm:3.20231030.3":
-  version: 3.20231030.3
-  resolution: "miniflare@npm:3.20231030.3"
+"miniflare@npm:3.20231030.4":
+  version: 3.20231030.4
+  resolution: "miniflare@npm:3.20231030.4"
   dependencies:
     acorn: "npm:^8.8.0"
     acorn-walk: "npm:^8.2.0"
@@ -10417,7 +10439,7 @@ __metadata:
     zod: "npm:^3.20.6"
   bin:
     miniflare: bootstrap.js
-  checksum: 3b85e94273371805651f7f7c5aaa6bba597d6014ea3cece3a2ee968f0d74bb593875433a1f3aa0389578c7de2dc87e161fc2af8d450278162c2313fd6a2055e1
+  checksum: 974b2031532ca4dbe734e79fc1f02ff1fd8245c7db6911de8921bad1a4f47f64bea97ce1fc4479ec5d2293eaf4c35cd500800c3e99913ce040bc2682b0e1694a
   languageName: node
   linkType: hard
 
@@ -10896,9 +10918,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-check-updates@npm:^16.14.11":
-  version: 16.14.11
-  resolution: "npm-check-updates@npm:16.14.11"
+"npm-check-updates@npm:^16.14.12":
+  version: 16.14.12
+  resolution: "npm-check-updates@npm:16.14.12"
   dependencies:
     chalk: "npm:^5.3.0"
     cli-table3: "npm:^0.6.3"
@@ -10935,7 +10957,7 @@ __metadata:
   bin:
     ncu: build/src/bin/cli.js
     npm-check-updates: build/src/bin/cli.js
-  checksum: bbd2a43e84280d228a357d27a7016dcc8b60aa1361f75b59ad67a61b73a7156ee62be9d44bcaa41c24f65cb9cc436ea85169a0702399842b4f8e16bca1834565
+  checksum: b22660e1fb3bc7bceccd70bf2c20e8873441771c160762d066f71ce2d4f0a6ff58882b5c198be89e433301bdf4e5440b1f46c1cdf3e9d40137b2823b07d6b3d0
   languageName: node
   linkType: hard
 
@@ -14151,14 +14173,14 @@ __metadata:
   resolution: "sushichan.live@workspace:."
   dependencies:
     "@astrojs/cloudflare": "npm:8.0.0"
-    "@astrojs/mdx": "npm:2.0.0"
+    "@astrojs/mdx": "npm:2.0.1"
     "@astrojs/react": "npm:^3.0.7"
     "@astrojs/rss": "npm:4.0.1"
     "@astrojs/sitemap": "npm:^3.0.3"
     "@astrojs/tailwind": "npm:^5.0.3"
     "@cloudflare/workers-types": "npm:^4.20231121.0"
     "@iconify/iconify": "npm:^3.1.1"
-    "@iconify/json": "npm:^2.2.155"
+    "@iconify/json": "npm:^2.2.157"
     "@markuplint/astro-parser": "npm:^3.12.0"
     "@markuplint/jsx-parser": "npm:^3.12.0"
     "@markuplint/react-spec": "npm:^3.13.0"
@@ -14166,11 +14188,11 @@ __metadata:
     "@radix-ui/react-slot": "npm:^1.0.2"
     "@resvg/resvg-js": "npm:^2.6.0"
     "@textlint/textlint-plugin-markdown": "npm:^13.4.1"
-    "@types/eslint": "npm:8.44.8"
+    "@types/eslint": "npm:8.44.9"
     "@types/node": "npm:20.10.4"
     "@types/nprogress": "npm:^0"
     "@types/prettier": "npm:^3"
-    "@types/react": "npm:^18.2.43"
+    "@types/react": "npm:^18.2.45"
     "@types/react-dom": "npm:^18.2.17"
     "@types/sanitize-html": "npm:^2.9.5"
     "@typescript-eslint/eslint-plugin": "npm:^5.62.0"
@@ -14199,10 +14221,10 @@ __metadata:
     husky: "npm:^8.0.3"
     ie-buster: "npm:^2.0.2"
     lint-staged: "npm:^15.2.0"
-    marked: "npm:^11.0.1"
+    marked: "npm:^11.1.0"
     markuplint: "npm:^3.15.0"
     mdast-util-to-string: "npm:^4.0.0"
-    npm-check-updates: "npm:^16.14.11"
+    npm-check-updates: "npm:^16.14.12"
     nprogress: "npm:^0.2.0"
     postcss-html: "npm:^1.5.0"
     prettier: "npm:^3.1.1"
@@ -14234,7 +14256,7 @@ __metadata:
     textlint-rule-preset-japanese: "npm:^9.0.0"
     tsx: "npm:^4.6.2"
     typescript: "npm:^5.3.3"
-    wrangler: "npm:^3.19.0"
+    wrangler: "npm:^3.20.0"
   languageName: unknown
   linkType: soft
 
@@ -15943,9 +15965,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wrangler@npm:^3.19.0":
-  version: 3.19.0
-  resolution: "wrangler@npm:3.19.0"
+"wrangler@npm:^3.20.0":
+  version: 3.20.0
+  resolution: "wrangler@npm:3.20.0"
   dependencies:
     "@cloudflare/kv-asset-handler": "npm:^0.2.0"
     "@esbuild-plugins/node-globals-polyfill": "npm:^0.2.3"
@@ -15954,7 +15976,7 @@ __metadata:
     chokidar: "npm:^3.5.3"
     esbuild: "npm:0.17.19"
     fsevents: "npm:~2.3.2"
-    miniflare: "npm:3.20231030.3"
+    miniflare: "npm:3.20231030.4"
     nanoid: "npm:^3.3.3"
     path-to-regexp: "npm:^6.2.0"
     resolve.exports: "npm:^2.0.2"
@@ -15968,7 +15990,7 @@ __metadata:
   bin:
     wrangler: bin/wrangler.js
     wrangler2: bin/wrangler.js
-  checksum: 25afdfc089eba4de71cd977e4079029f4d753312c2a49e0cfe652dccea6191de4e7c252634beed6c7f490ca6d2cb07749412ddd7804d8fe04b793db7547f59d6
+  checksum: fec32a2042de585e722315ae7f5cd9cb04fd932249a63d3966ee20be374269db7d73bb972c82bdf48fe66766dbd55e4b599e12d5c84a01632129870423a080ae
   languageName: node
   linkType: hard
 
