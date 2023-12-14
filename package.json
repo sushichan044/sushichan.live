@@ -49,12 +49,15 @@
     "@astrojs/sitemap": "^3.0.3",
     "@astrojs/tailwind": "^5.0.3",
     "@iconify/iconify": "^3.1.1",
+    "@mermaid-js/mermaid-cli": "^10.6.1",
     "@radix-ui/react-navigation-menu": "^1.1.4",
     "@radix-ui/react-slot": "^1.0.2",
     "@resvg/resvg-js": "^2.6.0",
+    "@southball/remark-mermaid": "^0.5.0",
     "@unocss/reset": "^0.58.0",
-    "astro": "4.0.3",
+    "astro": "4.0.5",
     "astro-auto-import": "^0.4.2",
+    "astro-diagram": "^0.7.0",
     "astro-seo": "^0.8.0",
     "budoux": "^0.6.1",
     "clsx": "^2.0.0",
@@ -64,6 +67,7 @@
     "ie-buster": "^2.0.2",
     "marked": "^11.1.0",
     "mdast-util-to-string": "^4.0.0",
+    "mermaid": "^10.6.1",
     "nprogress": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -112,6 +116,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
     "markuplint": "^3.15.0",
+    "miniflare": "^3.20231030.4",
     "npm-check-updates": "^16.14.12",
     "postcss-html": "^1.5.0",
     "prettier": "^3.1.1",
@@ -132,7 +137,7 @@
     "typescript": "^5.3.3"
   },
   "volta": {
-    "node": "18.18.0",
+    "node": "20.10.0",
     "yarn": "4.0.2"
   }
 }
