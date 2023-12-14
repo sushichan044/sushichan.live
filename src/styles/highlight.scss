@@ -1,7 +1,7 @@
 @use "./variables" as var;
 @use "./config/mixins" as mix;
 
-p > code {
+code {
   padding-inline: 0.25em;
   margin-inline: 0.5em;
   background-color: var.$theme-color-light-darker;
