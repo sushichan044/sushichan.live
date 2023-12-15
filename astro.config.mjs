@@ -3,6 +3,7 @@ import mdx from "@astrojs/mdx"
 import react from "@astrojs/react"
 import sitemap from "@astrojs/sitemap"
 import tailwind from "@astrojs/tailwind"
+import remarkMermaid from "@southball/remark-mermaid"
 import { defineConfig } from "astro/config"
 import AutoImport from "astro-auto-import"
 import rehypeKatex from "rehype-katex"
@@ -66,6 +67,7 @@ export default defineConfig({
     },
     gfm: true,
     remarkPlugins: [
+      remarkMermaid,
       remarkEmoji,
       remarkMath,
       remarkUnwrapImages,
