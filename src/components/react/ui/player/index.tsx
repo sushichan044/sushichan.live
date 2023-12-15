@@ -28,7 +28,7 @@ const Player = ({ url }: Props) => {
 
       return {
         ...baseConfig,
-        playerVars: { listType: "playlist", list: groups?.id },
+        playerVars: { list: groups?.id, listType: "playlist" },
       }
     }
 
@@ -38,7 +38,6 @@ const Player = ({ url }: Props) => {
     <ReactPlayer
       className="aspect-16/9 rounded-lg [&>*]:rounded-lg [&_iframe]:rounded-lg"
       config={{
-        youtube: { ...youtubePlayerOptions },
         soundcloud: {
           options: {
             autoplay: false,
@@ -50,6 +49,7 @@ const Player = ({ url }: Props) => {
           },
           playerId: twitchPlayerId,
         },
+        youtube: { ...youtubePlayerOptions },
       }}
       controls
       height="100%"

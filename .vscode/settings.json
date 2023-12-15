@@ -7,6 +7,7 @@
     "source.fixAll.stylelint": "explicit",
     "source.fixAll.markdownlint": "explicit"
   },
+  "markuplint.enable": true,
   "files.trimTrailingWhitespace": true,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

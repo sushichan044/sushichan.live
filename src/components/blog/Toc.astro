@@ -3,11 +3,11 @@ import type { MarkdownHeading } from "astro"
 
 import Link from "@/components/base/Link.astro"
 type Props = {
-  headings: MarkdownHeading[]
   depth: number
+  headings: MarkdownHeading[]
 }
 
-const { headings, depth } = Astro.props
+const { depth, headings } = Astro.props
 const matchedHeadings = headings.filter((heading) => heading.depth === depth)
 ---
 
@@ -17,23 +17,21 @@ const matchedHeadings = headings.filter((heading) => heading.depth === depth)
     class="flex flex-col flex-nowrap justify-center gap-1 rounded-lg text-lg font-bold"
   >
     {
-      matchedHeadings.map((h, i) => {
-        return (
-          <>
-            <Link
-              variants={{
-                color: "primary",
-                hoverColor: "primary",
-                decoration: "none",
-              }}
-              href={`#${h.slug}`}
-            >
-              <span>{h.text}</span>
-            </Link>
-            {i !== matchedHeadings.length - 1 && <div class="divider my-0" />}
-          </>
-        )
-      })
+      matchedHeadings.map((h, i) => (
+        <Fragment>
+          <Link
+            variants={{
+              color: "primary",
+              decoration: "none",
+              hoverColor: "primary",
+            }}
+            href={`#${h.slug}`}
+          >
+            <span>{h.text}</span>
+          </Link>
+          {i !== matchedHeadings.length - 1 && <div class="divider my-0" />}
+        </Fragment>
+      ))
     }
   </div>
 </nav>

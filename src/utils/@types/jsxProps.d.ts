@@ -3,7 +3,7 @@ import type { ComponentPropsWithoutRef, ElementType } from "react"
 
 export type JSXProps<
   T extends ElementType | HTMLTag,
-  Framework extends "react" | "astro" = "react",
+  Framework extends "astro" | "react" = "react",
 > = Framework extends "react" ? ReactProps<T> : AstroProps<T>
 
 export type AstroProps<T extends HTMLTag> = HTMLAttributes<T>

@@ -1,12 +1,12 @@
 ---
 export type CaptionProps = {
-  isFigure?: boolean
   caption?: string
+  isFigure?: boolean
 }
 
 type Props = CaptionProps
 
-const { isFigure, caption } = Astro.props
+const { caption, isFigure } = Astro.props
 const CaptionTag = isFigure ? "figcaption" : "span"
 ---
 

@@ -1,7 +1,6 @@
 ---
-import { Image as AstroImage, type RemoteImageProps } from "astro:assets"
-
 import { declareLet } from "@/utils/declareLet"
+import { Image as AstroImage, type RemoteImageProps } from "astro:assets"
 
 const MAX_WIDTH = 840
 
@@ -10,11 +9,11 @@ type Props = RemoteImageProps & {
 }
 
 let {
+  alt = "image alt",
+  height,
+  priority = false,
   src,
   width,
-  height,
-  alt = "image alt",
-  priority = false,
   ...props
 } = Astro.props
 
@@ -26,7 +25,7 @@ const size = declareLet(() => {
     h *= MAX_WIDTH / w
     w = MAX_WIDTH
   }
-  return { width: w, height: h }
+  return { height: h, width: w }
 })
 ---
 
@@ -36,6 +35,6 @@ const size = declareLet(() => {
   sizes="(max-width: 768px) 100vw, 50vw"
   src={src}
   width={size.width}
-  {...priority && { loading: "eager", fetchpriority: "high" }}
+  {...priority && { fetchpriority: "high", loading: "eager" }}
   {...props}
 />

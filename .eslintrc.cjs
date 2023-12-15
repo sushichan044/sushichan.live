@@ -4,17 +4,24 @@
 
 /** @type {ConfigData} */
 module.exports = {
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/stylistic",
+    "plugin:astro/recommended",
+    "plugin:astro/jsx-a11y-recommended",
+    "plugin:perfectionist/recommended-natural",
     "plugin:tailwindcss/recommended",
     "prettier",
   ],
-  plugins: ["@typescript-eslint", "simple-import-sort", "perfectionist"],
+  plugins: ["@typescript-eslint", "perfectionist"],
   parserOptions: {
-    project: "./tsconfig.json",
-    extraFileExtensions: [".astro"],
+    project: true,
     tsconfigRootDir: __dirname,
   },
   env: {
@@ -49,11 +56,16 @@ module.exports = {
         patterns: ["./", "../", "~/"],
       },
     ],
-    "perfectionist/sort-jsx-props": "error",
+    "perfectionist/sort-union-types": [
+      "error",
+      {
+        type: "natural",
+        order: "asc",
+        "nullable-last": true,
+      },
+    ],
     "react/jsx-boolean-value": "warn",
     "react/jsx-curly-brace-presence": "error",
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
   },
   overrides: [
     {
@@ -65,11 +77,8 @@ module.exports = {
       // It's the setting you need when using TypeScript.
       parserOptions: {
         parser: "@typescript-eslint/parser",
+        extraFileExtensions: [".astro"],
       },
-      extends: [
-        "plugin:astro/recommended",
-        "plugin:astro/jsx-a11y-recommended",
-      ],
       env: {
         "astro/astro": true,
       },
@@ -92,7 +101,7 @@ module.exports = {
       files: ["*.ts", "*.tsx"],
       parser: "@typescript-eslint/parser",
       parserOptions: {
-        project: "./tsconfig.json",
+        project: true,
       },
       extends: [
         "plugin:react/recommended",
@@ -111,5 +120,5 @@ module.exports = {
     },
     // ...
   ],
-  ignorePatterns: [".eslintrc.cjs", "tailwind.config.ts"],
+  ignorePatterns: [".eslintrc.cjs"],
 }

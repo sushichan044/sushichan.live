@@ -1,42 +1,41 @@
 ---
-import { tv, type VariantProps } from "tailwind-variants"
-
 import WithCaption, {
   type CaptionProps,
 } from "@/components/common/WithCaption.astro"
 import s from "@/components/utils/content-visibility.module.scss"
+import { type VariantProps, tv } from "tailwind-variants"
 export type CardProps = VariantProps<typeof style> & CaptionProps
 
 type Props = CardProps
 
-const { isFigure, caption, ...props } = Astro.props
+const { caption, isFigure, ...props } = Astro.props
 
 const style = tv({
   base: "flex flex-col flex-nowrap gap-1",
+  defaultVariants: {
+    center: true,
+    hover: false,
+    maxWidth: "content",
+    round: false,
+    shadow: false,
+  },
   variants: {
+    center: {
+      true: "mx-auto",
+    },
+    hover: {
+      true: "transition-transform duration-500 ease-in-out hover:-translate-y-1",
+    },
+    maxWidth: {
+      content: "w-[min(100%,600px)] max-w-[600px]",
+      full: "max-w-full",
+    },
     round: {
       true: "rounded-lg",
     },
     shadow: {
       true: "drop-shadow-md transition-shadow duration-200 ease-out hover:drop-shadow-lg",
     },
-    maxWidth: {
-      full: "max-w-full",
-      content: "w-[min(100%,600px)] max-w-[600px]",
-    },
-    hover: {
-      true: "transition-transform duration-500 ease-in-out hover:-translate-y-1",
-    },
-    center: {
-      true: "mx-auto",
-    },
-  },
-  defaultVariants: {
-    round: false,
-    shadow: false,
-    maxWidth: "content",
-    hover: false,
-    center: true,
   },
 })
 ---

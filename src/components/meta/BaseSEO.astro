@@ -2,17 +2,17 @@
 import { SEO } from "astro-seo"
 
 interface Props {
-  title: string
   description: string
   disableTitleTemplate?: boolean
   isHiddenPage?: boolean
+  title: string
 }
 
 const {
-  title,
   description,
   disableTitleTemplate = false,
   isHiddenPage = false,
+  title,
 } = Astro.props
 
 const titleDefault = disableTitleTemplate ? undefined : "すしのへや"
@@ -24,16 +24,16 @@ const DefaultOGPUrl = new URL("/images/ogp.png", Astro.url)
 <SEO
   openGraph={{
     basic: {
+      image: DefaultOGPUrl.toString(),
       title: title,
       type: "website",
-      image: DefaultOGPUrl.toString(),
       url: Astro.url,
     },
     image: {
+      alt: "すしのへや",
+      height: 630,
       url: DefaultOGPUrl,
       width: 1200,
-      height: 630,
-      alt: "すしのへや",
     },
     optional: {
       description: description,
@@ -43,14 +43,14 @@ const DefaultOGPUrl = new URL("/images/ogp.png", Astro.url)
   }}
   twitter={{
     card: "summary_large_image",
-    title: title,
+    creator: "@sushichan_044",
     description: description,
     image: DefaultOGPUrl,
-    creator: "@sushichan_044",
+    title: title,
   }}
   description={description}
   title={title}
   titleDefault={titleDefault}
   titleTemplate={titleTemplate}
-  {...isHiddenPage && { noindex: true, nofollow: true }}
+  {...isHiddenPage && { nofollow: true, noindex: true }}
 />

@@ -7,28 +7,28 @@ import fetchMetaData from "@/lib/fetchMetaData"
 import { declareLet } from "@/utils/declareLet"
 
 interface Props extends CardProps {
-  url: string | URL
+  url: URL | string
 }
 
 const { url: rawUrl, ...props } = Astro.props
 
 type ImageSet = {
-  src: string
   alt: string
+  src: string
 }
 
-const getImage = ({ image, icon, title }: Metadata): ImageSet | undefined => {
+const getImage = ({ icon, image, title }: Metadata): ImageSet | undefined => {
   if (image) {
     return {
-      src: image.src,
       alt: image.alt ?? `ogp image of ${title}`,
+      src: image.src,
     }
   }
 
   if (icon) {
     return {
-      src: icon,
       alt: `icon of ${title}`,
+      src: icon,
     }
   }
 

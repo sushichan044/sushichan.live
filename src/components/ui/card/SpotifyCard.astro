@@ -3,11 +3,11 @@ import Card, { type CardProps } from "@/components/common/Card.astro"
 import Spotify from "@/components/ui/Spotify.astro"
 
 interface Props extends CardProps {
-  url: string
   shape?: "square" | "wide"
+  url: string
 }
 
-const { url, shape, ...props } = Astro.props
+const { shape, url, ...props } = Astro.props
 ---
 
 <Card shadow {...props}>

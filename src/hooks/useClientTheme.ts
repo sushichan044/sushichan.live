@@ -1,9 +1,8 @@
 import "client-only"
-
 import { useEffect, useState } from "react"
 
 const useClientTheme = () => {
-  const [theme, setTheme] = useState<"light" | "dark">("light")
+  const [theme, setTheme] = useState<"dark" | "light">("light")
 
   const setDark = () => setTheme("dark")
   const setLight = () => setTheme("light")
@@ -22,7 +21,7 @@ const useClientTheme = () => {
     return () => mediaQuery.removeEventListener("change", onChange)
   }, [])
 
-  return { theme, setDark, setLight, toggleTheme }
+  return { setDark, setLight, theme, toggleTheme }
 }
 
 export default useClientTheme

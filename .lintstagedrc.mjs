@@ -1,3 +1,5 @@
+// @ts-check
+
 import { ESLint } from "eslint"
 
 const removeIgnoredFiles = async (files) => {
@@ -11,9 +13,32 @@ const removeIgnoredFiles = async (files) => {
   return filteredFiles.join(" ")
 }
 
-export default {
-  "**/*.{ts,tsx,js,jsx}": async (files) => {
+/** @type {import('lint-staged').Config} */
+const config = {
+  "**/*.{jsx,tsx}": async (files) => {
     const filesToLint = await removeIgnoredFiles(files)
-    return [`eslint --max-warnings=0 ${filesToLint}`]
+    return [
+      `eslint --max-warnings=0 ${filesToLint}`,
+      "npm run eslint:check",
+      "npm run format:check",
+      "npm run markuplint:check",
+    ]
   },
+  "**/*.{js,cjs,mjs,ts,cts,mts}": async (files) => {
+    const filesToLint = await removeIgnoredFiles(files)
+    return [
+      `eslint --max-warnings=0 ${filesToLint}`,
+      "npm run eslint:check",
+      "npm run format:check",
+    ]
+  },
+  "./**/*.astro": [
+    "npm run eslint:check",
+    "npm run format:check",
+    "npm run markuplint:check",
+    "npm run stylelint:check",
+  ],
+  "./**/*.{css,scss}": "npm run stylelint:check",
 }
+
+export default config

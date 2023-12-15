@@ -5,41 +5,23 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build",
     "preview": "wrangler pages dev ./dist",
     "astro": "astro",
     "prepare": "husky install",
-    "eslint": "eslint ./src/**/*.{js,ts,jsx,tsx,astro} --ignore-path .gitignore",
-    "eslint:fix": "eslint --fix ./src/**/*.{js,ts,jsx,tsx,astro} --ignore-path .gitignore",
-    "eslint:precommit": "eslint --max-warnings 0 --ignore-path .gitignore",
-    "fmt": "prettier --write . --plugin=prettier-plugin-astro",
-    "fmt:precommit": "prettier --check --plugin=prettier-plugin-astro",
-    "stylelint": "stylelint \"./src/**/*.{css,scss,astro}\"",
-    "stylelint:fix": "stylelint --fix \"./src/**/*.{css,scss,astro}\"",
-    "stylelint:precommit": "stylelint --max-warnings 0 --ignore-path .gitignore",
+    "eslint": "eslint ./src/**/*.{js,cjs,mjs,ts,cjs,mjs,jsx,tsx,astro} --ignore-path .gitignore",
+    "eslint:fix": "eslint --fix ./src/**/*.{js,cjs,mjs,ts,cjs,mjs,jsx,tsx,astro} --ignore-path .gitignore",
+    "eslint:check": "eslint --max-warnings=0 --ignore-path .gitignore",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "stylelint": "stylelint \"src/**/*.{css,scss,astro}\"",
+    "stylelint:fix": "stylelint \"src/**/*.{css,scss,astro}\" --fix",
+    "stylelint:check": "stylelint --max-warnings=0",
     "markuplint": "markuplint \"./**/*.{jsx,tsx,astro}\"",
-    "markuplint:precommit": "markuplint --no-color --problem-only \"./**/*.{jsx,tsx,astro}\"",
+    "markuplint:check": "markuplint --no-color --problem-only \"./**/*.{jsx,tsx,astro}\"",
     "ncu": "ncu -u --target minor",
     "ncu:dry": "ncu --target minor",
     "ncu:latest": "ncu --target latest"
-  },
-  "lint-staged": {
-    "./**/*.{js,ts}": [
-      "npm run eslint:precommit",
-      "npm run fmt:precommit"
-    ],
-    "./**/*.{jsx,tsx}": [
-      "npm run eslint:precommit",
-      "npm run fmt:precommit",
-      "npm run markuplint:precommit"
-    ],
-    "./**/*.{css,scss}": "npm run stylelint:precommit",
-    "./**/*.astro": [
-      "npm run eslint:precommit",
-      "npm run fmt:precommit",
-      "npm run markuplint:precommit",
-      "npm run stylelint:precommit"
-    ]
   },
   "dependencies": {
     "@astrojs/cloudflare": "8.0.0",
@@ -110,7 +92,6 @@
     "eslint-plugin-perfectionist": "^2.5.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-tailwindcss": "^3.13.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",

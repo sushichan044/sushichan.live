@@ -1,12 +1,11 @@
 ---
-import { fade } from "astro:transitions"
-
 import AllTags from "@/components/blog/AllTags.astro"
 import BlogPostCard from "@/components/blog/BlogPostCard.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
 import BlogLayout from "@/layouts/BlogLayout.astro"
 import { getAllTags, getPostsByTags } from "@/lib/blogPost"
+import { fade } from "astro:transitions"
 
 export async function getStaticPaths() {
   const tags = await getAllTags()

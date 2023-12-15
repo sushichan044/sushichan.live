@@ -1,9 +1,9 @@
 "use client"
 
-import React from "react"
 import type { VariantProps } from "tailwind-variants"
 
 import ButtonStyle from "@/components/style/button"
+import React from "react"
 
 type ButtonProps = Omit<React.ComponentProps<"button">, "role"> & {
   role: React.HTMLAttributes<HTMLButtonElement>["role"]
@@ -12,8 +12,8 @@ type ButtonProps = Omit<React.ComponentProps<"button">, "role"> & {
 type ButtonVariantProps = VariantProps<typeof ButtonStyle>
 
 type Props = ButtonProps & {
-  variants?: ButtonVariantProps
   children: React.ReactNode
+  variants?: ButtonVariantProps
 }
 
 const Button = ({

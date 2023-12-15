@@ -1,17 +1,17 @@
 "use client"
-import * as NavMenu from "@radix-ui/react-navigation-menu"
 import type { ComponentProps } from "react"
-import React from "react"
 
 import styles from "@/components/react/layout/navigation/styles.module.scss"
 import LinkStyle from "@/components/style/link"
+import * as NavMenu from "@radix-ui/react-navigation-menu"
+import React from "react"
 
 type NavLinkProps = ComponentProps<typeof NavMenu.Link> & {
   topPath: string
 }
 const NavLink: React.FC<NavLinkProps> = ({
-  href,
   children,
+  href,
   topPath,
   ...props
 }) => {

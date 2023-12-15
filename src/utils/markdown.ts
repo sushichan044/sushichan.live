@@ -1,8 +1,8 @@
-import { marked } from "marked"
 import type { ReadTimeResults } from "reading-time"
 
 import { declareLet } from "@/utils/declareLet"
 import { roundToNearestMultiple } from "@/utils/number"
+import { marked } from "marked"
 
 async function parseMarkdown(markdown: string) {
   return await marked(markdown, { async: true })

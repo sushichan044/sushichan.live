@@ -1,25 +1,25 @@
 import { declareLet } from "@/utils/declareLet"
 
 type ImageLoaderOption = {
-  src: string
-  width: number
+  blur?: boolean
+  crop?:
+    | "crop"
+    | "fill"
+    | "fill_pad"
+    | "fit"
+    | "lfill"
+    | "limit"
+    | "lpad"
+    | "mfit"
+    | "mpad"
+    | "pad"
+    | "scale"
+    | "thumb"
+  extraParams?: string[]
   height?: number
   quality?: number
-  crop?:
-    | "fill"
-    | "lfill"
-    | "fill_pad"
-    | "crop"
-    | "thumb"
-    | "scale"
-    | "fit"
-    | "limit"
-    | "mfit"
-    | "pad"
-    | "lpad"
-    | "mpad"
-  blur?: boolean
-  extraParams?: string[]
+  src: string
+  width: number
 }
 
 export const getCloudinaryIdentifier = (src: string) => {
@@ -27,13 +27,13 @@ export const getCloudinaryIdentifier = (src: string) => {
 }
 
 const cloudinaryLoaderBase = ({
+  blur = false,
+  crop = "limit",
+  extraParams = [],
+  height = undefined,
+  quality,
   src,
   width,
-  quality,
-  crop = "limit",
-  height = undefined,
-  blur = false,
-  extraParams = [],
 }: ImageLoaderOption) => {
   // src = https://res.cloudinary.com/sushi-chan/image/upload/v1689696723/blog/my-first-walk/b1iajynl60c0uvmdapfi.jpg
   const imageIdentifier = getCloudinaryIdentifier(src)
@@ -51,23 +51,23 @@ export const cloudinaryMetadataLoader = (src: string) => {
   return `https://res.cloudinary.com/sushi-chan/image/upload/fl_getinfo/${imageIdentifier}`
 }
 
-export function cloudinaryLoader({ src, width, quality }: ImageLoaderOption) {
-  return cloudinaryLoaderBase({ src, width, quality })
+export function cloudinaryLoader({ quality, src, width }: ImageLoaderOption) {
+  return cloudinaryLoaderBase({ quality, src, width })
 }
 
 export function cloudinaryOGPLoader(src: string) {
   return cloudinaryLoaderBase({
-    src,
-    width: 1200,
+    crop: "lfill",
     height: 630,
     quality: 80,
-    crop: "lfill",
+    src,
+    width: 1200,
   })
 }
 
 export const getCloudinaryImageSize = async (
   url: string,
-): Promise<{ width: number; height: number }> => {
+): Promise<{ height: number; width: number }> => {
   try {
     const res = await fetch(cloudinaryMetadataLoader(url))
     const isJson = res.headers.get("content-type")?.includes("application/json")
@@ -85,7 +85,7 @@ export const getCloudinaryImageSize = async (
         }
         return 900
       })
-      return { width, height }
+      return { height, width }
     } else {
       console.error(data)
     }
@@ -94,7 +94,7 @@ export const getCloudinaryImageSize = async (
   }
 
   return {
-    width: 1200,
     height: 900,
+    width: 1200,
   }
 }

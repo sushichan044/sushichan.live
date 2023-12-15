@@ -7,17 +7,17 @@ import { declareLet } from "@/utils/declareLet"
 
 type ImgProps = Omit<
   HTMLAttributes<"img">,
-  "width" | "height" | "src" | "alt" | "quality" | "priority"
+  "alt" | "height" | "priority" | "quality" | "src" | "width"
 >
 
 export type Props = ImgProps & {
-  src: string
   alt?: string
-  quality?: number
   priority?: boolean
+  quality?: number
+  src: string
 }
 
-const { src, alt, quality = 75, ...props } = Astro.props
+const { alt, quality = 75, src, ...props } = Astro.props
 
 const rawSize = await getCloudinaryImageSize(src)
 const altIsEmpty = alt === "" || alt === undefined
@@ -30,13 +30,13 @@ const size = declareLet(() => {
     h *= MAX_WIDTH / w
     w = MAX_WIDTH
   }
-  return { width: w, height: h }
+  return { height: h, width: w }
 })
 
 const optimizedSrc = cloudinaryLoader({
+  quality: quality,
   src,
   width: size.width,
-  quality: quality,
 })
 ---
 

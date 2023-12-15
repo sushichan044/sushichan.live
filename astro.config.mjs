@@ -48,24 +48,22 @@ export default defineConfig({
   }),
   experimental: { contentCollectionCache: true },
   image: {
+    remotePatterns: [
+      {
+        hostname: "res.cloudinary.com",
+        pathname: "/sushi-chan/**",
+        protocol: "https",
+      },
+    ],
     service: {
       // https://docs.astro.build/en/guides/images/#add-simple-asset-support-for-cloudflare-deno-vercel-edge-and-netlify-edge
       entrypoint: "astro/assets/services/noop",
     },
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "res.cloudinary.com",
-        pathname: "/sushi-chan/**",
-      },
-    ],
   },
   integrations: [...mdxIntegrations, sitemap(), react(), tailwind()],
   markdown: {
-    shikiConfig: {
-      theme: "one-dark-pro",
-    },
     gfm: true,
+    rehypePlugins: [rehypeKatex],
     remarkPlugins: [
       remarkMermaid,
       remarkEmoji,
@@ -74,22 +72,24 @@ export default defineConfig({
       remarkCodeTitles,
       remarkReadingTime,
     ],
-    rehypePlugins: [rehypeKatex],
     remarkRehype: {
+      footnoteBackLabel: "本文へ戻る",
       footnoteLabel: "脚注",
       footnoteLabelProperties: { className: ["footnote-label"] },
       footnoteLabelTagName: "div",
-      footnoteBackLabel: "本文へ戻る",
+    },
+    shikiConfig: {
+      theme: "one-dark-pro",
     },
   },
   output: "server",
   prefetch: {
     defaultStrategy: "viewport",
   },
-  site: SITE_URL,
   server: {
     host: true,
   },
+  site: SITE_URL,
   vite: {
     build: {
       minify: false,

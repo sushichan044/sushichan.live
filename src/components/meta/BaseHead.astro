@@ -1,13 +1,12 @@
 ---
 // Import the global.css file here so that it is included on
-// all pages through the use of the <BaseHead /> component.
-import "@unocss/reset/tailwind.css"
+import "@/styles/gfm-footnote.scss"
 import "@/styles/globals.scss"
 import "@/styles/highlight.scss"
-import "@/styles/gfm-footnote.scss"
-import "katex/dist/katex.min.css"
-
+// all pages through the use of the <BaseHead /> component.
+import "@unocss/reset/tailwind.css"
 import { ViewTransitions } from "astro:transitions"
+import "katex/dist/katex.min.css"
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 

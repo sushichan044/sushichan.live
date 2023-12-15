@@ -2,17 +2,17 @@ import { defineCollection, reference, z } from "astro:content"
 
 const posts = defineCollection({
   schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    createdAt: z.coerce.date(),
-    updatedAt: z.coerce.date().optional(),
-    thumbnail: z.string().url(),
-    tags: z.array(z.string()).optional(),
     alert: z.array(z.string()).optional(),
+    createdAt: z.coerce.date(),
+    description: z.string(),
+    relatedPosts: reference("posts").array().optional(),
     status: z
       .enum(["draft", "published", "private", "preview"])
       .default("draft"),
-    relatedPosts: reference("posts").array().optional(),
+    tags: z.array(z.string()).optional(),
+    thumbnail: z.string().url(),
+    title: z.string(),
+    updatedAt: z.coerce.date().optional(),
   }),
   type: "content",
 })

@@ -1,19 +1,19 @@
 ---
 import type { HTMLAttributes } from "astro/types"
-import { clsx } from "clsx"
 import type { VariantProps } from "tailwind-variants"
 
 import LinkStyle from "@/components/style/link"
+import { clsx } from "clsx"
 
 export type Props = HTMLAttributes<"a"> & {
   variants?: VariantProps<typeof LinkStyle>
 }
 
 const {
-  variants,
   class: className,
   "class:list": classList,
   href,
+  variants,
   ...props
 } = Astro.props
 

@@ -1,9 +1,9 @@
 ---
 import type { CollectionEntry } from "astro:content"
-import { SEO } from "astro-seo"
 
 import { cloudinaryOGPLoader } from "@/lib/cloudinary"
 import { dtTool } from "@/lib/date"
+import { SEO } from "astro-seo"
 
 type Props = {
   entry: CollectionEntry<"posts">
@@ -25,21 +25,21 @@ const optimizedOGPImage = cloudinaryOGPLoader(data.thumbnail)
 
 <SEO
   openGraph={{
+    article: {
+      modifiedTime: updatedAt,
+      publishedTime: createdAt,
+      tags: data.tags,
+    },
     basic: {
+      image: optimizedOGPImage,
       title: data.title,
       type: "article",
-      image: optimizedOGPImage,
     },
     image: {
+      alt: data.title,
+      height: 630,
       url: optimizedOGPImage,
       width: 1200,
-      height: 630,
-      alt: data.title,
-    },
-    article: {
-      publishedTime: createdAt,
-      modifiedTime: updatedAt,
-      tags: data.tags,
     },
     optional: {
       description: data.description,
@@ -48,11 +48,11 @@ const optimizedOGPImage = cloudinaryOGPLoader(data.thumbnail)
     },
   }}
   twitter={{
-    title: data.title,
-    description: data.description,
     card: "summary_large_image",
-    image: optimizedOGPImage,
     creator: "@sushichan_044",
+    description: data.description,
+    image: optimizedOGPImage,
+    title: data.title,
   }}
   description={data.description}
   title={data.title}

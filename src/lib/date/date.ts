@@ -1,17 +1,16 @@
-import { formatInTimeZone, utcToZonedTime, zonedTimeToUtc } from "date-fns-tz"
-
 import { zeroPadding } from "@/utils/number"
+import { formatInTimeZone, utcToZonedTime, zonedTimeToUtc } from "date-fns-tz"
 
 const JST_TIMEZONE = "Asia/Tokyo"
 const UTC_TIMEZONE = "UTC"
 
 type DateOption = {
-  y: number
-  m: number
   d: number
   h?: number
+  m: number
   min?: number
   s?: number
+  y: number
 }
 
 const getIsoString = (num: number) => {
@@ -27,7 +26,7 @@ const getIsoString = (num: number) => {
  * const jstDate = getJSTDate({ y: 2021, m: 1, d: 1 }) // 2021-01-01T00:00:00.000+09:00
  */
 const getJSTDate = (option: DateOption) => {
-  const { y, m, d, h = 0, min = 0, s = 0 } = option
+  const { d, h = 0, m, min = 0, s = 0, y } = option
   const isoJstString = `${y}-${getIsoString(m)}-${getIsoString(
     d,
   )}T${getIsoString(h)}:${getIsoString(min)}:${getIsoString(s)}+09:00`
