@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "8.0.0",
-    "@astrojs/mdx": "2.0.1",
+    "@astrojs/mdx": "2.0.0",
     "@astrojs/react": "^3.0.7",
     "@astrojs/rss": "4.0.1",
     "@astrojs/sitemap": "^3.0.3",
