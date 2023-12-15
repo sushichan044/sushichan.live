@@ -1,6 +1,6 @@
 ---
+import BlogRenderer from "@/components/blog/BlogRenderer.astro"
 import BlogStyle from "@/components/blog/BlogStyle.astro"
-import MDXRenderer from "@/components/blog/MDXRenderer.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
@@ -17,7 +17,7 @@ export const prerender = true
   />
   <ContentLayout>
     <BlogStyle>
-      <MDXRenderer Content={Content} />
+      <BlogRenderer Content={Content} />
     </BlogStyle>
   </ContentLayout>
 </BaseLayout>

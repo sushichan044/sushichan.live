@@ -3,8 +3,8 @@ import type { CollectionEntry } from "astro:content"
 import type { ReadTimeResults } from "reading-time"
 
 import BlogFrontMatter from "@/components/blog/BlogFrontMatter.astro"
+import BlogRenderer from "@/components/blog/BlogRenderer.astro"
 import BlogStyle from "@/components/blog/BlogStyle.astro"
-import MDXRenderer from "@/components/blog/MDXRenderer.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BlogPostSEO from "@/components/meta/BlogPostSEO.astro"
 import PageAlertWrapper from "@/components/ui/PageAlertWrapper.astro"
@@ -57,7 +57,7 @@ export const prerender = true
         )
       }
       <BlogStyle>
-        <MDXRenderer tocDepth={2} {...renderResult} />
+        <BlogRenderer tocDepth={2} {...renderResult} />
       </BlogStyle>
     </PageAlertWrapper>
   </ContentLayout>
