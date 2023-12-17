@@ -3980,13 +3980,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"boolbase@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "boolbase@npm:1.0.0"
-  checksum: e4b53deb4f2b85c52be0e21a273f2045c7b6a6ea002b0e139c744cb6f95e9ec044439a52883b0d74dedd1ff3da55ed140cfdddfed7fb0cccbed373de5dce1bcf
-  languageName: node
-  linkType: hard
-
 "boundary@npm:^2.0.0":
   version: 2.0.0
   resolution: "boundary@npm:2.0.0"
@@ -4404,46 +4397,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chardet@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "chardet@npm:2.0.0"
-  checksum: e4d302e6116bf421d8dd0eaac09b5b3f9d88c17d9540f81ccde40e586c2a868c8a67a0dd4b1fe702f5ad63580623832884f65c43b9dffb6814e45eb005e26215
-  languageName: node
-  linkType: hard
-
 "charenc@npm:0.0.2":
   version: 0.0.2
   resolution: "charenc@npm:0.0.2"
   checksum: a45ec39363a16799d0f9365c8dd0c78e711415113c6f14787a22462ef451f5013efae8a28f1c058f81fc01f2a6a16955f7a5fd0cd56247ce94a45349c89877d8
-  languageName: node
-  linkType: hard
-
-"cheerio-select@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "cheerio-select@npm:2.1.0"
-  dependencies:
-    boolbase: "npm:^1.0.0"
-    css-select: "npm:^5.1.0"
-    css-what: "npm:^6.1.0"
-    domelementtype: "npm:^2.3.0"
-    domhandler: "npm:^5.0.3"
-    domutils: "npm:^3.0.1"
-  checksum: 2242097e593919dba4aacb97d7b8275def8b9ec70b00aa1f43335456870cfc9e284eae2080bdc832ed232dabb9eefcf56c722d152da4a154813fb8814a55d282
-  languageName: node
-  linkType: hard
-
-"cheerio@npm:^1.0.0-rc.12":
-  version: 1.0.0-rc.12
-  resolution: "cheerio@npm:1.0.0-rc.12"
-  dependencies:
-    cheerio-select: "npm:^2.1.0"
-    dom-serializer: "npm:^2.0.0"
-    domhandler: "npm:^5.0.3"
-    domutils: "npm:^3.0.1"
-    htmlparser2: "npm:^8.0.1"
-    parse5: "npm:^7.0.0"
-    parse5-htmlparser2-tree-adapter: "npm:^7.0.0"
-  checksum: c85d2f2461e3f024345b78e0bb16ad8e41492356210470dd1e7d5a91391da9fcf6c0a7cb48a9ba8820330153f0cedb4d0a60c7af15d96ecdb3092299b9d9c0cc
   languageName: node
   linkType: hard
 
@@ -4965,19 +4922,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-select@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "css-select@npm:5.1.0"
-  dependencies:
-    boolbase: "npm:^1.0.0"
-    css-what: "npm:^6.1.0"
-    domhandler: "npm:^5.0.2"
-    domutils: "npm:^3.0.1"
-    nth-check: "npm:^2.0.1"
-  checksum: 551c60dba5b54054741032c1793b5734f6ba45e23ae9e82761a3c0ed1acbb8cfedfa443aaba3a3c1a54cac12b456d2012a09d2cd5f0e82e430454c1b9d84d500
-  languageName: node
-  linkType: hard
-
 "css-selector-tokenizer@npm:^0.8":
   version: 0.8.0
   resolution: "css-selector-tokenizer@npm:0.8.0"
@@ -5006,13 +4950,6 @@ __metadata:
     mdn-data: "npm:2.0.30"
     source-map-js: "npm:^1.0.1"
   checksum: 6f8c1a11d5e9b14bf02d10717fc0351b66ba12594166f65abfbd8eb8b5b490dd367f5c7721db241a3c792d935fc6751fbc09f7e1598d421477ad9fadc30f4f24
-  languageName: node
-  linkType: hard
-
-"css-what@npm:^6.1.0":
-  version: 6.1.0
-  resolution: "css-what@npm:6.1.0"
-  checksum: a09f5a6b14ba8dcf57ae9a59474722e80f20406c53a61e9aedb0eedc693b135113ffe2983f4efc4b5065ae639442e9ae88df24941ef159c218b231011d733746
   languageName: node
   linkType: hard
 
@@ -8209,7 +8146,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"htmlparser2@npm:^8.0.0, htmlparser2@npm:^8.0.1":
+"htmlparser2@npm:^8.0.0":
   version: 8.0.2
   resolution: "htmlparser2@npm:8.0.2"
   dependencies:
@@ -12149,15 +12086,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nth-check@npm:^2.0.1":
-  version: 2.1.1
-  resolution: "nth-check@npm:2.1.1"
-  dependencies:
-    boolbase: "npm:^1.0.0"
-  checksum: 5fee7ff309727763689cfad844d979aedd2204a817fbaaf0e1603794a7c20db28548d7b024692f953557df6ce4a0ee4ae46cd8ebd9b36cfb300b9226b567c479
-  languageName: node
-  linkType: hard
-
 "nwsapi@npm:^2.2.4":
   version: 2.2.7
   resolution: "nwsapi@npm:2.2.7"
@@ -12272,18 +12200,6 @@ __metadata:
   dependencies:
     mimic-fn: "npm:^4.0.0"
   checksum: 4eef7c6abfef697dd4479345a4100c382d73c149d2d56170a54a07418c50816937ad09500e1ed1e79d235989d073a9bade8557122aee24f0576ecde0f392bb6c
-  languageName: node
-  linkType: hard
-
-"open-graph-scraper@npm:^6.3.2":
-  version: 6.3.2
-  resolution: "open-graph-scraper@npm:6.3.2"
-  dependencies:
-    chardet: "npm:^2.0.0"
-    cheerio: "npm:^1.0.0-rc.12"
-    undici: "npm:^5.26.4"
-    validator: "npm:^13.11.0"
-  checksum: 29217d30fe0709444f58c5a22c17dbb559a263bcb1cc2ba6bb615ded4b20401a4ef7284a00921a3432a041af623dd3a9d2dae4467275d8866e7c93234ecced13
   languageName: node
   linkType: hard
 
@@ -12641,16 +12557,6 @@ __metadata:
   version: 1.0.2
   resolution: "parse-srcset@npm:1.0.2"
   checksum: 2f268e3d110d4c53d06ed2a8e8ee61a7da0cee13bf150819a6da066a8ca9b8d15b5600d6e6cae8be940e2edc50ee7c1e1052934d6ec858324065ecef848f0497
-  languageName: node
-  linkType: hard
-
-"parse5-htmlparser2-tree-adapter@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "parse5-htmlparser2-tree-adapter@npm:7.0.0"
-  dependencies:
-    domhandler: "npm:^5.0.2"
-    parse5: "npm:^7.0.0"
-  checksum: e820cacb8486e6f7ede403327d18480df086d70e32ede2f6654d8c3a8b4b8dc4a4d5c21c03c18a92ba2466c513b93ca63be4a138dd73cd0995f384eb3b9edf11
   languageName: node
   linkType: hard
 
@@ -15500,7 +15406,6 @@ __metadata:
     mermaid: "npm:^10.6.1"
     npm-check-updates: "npm:^16.14.12"
     nprogress: "npm:^0.2.0"
-    open-graph-scraper: "npm:^6.3.2"
     postcss-html: "npm:^1.5.0"
     prettier: "npm:^3.1.1"
     prettier-plugin-astro: "npm:^0.12.2"
@@ -16391,7 +16296,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:^5.22.1, undici@npm:^5.26.4":
+"undici@npm:^5.22.1":
   version: 5.28.2
   resolution: "undici@npm:5.28.2"
   dependencies:
@@ -16871,13 +16776,6 @@ __metadata:
   dependencies:
     builtins: "npm:^5.0.0"
   checksum: 36a9067650f5b90c573a0d394b89ddffb08fe58a60507d7938ad7c38f25055cc5c6bf4a10fbd604abe1f4a31062cbe0dfa8e7ccad37b249da32e7b71889c079e
-  languageName: node
-  linkType: hard
-
-"validator@npm:^13.11.0":
-  version: 13.11.0
-  resolution: "validator@npm:13.11.0"
-  checksum: 0107da3add5a4ebc6391dac103c55f6d8ed055bbcc29a4c9cbf89eacfc39ba102a5618c470bdc33c6487d30847771a892134a8c791f06ef0962dd4b7a60ae0f5
   languageName: node
   linkType: hard
 
