@@ -36,6 +36,8 @@ import "@/components/utils/transition-progress.css"
     }
   }
 
+  // These events are only fired in View Transition Mode,
+  // so It's not fired in browser that doesn't support View Transition.
   document.addEventListener("astro:before-preparation", (e) => {
     startProgress()
   })
