@@ -2,11 +2,12 @@
 export default {
   extends: [
     "stylelint-config-recommended",
-    "stylelint-config-html/astro",
     "stylelint-config-standard-scss",
     "stylelint-config-sass-guidelines",
     "stylelint-config-tailwindcss/scss",
     "stylelint-config-recess-order",
+    "stylelint-config-html/astro",
+    "stylelint-config-html/html",
   ],
   ignoreFiles: ["**/node_modules/**"],
   plugins: [
