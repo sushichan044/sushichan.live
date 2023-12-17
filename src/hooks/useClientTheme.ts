@@ -1,12 +1,15 @@
 import "client-only"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 const useClientTheme = () => {
   const [theme, setTheme] = useState<"dark" | "light">("light")
 
-  const setDark = () => setTheme("dark")
-  const setLight = () => setTheme("light")
-  const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light")
+  const setDark = useCallback(() => setTheme("dark"), [])
+  const setLight = useCallback(() => setTheme("light"), [])
+  const toggleTheme = useCallback(
+    () => setTheme(theme === "light" ? "dark" : "light"),
+    [theme],
+  )
 
   useEffect(() => {
     const onChange = (e: MediaQueryListEvent) => {
