@@ -52,11 +52,11 @@ const updatedAtDate = declareLet(() => {
     </h1>
     <BudouX>{entry.data.description}</BudouX>
     <div class="flex flex-col flex-nowrap gap-2">
-      <div class="flex flex-row flex-wrap gap-x-4 gap-y-[6px]">
+      <div class="flex flex-row flex-wrap gap-x-4 gap-y-[6px] text-sm">
         <div
           class="flex flex-row flex-nowrap items-center justify-center gap-1"
         >
-          <Icon class="text-blue-500" icon="fa6-solid:pen" size="md" />
+          <Icon class="text-blue-500" icon="fa6-solid:pen" size="sm" />
           <time datetime={createdAtDate.toISOString()}
             >{dtTool.formatInJst(createdAtDate, "yyyy/MM/dd")}</time
           >
@@ -67,7 +67,7 @@ const updatedAtDate = declareLet(() => {
               <Icon
                 class="text-blue-500"
                 icon="fa6-solid:arrow-rotate-right"
-                size="md"
+                size="sm"
               />
               <time datetime={updatedAtDate.toISOString()}>
                 {dtTool.formatInJst(
@@ -81,7 +81,7 @@ const updatedAtDate = declareLet(() => {
         {
           roundedMinutesRead !== undefined && (
             <div class="flex flex-row flex-nowrap items-center justify-center gap-1">
-              <Icon class="text-blue-500" icon="fa6-solid:clock" />
+              <Icon class="text-blue-500" icon="fa6-solid:clock" size="sm" />
               <span>{roundedMinutesRead} min to read</span>
             </div>
           )

@@ -8,6 +8,6 @@ type Props = {
 const { tags } = Astro.props
 ---
 
-<div class="flex flex-row flex-wrap gap-4">
+<div class="flex flex-row flex-wrap gap-4 text-sm">
   {tags.map((tag) => <TagLink tag={tag} />)}
 </div>
