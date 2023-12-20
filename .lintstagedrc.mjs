@@ -21,9 +21,7 @@ const convertToAbsolutePath = (files) =>
 
 /** @type {(files: string[]) => string} */
 const buildEslintCommand = (files) =>
-  `eslint --max-warnings 0 --file ${convertToAbsolutePath(files).join(
-    " --file ",
-  )}`
+  `eslint --max-warnings 0 ${convertToAbsolutePath(files).join(" ")}`
 
 /** @type {(files: string[]) => string} */
 const buildPrettierCommand = (files) =>
@@ -31,6 +29,13 @@ const buildPrettierCommand = (files) =>
 
 /** @type {import('lint-staged').Config} */
 const config = {
+  "**/*.{js,cjs,mjs,ts,cts,mts}": async (files) => {
+    const filesToLint = await removeIgnoredFiles(files)
+    if (filesToLint.length === 0) {
+      return []
+    }
+    return [buildEslintCommand(filesToLint), buildPrettierCommand(filesToLint)]
+  },
   "**/*.{jsx,tsx}": async (files) => {
     const filesToLint = await removeIgnoredFiles(files)
     if (filesToLint.length === 0) {
@@ -41,13 +46,6 @@ const config = {
       buildPrettierCommand(filesToLint),
       "npm run markuplint:check",
     ]
-  },
-  "**/*.{js,cjs,mjs,ts,cts,mts}": async (files) => {
-    const filesToLint = await removeIgnoredFiles(files)
-    if (filesToLint.length === 0) {
-      return []
-    }
-    return [buildEslintCommand(filesToLint), buildPrettierCommand(filesToLint)]
   },
   "./**/*.astro": (files) => [
     buildEslintCommand(files),
