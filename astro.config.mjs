@@ -95,7 +95,7 @@ export default defineConfig({
       minify: false,
     },
     ssr: {
-      noExternal: ["react-tweet", "fetch-site-metadata"],
+      noExternal: ["fetch-site-metadata"],
     },
   },
 })
