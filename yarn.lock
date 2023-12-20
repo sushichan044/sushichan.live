@@ -1259,13 +1259,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@iconify/json@npm:^2.2.159":
-  version: 2.2.159
-  resolution: "@iconify/json@npm:2.2.159"
+"@iconify/json@npm:^2.2.160":
+  version: 2.2.160
+  resolution: "@iconify/json@npm:2.2.160"
   dependencies:
     "@iconify/types": "npm:*"
     pathe: "npm:^1.1.0"
-  checksum: 468997a5ba1699ae6570ad9b4c71d1ce8e9562c693397362b370e8f8170236abc83c0dc81054a62e4d0938aba62fc6001dd6ffe2e83b4d3ff0a9efa28e11e5ed
+  checksum: 043894d84642daf04a78b32466bff5be35c8cd73beb0f8b9ec5fbcdb680f9b11d36c2122056e2cd8ff5884ad2161d08ad54a615f26d627867cbcbb1cf7b7c2e4
   languageName: node
   linkType: hard
 
@@ -2808,13 +2808,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:8.44.9":
-  version: 8.44.9
-  resolution: "@types/eslint@npm:8.44.9"
+"@types/eslint@npm:8.56.0":
+  version: 8.56.0
+  resolution: "@types/eslint@npm:8.56.0"
   dependencies:
     "@types/estree": "npm:*"
     "@types/json-schema": "npm:*"
-  checksum: e9da4e4c7b7c9014b17d40007e36f02f3b5dd55c43bb05928b52dd9c19f2a8fb7971a851a4e7a11625c3c69da286c5baf55de2f8bb900b1a4cfb5145a4491b37
+  checksum: afba97b10d02cb7c7e7658de38f626c65b81be0fe45bc479e058ab14bc089911193811dce681edd656fc6b59c91fd8d0c976972476fc98b5e782b2c3b08aaa6c
   languageName: node
   linkType: hard
 
@@ -2873,7 +2873,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mdast@npm:^3.0.0, @types/mdast@npm:^3.0.10":
+"@types/mdast@npm:^3.0.0":
   version: 3.0.15
   resolution: "@types/mdast@npm:3.0.15"
   dependencies:
@@ -2882,7 +2882,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mdast@npm:^4.0.0, @types/mdast@npm:^4.0.2":
+"@types/mdast@npm:^4.0.0, @types/mdast@npm:^4.0.2, @types/mdast@npm:^4.0.3":
   version: 4.0.3
   resolution: "@types/mdast@npm:4.0.3"
   dependencies:
@@ -13723,13 +13723,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-flexible-code-titles@npm:^1.1.3":
-  version: 1.1.3
-  resolution: "remark-flexible-code-titles@npm:1.1.3"
+"remark-flexible-code-titles@npm:^1.1.4":
+  version: 1.1.4
+  resolution: "remark-flexible-code-titles@npm:1.1.4"
   dependencies:
-    "@types/mdast": "npm:^3.0.10"
-    unist-util-visit: "npm:^4.0.0"
-  checksum: 96add3d869b1b661d75e071f0300c9f1b9f5769890f41f1e094dee3f6da63adc24981e9de07d377818e2884c64e07b28896275b091ac545504dc5f3883186d10
+    "@types/mdast": "npm:^4.0.3"
+    unist-util-visit: "npm:^5.0.0"
+  checksum: b70f85182edfc588d738f2fec97aea1a90bcbd65b2cc57247d37c89c8055c64d3ed7d8214d424ab87ed9f3dbfff5d099ed9039a732d44812040628449f659594
   languageName: node
   linkType: hard
 
@@ -15439,7 +15439,7 @@ __metadata:
     "@astrojs/tailwind": "npm:^5.0.3"
     "@cloudflare/workers-types": "npm:^4.20231218.0"
     "@iconify/iconify": "npm:^3.1.1"
-    "@iconify/json": "npm:^2.2.159"
+    "@iconify/json": "npm:^2.2.160"
     "@markuplint/astro-parser": "npm:^3.12.0"
     "@markuplint/jsx-parser": "npm:^3.12.0"
     "@markuplint/react-spec": "npm:^3.13.0"
@@ -15449,7 +15449,7 @@ __metadata:
     "@resvg/resvg-js": "npm:^2.6.0"
     "@southball/remark-mermaid": "npm:^0.5.0"
     "@textlint/textlint-plugin-markdown": "npm:^13.4.1"
-    "@types/eslint": "npm:8.44.9"
+    "@types/eslint": "npm:8.56.0"
     "@types/node": "npm:20.10.5"
     "@types/nprogress": "npm:^0"
     "@types/prettier": "npm:^3"
@@ -15497,7 +15497,7 @@ __metadata:
     reading-time: "npm:^1.5.0"
     rehype-katex: "npm:^7.0.0"
     remark-emoji: "npm:^4.0.1"
-    remark-flexible-code-titles: "npm:^1.1.3"
+    remark-flexible-code-titles: "npm:^1.1.4"
     remark-math: "npm:^6.0.0"
     remark-unwrap-images: "npm:^4.0.0"
     sanitize-html: "npm:^2.11.0"
@@ -15513,12 +15513,12 @@ __metadata:
     stylelint-declaration-block-no-ignored-properties: "npm:^2.7.0"
     stylelint-value-no-unknown-custom-properties: "npm:^5.0.0"
     tailwind-variants: "npm:^0.1.19"
-    tailwindcss: "npm:^3.3.7"
+    tailwindcss: "npm:^3.4.0"
     textlint: "npm:^13.4.1"
     textlint-rule-preset-japanese: "npm:^9.0.0"
     tsx: "npm:^4.7.0"
     typescript: "npm:^5.3.3"
-    wrangler: "npm:^3.21.0"
+    wrangler: "npm:^3.22.0"
   languageName: unknown
   linkType: soft
 
@@ -15589,9 +15589,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3.3.7":
-  version: 3.3.7
-  resolution: "tailwindcss@npm:3.3.7"
+"tailwindcss@npm:^3.4.0":
+  version: 3.4.0
+  resolution: "tailwindcss@npm:3.4.0"
   dependencies:
     "@alloc/quick-lru": "npm:^5.2.0"
     arg: "npm:^5.0.2"
@@ -15618,7 +15618,7 @@ __metadata:
   bin:
     tailwind: lib/cli.js
     tailwindcss: lib/cli.js
-  checksum: 89c8610ae4c3e358bbc2bef255d6665d2e54527eb6f131e63e6e702003fa97c9ca14cae675f6760870863fcc46eada8f4b54aeb1a1ed5669a81c325b423a3db0
+  checksum: 0a1cef7468e6d17c2857d0b3c4017af2cb37ed8ba27dfb14780c517b8a74f6786970227c400ac1325fc8bcfc09099d8e990fa7c60924bf945f3d0a912d63f546
   languageName: node
   linkType: hard
 
@@ -17273,9 +17273,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wrangler@npm:^3.21.0":
-  version: 3.21.0
-  resolution: "wrangler@npm:3.21.0"
+"wrangler@npm:^3.22.0":
+  version: 3.22.0
+  resolution: "wrangler@npm:3.22.0"
   dependencies:
     "@cloudflare/kv-asset-handler": "npm:^0.2.0"
     "@cspotcode/source-map-support": "npm:0.8.1"
@@ -17298,7 +17298,7 @@ __metadata:
   bin:
     wrangler: bin/wrangler.js
     wrangler2: bin/wrangler.js
-  checksum: b14c0f8499217f4aa44f5afe56e78a822c1ba80441e0ae469d6b82993f712dd427bc6f48dcf7c1c598eb8b6d867c26eea3998a8b659ead7457501cabb9fa8200
+  checksum: 6f377a1c3e5710fc93bf029988b82089c0e143b280314e01d1dbf6ed2583422f4ed5d2edc2c3e4481f87020c80ca073fc8053ea3f1eb7943125c7154ce18f7ec
   languageName: node
   linkType: hard
 
