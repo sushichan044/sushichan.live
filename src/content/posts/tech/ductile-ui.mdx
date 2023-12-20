@@ -1,0 +1,109 @@
+---
+title: DiscordBotのUI処理を改善するためにライブラリを作った
+description: ちなみに最近放置気味らしい
+createdAt: 2023-12-14
+thumbnail: https://res.cloudinary.com/sushi-chan/image/upload/v1702011939/tech/ductile-ui/77F63757-A907-4D8D-9134-8F1BD3C472BF_1_201_a_kvntt0.jpg
+tags:
+  - 雑記
+  - 技術
+  - Advent Calendar
+status: preview
+---
+
+この記事は[UEC2 Advent Calendar 2023](https://adventar.org/calendars/8704)の10日目の記事です。
+
+...のはずでした。疲れが溜まっていたので、記事の投稿が遅れてしまいました。申し訳ありません。
+
+<UrlCard url="https://adventar.org/calendars/8704" />
+
+9日目の記事はこうさんの「2021年度ボカロ考察」でした。
+
+<UrlCard url="https://hirumeshikuuya.hatenablog.com/entry/2023/12/09/000903?_gl=1*1ro5h57*_gcl_au*MTA4NjY2ODc5OC4xNjk0Nzg0MjY2" />
+
+ここに感想
+
+また、同時に進んでいる[UEC Advent Calendar 2023](https://adventar.org/calendars/8698)の9日目の記事はmadhell_uecさんの「免許合宿に行きました」でした。
+
+<UrlCard url="https://helkun.dev/blog/driver_licence" />
+
+私も真面目に~~マーダーライセンス~~普通自動車運転免許の取得をしないとまずいので、合宿に行くことを検討しています。新潟良さそうだな。
+
+さて、こんにちは。すし([@sushi_chan_sub](https://twitter.com/sushi_chan_sub))です。
+
+<TextCard>みなさん、Discord使ってますか？</TextCard>
+
+この質問、多分電通大ではかなりの確率で「使ってます」と答える人が多いと思います。
+
+Discordとは、無料で使える非常に便利なチャットアプリケーションで、通話や画面共有などの機能も充実しており、
+インターネットコミュニティを作る基盤として非常に優れています。
+
+また、Botと呼ばれる概念がサポートされているのも大きな特徴です。
+これにより、プログラムを組んだり既成のBotを追加したりすることで、投票からボイスチャットの聞き専読み上げ、果てにはミニゲームの追加など機能を拡張することができます。
+
+かくいう私もDiscordのBotとは縁があり、高3の冬にプログラミングを始めることになったきっかけはまさにDiscordのBotでした。
+今でも初めて作ったBotは稼働し続けており、私にとって原点とも言える存在です。
+
+さて、そんなDiscordBotですが、実は近年ボタンやセレクトメニューなどを使ってUIを拡張できるようになりました。
+
+<MessageCard type="info">
+しばらくBotの説明などなどの前置きを書きますが、この記事の本編は「discord.pyでReactのようなUI構築ができる」という内容です。
+具体的な中身が見たい方は<a href="#ductile-uiというライブラリを作った" class="underline underline-offset-2">ここ</a>まで飛ばしてください。
+</MessageCard>
+
+{/* ## Interactionの導入
+
+昔は、Botのコマンドを起動するには`!command arg1 arg2 ...`というように、通常の文字メッセージを送信する必要がありました。
+こちらのほうが制約自体は少なかったのですが、記述が分かりづらかったり、どうしても対話型機能の実装に限界がありました。
+
+そこで、Interactionという概念が導入され、ユーザーの操作をトリガーとして動作を実行する手段が公式に用意されました。
+このInteractionの登場により、先程述べたような文字列ベースのコマンドは、スラッシュコマンドと呼ばれる形式へと移り変わっていきました。
+
+![スラッシュコマンドの画面](https://res.cloudinary.com/sushi-chan/image/upload/v1702543565/tech/ductile-ui/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2023-12-14_17.45.26_lnvm4d.png "スラッシュコマンドの例")
+
+![スラッシュコマンドの引数の候補の画面](https://res.cloudinary.com/sushi-chan/image/upload/v1702543676/tech/ductile-ui/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2023-12-14_17.47.51_dkojq2.png "正しく実装すればコマンド引数の候補なども出せるようになった")
+
+さらに、ボタンやセレクトメニューなども公式に用意され、ユーザーの操作によってBotが動作するようなUIを実装することができるようになりました。
+
+![簡易的なカウンターをDiscordのUIで実装した例](https://res.cloudinary.com/sushi-chan/image/upload/v1702011939/tech/ductile-ui/77F63757-A907-4D8D-9134-8F1BD3C472BF_1_201_a_kvntt0.jpg "簡易的なカウンターの例。Reactとかでよく見るやつ。") */}
+
+
+<TextCard>便利に見えますね。</TextCard>
+
+実際ユーザーとしては非常に便利で、今まで長々とコマンドの使い方を凝視しながら温かみとコシのある文字列を入力していたのが、DiscordのUIである程度の操作をするだけで済むようになりました。
+
+しかしながら、特にボタンなどのUIにおいて、命令的UIと呼ばれる実装になることが多く、私はこれに少し不満を感じていました。
+
+## 標準のUIコンポーネントの課題
+
+この課題を説明するには、電通大生なら一度は触ったであろうHTMLとJavaScriptを使って説明をしたほうが簡単です。先程も出てきたこのようなUIをHTMLで実装することを考えてみましょう。
+
+![簡易的なカウンターの例](https://res.cloudinary.com/sushi-chan/image/upload/v1702011939/tech/ductile-ui/77F63757-A907-4D8D-9134-8F1BD3C472BF_1_201_a_kvntt0.jpg "簡易的なカウンターの例。Reactとかでよく見るやつ。")
+
+一般的には
+
+1. ボタンをクリックしたときのイベント処理で新しいCountの値を決定する
+2. 画像のCount表示部分を`document.querySelector`などで取得し、新しいCountの値を反映する
+
+という流れで実装すると思います。これは命令的UIと呼ばれるものです。
+
+Discord APIのラッパーライブラリであるdiscord.pyでも概ね同じ実装となり、
+クリック時に取得できるイベントオブジェクトを使ってメッセージやボタンを更新します。
+
+このような実装方式は、処理の流れがわかりやすい反面、複雑なUI更新に対応するのが難しくなります。
+例えば、先程のカウンターの例だと、countの値が0のときに「reset」のボタンのみクリックできないようにしたい...
+という実装をしたい場合、具体的な実装は掲載しませんが<span class="text-xl font-bold">とんでもない苦行</span>になります。
+
+## 宣言的UIという選択肢
+
+先程述べ
+
+
+## ductile-uiというライブラリを作った
+
+ということでついにライブラリの話をします。ductile-uiというdiscord.py向け拡張ライブラリを作成しました。
+これを用いることで、ユーザーの入力によって動的に変化するUIを宣言的に記述することができます。
+
+また、それらのUIを使ってユーザーからの入力を待つことを関数呼び出しに閉じ込めることができるので、
+
+
+<UrlCard url="https://github.com/sushi-chaaaan/ductile-ui" />
