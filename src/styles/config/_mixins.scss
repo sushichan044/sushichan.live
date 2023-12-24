@@ -53,6 +53,14 @@ $breakpoints: (
   }
 }
 
+@mixin smooth-scroll {
+  scroll-behavior: smooth;
+
+  @include reduce-motion {
+    scroll-behavior: auto;
+  }
+}
+
 @mixin text-wrap-balance {
   text-wrap: wrap;
 

@@ -2,18 +2,19 @@
 @use "./config/mixins" as mixin;
 @use "./variables" as var;
 
-:root {
-  scroll-behavior: smooth;
-
-  @include mixin.reduce-motion {
-    scroll-behavior: auto;
-  }
-}
-
 body {
   display: flex;
   flex-flow: column nowrap;
-  min-height: 100dvh;
+  min-height: 100vh;
+
+  @supports (min-height: 100dvh) {
+    min-height: 100dvh;
+  }
+
+  @supports (text-size-adjust: 100%) {
+    text-size-adjust: 100%;
+  }
+
   font-family:
     Roboto,
     "Noto Sans JP",
@@ -30,6 +31,7 @@ body {
 
   @include base.typography;
   @include base.base-color;
+  @include mixin.smooth-scroll;
 }
 
 * {
