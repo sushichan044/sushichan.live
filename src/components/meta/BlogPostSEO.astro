@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content"
 
-import { cloudinaryOGPLoader } from "@/lib/cloudinary"
 import { dtTool } from "@/lib/date"
 import { SEO } from "astro-seo"
 
@@ -11,7 +10,7 @@ type Props = {
 }
 
 const {
-  entry: { data },
+  entry: { data, slug },
   isPreview = false,
 } = Astro.props
 
@@ -20,7 +19,8 @@ const updatedAt = data.updatedAt
   ? dtTool.replaceTzWithJst(data.updatedAt).toISOString()
   : undefined
 
-const optimizedOGPImage = cloudinaryOGPLoader(data.thumbnail)
+const OGPUrlObj = new URL(`/blog/og-image/${slug}`, Astro.url.origin)
+const OGPUrl = `${OGPUrlObj.toString()}.png`
 ---
 
 <SEO
@@ -31,14 +31,14 @@ const optimizedOGPImage = cloudinaryOGPLoader(data.thumbnail)
       tags: data.tags,
     },
     basic: {
-      image: optimizedOGPImage,
+      image: OGPUrl,
       title: data.title,
       type: "article",
     },
     image: {
       alt: data.title,
       height: 630,
-      url: optimizedOGPImage,
+      url: OGPUrl,
       width: 1200,
     },
     optional: {
@@ -51,7 +51,7 @@ const optimizedOGPImage = cloudinaryOGPLoader(data.thumbnail)
     card: "summary_large_image",
     creator: "@sushichan_044",
     description: data.description,
-    image: optimizedOGPImage,
+    image: OGPUrl,
     title: data.title,
   }}
   description={data.description}
