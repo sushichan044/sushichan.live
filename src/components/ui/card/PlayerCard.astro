@@ -3,11 +3,12 @@ import Card, { type CardProps } from "@/components/common/Card.astro"
 import UrlPlayer from "@/components/ui/UrlPlayer.astro"
 
 interface Props extends CardProps {
+  muted?: boolean
   url: string
 }
-const { url, ...props } = Astro.props
+const { muted, url, ...props } = Astro.props
 ---
 
 <Card shadow {...props}>
-  <UrlPlayer url={url} />
+  <UrlPlayer muted={muted} url={url} />
 </Card>

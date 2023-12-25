@@ -2,10 +2,11 @@ import React, { useId } from "react"
 import ReactPlayer from "react-player"
 
 type Props = {
+  muted?: boolean
   url: string
 }
 // add lazy load
-const Player = ({ url }: Props) => {
+const Player = ({ muted = true, url }: Props) => {
   const twitchPlayerId = useId()
   const youtubePlayerOptions = (() => {
     const videoRegex = /https:\/\/www\.youtube\.com\/watch\?.*v=(?<id>[^&]+)/
@@ -54,10 +55,9 @@ const Player = ({ url }: Props) => {
       controls
       height="100%"
       light
-      muted
       url={url}
-      volume={0.5}
       width="100%"
+      {...(muted ? { muted: true } : { muted: false, volume: 0.05 })}
     />
   )
 }
