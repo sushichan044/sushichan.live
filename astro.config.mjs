@@ -94,6 +94,9 @@ export default defineConfig({
     build: {
       minify: false,
     },
+    optimizeDeps: {
+      exclude: ["@resvg/resvg-js"],
+    },
     ssr: {
       noExternal: ["fetch-site-metadata"],
     },
