@@ -1,14 +1,15 @@
 import type { APIRoute } from "astro"
 
+import { getAllPosts } from "@/lib/blogPost"
 import { getBlogOGImage } from "@/pages/blog/og-image/_getImage"
 import { getEntry } from "astro:content"
 
-// export async function getStaticPaths() {
-//   const blogEntries = await getAllPosts()
-//   return blogEntries.map((entry) => ({
-//     params: { slug: entry.slug },
-//   }))
-// }
+export async function getStaticPaths() {
+  const blogEntries = await getAllPosts()
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+  }))
+}
 
 export const GET: APIRoute = async ({ params }) => {
   const slug = params.slug
@@ -21,3 +22,5 @@ export const GET: APIRoute = async ({ params }) => {
 
   return new Response(png)
 }
+
+export const prerender = true
