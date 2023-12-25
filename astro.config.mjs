@@ -1,3 +1,4 @@
+
 import cloudflare from "@astrojs/cloudflare"
 import mdx from "@astrojs/mdx"
 import react from "@astrojs/react"
@@ -98,7 +99,7 @@ export default defineConfig({
       exclude: ["@resvg/resvg-js"],
     },
     ssr: {
-      noExternal: ["fetch-site-metadata"],
+      noExternal: ["fetch-site-metadata", "react-tweet"],
     },
   },
 })
