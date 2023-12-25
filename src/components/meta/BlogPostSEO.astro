@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content"
 
+import { getPostOgpImage } from "@/lib/blogPost"
 import { dtTool } from "@/lib/date"
 import { SEO } from "astro-seo"
 
@@ -19,8 +20,10 @@ const updatedAt = data.updatedAt
   ? dtTool.replaceTzWithJst(data.updatedAt).toISOString()
   : undefined
 
-const OGPUrlObj = new URL(`/blog/og-image/${slug}`, Astro.url.origin)
-const OGPUrl = `${OGPUrlObj.toString()}.png`
+const OGPUrl = getPostOgpImage(slug, {
+  baseUrl: Astro.url,
+  extension: "png",
+})
 ---
 
 <SEO

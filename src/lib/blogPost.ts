@@ -1,3 +1,4 @@
+import { declareLet } from "@/utils/declareLet"
 import { type CollectionEntry, getCollection } from "astro:content"
 
 type sortAction = (
@@ -70,4 +71,32 @@ const getAllTags = async () => {
   return [...new Set(tags)]
 }
 
-export { getAllPosts, getAllPreviewPosts, getAllTags, getPostsByTags }
+type GetOgpImageOptions = {
+  baseUrl: URL | string
+  extension?: string
+}
+
+const getPostOgpImage = (
+  slug: string,
+  { baseUrl, extension }: GetOgpImageOptions,
+) => {
+  const origin =
+    baseUrl instanceof URL ? baseUrl.origin : new URL(baseUrl).origin
+  const OgpUrlObj = new URL(`/blog/og-image/${slug}`, origin)
+  const OgpUrl = declareLet(() => {
+    const urlString = OgpUrlObj.toString()
+    if (extension != null) {
+      return `${urlString}.${extension}`
+    }
+    return urlString
+  })
+  return OgpUrl
+}
+
+export {
+  getAllPosts,
+  getAllPreviewPosts,
+  getAllTags,
+  getPostOgpImage,
+  getPostsByTags,
+}
