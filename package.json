@@ -16,7 +16,7 @@
     "format:check": "prettier --check .",
     "stylelint": "stylelint \"src/**/*.{css,scss,astro}\"",
     "stylelint:fix": "stylelint \"src/**/*.{css,scss,astro}\" --fix",
-    "stylelint:check": "stylelint --max-warnings=0",
+    "stylelint:check": "stylelint \"src/**/*.{css,scss,astro}\" --max-warnings=0",
     "markuplint": "markuplint \"./**/*.{jsx,tsx,astro}\"",
     "markuplint:check": "markuplint --no-color --problem-only \"./**/*.{jsx,tsx,astro}\"",
     "ncu": "ncu -u --target minor",
