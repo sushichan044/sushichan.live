@@ -8,34 +8,96 @@ type Options = {
   post: CollectionEntry<"posts">
 }
 
+const GOOGLE_FONT_NAME = "Zen+Maru+Gothic"
+const FONT_FAMILY = "Zen Maru Gothic"
+const FONT_WEIGHT = 700
+const WIDTH = 1200
+const HEIGHT = 630
+const DEFAULT_TEXTS = ["すしにっき"] as const
+
+const getText = (text: string) => {
+  // add title to default texts
+  const texts = [...DEFAULT_TEXTS, text]
+  return texts.join(" ")
+}
+
 export async function getBlogOGImage({ post }: Options) {
   const { title } = post.data
-  const fontData = await fetchFont(title, "Noto+Sans+JP", 400)
+  const fontData = await fetchFont(
+    getText(title),
+    GOOGLE_FONT_NAME,
+    FONT_WEIGHT,
+  )
 
   const svg = await satori(
     <div
       style={{
-        alignItems: "center",
+        backgroundColor: "#9ab3ca",
         display: "flex",
-        fontSize: 64,
+        fontFamily: FONT_FAMILY,
         height: "100%",
-        justifyContent: "center",
+        letterSpacing: 0.05,
+        position: "relative",
         width: "100%",
       }}
     >
-      {title}
+      <div
+        style={{
+          alignItems: "center",
+          backgroundColor: "#fff",
+          clipPath: "inset(32px round 16px)",
+          display: "flex",
+          height: "100%",
+          justifyContent: "center",
+          width: "100%",
+        }}
+      >
+        <div
+          style={{
+            fontSize: 72,
+            fontWeight: 700,
+            textWrap: "balance",
+            wordBreak: "keep-all",
+          }}
+        >
+          {title}
+        </div>
+      </div>
+      <div
+        style={{
+          alignItems: "center",
+          bottom: "48px",
+          display: "flex",
+          fontSize: 40,
+          fontWeight: 400,
+          gap: "8px",
+          position: "absolute",
+          right: "48px",
+        }}
+      >
+        <img
+          alt="favicon"
+          height={48}
+          src="https://www.sushichan.live/favicons/android-chrome-192x192.png"
+          style={{
+            top: "4px",
+          }}
+          width={48}
+        />
+        すしにっき
+      </div>
     </div>,
     {
       fonts: [
         {
           data: fontData,
-          name: "Noto Sans JP",
+          name: FONT_FAMILY,
           style: "normal",
-          weight: 400,
+          weight: FONT_WEIGHT,
         },
       ],
-      height: 630,
-      width: 1200,
+      height: HEIGHT,
+      width: WIDTH,
     },
   )
 
