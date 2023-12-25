@@ -80,7 +80,7 @@ export async function getBlogOGImage({ post }: Options) {
           height={48}
           src="https://www.sushichan.live/favicons/android-chrome-192x192.png"
           style={{
-            top: "4px",
+            top: "6px",
           }}
           width={48}
         />
