@@ -21,7 +21,7 @@ type ImageSet = {
 const getImage = ({ icon, image, title }: Metadata): ImageSet | undefined => {
   if (image) {
     return {
-      alt: image.alt ?? `ogp image of ${title}`,
+      alt: image.alt ?? `ogp of ${title}`,
       src: image.src,
     }
   }
