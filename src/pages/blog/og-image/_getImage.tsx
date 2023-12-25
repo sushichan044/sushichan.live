@@ -66,13 +66,13 @@ export async function getBlogOGImage({ post }: Options) {
       <div
         style={{
           alignItems: "center",
-          bottom: "48px",
+          bottom: "60px",
           display: "flex",
           fontSize: 40,
           fontWeight: 400,
           gap: "8px",
           position: "absolute",
-          right: "48px",
+          right: "60px",
         }}
       >
         <img
