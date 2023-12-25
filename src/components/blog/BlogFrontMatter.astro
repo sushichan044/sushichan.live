@@ -2,10 +2,12 @@
 import type { CollectionEntry } from "astro:content"
 import type { ReadTimeResults } from "reading-time"
 
+import Link from "@/components/base/Link.astro"
 import TagLinkFlex from "@/components/blog/tag/TagLinkFlex.astro"
 import BudouX from "@/components/common/BudouX.astro"
 import Icon from "@/components/common/Icon.astro"
 import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
+import { getPostOgpImage } from "@/lib/blogPost"
 import { dtTool } from "@/lib/date"
 import { declareLet } from "@/utils/declareLet"
 import { roundReadTime } from "@/utils/markdown"
@@ -23,6 +25,10 @@ const updatedAtDate = declareLet(() => {
   if (entry.data.updatedAt) {
     return dtTool.replaceTzWithJst(entry.data.updatedAt)
   }
+})
+const OGPUrl = getPostOgpImage(entry.slug, {
+  baseUrl: Astro.url,
+  extension: "png",
 })
 ---
 
@@ -108,6 +114,7 @@ const updatedAtDate = declareLet(() => {
           </div>
         )
       }
+      {import.meta.env.DEV && <Link href={OGPUrl}>OGPを確認する</Link>}
     </div>
   </div>
 </div>
