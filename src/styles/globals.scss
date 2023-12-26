@@ -2,6 +2,15 @@
 @use "./config/mixins" as mixin;
 @use "./variables" as var;
 
+html {
+  scrollbar-gutter: stable;
+}
+
+/* stylelint-disable-next-line selector-no-qualifying-type */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
 body {
   display: flex;
   flex-flow: column nowrap;
