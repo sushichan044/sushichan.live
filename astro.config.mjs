@@ -1,4 +1,3 @@
-
 import cloudflare from "@astrojs/cloudflare"
 import mdx from "@astrojs/mdx"
 import react from "@astrojs/react"
@@ -85,7 +84,7 @@ export default defineConfig({
   },
   output: "server",
   prefetch: {
-    defaultStrategy: "viewport",
+    defaultStrategy: "hover",
   },
   server: {
     host: true,
