@@ -2,6 +2,10 @@ name: deploy to Cloudflare Pages
 
 on: push
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-and-deploy:
     name: Build and Deploy to Cloudflare Pages
