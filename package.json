@@ -99,7 +99,7 @@
     "npm-check-updates": "^16.14.12",
     "postcss-html": "^1.5.0",
     "prettier": "^3.1.1",
-    "prettier-plugin-astro": "^0.12.2",
+    "prettier-plugin-astro": "^0.12.3",
     "sass": "^1.69.5",
     "stylelint": "^15.11.0",
     "stylelint-a11y": "^1.2.3",
