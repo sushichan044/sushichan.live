@@ -1,11 +1,13 @@
 ---
 import Icon from "@/components/common/Icon.astro"
+import { getUUID } from "@/utils/uuid"
 type Props = {
   backIfNewTab?: string
 }
 
-const titleId = crypto.randomUUID()
-const descriptionId = crypto.randomUUID()
+const id = getUUID()
+const titleId = `${id}-title`
+const descriptionId = `${id}-description`
 
 const { backIfNewTab = "/" } = Astro.props
 ---
