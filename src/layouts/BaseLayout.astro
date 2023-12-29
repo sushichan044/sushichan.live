@@ -7,6 +7,8 @@ import BaseHead from "@/components/meta/BaseHead.astro"
 
 type Props = HeadProps
 
+const SEO_IS_SET_PROPERLY = Astro.slots.has("seo")
+
 const props = Astro.props
 ---
 
@@ -18,6 +20,16 @@ const props = Astro.props
   <body>
     <Header />
     <main>
+      {
+        import.meta.env.DEV && !SEO_IS_SET_PROPERLY && (
+          <div class="text-center text-3xl font-bold text-red-500">
+            <p>SEO is not set properly.</p>
+            <p>
+              Please set SEO component to <code>seo</code> slot.
+            </p>
+          </div>
+        )
+      }
       <slot />
     </main>
     <Footer />
