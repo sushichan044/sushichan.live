@@ -1,3 +1,5 @@
+//@ts-check
+
 import cloudflare from "@astrojs/cloudflare"
 import mdx from "@astrojs/mdx"
 import react from "@astrojs/react"
@@ -43,7 +45,6 @@ export default defineConfig({
   adapter: cloudflare({
     runtime: {
       mode: "off",
-      type: "pages",
     },
   }),
   experimental: { contentCollectionCache: true },
