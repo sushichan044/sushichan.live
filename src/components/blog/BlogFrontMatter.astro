@@ -11,6 +11,7 @@ import { getPostOgpImage } from "@/lib/blogPost"
 import { dtTool } from "@/lib/date"
 import { declareLet } from "@/utils/declareLet"
 import { roundReadTime } from "@/utils/markdown"
+import { tv } from "tailwind-variants"
 
 type Props = {
   entry: CollectionEntry<"posts">
@@ -30,25 +31,39 @@ const OGPUrl = getPostOgpImage(entry.slug, {
   baseUrl: Astro.url,
   extension: "png",
 })
+
+const styles = tv({
+  slots: {
+    contentWrapper: "flex flex-col flex-nowrap gap-2 md:gap-4",
+    icon: "text-blue-500",
+    image: "h-full w-full object-cover",
+    imageWrapper: "aspect-16/9 overflow-hidden rounded-lg",
+    metaData: "flex flex-row flex-nowrap items-center justify-center gap-1",
+    metaDataWrapper: "flex flex-row flex-wrap gap-x-4 gap-y-[6px] text-sm",
+    root: "flex flex-col flex-nowrap place-content-between gap-4",
+    textWrapper: "flex flex-col flex-nowrap gap-2",
+    title: "text-xl font-bold md:text-4xl",
+  },
+})()
 ---
 
 <div
-  class="flex flex-col flex-nowrap place-content-between gap-4"
+  class:list={styles.root()}
   transition:animate="fade"
   transition:name={`card-${entry.slug}`}
 >
-  <div class="aspect-16/9 overflow-hidden rounded-lg">
+  <div class:list={styles.imageWrapper()}>
     <CloudinaryImage
       alt={`thumbnail of ${entry.slug}`}
-      class="h-full w-full object-cover"
+      class:list={styles.image()}
       quality={100}
       src={entry.data.thumbnail}
       priority
     />
   </div>
-  <div class="flex flex-col flex-nowrap gap-2 md:gap-4">
+  <div class:list={styles.contentWrapper()}>
     <h1
-      class="text-xl font-bold md:text-4xl"
+      class:list={styles.title()}
       transition:animate="fade"
       transition:name={`title-${entry.slug}`}
     >
@@ -57,21 +72,19 @@ const OGPUrl = getPostOgpImage(entry.slug, {
       </BudouX>
     </h1>
     <BudouX>{entry.data.description}</BudouX>
-    <div class="flex flex-col flex-nowrap gap-2">
-      <div class="flex flex-row flex-wrap gap-x-4 gap-y-[6px] text-sm">
-        <div
-          class="flex flex-row flex-nowrap items-center justify-center gap-1"
-        >
-          <Icon class="text-blue-500" icon="fa6-solid:pen" size="sm" />
+    <div class:list={styles.textWrapper()}>
+      <div class:list={styles.metaDataWrapper()}>
+        <div class:list={styles.metaData()}>
+          <Icon class:list={styles.icon()} icon="fa6-solid:pen" size="sm" />
           <time datetime={createdAtDate.toISOString()}
             >{dtTool.formatInJst(createdAtDate, "yyyy/MM/dd")}</time
           >
         </div>
         {
           updatedAtDate && (
-            <div class="flex flex-row flex-nowrap items-center justify-center gap-1">
+            <div class:list={styles.metaData()}>
               <Icon
-                class="text-blue-500"
+                class:list={styles.icon()}
                 icon="fa6-solid:arrow-rotate-right"
                 size="sm"
               />
@@ -86,8 +99,12 @@ const OGPUrl = getPostOgpImage(entry.slug, {
         }
         {
           roundedMinutesRead !== undefined && (
-            <div class="flex flex-row flex-nowrap items-center justify-center gap-1">
-              <Icon class="text-blue-500" icon="fa6-solid:clock" size="sm" />
+            <div class:list={styles.metaData()}>
+              <Icon
+                class:list={styles.icon()}
+                icon="fa6-solid:clock"
+                size="sm"
+              />
               <span>{roundedMinutesRead} min to read</span>
             </div>
           )
@@ -118,10 +135,3 @@ const OGPUrl = getPostOgpImage(entry.slug, {
     </div>
   </div>
 </div>
-
-<style>
-  span {
-    display: inline-block;
-    width: fit-content;
-  }
-</style>
