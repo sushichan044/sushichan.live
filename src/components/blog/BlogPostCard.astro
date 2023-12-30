@@ -25,11 +25,7 @@ const createdAtSring = dtTool.formatInJst(createdAt, "yyyy/MM/dd")
   transition:animate="fade"
   transition:name={`card-${post.slug}`}
 >
-  <Link
-    href={`/blog/post/${post.slug}`}
-    rel="prefetch-intent"
-    variants={{ decoration: "none" }}
-  >
+  <Link href={`/blog/post/${post.slug}`} variants={{ decoration: "none" }}>
     <div class="flex h-full flex-col flex-nowrap gap-2 pb-5 text-center">
       <div
         class="aspect-16/9 overflow-hidden rounded-t-[calc(0.5rem-1px)]"
