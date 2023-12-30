@@ -1,10 +1,18 @@
 ---
 import Link from "@/components/base/Link.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
+import { tv } from "tailwind-variants"
+
+const styles = tv({
+  slots: {
+    root: "h-[80px] w-full",
+    wrapper: "flex items-center justify-between gap-4",
+  },
+})()
 ---
 
-<footer class="h-[80px] w-full">
-  <ContentLayout class="flex items-center justify-between gap-4">
+<footer class:list={styles.root()}>
+  <ContentLayout class:list={styles.wrapper()}>
     <p>© 2023 sushi-chan</p>
     <Link href="/legal/privacy" variants={{ decoration: "none" }}>
       プライバシーポリシー

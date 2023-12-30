@@ -2,10 +2,19 @@
 import Link from "@/components/base/Link.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import NavigationMenu from "@/components/layout/NavigationMenu.astro"
+import { tv } from "tailwind-variants"
+
+const styles = tv({
+  slots: {
+    root: "h-[80px] w-full",
+    title: "text-base font-bold md:text-2xl",
+    wrapper: "my-8 flex items-center justify-between",
+  },
+})()
 ---
 
-<header class="h-[80px] w-full">
-  <ContentLayout class="my-8 flex items-center justify-between">
+<header class:list={styles.root()}>
+  <ContentLayout class:list={styles.wrapper()}>
     <Link
       variants={{
         color: "neutral",
@@ -14,7 +23,7 @@ import NavigationMenu from "@/components/layout/NavigationMenu.astro"
       }}
       href="/"
     >
-      <p class="text-base font-bold md:text-2xl">すしのへや</p>
+      <p class:list={styles.title()}>すしのへや</p>
     </Link>
     <NavigationMenu />
   </ContentLayout>

@@ -5,51 +5,64 @@ import Link from "@/components/base/Link.astro"
 import BudouX from "@/components/common/BudouX.astro"
 import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
 import { dtTool } from "@/lib/date"
+import { tv } from "tailwind-variants"
 
 type Props = {
   post: CollectionEntry<"posts">
 }
 
-const { post } = Astro.props
+const {
+  post: { data, slug },
+} = Astro.props
 
-const createdAt = dtTool.replaceTzWithJst(post.data.createdAt)
+const createdAt = dtTool.replaceTzWithJst(data.createdAt)
 const createdAtSring = dtTool.formatInJst(createdAt, "yyyy/MM/dd")
+
+const styles = tv({
+  slots: {
+    image:
+      "h-full w-full object-cover transition-transform duration-1000 ease-in-out will-change-transform group-hover/article:scale-105",
+    imageWrapper: "aspect-16/9 overflow-hidden rounded-t-[calc(0.5rem-1px)]",
+    innerWrapper: "flex flex-col flex-nowrap gap-2 pb-5 text-center",
+    root: "group/article overflow-hidden  rounded-lg outline outline-1  outline-slate-700 dark:outline-slate-400",
+    title: "inline-block px-2 text-xl font-bold",
+  },
+  variants: {
+    status: {
+      notPublished: {
+        root: "bg-yellow-500 dark:bg-yellow-700",
+      },
+      published: {
+        root: "bg-custom-theme-light dark:bg-custom-theme-dark",
+      },
+    },
+  },
+})({ status: data.status === "published" ? "published" : "notPublished" })
 ---
 
 <article
-  class:list={[
-    "overflow-hidden rounded-lg bg-custom-theme-light outline outline-1 outline-slate-700 dark:bg-custom-theme-dark dark:outline-slate-400",
-    "group/article",
-    post.data.status !== "published" && "bg-yellow-500 dark:bg-yellow-700",
-  ]}
+  class:list={[styles.root()]}
   transition:animate="fade"
-  transition:name={`card-${post.slug}`}
+  transition:name={`card-${slug}`}
 >
-  <Link href={`/blog/post/${post.slug}`} variants={{ decoration: "none" }}>
-    <div class="flex h-full flex-col flex-nowrap gap-2 pb-5 text-center">
-      <div
-        class="aspect-16/9 overflow-hidden rounded-t-[calc(0.5rem-1px)]"
-        data-image
-      >
+  <Link href={`/blog/post/${slug}`} variants={{ decoration: "none" }}>
+    <div class:list={styles.innerWrapper()}>
+      <div class:list={styles.imageWrapper()}>
         <CloudinaryImage
-          class:list={[
-            "h-full w-full object-cover",
-            "transition-transform duration-1000 ease-in-out will-change-transform",
-            "group-hover/article:scale-105",
-          ]}
-          alt={`thumbnail of ${post.slug}`}
-          src={post.data.thumbnail}
+          alt={`thumbnail of ${slug}`}
+          class:list={styles.image()}
+          src={data.thumbnail}
           priority
         />
       </div>
       <time datetime={createdAt.toISOString()}>{createdAtSring}</time>
       <h2
-        class="inline-block px-2 text-xl font-bold"
+        class:list={styles.title()}
         transition:animate="fade"
-        transition:name={`title-${post.slug}`}
+        transition:name={`title-${slug}`}
       >
         <BudouX>
-          {post.data.title}
+          {data.title}
         </BudouX>
       </h2>
     </div>

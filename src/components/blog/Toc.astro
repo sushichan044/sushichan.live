@@ -2,6 +2,8 @@
 import type { MarkdownHeading } from "astro"
 
 import Link from "@/components/base/Link.astro"
+import { tv } from "tailwind-variants"
+
 type Props = {
   depth: number
   headings: MarkdownHeading[]
@@ -9,13 +11,20 @@ type Props = {
 
 const { depth, headings } = Astro.props
 const matchedHeadings = headings.filter((heading) => heading.depth === depth)
+
+const styles = tv({
+  slots: {
+    content:
+      "flex flex-col flex-nowrap justify-center gap-1 rounded-lg text-lg font-bold",
+    root: "flex flex-col gap-4 rounded-lg bg-zinc-200 p-4 dark:bg-zinc-700/60",
+    title: "text-2xl font-bold",
+  },
+})()
 ---
 
-<nav class="flex flex-col gap-4 rounded-lg bg-zinc-200 p-4 dark:bg-zinc-700/60">
-  <p class="text-2xl font-bold">目次</p>
-  <div
-    class="flex flex-col flex-nowrap justify-center gap-1 rounded-lg text-lg font-bold"
-  >
+<nav class:list={styles.root()}>
+  <p class:list={styles.title()}>目次</p>
+  <div class:list={styles.content()}>
     {
       matchedHeadings.map((h, i) => (
         <Fragment>
