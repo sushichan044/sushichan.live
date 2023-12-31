@@ -3089,12 +3089,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.10.5":
-  version: 20.10.5
-  resolution: "@types/node@npm:20.10.5"
+"@types/node@npm:20.10.6":
+  version: 20.10.6
+  resolution: "@types/node@npm:20.10.6"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: be30609aae0bfe492097815f166ccc07f465220cb604647fa4e5ec05a1d16c012a41b82b5f11ecfe2485cbb479d4d20384b95b809ca0bcff6d94d5bbafa645bb
+  checksum: 6692ccfa8552ef60c4069fda3c8de726c23e8d403cdf788e3c7efa769987e80fbda5f02723dd857f9de7df24a5fa40b3ed4580ec3c5cbac04eba44cf7b2ab1dc
   languageName: node
   linkType: hard
 
@@ -4761,6 +4761,13 @@ __metadata:
   version: 2.0.0
   resolution: "clsx@npm:2.0.0"
   checksum: c09f43b3144a0b7826b6b11b6a111b2c7440831004eecc02d333533c5e58ef0aa5f2dce071d3b25fbb8c8ea97b45df96c74bcc1d51c8c2027eb981931107b0cd
+  languageName: node
+  linkType: hard
+
+"clsx@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "clsx@npm:2.1.0"
+  checksum: c09c00ad14f638366ca814097e6cab533dfa1972a358da5b557be487168acbb25b4c1395e89ffa842a8a61ba87a462d2b4885bc9d4f8410b598f3cb339599cdb
   languageName: node
   linkType: hard
 
@@ -9950,12 +9957,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"marked@npm:^11.1.0":
-  version: 11.1.0
-  resolution: "marked@npm:11.1.0"
+"marked@npm:^11.1.1":
+  version: 11.1.1
+  resolution: "marked@npm:11.1.1"
   bin:
     marked: bin/marked.js
-  checksum: 6a1cecaa849e47b11a060c068ca4d48f8aa9e203cd39d59b3f55dc43c5ea860af3ee341eeb02d985ecbee8d835a1377a170ca416716608e1a14b8b0b3599fa0f
+  checksum: 77137491bb9610ceaa42a2f487ea00ec13836f19c3d41cabb80f16b283461a1d14285de42725c09d8a2fb029ae10633b07e76afc76113c8067e68eaedfdf8bf6
   languageName: node
   linkType: hard
 
@@ -15323,7 +15330,7 @@ __metadata:
     "@resvg/resvg-js": "npm:^2.6.0"
     "@textlint/textlint-plugin-markdown": "npm:^13.4.1"
     "@types/eslint": "npm:8.56.0"
-    "@types/node": "npm:20.10.5"
+    "@types/node": "npm:20.10.6"
     "@types/nprogress": "npm:^0"
     "@types/prettier": "npm:^3"
     "@types/react": "npm:^18.2.46"
@@ -15338,7 +15345,7 @@ __metadata:
     astro-eslint-parser: "npm:^0.16.0"
     astro-seo: "npm:^0.8.0"
     budoux: "npm:^0.6.1"
-    clsx: "npm:^2.0.0"
+    clsx: "npm:^2.1.0"
     daisyui: "npm:latest"
     date-fns: "npm:^2.30.0"
     date-fns-tz: "npm:^2.0.0"
@@ -15354,7 +15361,7 @@ __metadata:
     husky: "npm:^8.0.3"
     ie-buster: "npm:^2.0.2"
     lint-staged: "npm:^15.2.0"
-    marked: "npm:^11.1.0"
+    marked: "npm:^11.1.1"
     markuplint: "npm:^3.15.0"
     mdast-util-to-string: "npm:^4.0.0"
     mermaid: "npm:^10.6.1"
