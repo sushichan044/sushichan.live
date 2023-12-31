@@ -1,9 +1,7 @@
 @use "../../../../styles/variables" as var;
+@use "../../../../styles/config/mixins" as mix;
 
 .menu-root {
-  z-index: 100;
-  display: flex;
-
   li {
     list-style: none;
   }
@@ -11,7 +9,11 @@
 
 .menu-list {
   display: flex;
-  gap: 2.5rem;
+  gap: 1.5rem;
+
+  @include mix.mq("md") {
+    gap: 2.5rem;
+  }
 
   a {
     font-size: 1.25rem;
