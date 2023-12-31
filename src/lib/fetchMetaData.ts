@@ -1,7 +1,16 @@
+import type { Metadata } from "fetch-site-metadata"
+
 import scrape from "fetch-site-metadata"
 
+const METADATA_CACHE = new Map<string, Metadata>()
+
 const fetchMetaData = async (url: string) => {
-  const res = await scrape(
+  const cached = METADATA_CACHE.get(url)
+  if (cached) {
+    return cached
+  }
+
+  const metaDataResponse = await scrape(
     url,
     // {
     // headers: {
@@ -11,7 +20,9 @@ const fetchMetaData = async (url: string) => {
     // suppressAdditionalRequest: true,
     // }
   )
-  return res
+
+  METADATA_CACHE.set(url, metaDataResponse)
+  return metaDataResponse
 }
 
 export { fetchMetaData }

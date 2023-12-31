@@ -65,9 +65,16 @@ export function cloudinaryOGPLoader(src: string) {
   })
 }
 
+const IMAGE_SIZE_CACHE = new Map<string, { height: number; width: number }>()
+
 export const getCloudinaryImageSize = async (
   url: string,
 ): Promise<{ height: number; width: number }> => {
+  const cached = IMAGE_SIZE_CACHE.get(url)
+  if (cached) {
+    return cached
+  }
+
   try {
     const res = await fetch(cloudinaryMetadataLoader(url))
     const isJson = res.headers.get("content-type")?.includes("application/json")
@@ -85,6 +92,7 @@ export const getCloudinaryImageSize = async (
         }
         return 900
       })
+      IMAGE_SIZE_CACHE.set(url, { height, width })
       return { height, width }
     } else {
       console.error(data)
