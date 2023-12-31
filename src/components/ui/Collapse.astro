@@ -8,17 +8,13 @@ interface Props {
 const { title } = Astro.props
 ---
 
-{/*eslint-disable astro/jsx-a11y/no-noninteractive-tabindex */}
-
-<div
+<details
   class="collapse collapse-arrow border border-zinc-300 bg-zinc-200 p-2 duration-700 dark:border-zinc-800/60 dark:bg-zinc-700/60"
-  tabindex={0}
 >
-  <input aria-label="focus or click to see content" type="checkbox" />
-  <div class="collapse-title text-xl font-medium">
+  <summary class="collapse-title text-xl font-medium">
     {title ? <BudouX>{title}</BudouX> : <slot name="title" />}
-  </div>
+  </summary>
   <div class="collapse-content">
     <slot />
   </div>
-</div>
+</details>
