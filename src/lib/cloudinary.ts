@@ -90,6 +90,7 @@ export const getCloudinaryImageSize = async (
       console.error(data)
     }
   } catch (e) {
+    console.error("Error fetching image size for:", url)
     console.error(e)
   }
 
