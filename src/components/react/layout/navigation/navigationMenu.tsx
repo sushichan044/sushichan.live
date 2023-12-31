@@ -48,6 +48,11 @@ const NavigationMenu = ({ topPath }: { topPath: string }) => {
             <p>Blog</p>
           </NavLink>
         </NavMenu.Item>
+        <NavMenu.Item>
+          <NavLink href="/works" topPath={topPath}>
+            <p>Works</p>
+          </NavLink>
+        </NavMenu.Item>
       </NavMenu.List>
     </NavMenu.Root>
   )
