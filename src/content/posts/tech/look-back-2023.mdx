@@ -1,0 +1,151 @@
+---
+title: 2023年を振り返る
+description: Advent Calendar 遅刻杯 優勝
+createdAt: 2023-12-31
+thumbnail: https://res.cloudinary.com/sushi-chan/image/upload/v1695925763/my-campus-life/56F9C0BE-0ACB-4D23-9C6C-3BDEE11CF2E6_1_201_a_hlnsel.jpg
+tags:
+  - 雑記
+  - 技術
+  - Advent Calendar
+status: preview
+---
+
+この記事は[UEC2 Advent Calendar 2023](https://adventar.org/calendars/8704)の10日目の記事です。
+
+<UrlCard url="https://adventar.org/calendars/8704" />
+
+<span class="text-2xl font-bold">~~公開日が12/31なのは気のせいです。多分。~~</span>
+
+## はじめに
+
+こんにちは、すし([@sushi_chan_sub](https://twitter.com/sushi_chan_sub))です。
+12/10に記事を投稿するはずが、スケジュール管理不足で完全に崩壊しました。大変ご迷惑をおかけしました。
+
+2023年は、最もたくさん新しいことに挑戦して、たくさん作った年でした。せっかくなので振り返りがてらいろいろ紹介しようと思います。
+
+## はじめてのTypeScript, はじめてのContribution
+
+私は原神というオープンワールドゲームが大好きで、2022年の1月に始めて以来ずっとハマり続けています。
+そんな原神には、公式コミュニティである「HoyoLab」というサイトがあります。
+
+このWebサイトの特定ページを1日1回見るとログインボーナスが入手できるのですが、毎日わざわざ見るのは面倒ですよね。
+世には同じことを考える者がたくさんいるということで、既に毎日特定の時間にそのページを開くためのChrome拡張機能が存在していました。
+
+<UrlCard url="https://github.com/oddstab/genshin-impact-auto-sign" />
+
+私も例によってこの拡張機能に助けられていたのですが、日本語に対応していないことが気になっていました。
+
+そして時は2023年1月。近い将来にTypeScriptを書く予定があり、また小さくてもいいから他の方が作ったものにContributionしてみたいと思いがあった私は、思い切って日本語対応をやってみることにしました。
+
+~~<span class="text-lg">今見返すと、汚い上に、Issueすら出さずにいきなりPR出してて最悪ですね。本当に最悪</span>~~
+
+これを自分で言うとよくないですが、初めてのことをやると上手くいかないものですね。
+そんな半分呪物のようなコードでも、マージされたときは少し嬉しかったのを覚えています。[^1]
+
+[^1]: PR自体は2022年12月だったんですが、Chrome Web Store側でアップデートされたのが2023年だったので2023年の話にさせてください。
+
+## Web関連
+
+2023年3月に公開された調布祭実行委員会の新歓Webサイトを作ったことがきっかけでWeb系の制作を始めました。
+最初はHTMLの属性やCSSのスコープすらよく分からない状態でしたが、根気よく調べていくうちに少しずつ作りたい！を形にできることが増えてきました。
+
+## Discord Bot
+
+実は、私がプログラミングに足を踏み入れるきっかけになったのはDiscordのBot制作です。
+2023年も縁あってBot制作を続けており、いくつかの大学団体で利用していただいています。
+そんなBot制作では言語としてPythonを利用していますが、今年基盤の設計を1から見直しました。
+
+モジュールへの分割・統合においてWebフロントフレームワークに近い発想を取り入れたり、Linterの設定を見直して大幅なリファクタリングを行ったりしました。
+また、以前から進めていた型付けも完了し、かなり安全かつ補完の恩恵も受けやすい書き方ができるようになりました。
+
+<UrlCard caption="全人類blackとflake8の設定で消耗するのをやめてRuffを使おう" url="https://github.com/astral-sh/ruff" />
+
+また、Discord Message Componentsと呼ばれる、ユーザーがBotに対して操作を行えるUIを構築するための機能の導入を進めました。
+これにより、従来のテキストベースよりも直感的な操作ができるようになり、UXが向上します。
+
+![Discord Message Componentsのボタンなどを用いて構築されたUIの例](https://res.cloudinary.com/sushi-chan/image/upload/v1702011939/tech/ductile-ui/77F63757-A907-4D8D-9134-8F1BD3C472BF_1_201_a_kvntt0.jpg "Discord Message Componentsを使ったUIの例")
+
+実際にBotを実装する際、Pythonではdiscord.pyと呼ばれるWrapper Libraryを利用するのが一般的ですが、
+このライブラリではUIの処理を手続き的に書く必要がありました。
+
+このため、ユーザーの操作に伴って変化するUIの実装が苦行になる傾向がありました。
+これを克服してユーザーに優しいUI・UXを実現しつつ効率よく実装するために、Reactのような宣言的UIを書けるライブラリを自作したりしました。
+
+まだ差分検知などを実装していないのでやや過剰にAPIを叩いてしまうのが難点ですが、簡素に操作性の高いBotを書けるようになり満足しています。
+将来的にはバリデーションなどの追加も視野に入れています。
+
+<Collapse title="実装したライブラリの使用例を見る">
+Reactで簡単なカウンターを作成した例
+
+```tsx
+const Counter = () => {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <span>count: {count}</span>
+      <button onClick={() => setCount(count + 1)}>+</button>
+      <button onClick={() => setCount(count - 1)}>-</button>
+      <button onClick={() => setCount(0)}>reset</button>
+    </div>
+  );
+};
+```
+
+<div class="divider"></div>
+
+Python製Discord Botに自作ライブラリを導入し、同じようなカウンターを作成した例
+
+Discord側のメッセージへのUI反映は、Stateが変化すると自動的に行われます。
+
+```python
+class Counter(View):
+    def __init__(self):
+        super().__init__()
+        self.count = State[int](0, self)
+
+    async def handle_increment(self, interaction: Interaction):
+        await interaction.response.defer()
+        self.count.set_state(lambda x: x + 1)
+
+    async def handle_decrement(self, interaction: Interaction):
+        await interaction.response.defer()
+        self.count.set_state(lambda x: x - 1)
+
+    async def handle_reset(self, interaction: Interaction):
+        await interaction.response.defer()
+        self.count.set_state(0)
+
+    def render(self) -> ViewObject:
+        return ViewObject(
+            content=f"count: {self.count.get_state()}"
+            components=[
+                Button(
+                    label="+",
+                    style=ButtonStyle.PRIMARY,
+                    on_click=self.handle_increment,
+                ),
+                Button(
+                    label="-",
+                    style=ButtonStyle.PRIMARY,
+                    on_click=self.handle_decrement,
+                ),
+                Button(
+                    label="reset",
+                    style=ButtonStyle.DANGER,
+                    on_click=self.handle_reset,
+                ),
+            ],
+        )
+```
+</Collapse>
+
+ちなみにこのライブラリはGitHubで公開しているので、もしdiscord.pyを使ってDiscord Botを作っている方がいらっしゃったらぜひ使ってみてください。
+IssueやPRも大歓迎です。
+
+<UrlCard url="https://github.com/sushi-chaaaan/ductile-ui" />
+
+
+## Minecraftサーバー
+
+2023年は、色々なところでMinecraftのサーバーを立てる機会がありました。
+その中で少しずつ、Dockerに切り替えたり、シェルスクリプトを書いたりの基礎を学べました。いい話。
