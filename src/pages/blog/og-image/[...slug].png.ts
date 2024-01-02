@@ -22,5 +22,3 @@ export const GET: APIRoute = async ({ params }) => {
 
   return new Response(png)
 }
-
-export const prerender = true

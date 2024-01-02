@@ -35,8 +35,6 @@ const readTime = renderResult.remarkPluginFrontmatter?.minutesRead as
   | undefined
 const alerts = entry.data.alert || []
 const parsedAlerts = await parseMarkdownArray(alerts)
-
-export const prerender = true
 ---
 
 <BlogLayout>

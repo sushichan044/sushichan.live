@@ -81,7 +81,8 @@ export default defineConfig({
       theme: "one-dark-pro",
     },
   },
-  output: "server",
+  outDir: "./dist",
+  output: "hybrid",
   prefetch: {
     defaultStrategy: "hover",
   },
