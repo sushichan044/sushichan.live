@@ -1,9 +1,14 @@
 ---
 import NavMenu from "@/components/react/layout/navigation/navigationMenu"
+import { declareLet } from "@/utils/declareLet"
 
 const pathName = Astro.url.pathname
 
-const topPath = `/${pathName.split("/")[1]}`
+const topPath = declareLet(() => {
+  let path = `/${pathName.split("/")[1]}`
+  if (import.meta.env.PROD) return path.replace(".html", "")
+  return path
+})
 ---
 
 <NavMenu topPath={topPath} />
