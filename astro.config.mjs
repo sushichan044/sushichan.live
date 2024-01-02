@@ -86,6 +86,12 @@ export default defineConfig({
   prefetch: {
     defaultStrategy: "hover",
   },
+  redirects: {
+    "/blog": {
+      destination: "/blog/1",
+      status: 301,
+    },
+  },
   server: {
     host: true,
   },
