@@ -1,34 +1,19 @@
 ---
-import type { GetStaticPathsOptions, Page } from "astro"
-import type { CollectionEntry } from "astro:content"
-
 import AllTags from "@/components/blog/AllTags.astro"
 import BlogPostCard from "@/components/blog/BlogPostCard.astro"
-import Pagination from "@/components/blog/Pagination.astro"
-// import PageButton from "@/components/blog/PageButton.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
 import BlogLayout from "@/layouts/BlogLayout.astro"
 import { getAllPosts } from "@/lib/blog/post"
 import { fade } from "astro:transitions"
 
-export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  const posts = await getAllPosts((a, b) => {
-    if (a.data.createdAt < b.data.createdAt) return 1
-    if (a.data.createdAt > b.data.createdAt) return -1
-    return 0
-  })
+const posts = await getAllPosts((a, b) => {
+  if (a.data.createdAt < b.data.createdAt) return 1
+  if (a.data.createdAt > b.data.createdAt) return -1
+  return 0
+})
 
-  return paginate(posts, {
-    pageSize: 8,
-  })
-}
-
-type Props = {
-  page: Page<CollectionEntry<"posts">>
-}
-
-const { page } = Astro.props
+export const prerender = true
 ---
 
 <BlogLayout>
@@ -49,10 +34,7 @@ const { page } = Astro.props
       <AllTags />
     </div>
     <div class="grid w-full grid-cols-1 justify-stretch gap-4 md:grid-cols-2">
-      {page.data.map((post) => <BlogPostCard post={post} />)}
-    </div>
-    <div class="mt-4">
-      <Pagination page={page} />
+      {posts.map((post) => <BlogPostCard post={post} />)}
     </div>
   </ContentLayout>
 </BlogLayout>
