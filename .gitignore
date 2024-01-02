@@ -30,3 +30,6 @@ pnpm-debug.log*
 !.yarn/versions
 
 .wrangler/*
+
+# user cache dir for astro
+.astro-cache/

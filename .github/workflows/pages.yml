@@ -28,8 +28,8 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: |
-            node_modules/.astro
-          key: ${{ runner.os }}-astro-assets-${{ hashFiles('node_modules/.astro/assets/**') }}
+            .astro-cache
+          key: ${{ runner.os }}-astro-assets-${{ hashFiles('.astro-cache/assets/**') }}
           restore-keys: |
             ${{ runner.os }}-astro-assets-
 
@@ -44,14 +44,8 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: |
-            node_modules/.astro
-          key: ${{ runner.os }}-astro-assets-${{ hashFiles('node_modules/.astro/assets/**') }}
-
-      - name: Clean up old Astro asset cache if newer cache created in current branch
-        uses: ./.github/actions/clean-old-cache
-        with:
-          cache-key-prefix: "${{ runner.os }}-astro-assets-"
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+            .astro-cache
+          key: ${{ runner.os }}-astro-assets-${{ hashFiles('.astro-cache/assets/**') }}
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
