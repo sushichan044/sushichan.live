@@ -1,11 +1,14 @@
+@use "./config/mixins" as mix;
+
 [data-footnote-ref] {
-  margin-left: 0.125em;
+  margin-left: 0.25em;
   font-weight: 700;
-  color: rgb(59 130 246);
+
+  @apply text-blue-500 dark:text-blue-400;
 
   &:hover,
   &:focus {
-    color: rgb(37 99 235);
+    @apply hover:text-blue-500/60 dark:hover:text-blue-400/75;
   }
 
   &::before {
@@ -28,11 +31,12 @@
 
 [data-footnote-backref] {
   font-weight: 700;
-  color: rgb(59 130 246);
+
+  @apply text-blue-500 dark:text-blue-400;
 
   &:hover,
   &:focus {
-    color: rgb(37 99 235);
+    @apply hover:text-blue-500/60 dark:hover:text-blue-400/75;
   }
 }
 

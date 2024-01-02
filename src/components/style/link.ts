@@ -3,11 +3,11 @@ import { tv } from "tailwind-variants"
 const LinkStyle = tv({
   compoundVariants: [
     {
-      class: "hover:text-blue-600",
+      class: "hover:text-blue-500/60 dark:hover:text-blue-400/75",
       color: "primary",
     },
     {
-      class: "hover:text-blue-500",
+      class: "hover:text-blue-500/60 dark:hover:text-blue-400",
       color: "neutral",
       hoverColor: "primary",
     },
@@ -26,7 +26,7 @@ const LinkStyle = tv({
   variants: {
     color: {
       neutral: "text-light dark:text-dark",
-      primary: "text-blue-500",
+      primary: "text-blue-500 dark:text-blue-400",
     },
     decoration: {
       none: "no-underline",
