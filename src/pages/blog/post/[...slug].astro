@@ -10,7 +10,7 @@ import BlogPostSEO from "@/components/meta/BlogPostSEO.astro"
 import PageAlertWrapper from "@/components/ui/PageAlertWrapper.astro"
 import SafeHTML from "@/components/utils/SafeHTML.astro"
 import BlogLayout from "@/layouts/BlogLayout.astro"
-import { getAllPosts } from "@/lib/blogPost"
+import { getAllPosts } from "@/lib/blog/post"
 import { parseMarkdownArray } from "@/utils/markdown"
 
 export async function getStaticPaths() {
@@ -60,3 +60,4 @@ const parsedAlerts = await parseMarkdownArray(alerts)
     </PageAlertWrapper>
   </ContentLayout>
 </BlogLayout>
+@/lib/blog/blogPost

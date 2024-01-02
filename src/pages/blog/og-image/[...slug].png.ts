@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro"
 
-import { getAllPosts } from "@/lib/blogPost"
+import { getAllPosts } from "@/lib/blog/post"
 import { getBlogOGImage } from "@/pages/blog/og-image/_getImage"
 import { getEntry } from "astro:content"
 

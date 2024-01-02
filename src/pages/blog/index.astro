@@ -4,7 +4,7 @@ import BlogPostCard from "@/components/blog/BlogPostCard.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
 import BlogLayout from "@/layouts/BlogLayout.astro"
-import { getAllPosts } from "@/lib/blogPost"
+import { getAllPosts } from "@/lib/blog/post"
 import { fade } from "astro:transitions"
 
 const posts = await getAllPosts((a, b) => {
@@ -38,3 +38,4 @@ export const prerender = true
     </div>
   </ContentLayout>
 </BlogLayout>
+@/lib/blog/blogPost
