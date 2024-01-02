@@ -5,7 +5,7 @@ import mdx from "@astrojs/mdx"
 import react from "@astrojs/react"
 import sitemap from "@astrojs/sitemap"
 import tailwind from "@astrojs/tailwind"
-import { defineConfig } from "astro/config"
+import { defineConfig, passthroughImageService } from "astro/config"
 import AutoImport from "astro-auto-import"
 import rehypeKatex from "rehype-katex"
 import remarkEmoji from "remark-emoji"
@@ -59,10 +59,7 @@ export default defineConfig({
         protocol: "https",
       },
     ],
-    service: {
-      // https://docs.astro.build/en/guides/images/#add-simple-asset-support-for-cloudflare-deno-vercel-edge-and-netlify-edge
-      entrypoint: "astro/assets/services/noop",
-    },
+    service: passthroughImageService(),
   },
   integrations: [...mdxIntegrations, sitemap(), react(), tailwind()],
   markdown: {
