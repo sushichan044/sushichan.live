@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": " cross-env NODE_ENV='production' astro build",
+    "build": "astro build",
     "preview": "wrangler pages dev ./dist",
     "astro": "astro",
     "prepare": "husky install",
@@ -82,7 +82,6 @@
     "@typescript-eslint/eslint-plugin": "^6.16.0",
     "@typescript-eslint/parser": "^6.16.0",
     "astro-eslint-parser": "^0.16.0",
-    "cross-env": "^7.0.3",
     "daisyui": "latest",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
