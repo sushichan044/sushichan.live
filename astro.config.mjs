@@ -91,6 +91,10 @@ export default defineConfig({
       destination: "/blog/1",
       status: 301,
     },
+    "/blog/tag/[tag]": {
+      destination: "/blog/tag/[tag]/index.html",
+      status: 301,
+    },
   },
   server: {
     host: true,
