@@ -4,7 +4,7 @@ import BlogPostCard from "@/components/blog/BlogPostCard.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
 import BlogLayout from "@/layouts/BlogLayout.astro"
-import { getAllTags, getPostsByTags } from "@/lib/blogPost"
+import { getAllTags, getPostsByTags } from "@/lib/blog/post"
 import { fade } from "astro:transitions"
 
 export async function getStaticPaths() {
@@ -52,3 +52,4 @@ const description = `タグ 「${tag}」 の記事一覧です。`
     </div>
   </ContentLayout>
 </BlogLayout>
+@/lib/blog/blogPost

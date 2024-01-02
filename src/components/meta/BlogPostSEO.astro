@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content"
 
-import { getPostOgpImage } from "@/lib/blogPost"
+import { getPostOgpImage } from "@/lib/blog/post"
 import { dtTool } from "@/lib/date"
 import { SEO } from "astro-seo"
 
@@ -66,3 +66,4 @@ const OGPUrl = getPostOgpImage(slug, {
     noindex: true,
   }}
 />
+@/lib/blog/blogPost
