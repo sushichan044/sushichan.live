@@ -36,9 +36,3 @@ runs:
       with:
         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
         key: ${{ steps.restore-yarn-cache.outputs.cache-primary-key }}
-
-    - name: Clean up old yarn cache if exists
-      uses: "./.github/actions/clean-old-cache"
-      with:
-        cache-key-prefix: ${{runner.os}}-yarn-cache-
-        github-token: ${{inputs.github-token}}

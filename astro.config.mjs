@@ -46,6 +46,7 @@ export default defineConfig({
       mode: "off",
     },
   }),
+  cacheDir: "./.astro-cache",
   experimental: { contentCollectionCache: true },
   image: {
     remotePatterns: [
