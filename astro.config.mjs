@@ -46,9 +46,6 @@ export default defineConfig({
       mode: "off",
     },
   }),
-  build: {
-    format: "file",
-  },
   cacheDir: "./.astro-cache",
   experimental: { contentCollectionCache: true },
   image: {
