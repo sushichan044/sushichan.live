@@ -10,7 +10,7 @@ import { fade } from "astro:transitions"
 export async function getStaticPaths() {
   const tags = await getAllTags()
   return tags.map((tag) => ({
-    params: { tag },
+    params: { tag: decodeURIComponent(tag) },
     props: { tag: decodeURIComponent(tag) },
   }))
 }
