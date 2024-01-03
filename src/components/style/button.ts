@@ -19,10 +19,10 @@ const ButtonStyle = tv({
   },
   variants: {
     color: {
-      primary: "bg-blue-500 hover:bg-blue-700",
-      secondary: "bg-gray-500 hover:bg-gray-700",
+      primary: "bg-blue-500 hocus:bg-blue-700",
+      secondary: "bg-gray-500 hocus:bg-gray-700",
       transparent:
-        "border border-solid border-custom-theme-dark bg-inherit hover:opacity-75 dark:border-custom-theme-light",
+        "border border-solid border-custom-theme-dark bg-inherit hocus:opacity-75 dark:border-custom-theme-light",
     },
     disabled: {
       true: "pointer-events-none cursor-not-allowed opacity-50",

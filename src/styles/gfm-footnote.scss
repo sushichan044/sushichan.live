@@ -8,7 +8,7 @@
 
   &:hover,
   &:focus {
-    @apply hover:text-blue-500/60 dark:hover:text-blue-400/75;
+    @apply hocus:text-blue-500/60 dark:hocus:text-blue-400/75;
   }
 
   &::before {
@@ -36,7 +36,7 @@
 
   &:hover,
   &:focus {
-    @apply hover:text-blue-500/60 dark:hover:text-blue-400/75;
+    @apply hocus:text-blue-500/60 dark:hocus:text-blue-400/75;
   }
 }
 

@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss"
 
 import daisyui, { type Config as DaisyConfig } from "daisyui"
+import createPlugin from "tailwindcss/plugin"
 
 const config: Config = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
@@ -8,7 +9,12 @@ const config: Config = {
     preflight: false,
   },
   daisyui: { logs: false } satisfies DaisyConfig,
-  plugins: [daisyui],
+  plugins: [
+    daisyui,
+    createPlugin(({ addVariant }) => {
+      addVariant("hocus", ["&:hover", "&:focus"])
+    }),
+  ],
   theme: {
     extend: {
       aspectRatio: {
