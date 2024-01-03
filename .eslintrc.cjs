@@ -50,6 +50,11 @@ module.exports = {
     "@typescript-eslint/prefer-function-type": "off",
     "require-await": "off",
     "@typescript-eslint/require-await": "error",
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      { disallowTypeAnnotations: false },
+    ],
+    "@typescript-eslint/no-import-type-side-effects": "error",
     "no-restricted-imports": [
       "error",
       {
