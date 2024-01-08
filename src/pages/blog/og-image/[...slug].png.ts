@@ -2,18 +2,22 @@ import type { APIRoute } from "astro"
 
 import { getAllPosts } from "@/lib/blog/post"
 import { getBlogOGImage } from "@/pages/blog/og-image/_getImage"
-import { getEntry } from "astro:content"
+import { type CollectionEntry, getEntry } from "astro:content"
 
 export async function getStaticPaths() {
   const blogEntries = await getAllPosts()
-  return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
+  return blogEntries.map(({ slug }) => ({
+    params: { slug },
   }))
 }
 
-export const GET: APIRoute = async ({ params }) => {
+export const GET: APIRoute<
+  Record<string, never>,
+  { slug: CollectionEntry<"posts">["slug"] }
+> = async ({ params }) => {
   const slug = params.slug
-  if (!slug) return new Response(null, { status: 404, statusText: "Not Found" })
+  if (!slug)
+    return new Response(null, { status: 400, statusText: "Bad Request" })
 
   const post = await getEntry("posts", slug)
   if (!post) return new Response(null, { status: 404, statusText: "Not Found" })
