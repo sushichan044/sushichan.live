@@ -1,7 +1,7 @@
 ---
-import BlogRenderer from "@/components/blog/BlogRenderer.astro"
 import BlogStyle from "@/components/blog/BlogStyle.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
+import Renderer from "@/components/mdx/Renderer.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import Content from "@/pages/legal/_privacy.mdx"
@@ -15,7 +15,7 @@ import Content from "@/pages/legal/_privacy.mdx"
   />
   <ContentLayout>
     <BlogStyle>
-      <BlogRenderer Content={Content} />
+      <Renderer Content={Content} />
     </BlogStyle>
   </ContentLayout>
 </BaseLayout>
