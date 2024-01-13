@@ -23,7 +23,7 @@ const mdxIntegrations = [
     imports: [
       "./src/components/common/BudouX.astro",
       "./src/components/common/Icon.astro",
-      "./src/components/mdx/Link.astro",
+      "./src/components/element/Link.astro",
       "./src/components/ui/card/AdventarCard.astro",
       "./src/components/ui/card/MessageCard.astro",
       "./src/components/ui/card/PlayerCard.astro",
