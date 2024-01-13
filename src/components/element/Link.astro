@@ -3,25 +3,59 @@ import type { HTMLAttributes } from "astro/types"
 import type { VariantProps } from "tailwind-variants"
 
 import LinkStyle from "@/components/style/link"
+import { declareLet } from "@/utils/declareLet"
 import { clsx } from "clsx"
 
 export type Props = HTMLAttributes<"a"> & {
   variants?: VariantProps<typeof LinkStyle>
 }
 
+type hrefInfo = {
+  href: HTMLAttributes<"a">["href"]
+  isExternal: boolean
+}
+
 const {
   class: className,
   "class:list": classList,
   href,
+  target,
   variants,
   ...props
 } = Astro.props
+
+const { href: refinedHref, isExternal }: hrefInfo = declareLet(() => {
+  if (href == null)
+    return {
+      href: href,
+      isExternal: false,
+    }
+
+  let url: URL | string
+  let isExternal: boolean
+
+  if (typeof href === "string") {
+    if (href.startsWith("/") || href.startsWith("#")) {
+      url = new URL(href, Astro.url)
+      isExternal = false
+    } else {
+      url = new URL(href)
+      isExternal = true
+    }
+  } else {
+    url = href
+    isExternal = url.host !== Astro.url.host
+  }
+  return { href: url, isExternal }
+})
+const refinedTarget = target != null ? target : isExternal ? "_blank" : "_self"
 
 const mergedClass = clsx(className, classList)
 ---
 
 <a
   class:list={[LinkStyle({ ...variants, class: mergedClass })]}
-  href={href}
+  href={refinedHref}
+  target={refinedTarget}
   {...props}><slot /></a
 >
