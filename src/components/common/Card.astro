@@ -12,6 +12,7 @@ const { caption, isFigure, ...props } = Astro.props
 
 const style = tv({
   base: "flex flex-col flex-nowrap gap-1",
+  compoundVariants: [{ class: "transition-all", hover: true, shadow: true }],
   defaultVariants: {
     center: true,
     hover: false,
@@ -34,7 +35,7 @@ const style = tv({
       true: "rounded-lg",
     },
     shadow: {
-      true: "drop-shadow-md transition-shadow duration-200 ease-out hocus:drop-shadow-lg",
+      true: "drop-shadow-md transition-shadow duration-500 ease-out hocus:drop-shadow-lg",
     },
   },
 })
