@@ -4,15 +4,19 @@ import ContentLayout from "@/components/common/ContentLayout.astro"
 import MDXRenderer from "@/components/mdx/Renderer.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
-import Content from "@/pages/about/_about.mdx"
+import AboutContent from "@/pages/about/_about.mdx"
+import CodeContent from "@/pages/about/_code.mdx"
+import SNS from "@/pages/about/_sns.astro"
 ---
 
 <BaseLayout>
   <BaseSEO description="About me" slot="seo" title="About me" />
   <ContentLayout>
-    <BlogStyle>
-      <h1 style={{ marginBlock: 0 }}>About me</h1>
-      <MDXRenderer Content={Content} />
+    <BlogStyle colorHeading={["h2"]}>
+      <h1>About me</h1>
+      <MDXRenderer Content={CodeContent} />
+      <SNS />
+      <MDXRenderer Content={AboutContent} />
     </BlogStyle>
   </ContentLayout>
 </BaseLayout>
