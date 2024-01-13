@@ -2,8 +2,6 @@
 @use "./config/mixins" as mix;
 
 code {
-  padding-inline: 0.25em;
-  margin-inline: 0.5em;
   background-color: var.$theme-color-light-darker;
   border-radius: 0.25em;
 
@@ -41,8 +39,4 @@ code {
 
 .remark-code-container:not(:has(.remark-code-title)) > .astro-code {
   border-radius: 0.5rem;
-}
-
-.remark-mermaid {
-  line-height: 1;
 }
