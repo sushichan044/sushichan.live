@@ -1,6 +1,5 @@
 ---
 import ContentLayout from "@/components/common/ContentLayout.astro"
-import Link from "@/components/element/Link.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 ---
@@ -8,17 +7,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro"
 <BaseLayout>
   <BaseSEO description="すしのへやのトップページ" slot="seo" title="ホーム" />
   <ContentLayout>
+    <h1>すしのへや</h1>
+    <div class="divider"></div>
     <p>
-      このサイトはβ版です。
+      このサイトはβ版です。メインページはそのうち作ります。
       <br />
-      現在
-      <Link
-        href="/blog"
-        variants={{ color: "primary", decoration: "underline" }}
-      >
-        ブログ
-      </Link>
-      のみ実装されています。
+      ヘッダーからコンテンツに移動できます。
     </p>
   </ContentLayout>
 </BaseLayout>
