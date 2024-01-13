@@ -1,0 +1,58 @@
+---
+import Icon from "@/components/common/Icon.astro"
+import Link from "@/components/element/Link.astro"
+---
+
+<div class="grid grid-cols-2 gap-2 md:grid-cols-4">
+  <Link
+    href="https://x.com/sushi_chan_sub"
+    target="_blank"
+    title="My twitter"
+    variants={{ decoration: "none" }}
+  >
+    <div
+      class="flex flex-row items-center gap-x-2 rounded-lg p-2 outline outline-1 outline-gray-200 dark:outline-zinc-600"
+    >
+      <Icon icon="fa6-brands:x-twitter" size="2xl" />
+      <span>X</span>
+    </div>
+  </Link>
+  <Link
+    href="https://x.com/sushichan_044"
+    target="_blank"
+    title="My twitter for hobby"
+    variants={{ decoration: "none" }}
+  >
+    <div
+      class="flex flex-row items-center gap-x-2 rounded-lg p-2 outline outline-1 outline-gray-200 dark:outline-zinc-600"
+    >
+      <Icon icon="fa6-brands:x-twitter" size="2xl" />
+      <span>X (hobby)</span>
+    </div>
+  </Link>
+  <Link
+    href="https://github.com/sushi-chaaaan"
+    target="_blank"
+    variants={{ decoration: "none" }}
+  >
+    <div
+      class="flex flex-row items-center gap-x-2 rounded-lg p-2 outline outline-1 outline-gray-200 dark:outline-zinc-600"
+    >
+      <Icon icon="fa6-brands:github" size="2xl" />
+      <span>GitHub</span>
+    </div>
+  </Link>
+  <Link
+    href="mailto:mail@sushichan.live"
+    target="_blank"
+    title="mail to me"
+    variants={{ decoration: "none" }}
+  >
+    <div
+      class="flex flex-row items-center gap-x-2 rounded-lg p-2 outline outline-1 outline-gray-200 dark:outline-zinc-600"
+    >
+      <Icon icon="fa6-regular:envelope" size="2xl" />
+      <span>Mail</span>
+    </div>
+  </Link>
+</div>
