@@ -1,13 +1,23 @@
 ---
 import s from "@/components/blog/blog-article.module.scss"
 
+type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
+
 type Props = {
   class?: string
+  colorHeading?: HeadingTag[]
 }
 
-const { class: className, ...props } = Astro.props
+const {
+  class: className,
+  colorHeading = ["h2", "h3", "h4", "h5", "h6"],
+  ...props
+} = Astro.props
 ---
 
-<div class:list={[s.root, className && className]} {...props}>
+<div
+  class:list={[s.root, [colorHeading.map((h) => s[h])], className && className]}
+  {...props}
+>
   <slot />
 </div>

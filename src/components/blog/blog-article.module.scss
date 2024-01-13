@@ -4,11 +4,39 @@
   @include base.base-content-margin;
 
   line-height: 1.8;
+}
 
-  h2,
-  h3,
-  h4,
-  h5,
+.h1 {
+  h1 {
+    border-bottom: 1px solid rgb(96 165 250 / 60%);
+  }
+}
+
+.h2 {
+  h2 {
+    border-bottom: 1px solid rgb(96 165 250 / 60%);
+  }
+}
+
+.h3 {
+  h3 {
+    border-bottom: 1px solid rgb(96 165 250 / 60%);
+  }
+}
+
+.h4 {
+  h4 {
+    border-bottom: 1px solid rgb(96 165 250 / 60%);
+  }
+}
+
+.h5 {
+  h5 {
+    border-bottom: 1px solid rgb(96 165 250 / 60%);
+  }
+}
+
+.h6 {
   h6 {
     border-bottom: 1px solid rgb(96 165 250 / 60%);
   }
