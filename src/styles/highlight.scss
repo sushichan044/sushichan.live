@@ -2,6 +2,7 @@
 @use "./config/mixins" as mix;
 
 code {
+  padding: 0 0.25em;
   background-color: var.$theme-color-light-darker;
   border-radius: 0.25em;
 
@@ -17,6 +18,11 @@ code {
   > * {
     padding-block: 0.5rem;
     padding-inline: 0.75rem;
+  }
+
+  code {
+    padding: 0;
+    background-color: var.$theme-color-dark-lighter;
   }
 }
 
