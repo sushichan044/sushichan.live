@@ -1,0 +1,31 @@
+---
+import BlogStyle from "@/components/blog/BlogStyle.astro"
+import ContentLayout from "@/components/common/ContentLayout.astro"
+import BaseSEO from "@/components/meta/BaseSEO.astro"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import Experience from "@/pages/portfolio/_experience.astro"
+import ExperienceWrapper from "@/pages/portfolio/_experienceWrapper.astro"
+import { EXPERIENCES } from "@/pages/portfolio/data"
+---
+
+<BaseLayout>
+  <BaseSEO
+    description="今まで学習したことや作ったもののページ"
+    slot="seo"
+    title="Portfolio"
+  />
+  <ContentLayout>
+    <BlogStyle colorHeading={[]}>
+      <h1>Portfolio</h1>
+      <p>今まで学習したことや作ったもののページです。</p>
+      <div>
+        <h2>Experience</h2>
+        <ExperienceWrapper>
+          <Experience experience={EXPERIENCES[0]} />
+          <Experience experience={EXPERIENCES[1]} />
+          <Experience experience={EXPERIENCES[2]} />
+        </ExperienceWrapper>
+      </div>
+    </BlogStyle>
+  </ContentLayout>
+</BaseLayout>

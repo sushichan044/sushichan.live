@@ -1,0 +1,33 @@
+---
+import type { Experience } from "@/pages/portfolio/data"
+
+import BudouX from "@/components/common/BudouX.astro"
+
+type Props = {
+  experience: Experience
+}
+
+const {
+  experience: { description, time, title },
+} = Astro.props
+---
+
+<li class="group mb-8 ms-4">
+  <div
+    class="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-blue-400 dark:bg-blue-600"
+  >
+  </div>
+  <time
+    class="mb-1 text-sm font-normal leading-none text-blue-400 dark:text-blue-500"
+    datetime={time.attr}
+  >
+    {time.label}
+  </time>
+  <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+    <BudouX>{title}</BudouX>
+  </h3>
+  <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+    <BudouX>{description}</BudouX>
+  </p>
+  <slot />
+</li>
