@@ -10,23 +10,42 @@ type Props = {
 const {
   experience: { description, time, title },
 } = Astro.props
+const timeLeft = time.range ? time.data.from : time.data
+const timeRight = time.range ? time.data.to : null
 ---
 
-<li class="group mb-8 ms-4">
+<li class="group mb-8 ms-4 last:mb-4">
   <div
     class="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-blue-400 dark:bg-blue-600"
   >
   </div>
   <time
     class="mb-1 text-sm font-normal leading-none text-blue-400 dark:text-blue-500"
-    datetime={time.attr}
+    datetime={timeLeft.attr}
   >
-    {time.label}
+    {timeLeft.label}
   </time>
-  <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+  {
+    time.range && (
+      <span class="mb-1 text-sm font-normal leading-none text-blue-400 dark:text-blue-500">
+        -
+      </span>
+    )
+  }
+  {
+    timeRight && (
+      <time
+        class="mb-1 text-sm font-normal leading-none text-blue-400 dark:text-blue-500"
+        datetime={timeRight.attr}
+      >
+        {timeRight.label}
+      </time>
+    )
+  }
+  <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
     <BudouX>{title}</BudouX>
   </h3>
-  <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+  <p class="mb-2 text-base font-normal text-gray-500 dark:text-gray-400">
     <BudouX>{description}</BudouX>
   </p>
   <slot />
