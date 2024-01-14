@@ -1,10 +1,13 @@
 ---
 import BlogStyle from "@/components/blog/BlogStyle.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
+// import Renderer from "@/components/mdx/Renderer.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
+import UrlCard from "@/components/ui/card/UrlCard.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import Experience from "@/pages/portfolio/_experience.astro"
 import ExperienceWrapper from "@/pages/portfolio/_experienceWrapper.astro"
+// import WorksContent from "@/pages/portfolio/_works.mdx"
 import { EXPERIENCES } from "@/pages/portfolio/data"
 ---
 
@@ -19,12 +22,22 @@ import { EXPERIENCES } from "@/pages/portfolio/data"
       <h1>Portfolio</h1>
       <p>今まで学習したことや作ったもののページです。</p>
       <div>
-        <h2>Experience</h2>
+        <h2 class="mb-2">Experience</h2>
         <ExperienceWrapper>
           <Experience experience={EXPERIENCES[0]} />
           <Experience experience={EXPERIENCES[1]} />
           <Experience experience={EXPERIENCES[2]} />
+          <Experience experience={EXPERIENCES[3]} />
+          <Experience experience={EXPERIENCES[4]}>
+            <UrlCard url="/blog/post/tech/chofusai-2023-website" />
+          </Experience>
+          <Experience experience={EXPERIENCES[5]} />
         </ExperienceWrapper>
+        <div>
+          <h2>Works</h2>
+          Working in progress...
+          <!-- <Renderer Content={WorksContent} /> -->
+        </div>
       </div>
     </BlogStyle>
   </ContentLayout>
