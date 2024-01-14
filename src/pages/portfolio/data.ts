@@ -90,7 +90,7 @@ const EXPERIENCES = [
       },
       range: true,
     },
-    title: "調布祭実行委員会(電気通信大学) 技術担当",
+    title: "調布祭実行委員会 技術担当",
   },
   {
     description:
@@ -104,7 +104,7 @@ const EXPERIENCES = [
       },
       range: true,
     },
-    title: "バーチャルライブ研究会(電気通信大学)",
+    title: "バーチャルライブ研究会",
   },
 ] as const satisfies Experience[]
 
