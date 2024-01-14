@@ -3,7 +3,6 @@ import WithCaption from "@/components/common/WithCaption.astro"
 import CloudinaryImage, {
   type Props as CloudinaryImageProps,
 } from "@/components/ui/CloudinaryImage.astro"
-import s from "@/components/utils/content-visibility.module.scss"
 import { declareLet } from "@/utils/declareLet"
 
 type Props = CloudinaryImageProps
@@ -21,7 +20,7 @@ const { alt, title } = declareLet(() => {
 <WithCaption caption={title} isFigure={false}>
   <CloudinaryImage
     alt={alt}
-    class:list={["rounded-lg", s.root]}
+    class="rounded-lg content-visibility-auto"
     src={src}
     title={title}
     {...props}
