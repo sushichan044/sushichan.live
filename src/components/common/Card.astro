@@ -11,7 +11,7 @@ type Props = CardProps
 const { caption, isFigure, ...props } = Astro.props
 
 const style = tv({
-  base: "flex flex-col flex-nowrap gap-1",
+  base: "flex flex-col flex-nowrap gap-1 overflow-hidden",
   compoundVariants: [{ class: "transition-all", hover: true, shadow: true }],
   defaultVariants: {
     center: true,
@@ -35,7 +35,7 @@ const style = tv({
       true: "rounded-lg",
     },
     shadow: {
-      true: "drop-shadow-md transition-shadow duration-500 ease-out hocus:drop-shadow-lg",
+      true: "shadow-sm transition-shadow duration-500 ease-out hocus:shadow",
     },
   },
 })
