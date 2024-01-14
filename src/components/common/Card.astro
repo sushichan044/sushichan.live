@@ -2,7 +2,6 @@
 import WithCaption, {
   type CaptionProps,
 } from "@/components/common/WithCaption.astro"
-import s from "@/components/utils/content-visibility.module.scss"
 import { type VariantProps, tv } from "tailwind-variants"
 export type CardProps = VariantProps<typeof style> & CaptionProps
 
@@ -11,7 +10,7 @@ type Props = CardProps
 const { caption, isFigure, ...props } = Astro.props
 
 const style = tv({
-  base: "flex flex-col flex-nowrap gap-1 overflow-hidden",
+  base: "flex flex-col flex-nowrap gap-1 overflow-hidden content-visibility-auto",
   compoundVariants: [{ class: "transition-all", hover: true, shadow: true }],
   defaultVariants: {
     center: true,
@@ -41,7 +40,7 @@ const style = tv({
 })
 ---
 
-<div class:list={[style(props), s.root]}>
+<div class:list={style(props)}>
   <WithCaption caption={caption} isFigure={isFigure}>
     <slot />
   </WithCaption>

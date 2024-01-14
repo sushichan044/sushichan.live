@@ -18,6 +18,19 @@ const config: Config = {
     createPlugin(({ addVariant }) => {
       addVariant("hocus", ["&:hover", "&:focus"])
     }),
+    createPlugin(({ addUtilities }) => {
+      addUtilities({
+        ".content-visibility-auto": {
+          "content-visibility": "auto",
+        },
+        ".content-visibility-hidden": {
+          "content-visibility": "hidden",
+        },
+        ".content-visibility-visible": {
+          "content-visibility": "visible",
+        },
+      })
+    }),
   ],
   theme: {
     extend: {
