@@ -1,6 +1,7 @@
+import type { Config as DaisyConfig } from "daisyui"
 import type { Config } from "tailwindcss"
 
-import daisyui, { type Config as DaisyConfig } from "daisyui"
+import daisyui from "daisyui"
 import createPlugin from "tailwindcss/plugin"
 
 const config: Config = {
@@ -8,7 +9,10 @@ const config: Config = {
   corePlugins: {
     preflight: false,
   },
-  daisyui: { logs: false } satisfies DaisyConfig,
+  daisyui: {
+    base: false,
+    logs: false,
+  } satisfies DaisyConfig,
   plugins: [
     daisyui,
     createPlugin(({ addVariant }) => {
