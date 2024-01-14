@@ -5,18 +5,26 @@
   li {
     list-style: none;
   }
+
+  ul {
+    padding-inline-start: 0;
+  }
 }
 
 .menu-list {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
 
   @include mix.mq("md") {
-    gap: 2.5rem;
+    gap: 2rem;
   }
 
   a {
     font-size: 1.25rem;
+  }
+
+  li {
+    margin-bottom: 0;
   }
 }
 
