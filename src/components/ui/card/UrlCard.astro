@@ -74,7 +74,7 @@ const imageSet = getImage(metaData)
         imageSet && (
           <div class="shrink overflow-hidden max-md:rounded-t-[calc(0.5rem-1px)] md:rounded-s-[calc(0.5rem-1px)] ">
             <img
-              alt={imageSet.alt ?? ""}
+              alt={imageSet.alt}
               class="aspect-1200/630 h-[180px] object-cover md:h-[120px]"
               decoding="async"
               loading="lazy"

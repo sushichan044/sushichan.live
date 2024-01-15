@@ -14,14 +14,8 @@ export async function getStaticPaths() {
 export const GET: APIRoute<
   Record<string, never>,
   { slug: CollectionEntry<"posts">["slug"] }
-> = async ({ params }) => {
-  const slug = params.slug
-  if (!slug)
-    return new Response(null, { status: 400, statusText: "Bad Request" })
-
+> = async ({ params: { slug } }) => {
   const post = await getEntry("posts", slug)
-  if (!post) return new Response(null, { status: 404, statusText: "Not Found" })
-
   const png = await getBlogOGImage({ post })
 
   return new Response(png)
