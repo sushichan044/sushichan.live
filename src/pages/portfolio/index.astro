@@ -1,12 +1,17 @@
 ---
 import BlogStyle from "@/components/blog/BlogStyle.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
+import Link from "@/components/element/Link.astro"
+import LocalImage from "@/components/element/LocalImage.astro"
 // import Renderer from "@/components/mdx/Renderer.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
+import Collapse from "@/components/ui/Collapse.astro"
 import UrlCard from "@/components/ui/card/UrlCard.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import Experience from "@/pages/portfolio/_experience.astro"
 import ExperienceWrapper from "@/pages/portfolio/_experienceWrapper.astro"
+import SkillsSvg from "@/pages/portfolio/_skills.svg"
+import TwitterBadge from "@/pages/portfolio/_twitter.svg"
 // import WorksContent from "@/pages/portfolio/_works.mdx"
 import { EXPERIENCES } from "@/pages/portfolio/data"
 ---
@@ -20,7 +25,62 @@ import { EXPERIENCES } from "@/pages/portfolio/data"
   <ContentLayout>
     <BlogStyle colorHeading={[]}>
       <h1>Portfolio</h1>
-      <p>今まで学習したことや作ったもののページです。</p>
+      <p>
+        このページは開発者としてのポートフォリオです。<span>
+          自己紹介はこちら ▶
+          <Link href="/about">About</Link></span
+        >
+      </p>
+      <Collapse title="README.md from GitHub">
+        <BlogStyle>
+          <h2>🍣 sushi-chan / Kentaro Suzuki</h2>
+          <LocalImage
+            alt="Twitter Badge"
+            height={TwitterBadge.height}
+            src={TwitterBadge}
+            width={TwitterBadge.width}
+          />
+          <p>I'm Kentaro Suzuki! Colledge student at UEC, Web Developer.</p>
+          <Link href="/">My Website ✈️</Link>
+          <picture>
+            <source
+              media="(prefers-color-scheme: dark)"
+              srcset="https://github-readme-stats-two-xi-45.vercel.app/api?username=sushi-chaaaan&show_icons=true&theme=dark"
+            />
+            <source
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+              srcset="https://github-readme-stats-two-xi-45.vercel.app/api?username=sushi-chaaaan&show_icons=true"
+            />
+            <img
+              alt="GitHub Readme Stats"
+              class="mt-5"
+              src="https://github-readme-stats-two-xi-45.vercel.app/api?username=sushi-chaaaan&show_icons=true"
+            />
+          </picture>
+          <h2>⚙️ skills</h2>
+          <LocalImage
+            alt="skills: html,css,tailwind,js,ts,nextjs,react,astro,nodejs,vite,workers,cloudflare,py,docker,git,github,githubactions,discord,twitter,vscode"
+            height={SkillsSvg.height}
+            src={SkillsSvg}
+            width={SkillsSvg.width}
+          />
+          <h2>🤔 info</h2>
+          <picture>
+            <source
+              media="(prefers-color-scheme: dark)"
+              srcset="https://github-readme-stats-two-xi-45.vercel.app/api/top-langs?username=sushi-chaaaan&theme=dark&hide=c,tex,jupyter%20notebook,python"
+            />
+            <source
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+              srcset="https://github-readme-stats-two-xi-45.vercel.app/api/top-langs?username=sushi-chaaaan&hide=c,tex,jupyter%20notebook,python"
+            />
+            <img
+              alt="Most Used Languages"
+              src="https://github-readme-stats-two-xi-45.vercel.app/api/top-langs?username=sushi-chaaaan&hide=c,tex,jupyter%20notebook,python"
+            />
+          </picture>
+        </BlogStyle>
+      </Collapse>
       <div>
         <h2 class="mb-2">Experience</h2>
         <ExperienceWrapper>
