@@ -16,32 +16,21 @@ const timeRight = time.range ? time.data.to : null
 
 <li class="group mb-8 ms-4 last:mb-4">
   <div
-    class="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-blue-400 dark:bg-blue-600"
+    aria-hidden="true"
+    class="absolute -start-1.5 mt-[9px] size-3 rounded-full bg-blue-600 dark:bg-blue-400"
   >
   </div>
-  <time
-    class="mb-1 text-sm font-normal leading-none text-blue-400 dark:text-blue-500"
-    datetime={timeLeft.attr}
+  <span
+    class="mb-1 text-sm font-normal leading-none text-blue-600 dark:text-blue-400"
   >
-    {timeLeft.label}
-  </time>
-  {
-    time.range && (
-      <span class="mb-1 text-sm font-normal leading-none text-blue-400 dark:text-blue-500">
-        -
-      </span>
-    )
-  }
-  {
-    timeRight && (
-      <time
-        class="mb-1 text-sm font-normal leading-none text-blue-400 dark:text-blue-500"
-        datetime={timeRight.attr}
-      >
-        {timeRight.label}
-      </time>
-    )
-  }
+    <time datetime={timeLeft.attr}>
+      {timeLeft.label}
+    </time>
+    {time.range && <span>-</span>}
+    {
+      timeRight && <time datetime={timeRight.attr}>{timeRight.label}</time>
+    }</span
+  >
   <h3 class="mb-1 text-lg font-semibold text-gray-800 dark:text-white">
     <BudouX>{title}</BudouX>
   </h3>
