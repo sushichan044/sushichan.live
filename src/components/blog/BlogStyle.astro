@@ -4,11 +4,13 @@ import s from "@/components/blog/blog-article.module.scss"
 type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
 
 type Props = {
+  balancedHeading?: boolean
   class?: string
   colorHeading?: HeadingTag[]
 }
 
 const {
+  balancedHeading = true,
   class: className,
   colorHeading = ["h2", "h3", "h4", "h5", "h6"],
   ...props
@@ -16,7 +18,18 @@ const {
 ---
 
 <div
-  class:list={[s.root, [colorHeading.map((h) => s[h])], className && className]}
+  class:list={[
+    s.root,
+    [colorHeading.map((h) => s[h])],
+    balancedHeading && [
+      "[&_h2]:text-balance",
+      "[&_h3]:text-balance",
+      "[&_h4]:text-balance",
+      "[&_h5]:text-balance",
+      "[&_h6]:text-balance",
+    ],
+    className && className,
+  ]}
   {...props}
 >
   <slot />
