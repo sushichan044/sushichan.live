@@ -678,10 +678,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cloudflare/workers-types@npm:^4.20231218.0":
-  version: 4.20231218.0
-  resolution: "@cloudflare/workers-types@npm:4.20231218.0"
-  checksum: 96821a4aab6cf5fdf0767b77dd5804c6da179b5acdebce24b11fb2f730e851d29eb70e012a2e504b8690f8ad6763001325a0bda9d156c70135b5b76adb5e1f8d
+"@cloudflare/workers-types@npm:^4.20240117.0":
+  version: 4.20240117.0
+  resolution: "@cloudflare/workers-types@npm:4.20240117.0"
+  checksum: 900b796af2ae97257e1f6171b9c37d718c5f8ae064cea8f8d1c48e52ccde01492c5cfa61716fc703d05a6bd92e50a55f7d9e525d2c91919db76e42458c3e8e76
   languageName: node
   linkType: hard
 
@@ -1348,13 +1348,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@iconify/json@npm:^2.2.169":
-  version: 2.2.169
-  resolution: "@iconify/json@npm:2.2.169"
+"@iconify/json@npm:^2.2.170":
+  version: 2.2.170
+  resolution: "@iconify/json@npm:2.2.170"
   dependencies:
     "@iconify/types": "npm:*"
     pathe: "npm:^1.1.0"
-  checksum: f82ba705ac5151f3d7c305c439106df098f0a2bd610959fce41578405f18b0dc28388e682429633dbb0054a6331e56adbf8da73011a637c20d51c40f3f9a3d11
+  checksum: b549cdc7a3f33e6f65a461aec1a9d86982428f2f0adb76d88e5b6ad8d9bfb3c50323c27b8acbe615ea68d1ad38e110cd48f215f82710261339930216e3c5929b
   languageName: node
   linkType: hard
 
@@ -2971,12 +2971,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.11.2":
-  version: 20.11.2
-  resolution: "@types/node@npm:20.11.2"
+"@types/node@npm:20.11.5":
+  version: 20.11.5
+  resolution: "@types/node@npm:20.11.5"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 11a935f6676f78e1ced4805f9653891d1fc78ecafd78c7352d289be8c1829c88ebfe45ffd6b4687bbfc73edd0e177746d8cefff651a9f13199ac2dd3ca1076b7
+  checksum: 6d18cec852f5cfbed3ec42b5c01c026e7a3f9da540d6e3d6738d4cee9979fb308cf27b6df7ba40a6553e7bc82e678f0ef53ba6e6ad52e5b86bd97b7783c2a42c
   languageName: node
   linkType: hard
 
@@ -3911,9 +3911,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:4.1.2":
-  version: 4.1.2
-  resolution: "astro@npm:4.1.2"
+"astro@npm:4.1.3":
+  version: 4.1.3
+  resolution: "astro@npm:4.1.3"
   dependencies:
     "@astrojs/compiler": "npm:^2.3.4"
     "@astrojs/internal-helpers": "npm:0.2.1"
@@ -3984,7 +3984,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 8d2c19d458675cccceaaf9c6b544d96fb88a063d12b49ec363ebd43ecb1ba516ed202218fabfcf40d9739f6d27c5fa94ed712608b53acca0a9795eb6bd358701
+  checksum: e6a35456aaf4d5ea69af464cbee7de457077fd56c86a647f695849581f3ee1464b4f962aa6c9f4b84250338d537e7dd87e437bb78f96efcb3d28eaa4f27d3d5a
   languageName: node
   linkType: hard
 
@@ -6106,14 +6106,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-compat-utils@npm:^0.2.0":
-  version: 0.2.1
-  resolution: "eslint-compat-utils@npm:0.2.1"
+"eslint-compat-utils@npm:^0.4.0":
+  version: 0.4.1
+  resolution: "eslint-compat-utils@npm:0.4.1"
   dependencies:
     semver: "npm:^7.5.4"
   peerDependencies:
     eslint: ">=6.0.0"
-  checksum: 10dd0df7fae2ca89a963645069210917ab0c1c8c5dd9cda1cef3febfe5dbb35d911bd4a1f7a8b75bb3c86418d56c760bc16360080d78d96d075341a48cce22fc
+  checksum: a96d3e2041a81ee188252b4fad6c2d999be8ae918e1ac70d29567f855b3762c8e83e31b5975f5676b58e436a53debf1588271dd195a988f1a2a2b50c0ac62e15
   languageName: node
   linkType: hard
 
@@ -6128,20 +6128,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-astro@npm:^0.31.1":
-  version: 0.31.1
-  resolution: "eslint-plugin-astro@npm:0.31.1"
+"eslint-plugin-astro@npm:^0.31.3":
+  version: 0.31.3
+  resolution: "eslint-plugin-astro@npm:0.31.3"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
     "@jridgewell/sourcemap-codec": "npm:^1.4.14"
     "@typescript-eslint/types": "npm:^5.25.0"
     astro-eslint-parser: "npm:^0.16.0"
-    eslint-compat-utils: "npm:^0.2.0"
+    eslint-compat-utils: "npm:^0.4.0"
     postcss: "npm:^8.4.14"
     postcss-selector-parser: "npm:^6.0.10"
   peerDependencies:
     eslint: ">=7.0.0"
-  checksum: 8a5c3007bbea54e6475526af460c13d563f62b5aee2b033cf5e47b71707bd751bb350ed7e1b02ee7202190c945bab53b4d771477ab14326c3b8bf83f962daa9d
+  checksum: 70ceba24621da9439bb3d55a6bea3641a46f8a0ea98e2a7a8efb2309b6a77502b6e11a54286a04d30ff04e5d1977a40e00e7d31a04e776dd2223b15d227f963c
   languageName: node
   linkType: hard
 
@@ -10646,9 +10646,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"miniflare@npm:3.20231218.1, miniflare@npm:^3.20231218.1":
-  version: 3.20231218.1
-  resolution: "miniflare@npm:3.20231218.1"
+"miniflare@npm:3.20231218.2, miniflare@npm:^3.20231218.2":
+  version: 3.20231218.2
+  resolution: "miniflare@npm:3.20231218.2"
   dependencies:
     "@cspotcode/source-map-support": "npm:0.8.1"
     acorn: "npm:^8.8.0"
@@ -10664,7 +10664,7 @@ __metadata:
     zod: "npm:^3.20.6"
   bin:
     miniflare: bootstrap.js
-  checksum: 2980888aeb5b50af3ad95ef7851e53b343838c3874dd1ee9e25174294a30e264b0f66497f8a105e8fbb701aac0f43e6f35bb4f06281ff27471dc1c88169cc42d
+  checksum: 9818abcc138cd3ee83e63bace7c678a385513ce095bd8f565d691eaa93827ecb270daeea89c455dd963b4d4e848fb26411ca8b7c333c5be8b6d8c63a13b895ed
   languageName: node
   linkType: hard
 
@@ -12216,12 +12216,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.2.2":
-  version: 3.2.2
-  resolution: "prettier@npm:3.2.2"
+"prettier@npm:^3.2.4":
+  version: 3.2.4
+  resolution: "prettier@npm:3.2.4"
   bin:
     prettier: bin/prettier.cjs
-  checksum: e84d0d2a4ce2b88ee1636904effbdf68b59da63d9f887128f2ed5382206454185432e7c0a9578bc4308bc25d099cfef47fd0b9c211066777854e23e65e34044d
+  checksum: 88dfeb78ac6096522c9a5b81f1413d875f568420d9bb6a5e5103527912519b993f2bcdcac311fcff5718d5869671d44e4f85827d3626f3a6ce32b9abc65d88e0
   languageName: node
   linkType: hard
 
@@ -14496,9 +14496,9 @@ __metadata:
     "@astrojs/rss": "npm:4.0.2"
     "@astrojs/sitemap": "npm:^3.0.4"
     "@astrojs/tailwind": "npm:^5.1.0"
-    "@cloudflare/workers-types": "npm:^4.20231218.0"
+    "@cloudflare/workers-types": "npm:^4.20240117.0"
     "@iconify/iconify": "npm:^3.1.1"
-    "@iconify/json": "npm:^2.2.169"
+    "@iconify/json": "npm:^2.2.170"
     "@markuplint/astro-parser": "npm:^3.12.0"
     "@markuplint/jsx-parser": "npm:^3.12.0"
     "@markuplint/react-spec": "npm:^3.13.0"
@@ -14507,7 +14507,7 @@ __metadata:
     "@resvg/resvg-js": "npm:^2.6.0"
     "@textlint/textlint-plugin-markdown": "npm:^13.4.1"
     "@types/eslint": "npm:8.56.2"
-    "@types/node": "npm:20.11.2"
+    "@types/node": "npm:20.11.5"
     "@types/nprogress": "npm:^0"
     "@types/prettier": "npm:^3"
     "@types/react": "npm:^18.2.48"
@@ -14516,7 +14516,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^6.19.0"
     "@typescript-eslint/parser": "npm:^6.19.0"
     "@unocss/reset": "npm:^0.58.3"
-    astro: "npm:4.1.2"
+    astro: "npm:4.1.3"
     astro-auto-import: "npm:^0.4.2"
     astro-eslint-parser: "npm:^0.16.1"
     astro-seo: "npm:^0.8.0"
@@ -14527,7 +14527,7 @@ __metadata:
     date-fns-tz: "npm:^2.0.0"
     eslint: "npm:^8.56.0"
     eslint-config-prettier: "npm:^9.1.0"
-    eslint-plugin-astro: "npm:^0.31.1"
+    eslint-plugin-astro: "npm:^0.31.3"
     eslint-plugin-jsx-a11y: "npm:^6.8.0"
     eslint-plugin-perfectionist: "npm:^2.5.0"
     eslint-plugin-react: "npm:^7.33.2"
@@ -14540,11 +14540,11 @@ __metadata:
     marked: "npm:^11.1.1"
     markuplint: "npm:^3.15.0"
     mdast-util-to-string: "npm:^4.0.0"
-    miniflare: "npm:^3.20231218.1"
+    miniflare: "npm:^3.20231218.2"
     npm-check-updates: "npm:^16.14.12"
     nprogress: "npm:^0.2.0"
     postcss-html: "npm:^1.6.0"
-    prettier: "npm:^3.2.2"
+    prettier: "npm:^3.2.4"
     prettier-plugin-astro: "npm:^0.12.3"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
@@ -14574,7 +14574,7 @@ __metadata:
     textlint-rule-preset-japanese: "npm:^10.0.3"
     tsx: "npm:^4.7.0"
     typescript: "npm:^5.3.3"
-    wrangler: "npm:^3.22.4"
+    wrangler: "npm:^3.22.5"
   languageName: unknown
   linkType: soft
 
@@ -16457,21 +16457,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wrangler@npm:^3.22.4":
-  version: 3.22.4
-  resolution: "wrangler@npm:3.22.4"
+"wrangler@npm:^3.22.5":
+  version: 3.22.5
+  resolution: "wrangler@npm:3.22.5"
   dependencies:
     "@cloudflare/kv-asset-handler": "npm:^0.2.0"
-    "@cspotcode/source-map-support": "npm:0.8.1"
     "@esbuild-plugins/node-globals-polyfill": "npm:^0.2.3"
     "@esbuild-plugins/node-modules-polyfill": "npm:^0.2.2"
     blake3-wasm: "npm:^2.1.5"
     chokidar: "npm:^3.5.3"
     esbuild: "npm:0.17.19"
     fsevents: "npm:~2.3.2"
-    miniflare: "npm:3.20231218.1"
+    miniflare: "npm:3.20231218.2"
     nanoid: "npm:^3.3.3"
     path-to-regexp: "npm:^6.2.0"
+    resolve: "npm:^1.22.8"
     resolve.exports: "npm:^2.0.2"
     selfsigned: "npm:^2.0.1"
     source-map: "npm:0.6.1"
@@ -16482,7 +16482,7 @@ __metadata:
   bin:
     wrangler: bin/wrangler.js
     wrangler2: bin/wrangler.js
-  checksum: 9b5d6a8a3b1ff323083f2491d4970b5e1d51b1cdbcbcfec0b352402c334f808580516fd9c2e7bb5638b15924857631cacb9fccd377e87c780d56800edcc4f666
+  checksum: 9290b6fb5621121694f17e46f6a925cbe8d975ef099bffa678748c0cfe8ae2a24493c1bba055bf3e1062740454498ba1d3e2fe4e0524410ebc3b9e5d165cd015
   languageName: node
   linkType: hard
 
