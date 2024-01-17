@@ -1,0 +1,65 @@
+---
+import BudouX from "@/components/common/BudouX.astro"
+import Link from "@/components/element/Link.astro"
+import { tv } from "tailwind-variants"
+type Props = {
+  description?: string
+  repoUrl?: string
+  tags?: string[]
+  title: string
+}
+
+const descriptionFromSlot = Astro.slots.has("description")
+
+const { description, repoUrl, tags = [], title } = Astro.props
+
+const style = tv({
+  slots: {
+    description: "mb-2 text-base font-normal text-gray-600 dark:text-gray-400",
+    info: "mb-4",
+    repoLink: "mt-2 inline-block",
+    slotWrapper: "flex flex-col gap-y-4",
+    tagBadge: "badge bg-blue-600 text-custom-theme-light",
+    tags: "mt-2 flex flex-row flex-wrap gap-1",
+    title: "text-lg font-semibold",
+    wrapper: "rounded-lg border border-gray-200 p-4 dark:border-zinc-600",
+  },
+})()
+---
+
+<div class:list={style.wrapper()}>
+  <div class:list={style.info()}>
+    <h3 class:list={style.title()}>
+      <BudouX>{title}</BudouX>
+    </h3>
+    {
+      tags.length > 0 && (
+        <div class:list={style.tags()}>
+          {tags.map((tag) => (
+            <span class:list={style.tagBadge()}>{tag}</span>
+          ))}
+        </div>
+      )
+    }
+  </div>
+  <div class:list={style.description()}>
+    {descriptionFromSlot && <slot name="description" />}
+    {
+      !descriptionFromSlot && (
+        <p>
+          <BudouX>{description}</BudouX>
+        </p>
+      )
+    }
+  </div>
+  <div class:list={style.slotWrapper()}>
+    <slot />
+  </div>
+  {
+    repoUrl && (
+      <Link class:list={style.repoLink()} href={repoUrl}>
+        GitHubリポジトリ
+      </Link>
+    )
+  }
+</div>

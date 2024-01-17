@@ -5,14 +5,12 @@ import Link from "@/components/element/Link.astro"
 import LocalImage from "@/components/element/LocalImage.astro"
 // import Renderer from "@/components/mdx/Renderer.astro"
 import BaseSEO from "@/components/meta/BaseSEO.astro"
-import Collapse from "@/components/ui/Collapse.astro"
 import UrlCard from "@/components/ui/card/UrlCard.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import Experience from "@/pages/portfolio/_experience.astro"
 import ExperienceWrapper from "@/pages/portfolio/_experienceWrapper.astro"
 import SkillsSvg from "@/pages/portfolio/_skills.svg"
-import TwitterBadge from "@/pages/portfolio/_twitter.svg"
-// import WorksContent from "@/pages/portfolio/_works.mdx"
+import Work from "@/pages/portfolio/_work.astro"
 import { EXPERIENCES } from "@/pages/portfolio/data"
 ---
 
@@ -31,78 +29,109 @@ import { EXPERIENCES } from "@/pages/portfolio/data"
           <Link href="/about">About</Link></span
         >
       </p>
-      <Collapse title="README.md from GitHub">
-        <BlogStyle>
-          <h2>🍣 sushi-chan / Kentaro Suzuki</h2>
-          <Link href="https://x.com/sushi_chan_sub">
-            <LocalImage
-              alt="Twitter Badge"
-              height={TwitterBadge.height}
-              src={TwitterBadge}
-              width={TwitterBadge.width}
-            />
-          </Link>
-          <p>I'm Kentaro Suzuki! Colledge student at UEC, Web Developer.</p>
-          <Link href="/">My Website ✈️</Link>
-          <picture>
-            <source
-              media="(prefers-color-scheme: dark)"
-              srcset="https://github-readme-stats-two-xi-45.vercel.app/api?username=sushi-chaaaan&show_icons=true&theme=dark"
-            />
-            <source
-              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-              srcset="https://github-readme-stats-two-xi-45.vercel.app/api?username=sushi-chaaaan&show_icons=true"
-            />
-            <img
-              alt="GitHub Readme Stats"
-              class="mt-5"
-              decoding="async"
-              loading="lazy"
-              src="https://github-readme-stats-two-xi-45.vercel.app/api?username=sushi-chaaaan&show_icons=true"
-            />
-          </picture>
-          <h2>⚙️ skills</h2>
+      <div class="space-y-12">
+        <div>
+          <h2 class="mb-2">⚙️ Skills</h2>
           <LocalImage
             alt="skills: html,css,tailwind,js,ts,nextjs,react,astro,nodejs,vite,workers,cloudflare,py,docker,git,github,githubactions,discord,twitter,vscode"
+            class="mx-auto"
             height={SkillsSvg.height}
             src={SkillsSvg}
             width={SkillsSvg.width}
+            priority
           />
-          <h2>🤔 info</h2>
-          <picture>
-            <source
-              media="(prefers-color-scheme: dark)"
-              srcset="https://github-readme-stats-two-xi-45.vercel.app/api/top-langs?username=sushi-chaaaan&theme=dark&hide=c,tex,jupyter%20notebook,python"
-            />
-            <source
-              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-              srcset="https://github-readme-stats-two-xi-45.vercel.app/api/top-langs?username=sushi-chaaaan&hide=c,tex,jupyter%20notebook,python"
-            />
-            <img
-              alt="Most Used Languages"
-              decoding="async"
-              loading="lazy"
-              src="https://github-readme-stats-two-xi-45.vercel.app/api/top-langs?username=sushi-chaaaan&hide=c,tex,jupyter%20notebook,python"
-            />
-          </picture>
-        </BlogStyle>
-      </Collapse>
-      <div>
-        <h2 class="mb-2">Experience</h2>
-        <ExperienceWrapper>
-          <Experience experience={EXPERIENCES[0]} />
-          <Experience experience={EXPERIENCES[1]} />
-          <Experience experience={EXPERIENCES[2]} />
-          <Experience experience={EXPERIENCES[3]} />
-          <Experience experience={EXPERIENCES[4]}>
-            <UrlCard url="/blog/post/tech/chofusai-2023-website" />
-          </Experience>
-          <Experience experience={EXPERIENCES[5]} />
-        </ExperienceWrapper>
+        </div>
         <div>
-          <h2>Works</h2>
-          Working in progress...
-          <!-- <Renderer Content={WorksContent} /> -->
+          <h2 class="mb-2">🚀 Experience</h2>
+          <ExperienceWrapper>
+            <Experience experience={EXPERIENCES[0]} />
+            <Experience experience={EXPERIENCES[1]} />
+            <Experience experience={EXPERIENCES[2]} />
+            <Experience experience={EXPERIENCES[3]} />
+            <Experience experience={EXPERIENCES[4]}>
+              <UrlCard url="/blog/post/tech/chofusai-2023-website" />
+            </Experience>
+            <Experience experience={EXPERIENCES[5]} />
+          </ExperienceWrapper>
+        </div>
+        <div>
+          <h2 class="mb-2">💻 Works</h2>
+          <div class="space-y-8">
+            <Work
+              tags={["Next.js(App)", "SCSS", "Cloudflare"]}
+              title="第73回調布祭公式サイト"
+            >
+              <p slot="description">
+                技術選定・設計から関わり、費用を抑えつつも高速かつ使いやすいWebサイトを構築しました。<br
+                />ご来場の方からも好評をいただきました。
+              </p>
+              <UrlCard url="https://73rd.chofusai.jp" />
+              <UrlCard url="/blog/post/tech/chofusai-2023-website" />
+            </Work>
+            <Work
+              repoUrl="https://github.com/sushi-chaaaan/ductile-ui"
+              tags={["Python", "discord.py", "Library"]}
+              title="ductile-ui"
+            >
+              <p slot="description">
+                <span> 初めて制作したライブラリです。</span>
+                <br />
+                <span
+                  >Discord BotでよりリッチなUIを実現するためのMessage
+                  ComponentをReactのような宣言的UIで書けるようにしています。</span
+                >
+                <br />
+                <span
+                  >また、細部まで型付けされており、ジェネリクスなどを用いて快適な開発ができます。</span
+                >
+              </p>
+            </Work>
+            <Work
+              repoUrl="https://github.com/sushi-chaaaan/sushichan.live"
+              tags={["Astro", "Tailwind CSS", "Cloudflare"]}
+              title="2代目個人サイト(このサイト)"
+            >
+              <p slot="description">
+                <span>
+                  やや過剰な構成であった旧個人サイトをより簡単に維持するために、Astroを用いてリニューアルしました。
+                </span>
+                <br />
+                <span
+                  >また、デプロイ先としてCloudflare Pagesを採用しました。</span
+                >
+              </p>
+            </Work>
+            <Work
+              repoUrl="https://github.com/sushi-chaaaan/old.sushichan.live"
+              tags={["Next.js(App)", "SCSS"]}
+              title="初代個人サイト"
+            >
+              <p slot="description">
+                <span>
+                  第73回調布祭公式サイトの開発に携わることとなり、Next.jsに慣れておきたかったので作成したWebサイトです。
+                </span>
+                <br />
+                <span>
+                  next-mdx-remoteなどを用いて、Markdown /
+                  MDXを格納したフォルダからページを動的に生成する機能などを実装しました。</span
+                >
+              </p>
+              <UrlCard url="http://old.sushichan.live" />
+            </Work>
+            <Work
+              tags={["Next.js(Pages)", "Tailwind CSS"]}
+              title="2023年度調布祭実行委員会新歓Webサイト"
+            >
+              <p slot="description">
+                <span>初めて制作したWebサイトです。</span>
+                <br />
+                <span>
+                  Next.jsとTailwind CSSを使い、1週間ほどで制作しました。
+                </span>
+              </p>
+              <UrlCard url="http://shinkan-2023.chofusai.jp" />
+            </Work>
+          </div>
         </div>
       </div>
     </BlogStyle>
