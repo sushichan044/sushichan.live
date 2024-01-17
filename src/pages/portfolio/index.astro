@@ -31,7 +31,7 @@ import { EXPERIENCES } from "@/pages/portfolio/data"
       </p>
       <div class="space-y-12">
         <div>
-          <h2 class="mb-2">⚙️ Skills</h2>
+          <h2 class="mb-2" id="skills">⚙️ Skills</h2>
           <LocalImage
             alt="skills: html,css,tailwind,js,ts,nextjs,react,astro,nodejs,vite,workers,cloudflare,py,docker,git,github,githubactions,discord,twitter,vscode"
             class="mx-auto"
@@ -42,7 +42,7 @@ import { EXPERIENCES } from "@/pages/portfolio/data"
           />
         </div>
         <div>
-          <h2 class="mb-2">🚀 Experience</h2>
+          <h2 class="mb-2" id="experience">🚀 Experience</h2>
           <ExperienceWrapper>
             <Experience experience={EXPERIENCES[0]} />
             <Experience experience={EXPERIENCES[1]} />
@@ -55,7 +55,7 @@ import { EXPERIENCES } from "@/pages/portfolio/data"
           </ExperienceWrapper>
         </div>
         <div>
-          <h2 class="mb-2">💻 Works</h2>
+          <h2 class="mb-2" id="works">💻 Works</h2>
           <div class="space-y-8">
             <Work
               tags={["Next.js(App)", "SCSS", "Cloudflare"]}
