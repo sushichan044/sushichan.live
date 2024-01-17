@@ -24,6 +24,7 @@
     "ncu:latest": "ncu --target latest"
   },
   "dependencies": {
+    "@astrojs/check": "^0.4.1",
     "@astrojs/cloudflare": "8.1.0",
     "@astrojs/mdx": "2.0.4",
     "@astrojs/react": "^3.0.9",
