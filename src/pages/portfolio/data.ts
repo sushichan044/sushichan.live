@@ -80,8 +80,8 @@ const EXPERIENCES = [
     time: {
       data: {
         from: {
-          attr: "2023-04",
-          label: "2023年4月",
+          attr: "2023-02",
+          label: "2023年2月",
         },
         to: {
           attr: "2023-11",
