@@ -1,10 +1,10 @@
 ---
-import AllTags from "@/components/blog/AllTags.astro"
-import BlogPostCard from "@/components/blog/BlogPostCard.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
-import BaseSEO from "@/components/meta/BaseSEO.astro"
+import AllTags from "@/feature/blog/components/AllTags.astro"
+import BlogPostCard from "@/feature/blog/components/BlogPostCard.astro"
+import { getAllTags, getPostsByTags } from "@/feature/blog/utils/post"
+import BaseSEO from "@/feature/meta/BaseSEO.astro"
 import BlogLayout from "@/layouts/BlogLayout.astro"
-import { getAllTags, getPostsByTags } from "@/lib/blog/post"
 import { fade } from "astro:transitions"
 
 export async function getStaticPaths() {

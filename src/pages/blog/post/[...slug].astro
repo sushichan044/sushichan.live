@@ -2,15 +2,15 @@
 import type { CollectionEntry } from "astro:content"
 import type { ReadTimeResults } from "reading-time"
 
-import BlogFrontMatter from "@/components/blog/BlogFrontMatter.astro"
-import BlogRenderer from "@/components/blog/BlogRenderer.astro"
-import BlogStyle from "@/components/blog/BlogStyle.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
-import BlogPostSEO from "@/components/meta/BlogPostSEO.astro"
 import PageAlertWrapper from "@/components/ui/PageAlertWrapper.astro"
 import SafeHTML from "@/components/utils/SafeHTML.astro"
+import BlogFrontMatter from "@/feature/blog/components/BlogFrontMatter.astro"
+import BlogRenderer from "@/feature/blog/components/BlogRenderer.astro"
+import BlogStyle from "@/feature/blog/components/BlogStyle.astro"
+import { getAllPosts } from "@/feature/blog/utils/post"
+import BlogPostSEO from "@/feature/meta/BlogPostSEO.astro"
 import BlogLayout from "@/layouts/BlogLayout.astro"
-import { getAllPosts } from "@/lib/blog/post"
 import { parseMarkdownArray } from "@/utils/markdown"
 
 export async function getStaticPaths() {
