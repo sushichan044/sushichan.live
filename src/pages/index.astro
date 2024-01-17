@@ -9,24 +9,27 @@ import BaseLayout from "@/layouts/BaseLayout.astro"
 <BaseLayout>
   <BaseSEO description="すしのへやのトップページ" slot="seo" title="ホーム" />
   <ContentLayout>
-    <BlogStyle colorHeading={["h2"]}>
+    <BlogStyle colorHeading={[]}>
       <h1>Welcome!</h1>
       <span class="text-lg">
         自己紹介はこちら ▶
         <Link href="/about">About</Link></span
       >
 
-      <h2>Blog</h2>
-      <p>
-        ブログも書いています。<br />記事一覧はこちら ▶
-        <Link href="/blog">Blog</Link>
-      </p>
-
-      <h2>Portfolio</h2>
-      <p>
-        これまでの制作物をまとめています。<br />詳しくはこちら ▶
-        <Link href="/portfolio">Portfolio</Link>
-      </p>
+      <div>
+        <h2>Blog</h2>
+        <p>
+          ブログも書いています。<br />記事一覧はこちら ▶
+          <Link href="/blog">Blog</Link>
+        </p>
+      </div>
+      <div>
+        <h2>Portfolio</h2>
+        <p>
+          これまでの制作物をまとめています。<br />詳しくはこちら ▶
+          <Link href="/portfolio">Portfolio</Link>
+        </p>
+      </div>
     </BlogStyle>
   </ContentLayout>
 </BaseLayout>
