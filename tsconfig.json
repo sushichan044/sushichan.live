@@ -11,5 +11,6 @@
       "@public/*": ["./public/*"],
       "@root/*": ["./*"]
     }
-  }
+  },
+  "exclude": ["node_modules", "dist", "public"]
 }
