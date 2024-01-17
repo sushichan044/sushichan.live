@@ -1,17 +1,16 @@
 ---
-import BlogStyle from "@/components/blog/BlogStyle.astro"
 import ContentLayout from "@/components/common/ContentLayout.astro"
 import Link from "@/components/element/Link.astro"
 import LocalImage from "@/components/element/LocalImage.astro"
-// import Renderer from "@/components/mdx/Renderer.astro"
-import BaseSEO from "@/components/meta/BaseSEO.astro"
 import UrlCard from "@/components/ui/card/UrlCard.astro"
+import BlogStyle from "@/feature/blog/components/BlogStyle.astro"
+import BaseSEO from "@/feature/meta/BaseSEO.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
+import { EXPERIENCES } from "@/pages/portfolio/_data"
 import Experience from "@/pages/portfolio/_experience.astro"
 import ExperienceWrapper from "@/pages/portfolio/_experienceWrapper.astro"
 import SkillsSvg from "@/pages/portfolio/_skills.svg"
 import Work from "@/pages/portfolio/_work.astro"
-import { EXPERIENCES } from "@/pages/portfolio/data"
 ---
 
 <BaseLayout>
