@@ -2,6 +2,7 @@
 import type { Experience } from "@/pages/portfolio/data"
 
 import BudouX from "@/components/common/BudouX.astro"
+import { tv } from "tailwind-variants"
 
 type Props = {
   experience: Experience
@@ -12,17 +13,22 @@ const {
 } = Astro.props
 const timeLeft = time.range ? time.data.from : time.data
 const timeRight = time.range ? time.data.to : null
+
+const style = tv({
+  slots: {
+    date: "mb-1 text-sm font-normal leading-none text-blue-600 dark:text-blue-400",
+    description: "mb-2 text-base font-normal text-gray-600 dark:text-gray-400",
+    marker:
+      "absolute -start-1.5 mt-[8px] size-3 rounded-full bg-blue-600 dark:bg-blue-400",
+    title: "mb-1 text-lg font-semibold",
+    wrapper: "mb-8 ms-4 last:mb-4",
+  },
+})()
 ---
 
-<li class="group mb-8 ms-4 last:mb-4">
-  <div
-    aria-hidden="true"
-    class="absolute -start-1.5 mt-[9px] size-3 rounded-full bg-blue-600 dark:bg-blue-400"
-  >
-  </div>
-  <span
-    class="mb-1 text-sm font-normal leading-none text-blue-600 dark:text-blue-400"
-  >
+<li class:list={style.wrapper()}>
+  <div aria-hidden="true" class:list={style.marker()}></div>
+  <span class:list={style.date()}>
     <time datetime={timeLeft.attr}>
       {timeLeft.label}
     </time>
@@ -31,10 +37,10 @@ const timeRight = time.range ? time.data.to : null
       timeRight && <time datetime={timeRight.attr}>{timeRight.label}</time>
     }</span
   >
-  <h3 class="mb-1 text-lg font-semibold text-gray-800 dark:text-white">
+  <h3 class:list={style.title()}>
     <BudouX>{title}</BudouX>
   </h3>
-  <p class="mb-2 text-base font-normal text-gray-600 dark:text-gray-400">
+  <p class:list={style.description()}>
     <BudouX>{description}</BudouX>
   </p>
   <slot />

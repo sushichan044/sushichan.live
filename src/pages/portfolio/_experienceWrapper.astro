@@ -1,12 +1,16 @@
 ---
+import { tv } from "tailwind-variants"
 
+const style = tv({
+  slots: {
+    timeline:
+      "absolute bottom-[-12px] start-[-6px] my-0 size-0 border-x-[6px] border-t-[12px] border-x-transparent border-t-blue-600 dark:border-t-blue-400",
+    wrapper: "relative list-none border-s border-blue-600 dark:border-blue-400",
+  },
+})()
 ---
 
-<ol class="relative list-none border-s border-blue-600 dark:border-blue-400">
+<ol class:list={style.wrapper()}>
   <slot />
-  <div
-    aria-hidden="true"
-    class="absolute bottom-[-12px] start-[-6px] my-0 size-0 border-x-[6px] border-t-[12px] border-x-transparent border-t-blue-600 dark:border-t-blue-400"
-  >
-  </div>
+  <div aria-hidden="true" class:list={style.timeline()}></div>
 </ol>
