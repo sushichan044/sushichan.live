@@ -9,8 +9,10 @@
     "paths": {
       "@/*": ["./src/*"],
       "@public/*": ["./public/*"],
-      "@root/*": ["./*"]
-    }
+      "@root/*": ["./*"],
+    },
+    "types": ["vitest/globals"],
   },
-  "exclude": ["node_modules", "dist", "public"]
+
+  "exclude": ["node_modules", "dist", "public"],
 }

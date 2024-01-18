@@ -19,6 +19,7 @@
     "stylelint:check": "stylelint \"src/**/*.{css,scss,astro}\" --max-warnings=0",
     "markuplint": "markuplint \"./**/*.{jsx,tsx,astro}\"",
     "markuplint:check": "markuplint --no-color --problem-only \"./**/*.{jsx,tsx,astro}\"",
+    "test": "vitest",
     "ncu": "ncu -u --target minor",
     "ncu:dry": "ncu --target minor",
     "ncu:latest": "ncu --target latest"
@@ -111,7 +112,8 @@
     "textlint": "^13.4.1",
     "textlint-rule-preset-japanese": "^10.0.3",
     "tsx": "^4.7.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.1"
   },
   "volta": {
     "node": "20.10.0",
