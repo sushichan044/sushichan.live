@@ -47,7 +47,7 @@ export default defineConfig({
     },
   }),
   cacheDir: "./.astro-cache",
-  experimental: { contentCollectionCache: true },
+  experimental: { clientPrerender: true, contentCollectionCache: true },
   image: {
     remotePatterns: [
       {
