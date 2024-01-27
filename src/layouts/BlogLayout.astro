@@ -3,7 +3,8 @@ import TransitionProgress from "@/components/utils/TransitionProgress.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 ---
 
-<BaseLayout useViewTransitions>
+{/* temporary disable ViewTransitions: maybe buggy in latest chrome */}
+<BaseLayout useViewTransitions={false}>
   <slot name="seo" slot="seo" />
   <slot />
   <TransitionProgress />
