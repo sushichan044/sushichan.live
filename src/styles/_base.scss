@@ -30,10 +30,6 @@
     max-width: min(80%, var.$layout-max-width);
     padding-inline: var.$layout-padding;
   }
-
-  @include mix.mq("2xl") {
-    max-width: var.$layout-max-width-2xl;
-  }
 }
 
 @mixin base-content-margin {

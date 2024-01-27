@@ -33,9 +33,7 @@ export const prerender = true
       </h1>
       <AllTags />
     </div>
-    <div
-      class="grid w-full grid-cols-1 justify-stretch gap-4 md:grid-cols-2 2xl:grid-cols-3"
-    >
+    <div class="grid w-full grid-cols-1 justify-stretch gap-4 md:grid-cols-2">
       {posts.map((post) => <BlogPostCard post={post} />)}
     </div>
   </ContentLayout>
