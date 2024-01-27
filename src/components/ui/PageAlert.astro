@@ -34,9 +34,13 @@ const { backIfNewTab = "/" } = Astro.props
         </div>
         <div id={descriptionId}>
           <h3 class="text-lg font-bold">このページは以下の内容を含みます！</h3>
-          <div>
+          <div class="my-4">
             <slot name="alert-content" />
           </div>
+          <span
+            >ご了承いただける方のみご覧ください。
+            閲覧した場合は承諾したものとみなし、当サイトは一切の責任を負いません。
+          </span>
         </div>
         <div class="modal-action">
           <form method="dialog">
