@@ -22,7 +22,7 @@ export const GET: APIRoute<
 
   return new Response(JSON.stringify(`${title}の現在の文字数は${length}です`), {
     headers: {
-      "content-type": "application/json",
+      "content-type": "text/plain",
     },
     status: 200,
   })
