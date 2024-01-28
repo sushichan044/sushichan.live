@@ -67,7 +67,7 @@ const config: Config = {
       },
       textColor: {
         dark: "#e2e2e2",
-        light: "#1a1a1c",
+        light: "#08131a",
       },
     },
   },
