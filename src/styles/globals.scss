@@ -133,6 +133,13 @@ body code {
     Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+blockquote {
+  padding: 1rem;
+  border-radius: 0.5rem;
+
+  @apply bg-gray-200 dark:bg-zinc-700;
+}
+
 // react-tweetのコンポーネント自身がmarginを持っているので、
 // それを無効化するために、ここでmarginを0にしている。
 .react-tweet-theme {
