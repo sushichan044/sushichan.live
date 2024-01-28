@@ -6,6 +6,7 @@ import BudouX from "@/components/common/BudouX.astro"
 import Icon from "@/components/common/Icon.astro"
 import Link from "@/components/element/Link.astro"
 import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
+import Message from "@/components/ui/Message.astro"
 import TagLinkFlex from "@/features/blog/components/tag/TagLinkFlex.astro"
 import { getPostOgpImage } from "@/features/blog/utils/post"
 import { dtTool } from "@/lib/date"
@@ -113,25 +114,24 @@ const styles = tv({
       {entry.data.tags && <TagLinkFlex tags={entry.data.tags} />}
       {
         entry.data.status === "draft" && (
-          <div class="alert alert-warning">
-            <Icon icon="fa6-solid:circle-exclamation" />
+          <Message type="warn">
             <BudouX>
               この記事は下書きです。 本番ビルド時には表示されません。
             </BudouX>
-          </div>
+          </Message>
         )
       }
       {
         entry.data.status === "preview" && (
-          <div class="alert alert-warning">
-            <Icon icon="fa6-solid:circle-exclamation" />
+          <Message type="warn">
             <BudouX>
               この記事はプレビューです。記事一覧には表示されません。
             </BudouX>
-          </div>
+          </Message>
         )
       }
       {import.meta.env.DEV && <Link href={OGPUrl}>OGPを確認する</Link>}
+      {import.meta.env.DEV && <span>現在の文字数:{entry.body.length}</span>}
     </div>
   </div>
 </div>
