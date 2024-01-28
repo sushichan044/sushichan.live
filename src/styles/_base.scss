@@ -45,7 +45,11 @@
   h5,
   h6 {
     margin-top: calc(var.$content-margin * 2.5);
-    margin-bottom: var.$content-margin;
+    margin-bottom: calc(var.$content-margin * 0.8);
+
+    + * {
+      margin-top: calc(var.$content-margin * 0.8);
+    }
   }
 
   > span {
