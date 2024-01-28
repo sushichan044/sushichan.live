@@ -34,7 +34,18 @@
 
 @mixin base-content-margin {
   > * {
-    margin-block: var.$content-margin;
+    margin-top: var.$content-margin;
+    margin-bottom: var.$content-margin;
+  }
+
+  > h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: calc(var.$content-margin * 2.5);
+    margin-bottom: var.$content-margin;
   }
 
   > span {
