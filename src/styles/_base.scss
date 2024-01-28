@@ -48,7 +48,7 @@
     margin-bottom: calc(var.$content-margin * 0.8);
 
     + * {
-      margin-top: calc(var.$content-margin * 0.8);
+      margin-top: 0;
     }
   }
 
