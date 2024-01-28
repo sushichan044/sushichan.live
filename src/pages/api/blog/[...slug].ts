@@ -1,11 +1,13 @@
 import type { APIRoute } from "astro"
 
-import { getAllPosts } from "@/features/blog/utils/post"
+import { getAllPosts, getAllPreviewPosts } from "@/features/blog/utils/post"
 import { type CollectionEntry, getEntry } from "astro:content"
 
 export async function getStaticPaths() {
   const blogEntries = await getAllPosts()
-  return blogEntries.map(({ slug }) => ({
+  const previewEntries = await getAllPreviewPosts()
+  const entries = Array.from(new Set([...blogEntries, ...previewEntries]))
+  return entries.map(({ slug }) => ({
     params: { slug },
   }))
 }
