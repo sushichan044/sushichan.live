@@ -57,9 +57,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/cloudflare@npm:8.1.0":
-  version: 8.1.0
-  resolution: "@astrojs/cloudflare@npm:8.1.0"
+"@astrojs/cloudflare@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "@astrojs/cloudflare@npm:9.0.0"
   dependencies:
     "@astrojs/underscore-redirects": "npm:^0.3.3"
     "@cloudflare/workers-types": "npm:^4.20231025.0"
@@ -70,8 +70,8 @@ __metadata:
     miniflare: "npm:3.20231030.2"
     tiny-glob: "npm:^0.2.9"
   peerDependencies:
-    astro: ^3.0.0 || ^4.0.0
-  checksum: 36ed3c95fcd987b8852933a6eff87ae858835d0d9c5fc6acbdd542d9e1a2291f5048fd8697d8a60f5609545552a38bb398da2fcd9efc54169690973fed70fbdb
+    astro: ^4.2.0
+  checksum: 338afed231f1879063025aac7763182540d4cfd457f3568f712530aa5e79a282306dce034a00b7d9dfe6053eaeb5c89f5e740623e0616018abfb0d5b866ae44d
   languageName: node
   linkType: hard
 
@@ -2994,12 +2994,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.11.8":
-  version: 20.11.8
-  resolution: "@types/node@npm:20.11.8"
+"@types/node@npm:20.11.10":
+  version: 20.11.10
+  resolution: "@types/node@npm:20.11.10"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: cd4eff91ff2291b909cf8ce81f3117effcfd59c435a9d42a9a085f5de8f414eabfbe4558f53a275eedc280a97393d71084812d91cf31fba436a01369d80133b5
+  checksum: aced8595c2786d4e60471772659add1e2e0d1f2b73d119820b2e1815426d6e52c6a77f1c7fca8ea46490c36f7959cc46b0dc609fa2e80b7fd24f9a7d696c2210
   languageName: node
   linkType: hard
 
@@ -5283,15 +5283,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"daisyui@npm:latest":
-  version: 4.4.20
-  resolution: "daisyui@npm:4.4.20"
+"daisyui@npm:^4.6.0":
+  version: 4.6.0
+  resolution: "daisyui@npm:4.6.0"
   dependencies:
     css-selector-tokenizer: "npm:^0.8"
     culori: "npm:^3"
     picocolors: "npm:^1"
     postcss-js: "npm:^4"
-  checksum: 53a3c032c22ec56b38f538422fd95aae24038be5d6b66e0b22ffc4a82948d736d4c21cb8ac00f860e94e2b4bd55580537988a61065f8241422afff69504a43b1
+  checksum: 8067773259cdac8a6bd84538656e3d2cc338f57b8be08cd95a9a274c9c2c0fd9a4c270b6c39bc1025c0229ff0bfacbdaaab7403470fec7a191533acc678900fc
   languageName: node
   linkType: hard
 
@@ -14770,7 +14770,7 @@ __metadata:
   resolution: "sushichan.live@workspace:."
   dependencies:
     "@astrojs/check": "npm:^0.4.1"
-    "@astrojs/cloudflare": "npm:8.1.0"
+    "@astrojs/cloudflare": "npm:^9.0.0"
     "@astrojs/mdx": "npm:2.1.0"
     "@astrojs/react": "npm:^3.0.9"
     "@astrojs/rss": "npm:4.0.4"
@@ -14787,7 +14787,7 @@ __metadata:
     "@resvg/resvg-js": "npm:^2.6.0"
     "@textlint/textlint-plugin-markdown": "npm:^13.4.1"
     "@types/eslint": "npm:8.56.2"
-    "@types/node": "npm:20.11.8"
+    "@types/node": "npm:20.11.10"
     "@types/nprogress": "npm:^0"
     "@types/prettier": "npm:^3"
     "@types/react": "npm:^18.2.48"
@@ -14802,7 +14802,7 @@ __metadata:
     astro-seo: "npm:^0.8.0"
     budoux: "npm:^0.6.2"
     clsx: "npm:^2.1.0"
-    daisyui: "npm:latest"
+    daisyui: "npm:^4.6.0"
     date-fns: "npm:^2.30.0"
     date-fns-tz: "npm:^2.0.0"
     eslint: "npm:^8.56.0"
