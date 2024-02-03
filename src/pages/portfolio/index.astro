@@ -45,14 +45,11 @@ import Work from "@/pages/portfolio/_work.astro"
         <div>
           <h2 class="mb-2" id="experience">🚀 Experience</h2>
           <ExperienceWrapper>
-            <Experience experience={EXPERIENCES[0]} />
-            <Experience experience={EXPERIENCES[1]} />
-            <Experience experience={EXPERIENCES[2]} />
-            <Experience experience={EXPERIENCES[3]} />
-            <Experience experience={EXPERIENCES[4]}>
-              <UrlCard url="/blog/post/tech/chofusai-2023-website" />
-            </Experience>
-            <Experience experience={EXPERIENCES[5]} />
+            {
+              EXPERIENCES.map((experience) => (
+                <Experience experience={experience} />
+              ))
+            }
           </ExperienceWrapper>
         </div>
         <div>
