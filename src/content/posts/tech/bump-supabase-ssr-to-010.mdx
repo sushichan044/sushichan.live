@@ -16,12 +16,13 @@ status: published
 
 Supabaseは、Firebase代替のBaaSであり、DBや認証、ファイルストレージなどの機能を手間なく利用できます。
 
-そんなSupabaseですがSSRやReact Server Components(以下RSC)にもしっかり対応しており、
-最近フレームワークを問わないパッケージである `@supabase/ssr` がリリースされました。
+そんなSupabaseですがSSRやReact Server Components(以下RSC)にもベータながら対応しており、
+最近フレームワークを問わない認証ユーティリティである `@supabase/ssr` がリリースされました。[^1]
+[^1]: 以前はフレームワークごとにパッケージが分かれていましたが、今はこちらへ移行することが推奨されています。
 
 <UrlCard url="https://github.com/supabase/auth-helpers" />
 
-RSCからSupabaseの認証機能にアクセスしてUIを出し分けたりできてとても便利なのですが、先日認証まわりで思わぬトラブルに遭遇したので備忘録として書き残しておきます。
+このパッケージを使うことで、サーバーサイドで認証機能にアクセスするのが簡単になって便利なのですが、先日思わぬトラブルに遭遇したので備忘録として書き残しておきます。
 
 ## 結論
 
