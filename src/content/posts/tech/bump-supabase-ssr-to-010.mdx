@@ -20,15 +20,6 @@ Supabaseは、Firebaseのオープンソースな代替として近年注目さ�
 私も個人開発で愛用しているのですが、DBの実態が普通のPostgresなのでORMとの相性もいいですし、
 認証も手軽に導入できるのでとにかくありがたいです。
 
-最近ではもっぱらNext.jsで開発しているので、React Server Components(以下RSC)からSupabaseの認証機能にアクセス...
-みたいなこともよくやるのですが、先日これでハマったので備忘録として書き残しておきます。
-
-## TL;DR
-
-> @supabase/ssrを必ず0.1.0以上に更新してください
-
-## @supabase/ssrとは
-
 さて、そんなSupabaseですが、Webフロントエンドで頻繁に使われるSSR（Server Side Rendering)やRSCにも対応しています。
 
 以前は、Next.jsでは `@supabase/auth-helpers-nextjs` を使うというようにパッケージがフレームワークごとに分かれていました。
@@ -38,9 +29,16 @@ Supabase公式もこちらへ移行するように推奨しています。
 
 <UrlCard url="https://github.com/supabase/auth-helpers" />
 
-私も早めにこちらへ移行していたのですが、先日Twitterでソーシャルログインできるサービスを開発している時に
-思わぬトラブルが起きました。
+最近ではもっぱらNext.jsで開発しているので、このパッケージを使ってReact Server Components(以下RSC)からSupabaseの認証機能にアクセス...
+みたいなこともよくやるのですが、先日認証まわりで思わぬトラブルに遭遇したので備忘録として書き残しておきます。
+
+## TL;DR
+
+> @supabase/ssrを必ず0.1.0以上に更新してください
+
 
 ## 発端
+
+ことの発端は、Twitterアカウントでソーシャルログインして利用するサービスを作っていたときのことです。
 
 wip...
