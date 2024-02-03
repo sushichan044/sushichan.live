@@ -6,6 +6,10 @@
   line-height: 2;
 }
 
+.large-heading-margin {
+  @include base.blog-heading-margin;
+}
+
 .h1 {
   h1 {
     border-bottom: 1px solid rgb(96 165 250);
