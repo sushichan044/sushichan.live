@@ -25,7 +25,7 @@ jobs:
 
       - name: Restore cached Astro Assets
         id: restore-astro-assets
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         with:
           path: |
             .astro-cache
@@ -41,7 +41,7 @@ jobs:
 
       - name: Cache Astro Assets
         id: cache-astro-assets
-        uses: actions/cache/save@v3
+        uses: actions/cache/save@v4
         with:
           path: |
             .astro-cache
