@@ -1,0 +1,46 @@
+---
+title: '@supabase/ssrで認証まわりを扱うときの注意'
+description: ""
+createdAt: 2024-02-04
+thumbnail: https://res.cloudinary.com/sushi-chan/image/upload/v1701280464/tech/chofusai-2023-website/IMG_0645_mix7iv_qkbnco.jpg
+tags:
+  - 技術
+  - Supabase
+status: published
+---
+
+こんにちは、あるいは初めまして。<br />
+すしと申します。
+
+<TextCard>supabase、便利ですよね！</TextCard>
+
+Supabaseは、Firebaseのオープンソースな代替として近年注目されています。
+また、マネージドなサービスも提供されており、DBや認証、ファイルストレージなどのバックエンドに必要な機能を手間なく利用できます。
+
+私も個人開発で愛用しているのですが、DBの実態が普通のPostgresなのでORMとの相性もいいですし、
+認証も手軽に導入できるのでとにかくありがたいです。
+
+最近ではもっぱらNext.jsで開発しているので、React Server Components(以下RSC)からSupabaseの認証機能にアクセス...
+みたいなこともよくやるのですが、先日これでハマったので備忘録として書き残しておきます。
+
+## TL;DR
+
+> @supabase/ssrを必ず0.1.0以上に更新してください
+
+## @supabase/ssrとは
+
+さて、そんなSupabaseですが、Webフロントエンドで頻繁に使われるSSR（Server Side Rendering)やRSCにも対応しています。
+
+以前は、Next.jsでは `@supabase/auth-helpers-nextjs` を使うというようにパッケージがフレームワークごとに分かれていました。
+しかし最近になって、フレームワークを問わないパッケージである `@supabase/ssr` がリリースされました。
+Supabase公式もこちらへ移行するように推奨しています。
+
+
+<UrlCard url="https://github.com/supabase/auth-helpers" />
+
+私も早めにこちらへ移行していたのですが、先日Twitterでソーシャルログインできるサービスを開発している時に
+思わぬトラブルが起きました。
+
+## 発端
+
+wip...
