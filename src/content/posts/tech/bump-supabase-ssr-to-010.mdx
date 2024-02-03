@@ -12,33 +12,25 @@ status: published
 こんにちは、あるいは初めまして。<br />
 すしと申します。
 
-<TextCard>supabase、便利ですよね！</TextCard>
+<TextCard>Supabase、便利ですよね！</TextCard>
 
-Supabaseは、Firebaseのオープンソースな代替として近年注目されています。
-また、マネージドなサービスも提供されており、DBや認証、ファイルストレージなどのバックエンドに必要な機能を手間なく利用できます。
+Supabaseは、Firebase代替のBaaSであり、DBや認証、ファイルストレージなどの機能を手間なく利用できます。
 
-私も個人開発で愛用しているのですが、DBの実態が普通のPostgresなのでORMとの相性もいいですし、
-認証も手軽に導入できるのでとにかくありがたいです。
-
-さて、そんなSupabaseですが、Webフロントエンドで頻繁に使われるSSR（Server Side Rendering)やRSCにも対応しています。
-
-以前は、Next.jsでは `@supabase/auth-helpers-nextjs` を使うというようにパッケージがフレームワークごとに分かれていました。
-しかし最近になって、フレームワークを問わないパッケージである `@supabase/ssr` がリリースされました。
-Supabase公式もこちらへ移行するように推奨しています。
-
+そんなSupabaseですがSSRやReact Server Components(以下RSC)にもしっかり対応しており、
+最近フレームワークを問わないパッケージである `@supabase/ssr` がリリースされました。
 
 <UrlCard url="https://github.com/supabase/auth-helpers" />
 
-最近ではもっぱらNext.jsで開発しているので、このパッケージを使ってReact Server Components(以下RSC)からSupabaseの認証機能にアクセス...
-みたいなこともよくやるのですが、先日認証まわりで思わぬトラブルに遭遇したので備忘録として書き残しておきます。
+RSCからSupabaseの認証機能にアクセスしてUIを出し分けたりできてとても便利なのですが、先日認証まわりで思わぬトラブルに遭遇したので備忘録として書き残しておきます。
 
-## TL;DR
+## 結論
 
 > @supabase/ssrを必ず0.1.0以上に更新してください
 
+## 遭遇したトラブル
 
-## 発端
+Supabase Authを使ってTwitterアカウントでログインする機能を実装している際に、
+Twitterのハンドルネームが5文字以上だとログインに成功してもセッションが壊れるという不具合が発生しました。
 
-ことの発端は、Twitterアカウントでソーシャルログインして利用するサービスを作っていたときのことです。
 
 wip...
