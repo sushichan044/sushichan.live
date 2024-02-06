@@ -29,6 +29,18 @@ type Experience = {
 const EXPERIENCES = [
   {
     description:
+      "直接関わったわけではありませんが、私が今持っているモットーの原点であるプロジェクトです。ファンとして最大限自分たちの「好き」を表現するために、技術を使ってゼロから企画を実行する姿に衝撃を受け、漠然といずれは自分もこうありたいと考えるようになりました。",
+    time: {
+      data: {
+        attr: "2021-06",
+        label: "2021年6月",
+      },
+      range: false,
+    },
+    title: "星街すいせい100万人達成記念寄せ書きWebsite企画",
+  },
+  {
+    description:
       "チャットアプリ上で使うBotの作成をきっかけに、書いたものが動いて人の助けになることに魅力を感じ、プログラミングを学ぶようになりました。",
     time: {
       data: {
@@ -104,7 +116,7 @@ const EXPERIENCES = [
       },
       range: true,
     },
-    title: "バーチャルライブ研究会",
+    title: "バーチャルライブ研究会 技術班長",
   },
 ] as const satisfies Experience[]
 

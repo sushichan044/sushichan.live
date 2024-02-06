@@ -32,6 +32,17 @@ import Work from "@/pages/portfolio/_work.astro"
       </p>
       <div class="space-y-12">
         <div>
+          <h2>💭 Mind</h2>
+          <p>
+            <span class="text-lg"
+              >「誰かの『好き』や『やりたい』を最大限に実現する手伝いをする」</span
+            ><br />
+            <span>
+              をモットーに、ファンコミュニティの運営やファン企画・二次創作を技術的に支援するツール・サービスの開発を行っています。
+            </span>
+          </p>
+        </div>
+        <div>
           <h2 class="mb-2" id="skills">⚙️ Skills</h2>
           <LocalImage
             alt="skills: html,css,tailwind,js,ts,nextjs,react,astro,nodejs,vite,workers,cloudflare,py,docker,git,github,githubactions,discord,twitter,vscode"
@@ -55,6 +66,19 @@ import Work from "@/pages/portfolio/_work.astro"
         <div>
           <h2 class="mb-2" id="works">💻 Works</h2>
           <div class="space-y-8">
+            <Work
+              tags={["Next.js(App)", "Mantine", "Supabase", "Drizzle ORM"]}
+              title="オンライン寄せ書きサービス(仮称, 開発中)"
+            >
+              <p slot="description">
+                <span
+                  >Twitterアカウントだけで、気軽に短文寄せ書きを作れるオンライン完結のWebサービスです。</span
+                >
+                <br /><span
+                  >ファン合同オンライン寄せ書きを企画することになったので、より利用しやすい形にすることを目指して現在開発中です。</span
+                >
+              </p>
+            </Work>
             <Work
               tags={["Next.js(App)", "SCSS", "Cloudflare"]}
               title="第73回調布祭公式サイト"
@@ -96,6 +120,39 @@ import Work from "@/pages/portfolio/_work.astro"
                 <br />
                 <span
                   >また、デプロイ先としてCloudflare Pagesを採用しました。</span
+                >
+              </p>
+            </Work>
+            <Work
+              tags={["Next.js(App)", "Clerk"]}
+              title="TrackShare(prototype)"
+            >
+              <p slot="description">
+                <span>
+                  認証基盤を提供するClerkを使ってみたかったので作成したWebアプリです。
+                </span><br /><span>
+                  Spotify APIの制約上一般公開はできませんが、
+                  下で紹介している#Nowplaying-APIにフロントエンドを実装したものとなっています。
+                </span>
+              </p>
+              <UrlCard url="/blog/post/tech/track-share" />
+            </Work>
+            <Work
+              repoUrl="https://github.com/sushi-chaaaan/NowPlaying-Hono"
+              tags={["TypeScript", "Hono", "Cloudflare Workers"]}
+              title="#Nowplaying-API"
+            >
+              <p slot="description">
+                <span>
+                  聴いている音楽を気軽にツイートしたいので作ったAPIです。
+                </span>
+                <br />
+                <span>
+                  Cloudflare WorkersとHonoの学習の一環で作成しました。
+                </span>
+                <br /><span
+                  >Workers KVを使ってSpotify
+                  APIから取得したデータをキャッシュすることで高速な応答を実現しています。</span
                 >
               </p>
             </Work>
