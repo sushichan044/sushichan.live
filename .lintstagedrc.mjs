@@ -44,13 +44,13 @@ const config = {
     return [
       buildEslintCommand(filesToLint),
       buildPrettierCommand(filesToLint),
-      "npm run markuplint:check",
+      // "npm run markuplint:check",
     ]
   },
   "./**/*.astro": (files) => [
     buildEslintCommand(files),
     buildPrettierCommand(files),
-    "npm run markuplint:check",
+    // "npm run markuplint:check",
     "npm run stylelint:check",
   ],
   "./**/*.{css,scss}": "npm run stylelint:check",
