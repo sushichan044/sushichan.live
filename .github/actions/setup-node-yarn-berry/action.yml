@@ -22,7 +22,7 @@ runs:
 
     - name: Restore cached yarn packages
       id: restore-yarn-cache
-      uses: actions/cache/restore@v3
+      uses: actions/cache/restore@v4
       with:
         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
         key: ${{ runner.os }}-yarn-cache-${{ hashFiles('**/yarn.lock','.yarnrc.yml') }}
@@ -32,7 +32,7 @@ runs:
       shell: bash
 
     - name: Cache yarn packages
-      uses: actions/cache/save@v3
+      uses: actions/cache/save@v4
       with:
         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
         key: ${{ steps.restore-yarn-cache.outputs.cache-primary-key }}
