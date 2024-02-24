@@ -1,4 +1,3 @@
-import "client-only"
 import { useCallback, useEffect, useState } from "react"
 
 const useClientTheme = () => {
