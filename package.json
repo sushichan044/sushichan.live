@@ -71,7 +71,7 @@
     "@markuplint/astro-parser": "^4.1.1",
     "@markuplint/jsx-parser": "^4.1.1",
     "@markuplint/react-spec": "^4.0.2",
-    "@textlint/textlint-plugin-markdown": "^13.4.1",
+    "@textlint/textlint-plugin-markdown": "^14.0.0",
     "@types/eslint": "8.56.3",
     "@types/node": "20.11.20",
     "@types/nprogress": "^0",
