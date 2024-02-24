@@ -18,10 +18,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js and Install dependencies with yarn berry
-        uses: "./.github/actions/setup-node-yarn-berry"
+      - name: Setup Node.js and pnpm
+        uses: actions/setup-node@v4
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          node-version-file: "package.json"
+          cache: pnpm
 
       - name: Restore cached Astro Assets
         id: restore-astro-assets
@@ -34,7 +35,7 @@ jobs:
             ${{ runner.os }}-astro-assets-
 
       - name: Build
-        run: yarn run build
+        run: pnpm run build
         env:
           TWEET_API_URL: ${{ secrets.TWEET_API_URL }}
           SHOW_DRAFT_POST: ${{ github.ref_name != 'main' && github.ref_name != 'beta' }}
