@@ -95,8 +95,5 @@ export default defineConfig({
     optimizeDeps: {
       exclude: ["@resvg/resvg-js"],
     },
-    ssr: {
-      noExternal: ["fetch-site-metadata", "react-tweet"],
-    },
   },
 })
