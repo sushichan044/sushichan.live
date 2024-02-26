@@ -26,7 +26,7 @@ const style = tv({
     innerWrapper:
       "flex h-[260px] flex-col flex-nowrap rounded-lg md:h-[120px] md:flex-row [&>*]:min-w-0",
     wrapper:
-      "mx-auto bg-inherit hocus:bg-gray-100 max-md:max-w-[calc(180px*1200/630)] md:w-full",
+      "mx-auto bg-inherit hocus:bg-zinc-100 max-md:max-w-[calc(180px*1200/630)] md:w-full dark:hocus:bg-zinc-800",
   },
   variants: {},
 })()
@@ -62,7 +62,7 @@ const metaData = await fetchMetaData(url.toString())
 const imageSet = getImage(metaData)
 ---
 
-<Card round={round} shadow {...props}>
+<Card round={round} shadow={false} {...props}>
   <Link
     aria-label={metaData.title}
     class:list={style.wrapper()}
@@ -73,7 +73,7 @@ const imageSet = getImage(metaData)
   >
     <div
       aria-hidden="true"
-      class="flex h-[260px] flex-col flex-nowrap rounded-lg border border-gray-200 md:h-[120px] md:flex-row dark:border-zinc-600 [&>*]:min-w-0"
+      class="flex h-[260px] flex-col flex-nowrap rounded-lg border-2 border-gray-200 md:h-[120px] md:flex-row dark:border-zinc-600 [&>*]:min-w-0"
     >
       {
         imageSet && (
