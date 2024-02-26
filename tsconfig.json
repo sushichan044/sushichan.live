@@ -9,10 +9,15 @@
     "paths": {
       "@/*": ["./src/*"],
       "@public/*": ["./public/*"],
-      "@root/*": ["./*"],
+      "@root/*": ["./*"]
     },
     "types": ["vitest/globals"],
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ]
   },
 
-  "exclude": ["node_modules", "dist", "public"],
+  "exclude": ["node_modules", "dist", "public"]
 }
