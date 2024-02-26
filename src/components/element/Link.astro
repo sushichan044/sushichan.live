@@ -50,6 +50,7 @@ const { href: refinedHref, isExternal }: hrefInfo = declareLet(() => {
   return { href: url, isExternal }
 })
 const refinedTarget = target != null ? target : isExternal ? "_blank" : "_self"
+const rel = isExternal ? "noopener noreferrer" : undefined
 
 const mergedClass = clsx(className, classList)
 ---
@@ -57,6 +58,7 @@ const mergedClass = clsx(className, classList)
 <a
   class:list={[LinkStyle({ ...variants, class: mergedClass })]}
   href={refinedHref}
+  rel={rel}
   target={refinedTarget}
   {...props}><slot /></a
 >
