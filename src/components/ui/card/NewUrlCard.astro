@@ -1,7 +1,13 @@
 ---
+import type { Metadata } from "fetch-site-metadata"
+
 import Card, { type CardProps } from "@/components/common/Card.astro"
 import Link from "@/components/element/Link.astro"
-import { fetchMetaData } from "@/lib/ogs"
+import { fetchMetaData } from "@/lib/fetchMetaData"
+// import { fetchMetaDataWithOGS } from "@/lib/fetchMetaData"
+import { declareLet } from "@/utils/declareLet"
+import { isInternalLink } from "@/utils/helper"
+// import ogs from "open-graph-scraper"
 import { tv } from "tailwind-variants"
 
 interface Props extends CardProps {
@@ -16,13 +22,35 @@ const {
   ...props
 } = Astro.props
 
-const metadata = await fetchMetaData(rawUrl.toString())
+const getImage = ({
+  image,
+  title,
+}: Metadata): Metadata["image"] | undefined => {
+  if (image) {
+    const { alt, ...rest } = image
+    return {
+      alt: alt ?? `ogp of ${title}`,
+      ...rest,
+    }
+  }
 
-console.dir(metadata)
+  return undefined
+}
+
+const url = declareLet(() => {
+  if (typeof rawUrl === "string" && isInternalLink(rawUrl)) {
+    return new URL(rawUrl, Astro.url)
+  }
+
+  return new URL(rawUrl)
+})
+const metadata = await fetchMetaData(url.toString())
+
+const imageSet = getImage(metadata)
 
 const styles = tv({
   slots: {
-    image: "aspect-auto h-full shrink-0",
+    image: "relative aspect-auto h-full shrink-0",
     innerWrapper: "flex",
     wrapper: "w-full",
   },
@@ -39,7 +67,17 @@ const styles = tv({
   >
     <div class:list={styles.innerWrapper()}>
       <div class:list={styles.image()}>
-        <img alt="" src={metadata?.image?.src} />
+        {
+          imageSet ? (
+            <img
+              alt={imageSet.alt}
+              class="absolute inset-0 size-full object-cover"
+              src={imageSet.src}
+            />
+          ) : (
+            <div>no image</div>
+          )
+        }
       </div>
     </div>
   </Link>
