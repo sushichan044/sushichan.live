@@ -2,38 +2,49 @@
 import type { RequiredKey } from "@/utils/@types/requiredKey"
 
 import BudouX from "@/components/common/BudouX.astro"
-import Icon from "@/components/common/Icon.astro"
+import Fa6SolidCircleExclamation from "~icons/fa6-solid/circle-exclamation"
+import Fa6SolidCircleInfo from "~icons/fa6-solid/circle-info"
+import Fa6SolidTriangleExclamation from "~icons/fa6-solid/triangle-exclamation"
 import { type VariantProps, tv } from "tailwind-variants"
-
-export type Props = RequiredKey<VariantProps<typeof style>, "type">
+export type Props = RequiredKey<VariantProps<typeof styles>, "type">
 const { type } = Astro.props
 
-const style = tv({
-  base: "mx-auto flex w-full flex-row flex-nowrap items-center gap-4 rounded-lg p-4",
+const styles = tv({
+  slots: {
+    icon: "mt-0.5",
+    innerWrapper: "flex flex-row flex-nowrap items-start gap-4",
+    wrapper: "mx-auto w-full rounded-lg p-4",
+  },
   variants: {
     type: {
-      alert: "bg-red-300 dark:bg-red-700",
-      info: "bg-sky-300 dark:bg-sky-700",
-      warn: "bg-yellow-300 dark:bg-yellow-700",
+      alert: {
+        wrapper: "bg-red-300 dark:bg-red-700",
+      },
+      info: {
+        wrapper: "bg-blue-300 dark:bg-blue-700",
+      },
+      warn: {
+        wrapper: "bg-yellow-300 dark:bg-yellow-700",
+      },
     },
   },
 })
-
-const icon = (type: Props["type"]) => {
-  switch (type) {
-    case "warn":
-      return "fa6-solid:triangle-exclamation"
-    case "alert":
-      return "fa6-solid:circle-exclamation"
-    case "info":
-      return "fa6-solid:circle-info"
-  }
-}
+const css = styles()
 ---
 
-<div class:list={style({ type: type })}>
-  <Icon icon={icon(type)} size="xl" />
-  <div>
+<div class:list={css.wrapper({ type })}>
+  <div class:list={css.innerWrapper()}>
+    <div class:list={css.icon()}>
+      {
+        type === "info" ? (
+          <Fa6SolidCircleInfo width="2rem" />
+        ) : type === "alert" ? (
+          <Fa6SolidCircleExclamation width="2rem" />
+        ) : (
+          <Fa6SolidTriangleExclamation width="2rem" />
+        )
+      }
+    </div>
     <BudouX>
       <slot />
     </BudouX>

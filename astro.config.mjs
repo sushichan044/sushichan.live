@@ -12,6 +12,7 @@ import remarkEmoji from "remark-emoji"
 import remarkCodeTitles from "remark-flexible-code-titles"
 import remarkMath from "remark-math"
 import remarkUnwrapImages from "remark-unwrap-images"
+import Icons from "unplugin-icons/vite"
 
 // eslint-disable-next-line no-restricted-imports
 import { SITE_URL } from "./src/consts"
@@ -96,6 +97,11 @@ export default defineConfig({
     optimizeDeps: {
       exclude: ["@resvg/resvg-js"],
     },
+    plugins: [
+      Icons({
+        compiler: "astro",
+      }),
+    ],
     ssr: {
       noExternal: ["react-tweet"],
     },

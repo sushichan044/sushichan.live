@@ -1,6 +1,7 @@
 ---
-import Icon from "@/components/common/Icon.astro"
 import { getUUID } from "@/utils/uuid"
+import Fa6SolidTriangleExclamation from "~icons/fa6-solid/triangle-exclamation"
+
 type Props = {
   backIfNewTab?: string
 }
@@ -25,11 +26,7 @@ const { backIfNewTab = "/" } = Astro.props
           class="flex flex-row flex-nowrap items-center gap-x-1 text-xl font-bold"
           id={titleId}
         >
-          <Icon
-            class="text-yellow-400"
-            icon="fa6-solid:triangle-exclamation"
-            size="xl"
-          />
+          <Fa6SolidTriangleExclamation class="text-yellow-400" />
           <span>注意</span>
         </div>
         <div id={descriptionId}>
