@@ -1,42 +1,17 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "files.autoSave": "afterDelay",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.fixAll.stylelint": "explicit",
     "source.fixAll.markdownlint": "explicit"
   },
-  "markuplint.enable": true,
-  "files.trimTrailingWhitespace": true,
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[mdx]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.trimAutoWhitespace": false
+    "editor.defaultFormatter": "unifiedjs.vscode-mdx"
   },
-  "[astro]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "files.trimTrailingWhitespace": true,
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -44,26 +19,11 @@
     "typescriptreact",
     "astro"
   ],
-  "stylelint.validate": ["css", "scss", "astro"],
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "insert-br-tag.trailingSlashLanguage": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "markdown",
-    "mdx"
-  ],
-  "conventionalCommits.scopes": ["page", "config"],
-  "textlint.languages": ["markdown", "mdx"],
-  "prettier.documentSelectors": ["**/*.astro"],
   "tailwindCSS.experimental.classRegex": [
     ["tv\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-  ],
-  "emmet.includeLanguages": {
-    "mdx": "html"
-  },
-  "files.associations": {
-    "**/.github/**/action.{yml,yaml}": "github-actions-workflow"
-  }
+  ]
+  "markuplint.enable": true,
+  "stylelint.validate": ["css", "scss", "astro"],
+  "textlint.languages": ["markdown", "mdx"],
+  "prettier.documentSelectors": ["**/*.astro"],
 }
