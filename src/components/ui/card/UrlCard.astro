@@ -6,6 +6,7 @@ import Link from "@/components/element/Link.astro"
 import { fetchMetaData } from "@/lib/fetchMetaData"
 // import { fetchMetaDataWithOGS } from "@/lib/fetchMetaData"
 import { declareLet } from "@/utils/declareLet"
+import { isInternalLink } from "@/utils/helper"
 // import ogs from "open-graph-scraper"
 import { tv } from "tailwind-variants"
 
@@ -49,7 +50,7 @@ const getImage = ({ icon, image, title }: Metadata): ImageSet | undefined => {
 }
 
 const url = declareLet(() => {
-  if (typeof rawUrl === "string" && rawUrl.startsWith("/")) {
+  if (typeof rawUrl === "string" && isInternalLink(rawUrl)) {
     return new URL(rawUrl, Astro.url)
   }
 
