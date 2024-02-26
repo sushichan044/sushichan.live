@@ -33,8 +33,8 @@ const LinkStyle = tv({
       underline: "underline underline-offset-4",
     },
     hoverColor: {
-      neutral: "transition-colors duration-200",
-      primary: "transition-colors duration-200",
+      neutral: "transition-colors duration-300",
+      primary: "transition-colors duration-300",
     },
   },
 })

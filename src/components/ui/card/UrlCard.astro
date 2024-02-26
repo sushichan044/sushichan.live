@@ -23,8 +23,9 @@ type ImageSet = {
 const style = tv({
   slots: {
     innerWrapper:
-      "flex h-[260px] flex-col flex-nowrap rounded-lg outline outline-gray-200 md:h-[120px] md:flex-row dark:outline-zinc-600 [&>*]:min-w-0",
-    wrapper: "mx-auto max-md:max-w-[calc(180px*1200/630)] md:w-full",
+      "flex h-[260px] flex-col flex-nowrap rounded-lg md:h-[120px] md:flex-row [&>*]:min-w-0",
+    wrapper:
+      "mx-auto bg-inherit hocus:bg-gray-100 max-md:max-w-[calc(180px*1200/630)] md:w-full",
   },
   variants: {},
 })()
@@ -60,14 +61,14 @@ const metaData = await fetchMetaData(url.toString())
 const imageSet = getImage(metaData)
 ---
 
-<Card round={round} hover shadow {...props}>
+<Card round={round} shadow {...props}>
   <Link
     aria-label={metaData.title}
     class:list={style.wrapper()}
     href={url}
     rel="noreferrer"
     target="_blank"
-    variants={{ decoration: "none", hoverColor: "neutral" }}
+    variants={{ decoration: "none" }}
   >
     <div
       aria-hidden="true"
@@ -87,7 +88,7 @@ const imageSet = getImage(metaData)
         )
       }
       <div
-        class="flex h-[80px] shrink flex-col flex-nowrap justify-between gap-1 px-2 pt-2 md:h-[120px] md:flex-1 [&>*]:max-w-full"
+        class="flex h-[80px] shrink flex-col flex-nowrap justify-around px-2 pt-2 md:h-[120px] md:flex-1 [&>*]:max-w-full"
       >
         <span class="line-clamp-1 text-lg md:line-clamp-2"
           >{metaData.title}</span
@@ -109,7 +110,9 @@ const imageSet = getImage(metaData)
               />
             )
           }
-          <span class="line-clamp-1 text-base md:text-lg">{url.hostname}</span>
+          <span class="line-clamp-1 text-base text-gray-500"
+            >{url.hostname}</span
+          >
         </div>
       </div>
     </div>
