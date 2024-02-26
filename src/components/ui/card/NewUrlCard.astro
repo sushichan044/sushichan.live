@@ -1,0 +1,46 @@
+---
+import Card, { type CardProps } from "@/components/common/Card.astro"
+import Link from "@/components/element/Link.astro"
+import { fetchMetaData } from "@/lib/ogs"
+import { tv } from "tailwind-variants"
+
+interface Props extends CardProps {
+  url: URL | string
+}
+
+const {
+  hover = true,
+  round = true,
+  shadow = true,
+  url: rawUrl,
+  ...props
+} = Astro.props
+
+const metadata = await fetchMetaData(rawUrl.toString())
+
+console.dir(metadata)
+
+const styles = tv({
+  slots: {
+    image: "aspect-auto h-full shrink-0",
+    innerWrapper: "flex",
+    wrapper: "w-full",
+  },
+})()
+---
+
+<Card hover={hover} round={round} shadow={shadow} {...props}>
+  <Link
+    class:list={styles.wrapper()}
+    href={rawUrl}
+    rel="noreferrer"
+    target="_blank"
+    variants={{ decoration: "none", hoverColor: "neutral" }}
+  >
+    <div class:list={styles.innerWrapper()}>
+      <div class:list={styles.image()}>
+        <img alt="" src={metadata?.image?.src} />
+      </div>
+    </div>
+  </Link>
+</Card>
