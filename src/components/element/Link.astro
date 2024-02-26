@@ -4,6 +4,7 @@ import type { VariantProps } from "tailwind-variants"
 
 import LinkStyle from "@/components/style/link"
 import { declareLet } from "@/utils/declareLet"
+import { isInternalLink } from "@/utils/helper"
 import { clsx } from "clsx"
 
 export type Props = HTMLAttributes<"a"> & {
@@ -35,7 +36,7 @@ const { href: refinedHref, isExternal }: hrefInfo = declareLet(() => {
   let isExternal: boolean
 
   if (typeof href === "string") {
-    if (href.startsWith("/") || href.startsWith("#")) {
+    if (isInternalLink(href)) {
       url = new URL(href, Astro.url)
       isExternal = false
     } else {
