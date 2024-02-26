@@ -32,6 +32,7 @@ const mdxIntegrations = [
       "./src/components/ui/card/TimelineCard.astro",
       "./src/components/ui/card/TweetCard.astro",
       "./src/components/ui/card/UrlCard.astro",
+      "./src/components/ui/card/NewUrlCard.astro",
       "./src/components/ui/Collapse.astro",
       "./src/components/utils/Spoiler.astro",
     ],

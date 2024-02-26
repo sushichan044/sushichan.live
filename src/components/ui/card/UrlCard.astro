@@ -6,6 +6,7 @@ import Link from "@/components/element/Link.astro"
 import { fetchMetaData } from "@/lib/fetchMetaData"
 // import { fetchMetaDataWithOGS } from "@/lib/fetchMetaData"
 import { declareLet } from "@/utils/declareLet"
+// import ogs from "open-graph-scraper"
 import { tv } from "tailwind-variants"
 
 interface Props extends CardProps {
@@ -54,6 +55,7 @@ const url = declareLet(() => {
   return new URL(rawUrl)
 })
 const metaData = await fetchMetaData(url.toString())
+
 // const metaData = await fetchMetaDataWithOGS(url.toString())
 const imageSet = getImage(metaData)
 ---
@@ -63,6 +65,7 @@ const imageSet = getImage(metaData)
     aria-label={metaData.title}
     class:list={style.wrapper()}
     href={url}
+    rel="noreferrer"
     target="_blank"
     variants={{ decoration: "none", hoverColor: "neutral" }}
   >
