@@ -26,4 +26,7 @@
   "stylelint.validate": ["css", "scss", "astro"],
   "textlint.languages": ["markdown", "mdx"],
   "prettier.documentSelectors": ["**/*.astro"],
+  "emmet.includeLanguages": {
+    "mdx": "html"
+  }
 }
