@@ -65,8 +65,8 @@ module.exports = {
     "perfectionist/sort-union-types": [
       "error",
       {
-        type: "natural",
-        order: "asc",
+        "type": "natural",
+        "order": "asc",
         "nullable-last": true,
       },
     ],

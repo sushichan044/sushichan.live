@@ -29,10 +29,10 @@ const ButtonStyle = tv({
     },
     size: {
       "2xl": "rounded-2xl px-6 py-5 text-2xl",
-      large: "rounded-lg px-4 py-3 text-lg",
-      medium: "rounded-md px-3 py-2 text-base",
-      small: "rounded px-2 py-1 text-sm",
-      xl: "rounded-xl px-5 py-4 text-xl",
+      "large": "rounded-lg px-4 py-3 text-lg",
+      "medium": "rounded-md px-3 py-2 text-base",
+      "small": "rounded px-2 py-1 text-sm",
+      "xl": "rounded-xl px-5 py-4 text-xl",
     },
   },
 })
