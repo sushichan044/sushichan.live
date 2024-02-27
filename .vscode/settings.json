@@ -21,7 +21,7 @@
   ],
   "tailwindCSS.experimental.classRegex": [
     ["tv\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-  ]
+  ],
   "markuplint.enable": true,
   "stylelint.validate": ["css", "scss", "astro"],
   "textlint.languages": ["markdown", "mdx"],
