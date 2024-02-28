@@ -15,9 +15,9 @@ const {
   isPreview = false,
 } = Astro.props
 
-const createdAt = dtTool.replaceTzWithJst(data.createdAt).toISOString()
+const createdAt = dtTool.replaceUtcWithJst(data.createdAt).toISOString()
 const updatedAt = data.updatedAt
-  ? dtTool.replaceTzWithJst(data.updatedAt).toISOString()
+  ? dtTool.replaceUtcWithJst(data.updatedAt).toISOString()
   : undefined
 
 const OGPUrl = getPostOgpImage(slug, {

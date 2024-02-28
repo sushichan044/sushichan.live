@@ -22,10 +22,10 @@ type Props = {
 const { entry, readTime } = Astro.props
 
 const roundedMinutesRead = roundReadTime(readTime, 1)
-const createdAtDate = dtTool.replaceTzWithJst(entry.data.createdAt)
+const createdAtDate = dtTool.replaceUtcWithJst(entry.data.createdAt)
 const updatedAtDate = declareLet(() => {
   if (entry.data.updatedAt) {
-    return dtTool.replaceTzWithJst(entry.data.updatedAt)
+    return dtTool.replaceUtcWithJst(entry.data.updatedAt)
   }
 })
 const OGPUrl = getPostOgpImage(entry.slug, {
@@ -78,7 +78,7 @@ const styles = tv({
         <div class:list={styles.metaData()}>
           <Icon class:list={styles.icon()} icon="fa6-solid:pen" size="sm" />
           <time datetime={createdAtDate.toISOString()}
-            >{dtTool.formatInJst(createdAtDate, "yyyy/MM/dd")}</time
+            >{dtTool.formatInJst(createdAtDate, "YYYY/MM/DD")}</time
           >
         </div>
         {
@@ -91,8 +91,8 @@ const styles = tv({
               />
               <time datetime={updatedAtDate.toISOString()}>
                 {dtTool.formatInJst(
-                  dtTool.replaceTzWithJst(updatedAtDate),
-                  "yyyy/MM/dd",
+                  dtTool.replaceUtcWithJst(updatedAtDate),
+                  "YYYY/MM/DD",
                 )}
               </time>
             </div>

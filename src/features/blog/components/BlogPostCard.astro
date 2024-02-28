@@ -15,8 +15,8 @@ const {
   post: { data, slug },
 } = Astro.props
 
-const createdAt = dtTool.replaceTzWithJst(data.createdAt)
-const createdAtSring = dtTool.formatInJst(createdAt, "yyyy/MM/dd")
+const createdAt = dtTool.replaceUtcWithJst(data.createdAt)
+const createdAtSring = dtTool.formatInJst(createdAt, "YYYY/MM/DD")
 
 const styles = tv({
   slots: {
