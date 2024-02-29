@@ -67,17 +67,32 @@ import Work from "@/pages/portfolio/_work.astro"
           <h2 class="mb-2" id="works">💻 Works</h2>
           <div class="space-y-8">
             <Work
-              tags={["Next.js(App)", "Mantine", "Supabase", "Drizzle ORM"]}
-              title="オンライン寄せ書きサービス(仮称, 開発中)"
+              tags={[
+                "フロントエンド未定",
+                "Lucia Auth?",
+                "PlanetScale?",
+                "Cloudflare Pages",
+              ]}
+              title="ちいさなよせがき(開発中)"
             >
               <p slot="description">
                 <span
                   >Twitterアカウントだけで、気軽に短文寄せ書きを作れるオンライン完結のWebサービスです。</span
                 >
                 <br /><span
-                  >ファン合同オンライン寄せ書きを企画することになったので、より利用しやすい形にすることを目指して現在開発中です。</span
+                  >例えばライブの当日のようなその場で簡単に募集するタイプの寄せ書きをオンラインでも気軽に立てられるようにすることを目指しています。</span
                 >
               </p>
+            </Work>
+            <Work
+              repoUrl="https://github.com/sushi-chaaaan/tiny-yosegaki-prototype"
+              tags={["Next.js(App)", "Mantine", "Supabase", "Drizzle ORM"]}
+              title="ちいさなよせがき(プロトタイプ)"
+            >
+              <p slot="description">
+                開発中のちいさなよせがきのプロトタイプとして、2024年2月に3週間ほどで作ったものです。
+              </p>
+              <UrlCard url="https://yellbox.vercel.app" />
             </Work>
             <Work
               tags={["Next.js(App)", "SCSS", "Cloudflare"]}
