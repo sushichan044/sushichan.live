@@ -1,0 +1,138 @@
+---
+title: Expressive Codeでいい感じのコードブロックを手に入れる
+description: いいコードブロックがあると技術記事の筆も進むとされています
+createdAt: 2024-03-02
+thumbnail: https://res.cloudinary.com/sushi-chan/image/upload/v1709402389/tech/expressive-code-is-amazing/dokyu_qb6kwk.png
+tags:
+  - 雑記
+  - 技術
+  - 個人サイト
+  - Astro
+  - Next.js
+status: preview
+---
+
+**全国1億人の個人サイト制作者の皆様、こんにちは。**
+
+個人サイトは技術記事を書くのに使われることもあると思うので、**コードブロックの表示が綺麗だと嬉しい**ですね。
+世には[PrismJS/prism](https://github.com/PrismJS/prism) や [shikijs/shiki](https://github.com/shikijs/shiki) などのありがたいライブラリが存在しており、
+すぐにシンタックスハイライトを追加することができます。
+
+<br /><br /><br />
+
+<TextCard>**~~技術記事投稿サイトみたいな<br />高機能なやつが使いたい！！~~**</TextCard>
+
+<br /><br /><br />
+
+心の声が漏れました。
+
+このような願いを持つ方は比較的多いとされており、remarkなどのプラグインを刺したりゴリゴリCSSを書いたりしてファイル名やコピーボタンを表示するなどのカスタマイズを行っている方も多いかと思います。**ソースは私です。**
+
+先日、このような「ぼくのかんがえたさいきょうのコードブロック」をかなり手軽に実現できるライブラリを見つけました。
+
+<div class="divider"></div>
+
+ということで前置きが長くなってしまいましたが、今回はExpressive Codeというライブラリを紹介していきます。ちなみにこのサイトでも利用しています。
+
+<UrlCard url="https://github.com/expressive-code/expressive-code" />
+
+
+## TL;DR
+- Expressive Codeという強いコードブロックライブラリがある
+- 主に2つの使い方がある
+  - remark pluginとして利用できる
+  - Astro向けには組み込みパッケージがある
+
+## どういうライブラリ？
+
+```plaintext title="introduction.txt" wrap
+Expressive CodeはWeb上でコードブロックを綺麗に表示することを目的としたオールインワンなライブラリです。
+
+デフォルトでファイル名表示やエディタ風のフレーム、コピーボタンなどが付属しているのが大きな特徴です。
+
+差分表示やマーカー、折返し表示にも対応しており、おおむねコードブロックにあると嬉しい機能はすべて揃っています。
+```
+構文表示には [shikijs/shiki](https://github.com/shikijs/shiki) を利用しているので
+ライトテーマ/ダークテーマの切り替えなども可能で、
+プラグインシステムもあるので必要に応じて拡張もできるようになっています。
+
+さらにこれだけ高機能ながら特定のフロントエンドライブラリへの依存がないためフレームワークを問わず利用でき、
+パフォーマンスとアクセシビリティも十分に考慮されている優れたライブラリとなっています。
+
+## 実際に使ってみる
+
+Expressive Codeには大きく分けて
+
+1. remark pluginとして利用する
+2. Astro統合を利用する(Astroを利用している場合)
+
+という2つの使い方があります。
+
+### remark pluginとして利用する
+
+Expressive Codeはremarkプラグインをサポートするすべての環境で利用できます。使い方も通常のremarkプラグインと同じで、
+
+```bash
+npm install remark-expressive-code
+```
+
+としてあとは他のプラグインと同様に設定すればOKです。
+
+```ts title="example.ts"
+import { unified } from 'unified'
+import remarkExpressiveCode from 'remark-expressive-code'
+
+const mdToHtml = async (markdown: string) => {
+  const result = await unified()
+    .use(remarkExpressiveCode,{ /* options */ })
+    .process(markdown)
+  return result.toString()
+}
+```
+
+### Astro統合を利用する
+
+[Astro](https://astro.build/) 向けには公式からガイドが提供されており、
+さらに簡単に組み込むことができます。
+また、Astroベースのドキュメントフレームワークであるstarlightには最初から組み込まれています。
+
+<UrlCard caption="Expressive Codeのドキュメントもstarlight製です" url="https://expressive-code.com/installation/#astro" />
+
+
+それでは実際にインストールしてみましょう。
+
+0. Astroプロジェクトのセットアップは完了しているものとします。
+
+1. 下のコマンドを実行してコンソールの指示に従います。
+
+```bash
+npx astro add astro-expressive-code
+```
+
+2. **終 わ り で す**
+
+はい、なんとこれだけでMarkdown/MDX内のコードブロックが先程述べたような高機能なものになります。
+なお`.astro`コンポーネント内においては、専用のコンポーネントを通して同じものが使えます。
+
+<div class="divider"></div>
+
+```astro title="example.astro"
+---
+import { Code } from 'astro-expressive-code/components'
+---
+
+<p>Hello!</p>
+<Code code="print('Hello world!')" lang="py" />
+```
+
+<p>Hello!</p>
+```py
+print('Hello world!')
+```
+<div class="divider"></div>
+
+
+## カスタマイズしてみる
+
+デフォルトではシンタックスハイライトのみですが、上の例でも出したように、
+コードブロックで言語を指定したあとにオプションを記述していくことで豊富な表示カスタマイズができます。
