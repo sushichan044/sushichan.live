@@ -70,7 +70,6 @@ export default defineConfig({
           "'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
         codeFontSize: "1rem",
       },
-
       themes: ["one-dark-pro"],
     }),
     ...mdxIntegrations,
