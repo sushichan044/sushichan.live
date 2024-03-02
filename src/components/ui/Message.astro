@@ -11,7 +11,7 @@ const { type } = Astro.props
 
 const styles = tv({
   slots: {
-    icon: "mt-0.5",
+    icon: "",
     innerWrapper: "flex flex-col flex-nowrap items-start gap-2",
     wrapper: "mx-auto w-full border-l-4 px-4 py-2",
   },
@@ -35,21 +35,19 @@ const styles = tv({
 const css = styles()
 ---
 
-<div class:list={css.wrapper({ type })}>
+<aside class:list={css.wrapper({ type })}>
   <div class:list={css.innerWrapper()}>
-    <div class:list={css.icon({ type })}>
-      {
-        type === "info" ? (
-          <Fa6SolidCircleInfo />
-        ) : type === "alert" ? (
-          <Fa6SolidCircleExclamation />
-        ) : (
-          <Fa6SolidTriangleExclamation />
-        )
-      }
-    </div>
+    {
+      type === "info" ? (
+        <Fa6SolidCircleInfo class:list={css.icon({ type })} />
+      ) : type === "alert" ? (
+        <Fa6SolidCircleExclamation class:list={css.icon({ type })} />
+      ) : (
+        <Fa6SolidTriangleExclamation class:list={css.icon({ type })} />
+      )
+    }
     <BudouX>
       <slot />
     </BudouX>
   </div>
-</div>
+</aside>
