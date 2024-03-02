@@ -6,10 +6,10 @@ import Message, {
 
 type Props = CardProps & MessageProps
 
-const { type, ...props } = Astro.props
+const { round = false, type, ...props } = Astro.props
 ---
 
-<Card maxWidth="content" {...props}>
+<Card maxWidth="content" round={round} {...props}>
   <Message type={type}>
     <slot />
   </Message>

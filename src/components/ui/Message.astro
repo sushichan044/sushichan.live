@@ -12,19 +12,22 @@ const { type } = Astro.props
 const styles = tv({
   slots: {
     icon: "mt-0.5",
-    innerWrapper: "flex flex-row flex-nowrap items-start gap-4",
-    wrapper: "mx-auto w-full rounded-lg p-4",
+    innerWrapper: "flex flex-col flex-nowrap items-start gap-2",
+    wrapper: "mx-auto w-full border-l-4 px-4 py-2",
   },
   variants: {
     type: {
       alert: {
-        wrapper: "bg-red-300 dark:bg-red-700",
+        icon: "text-red-500",
+        wrapper: "border-red-500",
       },
       info: {
-        wrapper: "bg-blue-300 dark:bg-blue-700",
+        icon: "text-blue-500",
+        wrapper: "border-blue-500",
       },
       warn: {
-        wrapper: "bg-yellow-300 dark:bg-yellow-700",
+        icon: "text-amber-500",
+        wrapper: "border-amber-500",
       },
     },
   },
@@ -34,14 +37,14 @@ const css = styles()
 
 <div class:list={css.wrapper({ type })}>
   <div class:list={css.innerWrapper()}>
-    <div class:list={css.icon()}>
+    <div class:list={css.icon({ type })}>
       {
         type === "info" ? (
-          <Fa6SolidCircleInfo width="2rem" />
+          <Fa6SolidCircleInfo />
         ) : type === "alert" ? (
-          <Fa6SolidCircleExclamation width="2rem" />
+          <Fa6SolidCircleExclamation />
         ) : (
-          <Fa6SolidTriangleExclamation width="2rem" />
+          <Fa6SolidTriangleExclamation />
         )
       }
     </div>
