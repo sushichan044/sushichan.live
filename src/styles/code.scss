@@ -3,7 +3,8 @@
 
 code {
   display: inline-block;
-  padding: 0.25em;
+  padding: 0.125em 0.25em;
+  margin-inline: 0.25em;
   line-height: 1;
   background-color: var.$theme-color-light-darker;
   border-radius: 0.25em;
