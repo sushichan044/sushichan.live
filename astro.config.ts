@@ -3,7 +3,6 @@ import mdx from "@astrojs/mdx"
 import react from "@astrojs/react"
 import sitemap from "@astrojs/sitemap"
 import tailwind from "@astrojs/tailwind"
-import { pluginCollapsibleSections } from "@expressive-code/plugin-collapsible-sections"
 import { defineConfig, passthroughImageService } from "astro/config"
 import AutoImport from "astro-auto-import"
 import expressiveCode from "astro-expressive-code"
@@ -63,15 +62,8 @@ export default defineConfig({
     service: passthroughImageService(),
   },
   integrations: [
-    expressiveCode({
-      defaultLocale: "ja_JP",
-      plugins: [pluginCollapsibleSections()],
-      styleOverrides: {
-        codeFontFamily:
-          "'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
-      },
-      themes: ["one-dark-pro"],
-    }),
+    // expressiveCode config is moved to ec.config.mjs
+    expressiveCode(),
     ...mdxIntegrations,
     sitemap(),
     react(),
