@@ -140,7 +140,7 @@ Astro + TailwindCSSで作りました。一部の複雑なスタイルやグロ�
 <Collapse title="実装したライブラリの使用例を見る">
 Reactで簡単なカウンターを作成した例
 
-```tsx
+```tsx title="Counter.tsx"
 const Counter = () => {
   const [count, setCount] = useState(0);
   return (
@@ -162,7 +162,7 @@ Discord側のメッセージへのUI反映は、Stateが変化すると自動的
 
 ただしこの変更などの実装はReactと大きく異なります。そのうちちゃんとReactのコードリーディングをしたいです。
 
-```python
+```python title="counter.py"
 class Counter(View):
     def __init__(self):
         super().__init__()

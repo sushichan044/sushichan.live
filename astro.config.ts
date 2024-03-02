@@ -1,15 +1,14 @@
-//@ts-check
-
 import cloudflare from "@astrojs/cloudflare"
 import mdx from "@astrojs/mdx"
 import react from "@astrojs/react"
 import sitemap from "@astrojs/sitemap"
 import tailwind from "@astrojs/tailwind"
+import { pluginCollapsibleSections } from "@expressive-code/plugin-collapsible-sections"
 import { defineConfig, passthroughImageService } from "astro/config"
 import AutoImport from "astro-auto-import"
+import expressiveCode from "astro-expressive-code"
 import rehypeKatex from "rehype-katex"
 import remarkEmoji from "remark-emoji"
-import remarkCodeTitles from "remark-flexible-code-titles"
 import remarkMath from "remark-math"
 import remarkUnwrapImages from "remark-unwrap-images"
 import Icons from "unplugin-icons/vite"
@@ -49,7 +48,10 @@ export default defineConfig({
     },
   }),
   cacheDir: "./.astro-cache",
-  experimental: { clientPrerender: true, contentCollectionCache: true },
+  experimental: {
+    clientPrerender: true,
+    contentCollectionCache: true,
+  },
   image: {
     remotePatterns: [
       {
@@ -60,7 +62,22 @@ export default defineConfig({
     ],
     service: passthroughImageService(),
   },
-  integrations: [...mdxIntegrations, sitemap(), react(), tailwind()],
+  integrations: [
+    expressiveCode({
+      plugins: [pluginCollapsibleSections()],
+      styleOverrides: {
+        codeFontFamily:
+          "'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+        codeFontSize: "1rem",
+      },
+
+      themes: ["one-dark-pro"],
+    }),
+    ...mdxIntegrations,
+    sitemap(),
+    react(),
+    tailwind(),
+  ],
   markdown: {
     gfm: true,
     rehypePlugins: [rehypeKatex],
@@ -68,18 +85,19 @@ export default defineConfig({
       remarkEmoji,
       remarkMath,
       remarkUnwrapImages,
-      remarkCodeTitles,
       remarkReadingTime,
     ],
     remarkRehype: {
       footnoteBackLabel: "本文へ戻る",
       footnoteLabel: "脚注",
-      footnoteLabelProperties: { className: ["footnote-label"] },
+      footnoteLabelProperties: {
+        className: ["footnote-label"],
+      },
       footnoteLabelTagName: "div",
     },
-    shikiConfig: {
-      theme: "one-dark-pro",
-    },
+    // shikiConfig: {
+    //   theme: "one-dark-pro",
+    // },
   },
   outDir: "./dist",
   output: "hybrid",
