@@ -6,9 +6,9 @@ interface Props extends CardProps {
   muted?: boolean
   url: string
 }
-const { muted, url, ...props } = Astro.props
+const { muted, round = true, shadow = true, url, ...props } = Astro.props
 ---
 
-<Card shadow {...props}>
+<Card round={round} shadow={shadow} {...props}>
   <UrlPlayer muted={muted} url={url} />
 </Card>

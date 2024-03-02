@@ -14,13 +14,7 @@ interface Props extends CardProps {
   url: URL | string
 }
 
-const {
-  hover = true,
-  round = true,
-  shadow = true,
-  url: rawUrl,
-  ...props
-} = Astro.props
+const { round = true, shadow = true, url: rawUrl, ...props } = Astro.props
 
 const getImage = ({
   image,
@@ -57,7 +51,7 @@ const styles = tv({
 })()
 ---
 
-<Card hover={hover} round={round} shadow={shadow} {...props}>
+<Card round={round} shadow={shadow} {...props}>
   <Link
     class:list={styles.wrapper()}
     href={rawUrl}
