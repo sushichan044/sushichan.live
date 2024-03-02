@@ -64,6 +64,7 @@ export default defineConfig({
   },
   integrations: [
     expressiveCode({
+      defaultLocale: "ja_JP",
       plugins: [pluginCollapsibleSections()],
       styleOverrides: {
         codeFontFamily:
