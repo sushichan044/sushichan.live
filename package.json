@@ -20,14 +20,11 @@
     "stylelint:check": "stylelint \"src/**/*.{css,scss,astro}\" --max-warnings=0",
     "markuplint": "markuplint \"./**/*.{jsx,tsx,astro}\"",
     "markuplint:check": "markuplint --no-color --problem-only \"./**/*.{jsx,tsx,astro}\"",
-    "test": "vitest",
-    "ncu": "ncu -u --target minor",
-    "ncu:dry": "ncu --target minor",
-    "ncu:latest": "ncu --target latest"
+    "test": "vitest"
   },
-  "packageManager": "pnpm@8.15.3",
+  "packageManager": "pnpm@8.15.4",
   "engines": {
-    "node": "20.x"
+    "node": "20.x <21"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.6",
@@ -38,14 +35,16 @@
     "@astrojs/sitemap": "^3.1.1",
     "@astrojs/tailwind": "^5.1.0",
     "@astrojs/ts-plugin": "^1.5.3",
+    "@expressive-code/plugin-collapsible-sections": "^0.33.4",
     "@formkit/tempo": "^0.0.13",
     "@iconify/iconify": "^3.1.1",
     "@radix-ui/react-navigation-menu": "^1.1.4",
     "@radix-ui/react-slot": "^1.0.2",
     "@resvg/resvg-js": "^2.6.0",
     "@unocss/reset": "^0.58.5",
-    "astro": "4.4.8",
+    "astro": "4.4.9",
     "astro-auto-import": "^0.4.2",
+    "astro-expressive-code": "^0.33.4",
     "astro-seo": "^0.8.2",
     "budoux": "^0.6.2",
     "clsx": "^2.1.0",
@@ -63,7 +62,6 @@
     "reading-time": "^1.5.0",
     "rehype-katex": "^7.0.0",
     "remark-emoji": "^4.0.1",
-    "remark-flexible-code-titles": "^1.1.4",
     "remark-math": "^6.0.0",
     "remark-unwrap-images": "^4.0.0",
     "sanitize-html": "^2.12.1",
@@ -98,7 +96,6 @@
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "miniflare": "^3.20240223.0",
-    "npm-check-updates": "^16.14.15",
     "postcss-html": "^1.6.0",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
