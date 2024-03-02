@@ -14,7 +14,7 @@ const { title } = Astro.props
   <summary class="collapse-title text-xl font-medium">
     {title ? <BudouX>{title}</BudouX> : <slot name="title" />}
   </summary>
-  <div class="collapse-content">
+  <div class="collapse-content flex flex-col flex-nowrap gap-4">
     <slot />
   </div>
 </details>
