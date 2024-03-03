@@ -1,15 +1,13 @@
 ---
 title: Expressive Codeでいい感じのコードブロックを手に入れる
 description: いいコードブロックがあると技術記事の筆も進むとされています
-createdAt: 2024-03-02
+createdAt: 2024-03-03
 thumbnail: https://res.cloudinary.com/sushi-chan/image/upload/v1709402389/tech/expressive-code-is-amazing/dokyu_qb6kwk.png
 tags:
   - 雑記
   - 技術
-  - 個人サイト
   - Astro
-  - Next.js
-status: preview
+status: published
 ---
 
 **全国1億人の個人サイト制作者の皆様、こんにちは。**
@@ -41,6 +39,11 @@ status: preview
 - 主に2つの使い方がある
   - remark pluginとして利用する
   - Astro向けにはIntegrationがある
+- かなり高機能でカスタマイズも豊富
+  - ファイル名表示
+  - コードブロックの枠
+  - マーカー
+  - などなど
 
 ## どういうライブラリ？
 
@@ -123,15 +126,94 @@ import { Code } from 'astro-expressive-code/components'
 <p>Hello!</p>
 <Code code="print('Hello world!')" lang="py" />
 ```
+↓
 
 <p>Hello!</p>
 ```py
 print('Hello world!')
 ```
-<div class="divider"></div>
-
 
 ## カスタマイズしてみる
 
 デフォルトではシンタックスハイライトのみですが、上の例でも出したように、
 コードブロックで言語を指定したあとにオプションを記述していくことで豊富な表示カスタマイズができます。
+
+この記事ではその一部を紹介します。興味があれば公式ドキュメントを参照してください。
+
+<UrlCard url="https://expressive-code.com/key-features/syntax-highlighting/" />
+
+### ファイル名表示
+
+コードブロックのlang行または`<Code />`コンポーネントに`title`を渡すことでファイル名を表示できます。
+また、4行目までにファイル名を指すコメントを書くことでも同様の効果が得られます。
+
+
+````md
+```js title="example.js"
+console.log("banana")
+```
+````
+
+````md
+```js
+// example.js
+console.log("banana")
+```
+````
+この2つは
+<div class="divider"></div>
+
+```js title="example.js"
+console.log("banana")
+```
+
+同じこれになる
+
+### コードブロックの枠
+
+言語によって自動で`terminal`か`code`(エディタ風)の枠が適用されますが、`frame`オプションで指定することもできます。
+
+````md
+```js frame="terminal"
+console.log("apple")
+```
+````
+
+```js frame="terminal"
+console.log("apple")
+```
+
+### マーカー
+
+GitHubなどで使える行の強調表示やdiff風の表示、特定単語のハイライトなどができます。
+
+````md
+```js title="example.js" {7} del={3} ins={4} "str"
+const main = (str) => {
+  console.log(str)
+  console.log("apple")
+  console.log("banana")
+}
+
+main("Hello! I like...")
+```
+````
+
+```js title="example.js" {7} del={3} ins={4} "str"
+const main = (str) => {
+  console.log(str)
+  console.log("apple")
+  console.log("banana")
+}
+
+main("Hello! I like...")
+```
+
+## おわりに
+
+とここまで駆け足で紹介してきましたが、Expressive Codeには他にも様々な機能がある上にプラグインを書けばどこまでも拡張できます。
+導入も非常にスムーズで、特にAstroを使っている場合は15分もあれば置き換えられるでしょう。
+
+簡単かつ手軽に使えて、Astroの公式ドキュメントにも採用されているExpressive Code、ぜひ一度試してみてください。
+
+それではまたどこかで。
