@@ -35,6 +35,6 @@ const size = declareLet(() => {
   sizes="(max-width: 768px) 100vw, 50vw"
   src={src}
   width={size.width}
-  {...priority && { fetchpriority: "high", loading: "eager" }}
+  {...priority && { fetchpriority: "high" }}
   {...props}
 />
