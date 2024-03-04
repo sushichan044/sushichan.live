@@ -6,13 +6,20 @@ import Fa6SolidCircleExclamation from "~icons/fa6-solid/circle-exclamation"
 import Fa6SolidCircleInfo from "~icons/fa6-solid/circle-info"
 import Fa6SolidTriangleExclamation from "~icons/fa6-solid/triangle-exclamation"
 import { type VariantProps, tv } from "tailwind-variants"
-export type Props = RequiredKey<VariantProps<typeof styles>, "type">
-const { type } = Astro.props
+export type Props = RequiredKey<VariantProps<typeof styles>, "type"> & {
+  title?: string | undefined
+}
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const { title, type, ...variants } = Astro.props
 
 const styles = tv({
   slots: {
     icon: "",
     innerWrapper: "flex flex-col flex-nowrap items-start gap-2",
+    title:
+      "align-baseline text-base font-bold text-zinc-600 dark:text-zinc-400",
+    titleWrapper:
+      "flex flex-row flex-nowrap items-center gap-x-1 leading-tight",
     wrapper: "mx-auto w-full border-l-4 px-4 py-2",
   },
   variants: {
@@ -32,22 +39,39 @@ const styles = tv({
     },
   },
 })
-const css = styles()
+const css = styles({ type })
 ---
 
-<aside class:list={css.wrapper({ type })}>
-  <div class:list={css.innerWrapper()}>
-    {
-      type === "info" ? (
-        <Fa6SolidCircleInfo class:list={css.icon({ type })} />
-      ) : type === "alert" ? (
-        <Fa6SolidCircleExclamation class:list={css.icon({ type })} />
-      ) : (
-        <Fa6SolidTriangleExclamation class:list={css.icon({ type })} />
-      )
-    }
-    <BudouX>
-      <slot />
-    </BudouX>
-  </div>
+<aside class:list={css.wrapper()}>
+  <dl class:list={css.innerWrapper()}>
+    <dt class:list={css.titleWrapper()}>
+      {
+        type === "info" ? (
+          <Fa6SolidCircleInfo
+            aria-label={title ?? type}
+            class:list={css.icon()}
+            height={24}
+          />
+        ) : type === "alert" ? (
+          <Fa6SolidCircleExclamation
+            aria-label={title ?? type}
+            class:list={css.icon()}
+            height={24}
+          />
+        ) : (
+          <Fa6SolidTriangleExclamation
+            aria-label={title ?? type}
+            class:list={css.icon()}
+            height={24}
+          />
+        )
+      }
+      {title && <strong class:list={css.title()}>{title}</strong>}
+    </dt>
+    <dd>
+      <BudouX>
+        <slot />
+      </BudouX>
+    </dd>
+  </dl>
 </aside>
