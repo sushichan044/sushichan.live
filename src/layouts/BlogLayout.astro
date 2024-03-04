@@ -4,7 +4,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro"
 ---
 
 {/* temporary disable ViewTransitions: maybe buggy in latest chrome */}
-<BaseLayout useViewTransitions={false}>
+<BaseLayout useViewTransitions>
   <slot name="seo" slot="seo" />
   <slot />
   <TransitionProgress />
