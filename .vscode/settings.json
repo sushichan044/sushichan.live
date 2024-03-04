@@ -6,9 +6,6 @@
     "source.fixAll.stylelint": "explicit",
     "source.fixAll.markdownlint": "explicit"
   },
-  "[mdx]": {
-    "editor.defaultFormatter": "unifiedjs.vscode-mdx"
-  },
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "files.trimTrailingWhitespace": true,
