@@ -33,8 +33,8 @@ dependencies:
     specifier: ^0.33.4
     version: 0.33.4
   '@formkit/tempo':
-    specifier: ^0.0.13
-    version: 0.0.13
+    specifier: ^0.0.15
+    version: 0.0.15
   '@iconify/iconify':
     specifier: ^3.1.1
     version: 3.1.1
@@ -1627,8 +1627,8 @@ packages:
     resolution: {integrity: sha512-+KpH+QxZU7O4675t3mnkQKcZZg56u+K/Ct2K+N2AZYNVK8kyeo/bI18tI8aPm3tvNNRyTWfj6s5tnGNlcbQRsA==}
     engines: {node: '>=14'}
 
-  /@formkit/tempo@0.0.13:
-    resolution: {integrity: sha512-DV13jzjwcjvIqQh1j7MJikd8s7+/bIqKB65zJObUszlIzE22YwLcoPqhB+qLwGtcAxTRTD5Ofy5DFTGW1FQpnA==}
+  /@formkit/tempo@0.0.15:
+    resolution: {integrity: sha512-jDz5yrCAG2gPoalgoqKUtJWOgdLGCtHgBYLZBRUjAUpvX5DMBAJz2QqyfTdLhXCfhfOrugl2FQtSaBxIPcKcyw==}
     dev: false
 
   /@humanwhocodes/config-array@0.11.14:
