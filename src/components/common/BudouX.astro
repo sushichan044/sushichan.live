@@ -1,5 +1,4 @@
 ---
-import s from "@/components/common/budoux.module.scss"
 import SafeHTML from "@/components/utils/SafeHTML.astro"
 import { applyBudouXToHTML } from "@/utils/html"
 
@@ -7,9 +6,8 @@ const html = await Astro.slots.render("default")
 ---
 
 <SafeHTML
-  afterSanitize={(html) => applyBudouXToHTML(html)}
+  afterSanitize={applyBudouXToHTML}
   as="Fragment"
-  class:list={s.root}
   rawHTML={html}
   __dangerouslyDisableSanitizer
 />
