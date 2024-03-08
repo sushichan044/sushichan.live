@@ -3,7 +3,6 @@ import type { CollectionEntry } from "astro:content"
 import type { ReadTimeResults } from "reading-time"
 
 import BudouX from "@/components/common/BudouX.astro"
-import Icon from "@/components/common/Icon.astro"
 import Link from "@/components/element/Link.astro"
 import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
 import Message from "@/components/ui/Message.astro"
@@ -12,6 +11,9 @@ import { getPostOgpImage } from "@/features/blog/utils/post"
 import { dtTool } from "@/lib/date"
 import { declareLet } from "@/utils/declareLet"
 import { roundReadTime } from "@/utils/markdown"
+import Fa6SolidArrowsRotate from "~icons/fa6-solid/arrows-rotate"
+import Fa6SolidCalendar from "~icons/fa6-solid/calendar"
+import Fa6SolidClock from "~icons/fa6-solid/clock"
 import { tv } from "tailwind-variants"
 
 type Props = {
@@ -39,8 +41,9 @@ const styles = tv({
     icon: "text-blue-500",
     image: "size-full object-cover",
     imageWrapper: "aspect-16/9 overflow-hidden rounded-lg",
-    metaData: "flex flex-row flex-nowrap items-center justify-center gap-1",
-    metaDataWrapper: "flex flex-row flex-wrap gap-x-4 gap-y-[6px] text-sm",
+    metaData:
+      "flex flex-row flex-nowrap items-center justify-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400",
+    metaDataWrapper: "flex flex-row flex-wrap gap-x-4 gap-y-[6px]",
     root: "flex flex-col flex-nowrap place-content-between gap-4",
     textWrapper: "flex flex-col flex-nowrap gap-2",
     title: "text-xl font-bold md:text-4xl",
@@ -76,7 +79,7 @@ const styles = tv({
     <div class:list={styles.textWrapper()}>
       <div class:list={styles.metaDataWrapper()}>
         <div class:list={styles.metaData()}>
-          <Icon class:list={styles.icon()} icon="fa6-solid:pen" size="sm" />
+          <Fa6SolidCalendar />
           <time datetime={createdAtDate.toISOString()}
             >{dtTool.formatInJst(createdAtDate, "YYYY/MM/DD")}</time
           >
@@ -84,16 +87,9 @@ const styles = tv({
         {
           updatedAtDate && (
             <div class:list={styles.metaData()}>
-              <Icon
-                class:list={styles.icon()}
-                icon="fa6-solid:arrow-rotate-right"
-                size="sm"
-              />
+              <Fa6SolidArrowsRotate />
               <time datetime={updatedAtDate.toISOString()}>
-                {dtTool.formatInJst(
-                  dtTool.replaceUtcWithJst(updatedAtDate),
-                  "YYYY/MM/DD",
-                )}
+                {dtTool.formatInJst(updatedAtDate, "YYYY/MM/DD")}
               </time>
             </div>
           )
@@ -101,11 +97,7 @@ const styles = tv({
         {
           roundedMinutesRead !== undefined && (
             <div class:list={styles.metaData()}>
-              <Icon
-                class:list={styles.icon()}
-                icon="fa6-solid:clock"
-                size="sm"
-              />
+              <Fa6SolidClock />
               <span>{roundedMinutesRead} min to read</span>
             </div>
           )
