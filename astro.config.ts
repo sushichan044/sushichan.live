@@ -50,6 +50,7 @@ export default defineConfig({
   experimental: {
     clientPrerender: true,
     contentCollectionCache: true,
+    contentCollectionJsonSchema: true,
   },
   image: {
     remotePatterns: [
