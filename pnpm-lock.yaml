@@ -144,7 +144,7 @@ devDependencies:
     version: 2.2.191
   '@textlint/textlint-plugin-markdown':
     specifier: ^14.0.3
-    version: 14.0.3
+    version: 14.0.4
   '@types/eslint':
     specifier: 8.56.5
     version: 8.56.5
@@ -2434,6 +2434,10 @@ packages:
     resolution: {integrity: sha512-umIMn3yy2arl9QHH2fEhCxVgbLbQFC8NpzYbAzOQ4Y5m+p0RQaKClHtHXnDqsXHp6WKAVAXxcuFolW2SZMnhDQ==}
     dev: true
 
+  /@textlint/ast-node-types@14.0.4:
+    resolution: {integrity: sha512-O7L1pgle030Co9ou1+6e2/6GgcIpKgqwEc0XiBabokc22Yl0QEkrf00K/usBDmSx+wo1ficWBux2mfBEF0jnDA==}
+    dev: true
+
   /@textlint/ast-tester@14.0.3:
     resolution: {integrity: sha512-TNArbA0a/9nxJadZDsnfV6I4kB6C+Vb6BmFbDxBglS/NWtFqI9SYPV2tRhGBnTHFyTl5bgyzrAyb2FNSxbrSuQ==}
     dependencies:
@@ -2521,10 +2525,10 @@ packages:
       - supports-color
     dev: true
 
-  /@textlint/markdown-to-ast@14.0.3:
-    resolution: {integrity: sha512-+CkWt9a9pd1+Rl37dqiiEGQ2f2faLX/vd7qiV+OTfkKUyHQ0HkOLK7sfbPpTx5ee5+5fKVMTStTTHrFZz5mlBw==}
+  /@textlint/markdown-to-ast@14.0.4:
+    resolution: {integrity: sha512-D9UUxnRJoNROVjOa9bhoQPDdRvlvS/xP3MJo0Kl6b/mJFi0dOlW31WUfpOFjZkp4uXkL+oo0ji7AMnmV6JORsQ==}
     dependencies:
-      '@textlint/ast-node-types': 14.0.3
+      '@textlint/ast-node-types': 14.0.4
       debug: 4.3.4
       mdast-util-gfm-autolink-literal: 0.1.3
       remark-footnotes: 3.0.0
@@ -2569,10 +2573,10 @@ packages:
       '@textlint/ast-node-types': 14.0.3
     dev: true
 
-  /@textlint/textlint-plugin-markdown@14.0.3:
-    resolution: {integrity: sha512-1zwiwmayFRIElGdeCUXCJjlP+mpZDCCtcsNqB+07i/xi3UlSFM3NGRUzJ5CYQbjJ7Nrb3kmA5FKxB7xTMdZH4w==}
+  /@textlint/textlint-plugin-markdown@14.0.4:
+    resolution: {integrity: sha512-mqQieI9U5GTRTjkK4Cj57Axl6fVloaA8g0+sCsp3TjmNWyEgGBvt3aw+FIUiFTvheg9L3RGe/aXgvp5ORADOAA==}
     dependencies:
-      '@textlint/markdown-to-ast': 14.0.3
+      '@textlint/markdown-to-ast': 14.0.4
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -10562,7 +10566,7 @@ packages:
       '@textlint/kernel': 14.0.3
       '@textlint/linter-formatter': 14.0.3
       '@textlint/module-interop': 14.0.3
-      '@textlint/textlint-plugin-markdown': 14.0.3
+      '@textlint/textlint-plugin-markdown': 14.0.4
       '@textlint/textlint-plugin-text': 14.0.3
       '@textlint/types': 14.0.3
       '@textlint/utils': 14.0.3
@@ -10669,10 +10673,6 @@ packages:
   /trough@1.0.5:
     resolution: {integrity: sha512-rvuRbTarPXmMb79SmzEp8aqXNKcK+y0XaB298IXueQ8I2PsrATcPBCSPyK/dDNa2iWOhKlfNnOjdAOTBU/nkFA==}
     dev: true
-
-  /trough@2.1.0:
-    resolution: {integrity: sha512-AqTiAOLcj85xS7vQ8QkAV41hPDIJ71XJB4RCUrzo/1GM2CQwhkJGaf9Hgr7BOugMRpgGUrqRg/DrBDl4H40+8g==}
-    dev: false
 
   /trough@2.2.0:
     resolution: {integrity: sha512-tmMpK00BjZiUyVyvrBK7knerNgmgvcV/KLVyuma/SC+TQN167GrMRciANTz09+k3zW8L8t60jWO1GpfkZdjTaw==}
@@ -10925,7 +10925,7 @@ packages:
       devlop: 1.1.0
       extend: 3.0.2
       is-plain-obj: 4.1.0
-      trough: 2.1.0
+      trough: 2.2.0
       vfile: 6.0.1
     dev: false
 
