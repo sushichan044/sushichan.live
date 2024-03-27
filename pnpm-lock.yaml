@@ -248,8 +248,8 @@ devDependencies:
     specifier: ^2.8.0
     version: 2.8.0(stylelint@15.11.0)
   stylelint-value-no-unknown-custom-properties:
-    specifier: ^5.0.0
-    version: 5.0.0(stylelint@15.11.0)
+    specifier: ^6.0.0
+    version: 6.0.1(stylelint@15.11.0)
   textlint:
     specifier: ^14.0.4
     version: 14.0.4
@@ -4886,7 +4886,7 @@ packages:
       has-property-descriptors: 1.0.1
       has-proto: 1.0.1
       has-symbols: 1.0.3
-      hasown: 2.0.0
+      hasown: 2.0.2
       internal-slot: 1.0.6
       is-array-buffer: 3.0.2
       is-callable: 1.2.7
@@ -5022,7 +5022,7 @@ packages:
     dependencies:
       get-intrinsic: 1.2.2
       has-tostringtag: 1.0.0
-      hasown: 2.0.0
+      hasown: 2.0.2
     dev: true
 
   /es-set-tostringtag@2.0.3:
@@ -5037,7 +5037,7 @@ packages:
   /es-shim-unscopables@1.0.2:
     resolution: {integrity: sha512-J3yBRXCzDu4ULnQwxyToo/OjdMx6akgVC7K6few0a7F/0wLtmKKN7I73AH5T2836UuXRqN7Qg+IIUw/+YJksRw==}
     dependencies:
-      hasown: 2.0.0
+      hasown: 2.0.2
     dev: true
 
   /es-to-primitive@1.2.1:
@@ -5821,7 +5821,7 @@ packages:
       function-bind: 1.1.2
       has-proto: 1.0.1
       has-symbols: 1.0.3
-      hasown: 2.0.0
+      hasown: 2.0.2
     dev: true
 
   /get-intrinsic@1.2.4:
@@ -6554,7 +6554,7 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       get-intrinsic: 1.2.2
-      hasown: 2.0.0
+      hasown: 2.0.2
       side-channel: 1.0.4
     dev: true
 
@@ -10567,11 +10567,11 @@ packages:
       stylelint: 15.11.0(typescript@5.4.3)
     dev: true
 
-  /stylelint-value-no-unknown-custom-properties@5.0.0(stylelint@15.11.0):
-    resolution: {integrity: sha512-nz6Dok3IdcXDjJXevLwkdc9bgXkv/jJ9FmBWrPWVVHX+iF402zywsNQymTg8VH45Hpf/Sg/BD6Kbm+qOBlmhag==}
-    engines: {node: ^16 || ^18 || ^20}
+  /stylelint-value-no-unknown-custom-properties@6.0.1(stylelint@15.11.0):
+    resolution: {integrity: sha512-N60PTdaTknB35j6D4FhW0GL2LlBRV++bRpXMMldWMQZ240yFQaoltzlLY4lXXs7Z0J5mNUYZQ/gjyVtU2DhCMA==}
+    engines: {node: '>=18.12.0'}
     peerDependencies:
-      stylelint: 10 - 15
+      stylelint: '>=16'
     dependencies:
       postcss-value-parser: 4.2.0
       resolve: 1.22.8
