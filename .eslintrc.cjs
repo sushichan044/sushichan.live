@@ -59,7 +59,7 @@ module.exports = {
     "no-restricted-imports": [
       "error",
       {
-        patterns: ["./", "../", "~/"],
+        patterns: ["../", "~/"],
       },
     ],
     "perfectionist/sort-union-types": [
@@ -68,6 +68,14 @@ module.exports = {
         "type": "natural",
         "order": "asc",
         "nullable-last": true,
+      },
+    ],
+    "perfectionist/sort-object-types": [
+      "error",
+      {
+        "type": "natural",
+        "order": "asc",
+        "partition-by-new-line": true,
       },
     ],
     "react/jsx-boolean-value": "warn",
