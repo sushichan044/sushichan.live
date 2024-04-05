@@ -71,11 +71,11 @@
     "tailwind-variants": "^0.2.1",
     "tailwindcss": "^3.4.3",
     "undici": "^6.11.1",
-    "wrangler": "^3.48.0"
+    "wrangler": "^3.47.1"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20240405.0",
-    "@iconify/json": "^2.2.198",
+    "@cloudflare/workers-types": "^4.20240404.0",
+    "@iconify/json": "^2.2.197",
     "@textlint/textlint-plugin-markdown": "^14.0.4",
     "@types/eslint": "8.56.5",
     "@types/node": "20.11.27",
