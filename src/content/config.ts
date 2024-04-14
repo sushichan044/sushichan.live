@@ -19,6 +19,7 @@ const posts = defineCollection({
       thumbnail: z.string().url(),
       // 記事ファイルすべてにtypeフィールドを追加するのが苦しいので、
       // 暗黙的にblogを追加する
+      // .default()は暗黙的にundefinedを許容するので、optional()で明示的に許容する
       type: z.literal("blog").optional().default("blog"),
     }),
   ),
@@ -30,6 +31,7 @@ const presentations = defineCollection({
     z.object({
       // 登壇ファイルすべてにtypeフィールドを追加するのが苦しいので、
       // 暗黙的にpresentationを追加する
+      // .default()は暗黙的にundefinedを許容するので、optional()で明示的に許容する
       type: z.literal("presentation").optional().default("presentation"),
       url: z.string().url(),
     }),
