@@ -9,6 +9,7 @@
     "build": "astro build",
     "preview": "wrangler pages dev ./dist",
     "astro": "astro",
+    "astro:types": "astro sync",
     "prepare": "husky",
     "eslint": "eslint ./src/**/*.{js,cjs,mjs,ts,cjs,mjs,jsx,tsx,astro} --ignore-path .gitignore",
     "eslint:fix": "eslint --fix ./src/**/*.{js,cjs,mjs,ts,cjs,mjs,jsx,tsx,astro} --ignore-path .gitignore",
