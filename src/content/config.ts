@@ -17,7 +17,9 @@ const posts = defineCollection({
         .enum(["draft", "published", "private", "preview"])
         .default("draft"),
       thumbnail: z.string().url(),
-      type: z.literal("blog"),
+      // 記事ファイルすべてにtypeフィールドを追加するのが苦しいので、
+      // 暗黙的にblogを追加する
+      type: z.literal("blog").optional().default("blog"),
     }),
   ),
   type: "content",
@@ -26,7 +28,9 @@ const posts = defineCollection({
 const presentations = defineCollection({
   schema: baseSchema.merge(
     z.object({
-      type: z.literal("presentation"),
+      // 登壇ファイルすべてにtypeフィールドを追加するのが苦しいので、
+      // 暗黙的にpresentationを追加する
+      type: z.literal("presentation").optional().default("presentation"),
       url: z.string().url(),
     }),
   ),
