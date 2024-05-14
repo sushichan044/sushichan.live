@@ -51,6 +51,11 @@ export default defineConfig({
     clientPrerender: true,
     contentCollectionCache: true,
     contentCollectionJsonSchema: true,
+    security: {
+      csrfProtection: {
+        origin: true,
+      },
+    },
   },
   image: {
     remotePatterns: [
