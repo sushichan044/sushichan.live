@@ -23,15 +23,15 @@
     "markuplint:check": "markuplint --no-color --problem-only \"./**/*.{jsx,tsx,astro}\"",
     "test": "vitest"
   },
-  "packageManager": "pnpm@8.15.8",
+  "packageManager": "pnpm@9.1.1",
   "engines": {
     "node": "20.x <21"
   },
   "dependencies": {
     "@astrojs/check": "^0.6.0",
     "@astrojs/cloudflare": "^9.2.1",
-    "@astrojs/mdx": "2.2.0",
-    "@astrojs/react": "^3.3.0",
+    "@astrojs/mdx": "3.0.0",
+    "@astrojs/react": "^3.3.4",
     "@astrojs/rss": "4.0.5",
     "@astrojs/sitemap": "^3.1.4",
     "@astrojs/tailwind": "^5.1.0",
@@ -43,9 +43,9 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@resvg/resvg-js": "^2.6.2",
     "@unocss/reset": "^0.60.2",
-    "astro": "4.5.2",
+    "astro": "4.8.3",
     "astro-auto-import": "^0.4.2",
-    "astro-expressive-code": "^0.33.5",
+    "astro-expressive-code": "^0.35.3",
     "astro-seo": "^0.8.3",
     "budoux": "^0.6.2",
     "clsx": "^2.1.1",
@@ -71,16 +71,16 @@
     "tailwind-merge": "^2.3.0",
     "tailwind-variants": "^0.2.1",
     "tailwindcss": "^3.4.3",
-    "undici": "^6.13.0",
-    "wrangler": "^3.50.0"
+    "undici": "^6.16.1",
+    "wrangler": "^3.55.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240512.0",
     "@double-great/stylelint-a11y": "^3.0.2",
     "@iconify/json": "^2.2.210",
     "@textlint/textlint-plugin-markdown": "^14.0.4",
-    "@types/eslint": "8.56.5",
-    "@types/node": "20.11.27",
+    "@types/eslint": "8.56.10",
+    "@types/node": "20.12.12",
     "@types/nprogress": "^0.2.3",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
