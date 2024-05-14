@@ -80,7 +80,7 @@
     "@iconify/json": "^2.2.210",
     "@textlint/textlint-plugin-markdown": "^14.0.4",
     "@types/eslint": "8.56.5",
-    "@types/node": "20.11.27",
+    "@types/node": "20.12.12",
     "@types/nprogress": "^0.2.3",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
