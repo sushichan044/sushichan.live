@@ -1,12 +1,12 @@
 ---
-import Card, { type CardProps } from "@/components/common/Card.astro"
+import Card, { type CardProps } from "@/components/common/Card.astro";
 
 interface Props extends CardProps {
-  id: string
+  id: string;
 }
 
-const { id, ...props } = Astro.props
-const src = `https://adventar.org/calendars/${id}/embed`
+const { id, ...props } = Astro.props;
+const src = `https://adventar.org/calendars/${id}/embed`;
 ---
 
 <Card {...props}>

@@ -1,21 +1,21 @@
-"use client"
-import type { ComponentProps } from "react"
+"use client";
+import type { ComponentProps } from "react";
 
-import styles from "@/components/react/layout/navigation/styles.module.scss"
-import LinkStyle from "@/components/style/link"
-import * as NavMenu from "@radix-ui/react-navigation-menu"
-import React from "react"
+import styles from "@/components/react/layout/navigation/styles.module.scss";
+import LinkStyle from "@/components/style/link";
+import * as NavMenu from "@radix-ui/react-navigation-menu";
+import React from "react";
 
-type NavLinkProps = ComponentProps<typeof NavMenu.Link> & {
-  topPath: string
-}
+type NavLinkProps = {
+  topPath: string;
+} & ComponentProps<typeof NavMenu.Link>;
 const NavLink: React.FC<NavLinkProps> = ({
   children,
   href,
   topPath,
   ...props
 }) => {
-  const isActive = topPath === href
+  const isActive = topPath === href;
 
   return (
     <NavMenu.Link
@@ -31,8 +31,8 @@ const NavLink: React.FC<NavLinkProps> = ({
         {children}
       </a>
     </NavMenu.Link>
-  )
-}
+  );
+};
 
 const NavigationMenu = ({ topPath }: { topPath: string }) => {
   return (
@@ -55,7 +55,7 @@ const NavigationMenu = ({ topPath }: { topPath: string }) => {
         </NavMenu.Item>
       </NavMenu.List>
     </NavMenu.Root>
-  )
-}
+  );
+};
 
-export default NavigationMenu
+export default NavigationMenu;

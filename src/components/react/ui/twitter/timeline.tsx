@@ -1,19 +1,20 @@
-"use client"
+"use client";
 
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef } from "react";
 
 type TimelineProps = {
-  id: string
-  theme: "dark" | "light"
-}
+  id: string;
+  theme: "dark" | "light";
+};
 
 const Timeline: React.FC<TimelineProps> = ({ id, theme }) => {
-  const ref = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // @ts-expect-error twttr is not defined
-    window.twttr?.widgets.load(ref.current)
-  }, [id])
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+    window.twttr?.widgets.load(ref.current);
+  }, [id]);
 
   return (
     <div
@@ -23,11 +24,11 @@ const Timeline: React.FC<TimelineProps> = ({ id, theme }) => {
       }}
       ref={ref}
     />
-  )
-}
+  );
+};
 
 const generateEmbedHtml = (id: string, theme: "dark" | "light"): string => {
-  return `<a class="twitter-timeline" data-height="450" data-lang="ja" data-theme="${theme}" href="https://twitter.com/${id}?ref_src=twsrc%5Etfw">Tweets by ${id}</a>`
-}
+  return `<a class="twitter-timeline" data-height="450" data-lang="ja" data-theme="${theme}" href="https://twitter.com/${id}?ref_src=twsrc%5Etfw">Tweets by ${id}</a>`;
+};
 
-export default Timeline
+export default Timeline;

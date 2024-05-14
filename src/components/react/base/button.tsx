@@ -1,20 +1,20 @@
-"use client"
+"use client";
 
-import type { VariantProps } from "tailwind-variants"
+import type { VariantProps } from "tailwind-variants";
 
-import ButtonStyle from "@/components/style/button"
-import React from "react"
+import ButtonStyle from "@/components/style/button";
+import React from "react";
 
-type ButtonProps = Omit<React.ComponentProps<"button">, "role"> & {
-  role: React.HTMLAttributes<HTMLButtonElement>["role"]
-}
+type ButtonProps = {
+  role: React.HTMLAttributes<HTMLButtonElement>["role"];
+} & Omit<React.ComponentProps<"button">, "role">;
 
-type ButtonVariantProps = VariantProps<typeof ButtonStyle>
+type ButtonVariantProps = VariantProps<typeof ButtonStyle>;
 
-type Props = ButtonProps & {
-  children: React.ReactNode
-  variants?: ButtonVariantProps
-}
+type Props = {
+  children: React.ReactNode;
+  variants?: ButtonVariantProps;
+} & ButtonProps;
 
 const Button = ({
   children,
@@ -31,7 +31,7 @@ const Button = ({
     >
       {children}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

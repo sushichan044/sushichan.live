@@ -1,2 +1,2 @@
-// eslint-disable-next-line no-restricted-imports
-export { default } from "./config/prettier/astro.mjs"
+// prettier.config.mjs
+export { default } from "@virtual-live-lab/prettier-config/astro";

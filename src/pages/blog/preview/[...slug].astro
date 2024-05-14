@@ -1,44 +1,44 @@
 ---
-import type { CollectionEntry } from "astro:content"
-import type { ReadTimeResults } from "reading-time"
+import type { CollectionEntry } from "astro:content";
+import type { ReadTimeResults } from "reading-time";
 
-import ContentLayout from "@/components/common/ContentLayout.astro"
-import PageAlertWrapper from "@/components/ui/PageAlertWrapper.astro"
-import SafeHTML from "@/components/utils/SafeHTML.astro"
-import BlogFrontMatter from "@/features/blog/components/BlogFrontMatter.astro"
-import BlogRenderer from "@/features/blog/components/BlogRenderer.astro"
-import BlogStyle from "@/features/blog/components/BlogStyle.astro"
-import { getAllPreviewPosts } from "@/features/blog/utils/post"
-import BlogPostSEO from "@/features/meta/BlogPostSEO.astro"
-import BlogLayout from "@/layouts/BlogLayout.astro"
-import { parseMarkdownArray } from "@/utils/markdown"
+import ContentLayout from "@/components/common/ContentLayout.astro";
+import PageAlertWrapper from "@/components/ui/PageAlertWrapper.astro";
+import SafeHTML from "@/components/utils/SafeHTML.astro";
+import BlogFrontMatter from "@/features/blog/components/BlogFrontMatter.astro";
+import BlogRenderer from "@/features/blog/components/BlogRenderer.astro";
+import BlogStyle from "@/features/blog/components/BlogStyle.astro";
+import { getAllPreviewPosts } from "@/features/blog/utils/post";
+import BlogPostSEO from "@/features/meta/BlogPostSEO.astro";
+import BlogLayout from "@/layouts/BlogLayout.astro";
+import { parseMarkdownArray } from "@/utils/markdown";
 
 export async function getStaticPaths() {
-  const previewEntries = await getAllPreviewPosts()
+  const previewEntries = await getAllPreviewPosts();
   return previewEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
-  }))
+  }));
 }
 
 type Props = {
-  entry: CollectionEntry<"posts">
-}
+  entry: CollectionEntry<"posts">;
+};
 
-const { entry } = Astro.props
-const renderResult = await entry.render()
+const { entry } = Astro.props;
+const renderResult = await entry.render();
 
-const showAlert = entry.data.alert && entry.data.alert.length > 0
+const showAlert = entry.data.alert && entry.data.alert.length > 0;
 
 const readTime = renderResult.remarkPluginFrontmatter.minutesRead as
   | ReadTimeResults
-  | undefined
-const alerts = entry.data.alert || []
-const parsedAlerts = await parseMarkdownArray(alerts)
+  | undefined;
+const alerts = entry.data.alert ?? [];
+const parsedAlerts = await parseMarkdownArray(alerts);
 ---
 
 <BlogLayout>
-  <BlogPostSEO entry={entry} slot="seo" isPreview />
+  <BlogPostSEO entry={entry} isPreview slot="seo" />
   <ContentLayout asElement="article">
     <BlogFrontMatter entry={entry} readTime={readTime} />
     <div class="divider"></div>

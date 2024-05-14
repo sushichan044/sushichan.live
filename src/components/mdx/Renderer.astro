@@ -1,14 +1,14 @@
 ---
-import type { AstroComponentFactory } from "astro/runtime/server/index.js"
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 
-import Link from "@/components/element/Link.astro"
-import Image from "@/components/mdx/Image.astro"
+import Link from "@/components/element/Link.astro";
+import Image from "@/components/mdx/Image.astro";
 
 type Props = {
-  Content: AstroComponentFactory
-}
+  Content: AstroComponentFactory;
+};
 
-const { Content } = Astro.props
+const { Content } = Astro.props;
 ---
 
 <Content components={{ a: Link, img: Image }} />

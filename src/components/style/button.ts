@@ -1,4 +1,4 @@
-import { tv } from "tailwind-variants"
+import { tv } from "tailwind-variants";
 
 const ButtonStyle = tv({
   base: "text-light duration-200 dark:text-dark",
@@ -35,6 +35,6 @@ const ButtonStyle = tv({
       "xl": "rounded-xl px-5 py-4 text-xl",
     },
   },
-})
+});
 
-export default ButtonStyle
+export default ButtonStyle;

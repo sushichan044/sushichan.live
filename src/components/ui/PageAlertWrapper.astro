@@ -1,13 +1,13 @@
 ---
-import PageAlert from "@/components/ui/PageAlert.astro"
+import PageAlert from "@/components/ui/PageAlert.astro";
 
 type Props = {
-  backIfNewTab?: string
-}
+  backIfNewTab?: string;
+};
 
-const { backIfNewTab } = Astro.props
+const { backIfNewTab } = Astro.props;
 
-const includeNetabare = Astro.slots.has("alert")
+const includeNetabare = Astro.slots.has("alert");
 ---
 
 {/* pass alert modal content as <div slot="alert" /> */}

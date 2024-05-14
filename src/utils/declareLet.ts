@@ -5,6 +5,6 @@
  * @param value A function that returns the initial value of the variable.
  * @returns The initialized variable.
  */
-const declareLet: <T>(value: () => T) => T = (value) => value()
+const declareLet: <T>(value: () => T) => T = (value) => value();
 
-export { declareLet }
+export { declareLet };

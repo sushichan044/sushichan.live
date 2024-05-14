@@ -1,39 +1,39 @@
 ---
-import type { CollectionEntry } from "astro:content"
-import type { ReadTimeResults } from "reading-time"
+import type { CollectionEntry } from "astro:content";
+import type { ReadTimeResults } from "reading-time";
 
-import BudouX from "@/components/common/BudouX.astro"
-import Link from "@/components/element/Link.astro"
-import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
-import Message from "@/components/ui/Message.astro"
-import TagLinkFlex from "@/features/blog/components/tag/TagLinkFlex.astro"
-import { getPostOgpImage } from "@/features/blog/utils/post"
-import { dtTool } from "@/lib/date"
-import { declareLet } from "@/utils/declareLet"
-import { roundReadTime } from "@/utils/markdown"
-import Fa6SolidArrowsRotate from "~icons/fa6-solid/arrows-rotate"
-import Fa6SolidCalendar from "~icons/fa6-solid/calendar"
-import Fa6SolidClock from "~icons/fa6-solid/clock"
-import { tv } from "tailwind-variants"
+import BudouX from "@/components/common/BudouX.astro";
+import Link from "@/components/element/Link.astro";
+import CloudinaryImage from "@/components/ui/CloudinaryImage.astro";
+import Message from "@/components/ui/Message.astro";
+import TagLinkFlex from "@/features/blog/components/tag/TagLinkFlex.astro";
+import { getPostOgpImage } from "@/features/blog/utils/post";
+import { dtTool } from "@/lib/date";
+import { declareLet } from "@/utils/declareLet";
+import { roundReadTime } from "@/utils/markdown";
+import Fa6SolidArrowsRotate from "~icons/fa6-solid/arrows-rotate";
+import Fa6SolidCalendar from "~icons/fa6-solid/calendar";
+import Fa6SolidClock from "~icons/fa6-solid/clock";
+import { tv } from "tailwind-variants";
 
 type Props = {
-  entry: CollectionEntry<"posts">
-  readTime?: ReadTimeResults
-}
+  entry: CollectionEntry<"posts">;
+  readTime?: ReadTimeResults;
+};
 
-const { entry, readTime } = Astro.props
+const { entry, readTime } = Astro.props;
 
-const roundedMinutesRead = roundReadTime(readTime, 1)
-const createdAtDate = dtTool.replaceUtcWithJst(entry.data.createdAt)
+const roundedMinutesRead = roundReadTime(readTime, 1);
+const createdAtDate = dtTool.replaceUtcWithJst(entry.data.createdAt);
 const updatedAtDate = declareLet(() => {
   if (entry.data.updatedAt) {
-    return dtTool.replaceUtcWithJst(entry.data.updatedAt)
+    return dtTool.replaceUtcWithJst(entry.data.updatedAt);
   }
-})
+});
 const OGPUrl = getPostOgpImage(entry.slug, {
   baseUrl: Astro.url,
   extension: "png",
-})
+});
 
 const styles = tv({
   slots: {
@@ -48,7 +48,7 @@ const styles = tv({
     textWrapper: "flex flex-col flex-nowrap gap-2",
     title: "text-xl font-bold md:text-4xl",
   },
-})()
+})();
 ---
 
 <div
@@ -60,9 +60,9 @@ const styles = tv({
     <CloudinaryImage
       alt={`thumbnail of ${entry.slug}`}
       class:list={styles.image()}
+      priority
       quality={100}
       src={entry.data.thumbnail}
-      priority
     />
   </div>
   <div class:list={styles.contentWrapper()}>

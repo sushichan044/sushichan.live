@@ -1,22 +1,22 @@
 ---
-import type { CollectionEntry } from "astro:content"
+import type { CollectionEntry } from "astro:content";
 
-import BudouX from "@/components/common/BudouX.astro"
-import Link from "@/components/element/Link.astro"
-import CloudinaryImage from "@/components/ui/CloudinaryImage.astro"
-import { dtTool } from "@/lib/date"
-import { tv } from "tailwind-variants"
+import BudouX from "@/components/common/BudouX.astro";
+import Link from "@/components/element/Link.astro";
+import CloudinaryImage from "@/components/ui/CloudinaryImage.astro";
+import { dtTool } from "@/lib/date";
+import { tv } from "tailwind-variants";
 
 type Props = {
-  post: CollectionEntry<"posts">
-}
+  post: CollectionEntry<"posts">;
+};
 
 const {
   post: { data, slug },
-} = Astro.props
+} = Astro.props;
 
-const createdAt = dtTool.replaceUtcWithJst(data.createdAt)
-const createdAtSring = dtTool.formatInJst(createdAt, "YYYY/MM/DD")
+const createdAt = dtTool.replaceUtcWithJst(data.createdAt);
+const createdAtSring = dtTool.formatInJst(createdAt, "YYYY/MM/DD");
 
 const styles = tv({
   slots: {
@@ -38,7 +38,7 @@ const styles = tv({
       },
     },
   },
-})({ status: data.status === "published" ? "published" : "notPublished" })
+})({ status: data.status === "published" ? "published" : "notPublished" });
 ---
 
 <article
@@ -52,8 +52,8 @@ const styles = tv({
         <CloudinaryImage
           alt={`thumbnail of ${slug}`}
           class:list={styles.image()}
-          src={data.thumbnail}
           priority
+          src={data.thumbnail}
         />
       </div>
       <time class:list={styles.date()} datetime={createdAt.toISOString()}

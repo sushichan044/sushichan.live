@@ -1,13 +1,13 @@
 ---
-import SafeHTML from "@/components/utils/SafeHTML.astro"
-import { applyBudouXToHTML } from "@/utils/html"
+import SafeHTML from "@/components/utils/SafeHTML.astro";
+import { applyBudouXToHTML } from "@/utils/html";
 
-const html = await Astro.slots.render("default")
+const html = await Astro.slots.render("default");
 ---
 
 <SafeHTML
+  __dangerouslyDisableSanitizer
   afterSanitize={applyBudouXToHTML}
   as="Fragment"
   rawHTML={html}
-  __dangerouslyDisableSanitizer
 />

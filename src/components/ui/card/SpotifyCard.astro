@@ -1,13 +1,13 @@
 ---
-import Card, { type CardProps } from "@/components/common/Card.astro"
-import Spotify from "@/components/ui/Spotify.astro"
+import Card, { type CardProps } from "@/components/common/Card.astro";
+import Spotify from "@/components/ui/Spotify.astro";
 
 interface Props extends CardProps {
-  shape?: "square" | "wide"
-  url: string
+  shape?: "square" | "wide";
+  url: string;
 }
 
-const { shape, url, ...props } = Astro.props
+const { shape, url, ...props } = Astro.props;
 ---
 
 <Card shadow {...props}>

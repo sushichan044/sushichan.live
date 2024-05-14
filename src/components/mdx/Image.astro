@@ -1,20 +1,20 @@
 ---
-import WithCaption from "@/components/common/WithCaption.astro"
+import WithCaption from "@/components/common/WithCaption.astro";
 import CloudinaryImage, {
   type Props as CloudinaryImageProps,
-} from "@/components/ui/CloudinaryImage.astro"
-import { declareLet } from "@/utils/declareLet"
+} from "@/components/ui/CloudinaryImage.astro";
+import { declareLet } from "@/utils/declareLet";
 
-type Props = CloudinaryImageProps
+type Props = CloudinaryImageProps;
 
-const { alt: rawAlt, src, title: rawTitle, ...props } = Astro.props
+const { alt: rawAlt, src, title: rawTitle, ...props } = Astro.props;
 
 const { alt, title } = declareLet(() => {
-  const typeSafeTitle = rawTitle === null ? undefined : rawTitle
-  const alt = rawAlt
-  const title = typeSafeTitle
-  return { alt, title }
-})
+  const typeSafeTitle = rawTitle === null ? undefined : rawTitle;
+  const alt = rawAlt;
+  const title = typeSafeTitle;
+  return { alt, title };
+});
 ---
 
 <WithCaption caption={title} isFigure={false}>

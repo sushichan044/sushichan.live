@@ -1,13 +1,13 @@
 ---
 import WithCaption, {
   type CaptionProps,
-} from "@/components/common/WithCaption.astro"
-import { type VariantProps, tv } from "tailwind-variants"
-export type CardProps = VariantProps<typeof style> & CaptionProps
+} from "@/components/common/WithCaption.astro";
+import { type VariantProps, tv } from "tailwind-variants";
+export type CardProps = CaptionProps & VariantProps<typeof style>;
 
-type Props = CardProps
+type Props = CardProps;
 
-const { caption, isFigure, ...props } = Astro.props
+const { caption, isFigure, ...props } = Astro.props;
 
 const style = tv({
   base: "flex flex-col flex-nowrap gap-1 content-visibility-auto",
@@ -32,7 +32,7 @@ const style = tv({
       true: "shadow-sm transition-shadow duration-500 ease-out hocus:shadow",
     },
   },
-})
+});
 ---
 
 <WithCaption caption={caption} isFigure={isFigure}>

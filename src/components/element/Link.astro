@@ -1,20 +1,20 @@
 ---
-import type { HTMLAttributes } from "astro/types"
-import type { VariantProps } from "tailwind-variants"
+import type { HTMLAttributes } from "astro/types";
+import type { VariantProps } from "tailwind-variants";
 
-import LinkStyle from "@/components/style/link"
-import { declareLet } from "@/utils/declareLet"
-import { isInternalLink } from "@/utils/helper"
-import { clsx } from "clsx"
+import LinkStyle from "@/components/style/link";
+import { declareLet } from "@/utils/declareLet";
+import { isInternalLink } from "@/utils/helper";
+import { clsx } from "clsx";
 
-export type Props = HTMLAttributes<"a"> & {
-  variants?: VariantProps<typeof LinkStyle>
+interface Props extends HTMLAttributes<"a"> {
+  variants?: VariantProps<typeof LinkStyle>;
 }
 
 type hrefInfo = {
-  href: HTMLAttributes<"a">["href"]
-  isExternal: boolean
-}
+  href: HTMLAttributes<"a">["href"];
+  isExternal: boolean;
+};
 
 const {
   "class": className,
@@ -23,36 +23,36 @@ const {
   target,
   variants,
   ...props
-} = Astro.props
+} = Astro.props;
 
 const { href: refinedHref, isExternal }: hrefInfo = declareLet(() => {
   if (href == null)
     return {
       href: href,
       isExternal: false,
-    }
+    };
 
-  let url: URL | string
-  let isExternal: boolean
+  let url: URL | string;
+  let isExternal: boolean;
 
   if (typeof href === "string") {
     if (isInternalLink(href)) {
-      url = new URL(href, Astro.url)
-      isExternal = false
+      url = new URL(href, Astro.url);
+      isExternal = false;
     } else {
-      url = new URL(href)
-      isExternal = true
+      url = new URL(href);
+      isExternal = true;
     }
   } else {
-    url = href
-    isExternal = url.host !== Astro.url.host
+    url = href;
+    isExternal = url.host !== Astro.url.host;
   }
-  return { href: url, isExternal }
-})
-const refinedTarget = target != null ? target : isExternal ? "_blank" : "_self"
-const rel = isExternal ? "noopener noreferrer" : undefined
+  return { href: url, isExternal };
+});
+const refinedTarget = target ?? isExternal ? "_blank" : "_self";
+const rel = isExternal ? "noopener noreferrer" : undefined;
 
-const mergedClass = clsx(className, classList)
+const mergedClass = clsx(className, classList);
 ---
 
 <a

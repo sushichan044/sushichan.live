@@ -1,21 +1,21 @@
-import cloudflare from "@astrojs/cloudflare"
-import mdx from "@astrojs/mdx"
-import react from "@astrojs/react"
-import sitemap from "@astrojs/sitemap"
-import tailwind from "@astrojs/tailwind"
-import { defineConfig, passthroughImageService } from "astro/config"
-import AutoImport from "astro-auto-import"
-import expressiveCode from "astro-expressive-code"
-import rehypeKatex from "rehype-katex"
-import remarkEmoji from "remark-emoji"
-import remarkMath from "remark-math"
-import remarkUnwrapImages from "remark-unwrap-images"
-import Icons from "unplugin-icons/vite"
+import cloudflare from "@astrojs/cloudflare";
+import mdx from "@astrojs/mdx";
+import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
+import tailwind from "@astrojs/tailwind";
+import { defineConfig, passthroughImageService } from "astro/config";
+import AutoImport from "astro-auto-import";
+import expressiveCode from "astro-expressive-code";
+import rehypeKatex from "rehype-katex";
+import remarkEmoji from "remark-emoji";
+import remarkMath from "remark-math";
+import remarkUnwrapImages from "remark-unwrap-images";
+import Icons from "unplugin-icons/vite";
 
 // eslint-disable-next-line no-restricted-imports
-import { SITE_URL } from "./src/consts"
+import { SITE_URL } from "./src/consts";
 // eslint-disable-next-line no-restricted-imports
-import { remarkReadingTime } from "./src/lib/remarkReadingTime.mjs"
+import { remarkReadingTime } from "./src/lib/remarkReadingTime.mjs";
 
 const mdxIntegrations = [
   AutoImport({
@@ -37,7 +37,7 @@ const mdxIntegrations = [
     ],
   }),
   mdx(),
-]
+];
 
 // https://astro.build/config
 export default defineConfig({
@@ -116,4 +116,4 @@ export default defineConfig({
       noExternal: ["react-tweet"],
     },
   },
-})
+});

@@ -1,18 +1,18 @@
 ---
-import type { Experience } from "@/pages/portfolio/_data"
+import type { Experience } from "@/pages/portfolio/_data";
 
-import BudouX from "@/components/common/BudouX.astro"
-import { tv } from "tailwind-variants"
+import BudouX from "@/components/common/BudouX.astro";
+import { tv } from "tailwind-variants";
 
 type Props = {
-  experience: Experience
-}
+  experience: Experience;
+};
 
 const {
   experience: { description, time, title },
-} = Astro.props
-const timeLeft = time.range ? time.data.from : time.data
-const timeRight = time.range ? time.data.to : null
+} = Astro.props;
+const timeLeft = time.range ? time.data.from : time.data;
+const timeRight = time.range ? time.data.to : null;
 
 const style = tv({
   slots: {
@@ -23,7 +23,7 @@ const style = tv({
     title: "mb-1 text-lg font-semibold",
     wrapper: "mb-8 ms-4 last:mb-4",
   },
-})()
+})();
 ---
 
 <li class:list={style.wrapper()}>

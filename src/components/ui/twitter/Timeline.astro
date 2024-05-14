@@ -1,10 +1,10 @@
 ---
-import TimelineEmbed from "@/components/react/ui/twitter/timelineEmbed"
+import TimelineEmbed from "@/components/react/ui/twitter/timelineEmbed";
 interface Props {
-  id: string
+  id: string;
 }
 
-const { id } = Astro.props
+const { id } = Astro.props;
 ---
 
 <TimelineEmbed client:only="react" id={id} />
@@ -12,20 +12,20 @@ const { id } = Astro.props
 <script>
   // @ts-nocheck
   window.twttr = (function (d, s, id) {
-    var js,
+    let js,
       fjs = d.getElementsByTagName(s)[0],
-      t = window.twttr || {}
-    if (d.getElementById(id)) return t
-    js = d.createElement(s)
-    js.id = id
-    js.src = "https://platform.twitter.com/widgets.js"
-    fjs.parentNode.insertBefore(js, fjs)
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
 
-    t._e = []
+    t._e = [];
     t.ready = function (f) {
-      t._e.push(f)
-    }
+      t._e.push(f);
+    };
 
-    return t
-  })(document, "script", "twitter-wjs")
+    return t;
+  })(document, "script", "twitter-wjs");
 </script>

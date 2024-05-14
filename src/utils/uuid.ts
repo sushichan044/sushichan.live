@@ -1,3 +1,3 @@
-const getUUID = () => crypto.randomUUID()
+const getUUID = () => crypto.randomUUID();
 
-export { getUUID }
+export { getUUID };

@@ -1,4 +1,4 @@
-import { tv } from "tailwind-variants"
+import { tv } from "tailwind-variants";
 
 const LinkStyle = tv({
   compoundVariants: [
@@ -37,6 +37,6 @@ const LinkStyle = tv({
       primary: "transition-colors duration-300",
     },
   },
-})
+});
 
-export default LinkStyle
+export default LinkStyle;

@@ -1,16 +1,17 @@
 ---
-import type { RequiredKey } from "@/utils/@types/requiredKey"
+import type { RequiredKey } from "@/utils/@types/requiredKey";
 
-import BudouX from "@/components/common/BudouX.astro"
-import Fa6SolidCircleExclamation from "~icons/fa6-solid/circle-exclamation"
-import Fa6SolidCircleInfo from "~icons/fa6-solid/circle-info"
-import Fa6SolidTriangleExclamation from "~icons/fa6-solid/triangle-exclamation"
-import { type VariantProps, tv } from "tailwind-variants"
-export type Props = RequiredKey<VariantProps<typeof styles>, "type"> & {
-  title?: string | undefined
+import BudouX from "@/components/common/BudouX.astro";
+import Fa6SolidCircleExclamation from "~icons/fa6-solid/circle-exclamation";
+import Fa6SolidCircleInfo from "~icons/fa6-solid/circle-info";
+import Fa6SolidTriangleExclamation from "~icons/fa6-solid/triangle-exclamation";
+import { type VariantProps, tv } from "tailwind-variants";
+
+interface Props extends RequiredKey<VariantProps<typeof styles>, "type"> {
+  title?: string | undefined;
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const { title, type, ...variants } = Astro.props
+const { title, type, ...variants } = Astro.props;
 
 const styles = tv({
   slots: {
@@ -38,8 +39,8 @@ const styles = tv({
       },
     },
   },
-})
-const css = styles({ type })
+});
+const css = styles({ type });
 ---
 
 <aside class:list={css.wrapper()}>

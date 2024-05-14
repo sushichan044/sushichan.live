@@ -1,14 +1,14 @@
 ---
-import s from "@/features/blog/components/blog-article.module.scss"
+import s from "@/features/blog/components/blog-article.module.scss";
 
-type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
+type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 type Props = {
-  balancedHeading?: boolean
-  class?: string
-  colorHeading?: HeadingTag[]
-  headingMargin?: "large" | "normal"
-}
+  balancedHeading?: boolean;
+  class?: string;
+  colorHeading?: HeadingTag[];
+  headingMargin?: "large" | "normal";
+};
 
 const {
   balancedHeading = true,
@@ -16,7 +16,7 @@ const {
   colorHeading = ["h2", "h3", "h4", "h5", "h6"],
   headingMargin = "large",
   ...props
-} = Astro.props
+} = Astro.props;
 ---
 
 <div

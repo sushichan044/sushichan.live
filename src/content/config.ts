@@ -1,11 +1,11 @@
-import { defineCollection, reference, z } from "astro:content"
+import { defineCollection, reference, z } from "astro:content";
 
 const baseSchema = z.object({
   createdAt: z.coerce.date(),
   tags: z.array(z.string()).optional(),
   title: z.string(),
   updatedAt: z.coerce.date().optional(),
-})
+});
 
 const posts = defineCollection({
   schema: baseSchema.merge(
@@ -24,7 +24,7 @@ const posts = defineCollection({
     }),
   ),
   type: "content",
-})
+});
 
 const presentations = defineCollection({
   schema: baseSchema.merge(
@@ -37,6 +37,6 @@ const presentations = defineCollection({
     }),
   ),
   type: "data",
-})
+});
 
-export const collections = { posts: posts, presentations: presentations }
+export const collections = { posts: posts, presentations: presentations };

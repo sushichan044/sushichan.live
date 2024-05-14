@@ -1,15 +1,15 @@
 ---
-import SafeHTML from "@/components/utils/SafeHTML.astro"
-import Iconify from "@iconify/iconify"
-import { type VariantProps, tv } from "tailwind-variants"
+import SafeHTML from "@/components/utils/SafeHTML.astro";
+import Iconify from "@iconify/iconify";
+import { type VariantProps, tv } from "tailwind-variants";
 
-type Props = VariantProps<typeof style> & {
-  as?: "Fragment" | "div" | "span"
-  class?: string
-  icon: string
-}
+type Props = {
+  as?: "Fragment" | "div" | "span";
+  class?: string;
+  icon: string;
+} & VariantProps<typeof style>;
 
-const { as = "div", class: className, icon, ...props } = Astro.props
+const { as = "div", class: className, icon, ...props } = Astro.props;
 
 const style = tv({
   base: "aspect-square",
@@ -34,27 +34,27 @@ const style = tv({
       "xs": "size-3",
     },
   },
-})
+});
 
 const getIconSvg = async (icon: string) => {
-  await Iconify.loadIcon(icon)
+  await Iconify.loadIcon(icon);
 
-  const iconData = Iconify.getIcon(icon)
-  if (!iconData) throw new Error(`Icon ${icon} not found`)
+  const iconData = Iconify.getIcon(icon);
+  if (!iconData) throw new Error(`Icon ${icon} not found`);
 
   return (
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${iconData.left} ${iconData.top} ${iconData.width} ${iconData.height}" fill="none" style="width:100%">` +
     iconData.body +
     "</svg>"
-  )
-}
+  );
+};
 
-const iconHTML = await getIconSvg(icon)
+const iconHTML = await getIconSvg(icon);
 ---
 
 <SafeHTML
+  __dangerouslyDisableSanitizer
   as={as}
   class:list={[style(props), className && className, "inline-block"]}
   rawHTML={iconHTML}
-  __dangerouslyDisableSanitizer
 />

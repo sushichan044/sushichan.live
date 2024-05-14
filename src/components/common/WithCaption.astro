@@ -1,21 +1,21 @@
 ---
-import { tv } from "tailwind-variants"
+import { tv } from "tailwind-variants";
 export type CaptionProps = {
-  caption?: string
-  isFigure?: boolean
-}
+  caption?: string;
+  isFigure?: boolean;
+};
 
-type Props = CaptionProps
+type Props = CaptionProps;
 
-const { caption, isFigure } = Astro.props
-const CaptionTag = isFigure ? "figcaption" : "span"
+const { caption, isFigure } = Astro.props;
+const CaptionTag = isFigure ? "figcaption" : "span";
 
 const styles = tv({
   slots: {
     caption: "inline-block justify-center text-center text-base",
     root: "flex w-full flex-col items-center gap-1 [&>*]:w-full",
   },
-})()
+})();
 ---
 
 <div class:list={styles.root()}>

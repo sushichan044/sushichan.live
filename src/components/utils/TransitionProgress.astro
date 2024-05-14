@@ -1,47 +1,47 @@
 ---
-import "@/components/utils/transition-progress.css"
+import "@/components/utils/transition-progress.css";
 ---
 
 <div id="progress-container"></div>
 
 <script>
-  import N from "nprogress"
+  import N from "nprogress";
 
   N.configure({
-    showSpinner: false,
     parent: "#progress-container",
-  })
+    showSpinner: false,
+  });
 
-  let intervalId: number | undefined = undefined
+  let intervalId: number | undefined = undefined;
 
   const startProgress = () => {
-    if (N.isStarted()) return false
+    if (N.isStarted()) return false;
 
-    N.start()
+    N.start();
     intervalId = window.setInterval(() => {
-      N.inc()
-    }, 200)
-  }
+      N.inc();
+    }, 200);
+  };
 
   const finishProgress = () => {
     if (intervalId !== undefined) {
-      window.clearInterval(intervalId)
-      intervalId = undefined
+      window.clearInterval(intervalId);
+      intervalId = undefined;
     }
     if (N.isStarted()) {
-      N.done()
+      N.done();
     }
-  }
+  };
 
   // These events are only fired in View Transition Mode,
   // so It's not fired in browser that doesn't support View Transition.
-  document.addEventListener("astro:before-preparation", (e) => {
-    startProgress()
-  })
+  document.addEventListener("astro:before-preparation", () => {
+    startProgress();
+  });
 
-  document.addEventListener("astro:after-preparation", (e) => {
-    finishProgress()
-  })
+  document.addEventListener("astro:after-preparation", () => {
+    finishProgress();
+  });
 </script>
 
 <style>

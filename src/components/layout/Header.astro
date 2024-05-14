@@ -1,8 +1,8 @@
 ---
-import ContentLayout from "@/components/common/ContentLayout.astro"
-import Link from "@/components/element/Link.astro"
-import NavigationMenu from "@/components/layout/NavigationMenu.astro"
-import { tv } from "tailwind-variants"
+import ContentLayout from "@/components/common/ContentLayout.astro";
+import Link from "@/components/element/Link.astro";
+import NavigationMenu from "@/components/layout/NavigationMenu.astro";
+import { tv } from "tailwind-variants";
 
 const styles = tv({
   slots: {
@@ -10,18 +10,18 @@ const styles = tv({
     title: "text-lg font-bold md:text-2xl",
     wrapper: "my-8 flex size-full items-center justify-between",
   },
-})()
+})();
 ---
 
 <header class:list={styles.root()}>
   <ContentLayout class:list={styles.wrapper()}>
     <Link
+      href="/"
       variants={{
         color: "neutral",
         decoration: "none",
         hoverColor: "primary",
       }}
-      href="/"
     >
       <p class:list={styles.title()}>すしのへや</p>
     </Link>

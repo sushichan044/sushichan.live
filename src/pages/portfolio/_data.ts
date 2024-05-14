@@ -1,30 +1,30 @@
-import type { HTMLAttributes } from "astro/types"
+import type { HTMLAttributes } from "astro/types";
 
 type Experience = {
-  description: string
+  description: string;
   time:
     | {
         data: {
-          attr: HTMLAttributes<"time">["datetime"]
-          label: string
-        }
-        range: false
+          attr: HTMLAttributes<"time">["datetime"];
+          label: string;
+        };
+        range: false;
       }
     | {
         data: {
           from: {
-            attr: HTMLAttributes<"time">["datetime"]
-            label: string
-          }
+            attr: HTMLAttributes<"time">["datetime"];
+            label: string;
+          };
           to?: {
-            attr: HTMLAttributes<"time">["datetime"]
-            label: string
-          }
-        }
-        range: true
-      }
-  title: string
-}
+            attr: HTMLAttributes<"time">["datetime"];
+            label: string;
+          };
+        };
+        range: true;
+      };
+  title: string;
+};
 
 const EXPERIENCES = [
   {
@@ -118,7 +118,7 @@ const EXPERIENCES = [
     },
     title: "バーチャルライブ研究会 技術班長",
   },
-] as const satisfies Experience[]
+] as const satisfies Experience[];
 
-export { EXPERIENCES }
-export type { Experience }
+export { EXPERIENCES };
+export type { Experience };

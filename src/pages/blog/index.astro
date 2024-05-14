@@ -1,27 +1,27 @@
 ---
-import ContentLayout from "@/components/common/ContentLayout.astro"
-import AllTags from "@/features/blog/components/AllTags.astro"
-import BlogPostCard from "@/features/blog/components/BlogPostCard.astro"
-import { getAllPosts } from "@/features/blog/utils/post"
-import BaseSEO from "@/features/meta/BaseSEO.astro"
-import BlogLayout from "@/layouts/BlogLayout.astro"
-import { fade } from "astro:transitions"
+import ContentLayout from "@/components/common/ContentLayout.astro";
+import AllTags from "@/features/blog/components/AllTags.astro";
+import BlogPostCard from "@/features/blog/components/BlogPostCard.astro";
+import { getAllPosts } from "@/features/blog/utils/post";
+import BaseSEO from "@/features/meta/BaseSEO.astro";
+import BlogLayout from "@/layouts/BlogLayout.astro";
+import { fade } from "astro:transitions";
 
 const posts = await getAllPosts((a, b) => {
-  if (a.data.createdAt < b.data.createdAt) return 1
-  if (a.data.createdAt > b.data.createdAt) return -1
-  return 0
-})
+  if (a.data.createdAt < b.data.createdAt) return 1;
+  if (a.data.createdAt > b.data.createdAt) return -1;
+  return 0;
+});
 
-export const prerender = true
+export const prerender = true;
 ---
 
 <BlogLayout>
   <BaseSEO
     description="いろいろ書いているブログ"
+    disableTitleTemplate
     slot="seo"
     title="すしにっき"
-    disableTitleTemplate
   />
   <ContentLayout>
     <div class="my-4 flex flex-col flex-nowrap gap-2">

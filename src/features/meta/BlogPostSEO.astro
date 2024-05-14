@@ -1,32 +1,33 @@
 ---
-import type { CollectionEntry } from "astro:content"
+import type { CollectionEntry } from "astro:content";
 
-import { getPostOgpImage } from "@/features/blog/utils/post"
-import { dtTool } from "@/lib/date"
-import { SEO } from "astro-seo"
+import { getPostOgpImage } from "@/features/blog/utils/post";
+import { dtTool } from "@/lib/date";
+import { SEO } from "astro-seo";
 
 type Props = {
-  entry: CollectionEntry<"posts">
-  isPreview?: boolean
-}
+  entry: CollectionEntry<"posts">;
+  isPreview?: boolean;
+};
 
 const {
   entry: { data, slug },
   isPreview = false,
-} = Astro.props
+} = Astro.props;
 
-const createdAt = dtTool.replaceUtcWithJst(data.createdAt).toISOString()
+const createdAt = dtTool.replaceUtcWithJst(data.createdAt).toISOString();
 const updatedAt = data.updatedAt
   ? dtTool.replaceUtcWithJst(data.updatedAt).toISOString()
-  : undefined
+  : undefined;
 
 const OGPUrl = getPostOgpImage(slug, {
   baseUrl: Astro.url,
   extension: "png",
-})
+});
 ---
 
 <SEO
+  description={data.description}
   openGraph={{
     article: {
       modifiedTime: updatedAt,
@@ -44,6 +45,9 @@ const OGPUrl = getPostOgpImage(slug, {
       siteName: "すしにっき",
     },
   }}
+  title={data.title}
+  titleDefault="すしにっき"
+  titleTemplate="%s - すしにっき"
   twitter={{
     card: "summary_large_image",
     creator: "@sushichan_044",
@@ -51,10 +55,6 @@ const OGPUrl = getPostOgpImage(slug, {
     image: OGPUrl,
     title: data.title,
   }}
-  description={data.description}
-  title={data.title}
-  titleDefault="すしにっき"
-  titleTemplate="%s - すしにっき"
   {...isPreview && {
     nofollow: true,
     noindex: true,

@@ -1,13 +1,13 @@
-import type { Metadata } from "fetch-site-metadata"
+import type { Metadata } from "fetch-site-metadata";
 
-import scrape from "fetch-site-metadata"
+import scrape from "fetch-site-metadata";
 
-const METADATA_CACHE = new Map<string, Metadata>()
+const METADATA_CACHE = new Map<string, Metadata>();
 
 const fetchMetaData = async (url: string) => {
-  const cached = METADATA_CACHE.get(url)
+  const cached = METADATA_CACHE.get(url);
   if (cached) {
-    return cached
+    return cached;
   }
 
   const metaDataResponse = await scrape(
@@ -19,10 +19,10 @@ const fetchMetaData = async (url: string) => {
     //   },
     //   suppressAdditionalRequest: true,
     // }
-  )
+  );
 
-  METADATA_CACHE.set(url, metaDataResponse)
-  return metaDataResponse
-}
+  METADATA_CACHE.set(url, metaDataResponse);
+  return metaDataResponse;
+};
 
-export { fetchMetaData }
+export { fetchMetaData };

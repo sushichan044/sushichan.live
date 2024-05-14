@@ -1,12 +1,12 @@
 ---
-import Card, { type CardProps } from "@/components/common/Card.astro"
-import UrlPlayer from "@/components/ui/UrlPlayer.astro"
+import Card, { type CardProps } from "@/components/common/Card.astro";
+import UrlPlayer from "@/components/ui/UrlPlayer.astro";
 
 interface Props extends CardProps {
-  muted?: boolean
-  url: string
+  muted?: boolean;
+  url: string;
 }
-const { muted, round = true, shadow = true, url, ...props } = Astro.props
+const { muted, round = true, shadow = true, url, ...props } = Astro.props;
 ---
 
 <Card round={round} shadow={shadow} {...props}>

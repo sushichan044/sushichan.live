@@ -1,11 +1,11 @@
 ---
-import BudouX from "@/components/common/BudouX.astro"
-import Card, { type CardProps } from "@/components/common/Card.astro"
+import BudouX from "@/components/common/BudouX.astro";
+import Card, { type CardProps } from "@/components/common/Card.astro";
 interface Props extends CardProps {
-  useBudouX?: boolean
+  useBudouX?: boolean;
 }
 
-const { useBudouX = true, ...props } = Astro.props
+const { useBudouX = true, ...props } = Astro.props;
 ---
 
 <Card {...props}>
