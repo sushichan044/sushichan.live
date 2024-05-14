@@ -1,43 +1,43 @@
 ---
-import type { HTMLAttributes } from "astro/types"
+import type { HTMLAttributes } from "astro/types";
 
-import Image from "@/components/element/Image.astro"
-import { cloudinaryLoader, getCloudinaryImageSize } from "@/lib/cloudinary"
-import { declareLet } from "@/utils/declareLet"
+import Image from "@/components/element/Image.astro";
+import { cloudinaryLoader, getCloudinaryImageSize } from "@/lib/cloudinary";
+import { declareLet } from "@/utils/declareLet";
 
 type ImgProps = Omit<
   HTMLAttributes<"img">,
   "alt" | "height" | "priority" | "quality" | "src" | "width"
->
+>;
 
-export type Props = ImgProps & {
-  alt?: string
-  priority?: boolean
-  quality?: number
-  src: string
+interface Props extends ImgProps {
+  alt?: string;
+  priority?: boolean;
+  quality?: number;
+  src: string;
 }
 
-const { alt, quality = 75, src, ...props } = Astro.props
+const { alt, quality = 75, src, ...props } = Astro.props;
 
-const rawSize = await getCloudinaryImageSize(src)
-const altIsEmpty = alt === "" || alt === undefined
+const rawSize = await getCloudinaryImageSize(src);
+const altIsEmpty = alt === "" || alt === undefined;
 
 const size = declareLet(() => {
-  const MAX_WIDTH = 840
-  let w = rawSize.width
-  let h = rawSize.height
+  const MAX_WIDTH = 840;
+  let w = rawSize.width;
+  let h = rawSize.height;
   if (w > MAX_WIDTH) {
-    h *= MAX_WIDTH / w
-    w = MAX_WIDTH
+    h *= MAX_WIDTH / w;
+    w = MAX_WIDTH;
   }
-  return { height: h, width: w }
-})
+  return { height: h, width: w };
+});
 
 const optimizedSrc = cloudinaryLoader({
   quality: quality,
   src,
   width: size.width,
-})
+});
 ---
 
 <Image

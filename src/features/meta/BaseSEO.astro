@@ -1,11 +1,11 @@
 ---
-import { SEO } from "astro-seo"
+import { SEO } from "astro-seo";
 
 interface Props {
-  description: string
-  disableTitleTemplate?: boolean
-  isHiddenPage?: boolean
-  title: string
+  description: string;
+  disableTitleTemplate?: boolean;
+  isHiddenPage?: boolean;
+  title: string;
 }
 
 const {
@@ -13,15 +13,16 @@ const {
   disableTitleTemplate = false,
   isHiddenPage = false,
   title,
-} = Astro.props
+} = Astro.props;
 
-const titleDefault = disableTitleTemplate ? undefined : "すしのへや"
-const titleTemplate = disableTitleTemplate ? undefined : "%s - すしのへや"
+const titleDefault = disableTitleTemplate ? undefined : "すしのへや";
+const titleTemplate = disableTitleTemplate ? undefined : "%s - すしのへや";
 
-const DefaultOGPUrl = new URL("/images/ogp.png", Astro.url)
+const DefaultOGPUrl = new URL("/images/ogp.png", Astro.url);
 ---
 
 <SEO
+  description={description}
   openGraph={{
     basic: {
       image: DefaultOGPUrl.toString(),
@@ -35,6 +36,9 @@ const DefaultOGPUrl = new URL("/images/ogp.png", Astro.url)
       siteName: "すしのへや",
     },
   }}
+  title={title}
+  titleDefault={titleDefault}
+  titleTemplate={titleTemplate}
   twitter={{
     card: "summary_large_image",
     creator: "@sushichan_044",
@@ -42,9 +46,5 @@ const DefaultOGPUrl = new URL("/images/ogp.png", Astro.url)
     image: DefaultOGPUrl,
     title: title,
   }}
-  description={description}
-  title={title}
-  titleDefault={titleDefault}
-  titleTemplate={titleTemplate}
   {...isHiddenPage && { nofollow: true, noindex: true }}
 />

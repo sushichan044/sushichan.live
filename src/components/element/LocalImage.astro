@@ -1,32 +1,32 @@
 ---
-import { declareLet } from "@/utils/declareLet"
-import { Image as AstroImage, type LocalImageProps } from "astro:assets"
+import { declareLet } from "@/utils/declareLet";
+import { Image as AstroImage, type LocalImageProps } from "astro:assets";
 
-const MAX_WIDTH = 840
+const MAX_WIDTH = 840;
 
-type Props = LocalImageProps & {
-  priority?: boolean
-}
+type Props = {
+  priority?: boolean;
+} & LocalImageProps;
 
-let {
+const {
   alt = "image alt",
   height,
   priority = false,
   src,
   width,
   ...props
-} = Astro.props
+} = Astro.props;
 
 const size = declareLet(() => {
-  let w = Number(width)
-  let h = Number(height)
+  let w = Number(width);
+  let h = Number(height);
 
   if (w > MAX_WIDTH) {
-    h *= MAX_WIDTH / w
-    w = MAX_WIDTH
+    h *= MAX_WIDTH / w;
+    w = MAX_WIDTH;
   }
-  return { height: h, width: w }
-})
+  return { height: h, width: w };
+});
 ---
 
 <AstroImage

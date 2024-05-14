@@ -1,8 +1,8 @@
 ---
-import TagLinkFlex from "@/features/blog/components/tag/TagLinkFlex.astro"
-import { getAllTags } from "@/features/blog/utils/post"
+import TagLinkFlex from "@/features/blog/components/tag/TagLinkFlex.astro";
+import { getAllTags } from "@/features/blog/utils/post";
 
-const allTags = await getAllTags()
+const allTags = await getAllTags();
 ---
 
 <TagLinkFlex tags={allTags} />

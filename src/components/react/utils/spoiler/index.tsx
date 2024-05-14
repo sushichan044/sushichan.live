@@ -1,35 +1,35 @@
-"use client"
+"use client";
 
-import styles from "@/components/react/utils/spoiler/spoiler.module.scss"
-import { parseBoolean } from "@/utils/string"
-import React, { useId, useRef } from "react"
+import styles from "@/components/react/utils/spoiler/spoiler.module.scss";
+import { parseBoolean } from "@/utils/string";
+import React, { useId, useRef } from "react";
 
 type Props = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 const Spoiler = ({ children }: Props) => {
-  const id = useId()
-  const wrapperRef = useRef<HTMLSpanElement>(null)
-  const contentRef = useRef<HTMLSpanElement>(null)
+  const id = useId();
+  const wrapperRef = useRef<HTMLSpanElement>(null);
+  const contentRef = useRef<HTMLSpanElement>(null);
 
   const onClick = () => {
     if (!wrapperRef.current || !contentRef.current) {
-      return
+      return;
     }
-    const wrapper = wrapperRef.current
-    const content = contentRef.current
+    const wrapper = wrapperRef.current;
+    const content = contentRef.current;
 
-    wrapper.ariaExpanded = (!parseBoolean(wrapper.ariaExpanded)).toString()
-    content.ariaHidden = (!parseBoolean(content.ariaHidden)).toString()
-  }
+    wrapper.ariaExpanded = (!parseBoolean(wrapper.ariaExpanded)).toString();
+    content.ariaHidden = (!parseBoolean(content.ariaHidden)).toString();
+  };
 
   const onKeyDown = (event: React.KeyboardEvent<HTMLSpanElement>) => {
     if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault()
-      onClick()
+      event.preventDefault();
+      onClick();
     }
-  }
+  };
 
   return (
     <span
@@ -48,7 +48,7 @@ const Spoiler = ({ children }: Props) => {
         {children}
       </span>
     </span>
-  )
-}
+  );
+};
 
-export default Spoiler
+export default Spoiler;

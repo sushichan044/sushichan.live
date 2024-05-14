@@ -1,14 +1,14 @@
 ---
-import ContentLayout from "@/components/common/ContentLayout.astro"
-import Link from "@/components/element/Link.astro"
-import HistoryLayout from "@/components/layout/HistoryLayout.astro"
-import BlogStyle from "@/features/blog/components/BlogStyle.astro"
-import BaseSEO from "@/features/meta/BaseSEO.astro"
-import BaseLayout from "@/layouts/BaseLayout.astro"
+import ContentLayout from "@/components/common/ContentLayout.astro";
+import Link from "@/components/element/Link.astro";
+import HistoryLayout from "@/components/layout/HistoryLayout.astro";
+import BlogStyle from "@/features/blog/components/BlogStyle.astro";
+import BaseSEO from "@/features/meta/BaseSEO.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <BaseSEO description="経歴など" slot="seo" title="History" isHiddenPage />
+  <BaseSEO description="経歴など" isHiddenPage slot="seo" title="History" />
   <ContentLayout>
     <BlogStyle class="h-[340svh]" colorHeading={[]}>
       <HistoryLayout>

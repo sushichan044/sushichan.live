@@ -1,33 +1,33 @@
-import type { CollectionEntry } from "astro:content"
+import type { CollectionEntry } from "astro:content";
 
-import { Resvg } from "@resvg/resvg-js"
-import React from "react"
-import satori from "satori"
+import { Resvg } from "@resvg/resvg-js";
+import React from "react";
+import satori from "satori";
 
 type Options = {
-  post: CollectionEntry<"posts">
-}
+  post: CollectionEntry<"posts">;
+};
 
-const GOOGLE_FONT_NAME = "Zen+Maru+Gothic"
-const FONT_FAMILY = "Zen Maru Gothic"
-const FONT_WEIGHT = 700
-const WIDTH = 1200
-const HEIGHT = 630
-const DEFAULT_TEXTS = ["すしにっき"] as const
+const GOOGLE_FONT_NAME = "Zen+Maru+Gothic";
+const FONT_FAMILY = "Zen Maru Gothic";
+const FONT_WEIGHT = 700;
+const WIDTH = 1200;
+const HEIGHT = 630;
+const DEFAULT_TEXTS = ["すしにっき"] as const;
 
 const getText = (text: string) => {
   // add title to default texts
-  const texts = [...DEFAULT_TEXTS, text]
-  return texts.join(" ")
-}
+  const texts = [...DEFAULT_TEXTS, text];
+  return texts.join(" ");
+};
 
 export async function getBlogOGImage({ post }: Options) {
-  const { title } = post.data
+  const { title } = post.data;
   const fontData = await fetchFont(
     getText(title),
     GOOGLE_FONT_NAME,
     FONT_WEIGHT,
-  )
+  );
 
   const svg = await satori(
     <div
@@ -99,11 +99,11 @@ export async function getBlogOGImage({ post }: Options) {
       height: HEIGHT,
       width: WIDTH,
     },
-  )
+  );
 
-  const resvg = new Resvg(svg)
+  const resvg = new Resvg(svg);
 
-  return resvg.render().asPng()
+  return resvg.render().asPng();
 }
 
 async function fetchFont(
@@ -113,7 +113,7 @@ async function fetchFont(
 ): Promise<ArrayBuffer> {
   const API = `https://fonts.googleapis.com/css2?family=${font}:wght@${weight}&text=${encodeURIComponent(
     text,
-  )}`
+  )}`;
 
   const css = await (
     await fetch(API, {
@@ -123,15 +123,17 @@ async function fetchFont(
           "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; de-at) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1",
       },
     })
-  ).text()
+  ).text();
 
-  const resource = css.match(/src: url\((.+)\) format\('(opentype|truetype)'\)/)
+  const resource = css.match(
+    /src: url\((.+)\) format\('(opentype|truetype)'\)/,
+  );
 
   if (!resource) {
-    throw new Error("Failed to fetch font")
+    throw new Error("Failed to fetch font");
   }
 
-  const res = await fetch(resource[1])
+  const res = await fetch(resource[1]);
 
-  return res.arrayBuffer()
+  return res.arrayBuffer();
 }

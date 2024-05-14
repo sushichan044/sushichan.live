@@ -1,8 +1,8 @@
 ---
-import { type VariantProps, tv } from "tailwind-variants"
+import { type VariantProps, tv } from "tailwind-variants";
 
-type Props = VariantProps<typeof style>
-const { center, type = "content" } = Astro.props
+type Props = VariantProps<typeof style>;
+const { center, type = "content" } = Astro.props;
 
 const style = tv({
   defaultVariants: {
@@ -17,7 +17,7 @@ const style = tv({
       full: "max-w-full",
     },
   },
-})
+});
 ---
 
 <div class:list={style({ center, type })}>

@@ -1,25 +1,25 @@
 ---
-import type { Metadata } from "fetch-site-metadata"
+import type { Metadata } from "fetch-site-metadata";
 
-import Card, { type CardProps } from "@/components/common/Card.astro"
-import Link from "@/components/element/Link.astro"
-import { fetchMetaData } from "@/lib/fetchMetaData"
+import Card, { type CardProps } from "@/components/common/Card.astro";
+import Link from "@/components/element/Link.astro";
+import { fetchMetaData } from "@/lib/fetchMetaData";
 // import { fetchMetaDataWithOGS } from "@/lib/fetchMetaData"
-import { declareLet } from "@/utils/declareLet"
-import { isInternalLink } from "@/utils/helper"
+import { declareLet } from "@/utils/declareLet";
+import { isInternalLink } from "@/utils/helper";
 // import ogs from "open-graph-scraper"
-import { tv } from "tailwind-variants"
+import { tv } from "tailwind-variants";
 
 interface Props extends CardProps {
-  url: URL | string
+  url: URL | string;
 }
 
-const { round = true, url: rawUrl, ...props } = Astro.props
+const { round = true, url: rawUrl, ...props } = Astro.props;
 
 type ImageSet = {
-  alt: string
-  src: string
-}
+  alt: string;
+  src: string;
+};
 
 const style = tv({
   slots: {
@@ -29,37 +29,37 @@ const style = tv({
       "mx-auto bg-inherit hocus:bg-zinc-100 max-md:max-w-[calc(180px*1200/630)] md:w-full dark:hocus:bg-zinc-800",
   },
   variants: {},
-})()
+})();
 
 const getImage = ({ icon, image, title }: Metadata): ImageSet | undefined => {
   if (image) {
     return {
       alt: image.alt ?? `ogp of ${title}`,
       src: image.src,
-    }
+    };
   }
 
   if (icon) {
     return {
       alt: `icon of ${title}`,
       src: icon,
-    }
+    };
   }
 
-  return undefined
-}
+  return undefined;
+};
 
 const url = declareLet(() => {
   if (typeof rawUrl === "string" && isInternalLink(rawUrl)) {
-    return new URL(rawUrl, Astro.url)
+    return new URL(rawUrl, Astro.url);
   }
 
-  return new URL(rawUrl)
-})
-const metaData = await fetchMetaData(url.toString())
+  return new URL(rawUrl);
+});
+const metaData = await fetchMetaData(url.toString());
 
 // const metaData = await fetchMetaDataWithOGS(url.toString())
-const imageSet = getImage(metaData)
+const imageSet = getImage(metaData);
 ---
 
 <Card round={round} shadow={false} {...props}>

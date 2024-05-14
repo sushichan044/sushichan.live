@@ -1,13 +1,13 @@
 ---
-import ContentLayout from "@/components/common/ContentLayout.astro"
-import Link from "@/components/element/Link.astro"
-import BlogStyle from "@/features/blog/components/BlogStyle.astro"
-import BaseSEO from "@/features/meta/BaseSEO.astro"
-import BaseLayout from "@/layouts/BaseLayout.astro"
+import ContentLayout from "@/components/common/ContentLayout.astro";
+import Link from "@/components/element/Link.astro";
+import BlogStyle from "@/features/blog/components/BlogStyle.astro";
+import BaseSEO from "@/features/meta/BaseSEO.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <BaseSEO description="おまけページ" slot="seo" title="DLC" isHiddenPage />
+  <BaseSEO description="おまけページ" isHiddenPage slot="seo" title="DLC" />
   <ContentLayout>
     <BlogStyle>
       <h1>DLCへようこそ...</h1>

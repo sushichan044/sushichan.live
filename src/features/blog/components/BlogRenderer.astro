@@ -1,25 +1,25 @@
 ---
-import type { MarkdownHeading } from "astro"
-import type { AstroComponentFactory } from "astro/runtime/server/index.js"
+import type { MarkdownHeading } from "astro";
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 
-import Renderer from "@/components/mdx/Renderer.astro"
-import Toc from "@/features/blog/components/Toc.astro"
+import Renderer from "@/components/mdx/Renderer.astro";
+import Toc from "@/features/blog/components/Toc.astro";
 
 type Props = {
-  Content: AstroComponentFactory
-  remarkPluginFrontmatter?: Record<string, unknown>
+  Content: AstroComponentFactory;
+  remarkPluginFrontmatter?: Record<string, unknown>;
 } & (
   | {
-      headings: MarkdownHeading[]
-      tocDepth: 1 | 2 | 3 | 4 | 5 | 6
+      headings: MarkdownHeading[];
+      tocDepth: 1 | 2 | 3 | 4 | 5 | 6;
     }
   | {
-      headings?: undefined
-      tocDepth?: undefined
+      headings?: undefined;
+      tocDepth?: undefined;
     }
-)
+);
 
-const { Content, headings, tocDepth } = Astro.props
+const { Content, headings, tocDepth } = Astro.props;
 ---
 
 {

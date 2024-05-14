@@ -1,11 +1,11 @@
-import type { APIRoute } from "astro"
+import type { APIRoute } from "astro";
 
-import { SITE_URL } from "@/consts"
-import { getAllPosts } from "@/features/blog/utils/post"
-import rss from "@astrojs/rss"
+import { SITE_URL } from "@/consts";
+import { getAllPosts } from "@/features/blog/utils/post";
+import rss from "@astrojs/rss";
 
 export const GET: APIRoute = async () => {
-  const posts = await getAllPosts()
+  const posts = await getAllPosts();
 
   return rss({
     customData: "<language>ja</language>",
@@ -16,9 +16,9 @@ export const GET: APIRoute = async () => {
         link: `${SITE_URL}/blog/post/${slug}`,
         pubDate: data.createdAt,
         title: data.title,
-      }
+      };
     }),
     site: SITE_URL,
     title: "すしにっき",
-  })
-}
+  });
+};

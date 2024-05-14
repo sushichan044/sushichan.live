@@ -2,18 +2,18 @@
 /// <reference path="../.astro/types.d.ts" />
 /// <reference types="astro/client" />
 
-type KVNamespace = import("@cloudflare/workers-types/experimental").KVNamespace
-type ENV = {
-  KV_BINDING: KVNamespace
-}
+import type { AdvancedRuntime } from "@astrojs/cloudflare";
+import type { KVNamespace } from "@cloudflare/workers-types";
 
-type Runtime = import("@astrojs/cloudflare").AdvancedRuntime<ENV>
+type ENV = {
+  KV_BINDING: KVNamespace;
+};
 
 declare namespace App {
-  interface Locals extends Runtime {
+  interface Locals extends AdvancedRuntime<ENV> {
     user: {
-      name: string
-      surname: string
-    }
+      name: string;
+      surname: string;
+    };
   }
 }

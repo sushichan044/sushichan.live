@@ -1,7 +1,7 @@
-import { format, offset, removeOffset } from "@formkit/tempo"
+import { format, offset, removeOffset } from "@formkit/tempo";
 
-const JST_TIMEZONE = "Asia/Tokyo"
-const UTC_TIMEZONE = "UTC"
+const JST_TIMEZONE = "Asia/Tokyo";
+const UTC_TIMEZONE = "UTC";
 
 /**
  * Formats the given date in UTC timezone using the specified format string.
@@ -18,8 +18,8 @@ const formatInUtc = (date: Date, formatString: string) => {
     date: date,
     format: formatString,
     tz: UTC_TIMEZONE,
-  })
-}
+  });
+};
 
 /**
  * Formats the given date in JST timezone according to the specified format string.
@@ -36,8 +36,8 @@ const formatInJst = (date: Date, formatString: string) => {
     date: date,
     format: formatString,
     tz: JST_TIMEZONE,
-  })
-}
+  });
+};
 
 /**
  * Overwrite timezone with JST. This breaks the original date's absolute time.
@@ -51,13 +51,13 @@ const formatInJst = (date: Date, formatString: string) => {
  * const jstDate = replaceTzWithJst(date) // 2021-01-01T00:00:00.000+09:00, 2021-01-01 0:00 JST
  */
 const replaceUtcWithTimezone = (date: Date, timezone: string): Date => {
-  const offsetFromUtcToSpecified = offset(date, UTC_TIMEZONE, timezone)
-  const adjusted = removeOffset(date, offsetFromUtcToSpecified)
-  return adjusted
-}
+  const offsetFromUtcToSpecified = offset(date, UTC_TIMEZONE, timezone);
+  const adjusted = removeOffset(date, offsetFromUtcToSpecified);
+  return adjusted;
+};
 
 const replaceUtcWithJst = (date: Date): Date => {
-  return replaceUtcWithTimezone(date, JST_TIMEZONE)
-}
+  return replaceUtcWithTimezone(date, JST_TIMEZONE);
+};
 
-export { formatInJst, formatInUtc, replaceUtcWithJst, replaceUtcWithTimezone }
+export { formatInJst, formatInUtc, replaceUtcWithJst, replaceUtcWithTimezone };

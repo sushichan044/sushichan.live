@@ -1,16 +1,16 @@
 ---
-import { getUUID } from "@/utils/uuid"
-import Fa6SolidTriangleExclamation from "~icons/fa6-solid/triangle-exclamation"
+import { getUUID } from "@/utils/uuid";
+import Fa6SolidTriangleExclamation from "~icons/fa6-solid/triangle-exclamation";
 
 type Props = {
-  backIfNewTab?: string
-}
+  backIfNewTab?: string;
+};
 
-const id = getUUID()
-const titleId = `${id}-title`
-const descriptionId = `${id}-description`
+const id = getUUID();
+const titleId = `${id}-title`;
+const descriptionId = `${id}-description`;
 
-const { backIfNewTab = "/" } = Astro.props
+const { backIfNewTab = "/" } = Astro.props;
 ---
 
 <page-alert data-back-to={backIfNewTab}>
@@ -50,7 +50,7 @@ const { backIfNewTab = "/" } = Astro.props
       </div>
     </div>
   </dialog>
-  <div aria-hidden="true" style="display:none" data-content>
+  <div aria-hidden="true" data-content style="display:none">
     <slot />
   </div>
 </page-alert>
@@ -58,39 +58,39 @@ const { backIfNewTab = "/" } = Astro.props
 <script>
   class PageAlert extends HTMLElement {
     constructor() {
-      super()
+      super();
 
-      const dialog = this.querySelector("dialog")
-      const backButton = this.querySelector(".btn-error")
-      const acceptButton = this.querySelector(".btn-success")
-      const content = this.querySelector("div[data-content]")
-      const backTo = this.dataset.backTo ?? "/"
+      const dialog = this.querySelector("dialog");
+      const backButton = this.querySelector(".btn-error");
+      const acceptButton = this.querySelector(".btn-success");
+      const content = this.querySelector("div[data-content]");
+      const backTo = this.dataset.backTo ?? "/";
 
       dialog?.addEventListener("close", () => {
-        const returnValue = dialog.returnValue
+        const returnValue = dialog.returnValue;
 
         if (returnValue === "true") {
-          dialog?.remove()
-          content?.removeAttribute("aria-hidden")
-          content?.removeAttribute("style")
+          dialog?.remove();
+          content?.removeAttribute("aria-hidden");
+          content?.removeAttribute("style");
         } else {
           // history.length == 1 は、新しいタブで開いた場合
-          history.length == 1 ? (location.href = backTo) : history.back()
+          history.length == 1 ? (location.href = backTo) : history.back();
         }
-      })
+      });
 
       backButton?.addEventListener("click", (e) => {
-        e.preventDefault()
-        dialog?.close("false")
-      })
+        e.preventDefault();
+        dialog?.close("false");
+      });
 
       acceptButton?.addEventListener("click", (e) => {
-        e.preventDefault()
-        dialog?.close("true")
-      })
+        e.preventDefault();
+        dialog?.close("true");
+      });
 
-      dialog?.showModal()
+      dialog?.showModal();
     }
   }
-  customElements.define("page-alert", PageAlert)
+  customElements.define("page-alert", PageAlert);
 </script>

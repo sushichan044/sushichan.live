@@ -5,8 +5,8 @@
  * @returns The padded number as a string.
  */
 const zeroPadding = (num: number, length: number) => {
-  return String(num).padStart(length, "0")
-}
+  return String(num).padStart(length, "0");
+};
 
 /**
  * Rounds a number to the nearest multiple of a given value.
@@ -16,7 +16,7 @@ const zeroPadding = (num: number, length: number) => {
  * @returns The rounded number.
  */
 const roundToNearestMultiple = (num: number, multiple: number) => {
-  return Math.round(num / multiple) * multiple
-}
+  return Math.round(num / multiple) * multiple;
+};
 
-export { roundToNearestMultiple, zeroPadding }
+export { roundToNearestMultiple, zeroPadding };

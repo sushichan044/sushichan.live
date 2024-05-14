@@ -16,14 +16,14 @@
  * parseBoolean(null) // false
  */
 const parseBoolean = (str: string | null | undefined): boolean => {
-  if (str === null || str === undefined) return false
+  if (str === null || str === undefined) return false;
 
-  const parsed = str.toLowerCase()
-  if (parsed === "true") return true
-  if (parsed === "false") return false
+  const parsed = str.toLowerCase();
+  if (parsed === "true") return true;
+  if (parsed === "false") return false;
 
-  console.error(`parseBoolean: ${str} is not a valid boolean`)
-  return false
-}
+  console.error(`parseBoolean: ${str} is not a valid boolean`);
+  return false;
+};
 
-export { parseBoolean }
+export { parseBoolean };

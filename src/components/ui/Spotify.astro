@@ -1,23 +1,23 @@
 ---
-import type { HTMLAttributes } from "astro/types"
+import type { HTMLAttributes } from "astro/types";
 
 export interface Props extends HTMLAttributes<"iframe"> {
-  link: string
-  shape?: "square" | "wide"
+  link: string;
+  shape?: "square" | "wide";
 }
 
-const { link, shape = "wide", ...props } = Astro.props
+const { link, shape = "wide", ...props } = Astro.props;
 
-const url = new URL(link)
-const src = `https://open.spotify.com/embed/${url.pathname}`
+const url = new URL(link);
+const src = `https://open.spotify.com/embed/${url.pathname}`;
 ---
 
 <iframe
+  allow="encrypted-media"
   class:list={[
     shape == "wide" ? "h-[80px] w-full md:h-[152px]" : "aspect-square w-full",
     "rounded-[calc(0.75rem+2px)]",
   ]}
-  allow="encrypted-media"
   loading="lazy"
   src={src}
   title="Spotify embed iframe"

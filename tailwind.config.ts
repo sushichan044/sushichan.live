@@ -1,8 +1,8 @@
-import type { Config as DaisyConfig } from "daisyui"
-import type { Config } from "tailwindcss"
+import type { Config as DaisyConfig } from "daisyui";
+import type { Config } from "tailwindcss";
 
-import daisyui from "daisyui"
-import createPlugin from "tailwindcss/plugin"
+import daisyui from "daisyui";
+import createPlugin from "tailwindcss/plugin";
 
 const config: Config = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
@@ -16,7 +16,7 @@ const config: Config = {
   plugins: [
     daisyui,
     createPlugin(({ addVariant }) => {
-      addVariant("hocus", ["&:hover", "&:focus"])
+      addVariant("hocus", ["&:hover", "&:focus"]);
     }),
     createPlugin(({ addUtilities }) => {
       addUtilities({
@@ -29,7 +29,7 @@ const config: Config = {
         ".content-visibility-visible": {
           "content-visibility": "visible",
         },
-      })
+      });
     }),
     createPlugin(({ addComponents }) => {
       addComponents({
@@ -45,7 +45,7 @@ const config: Config = {
           width: "1px",
           wordWrap: "normal",
         },
-      })
+      });
     }),
   ],
   theme: {
@@ -71,6 +71,6 @@ const config: Config = {
       },
     },
   },
-}
+};
 
-export default config
+export default config;

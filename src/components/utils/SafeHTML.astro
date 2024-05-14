@@ -1,14 +1,14 @@
 ---
-import type { JSXProps } from "@/utils/@types/jsxProps"
+import type { JSXProps } from "@/utils/@types/jsxProps";
 
-import { sanitizeHTML } from "@/utils/html"
+import { sanitizeHTML } from "@/utils/html";
 
-type Props = Omit<JSXProps<"div", "astro">, "set:html"> & {
-  __dangerouslyDisableSanitizer?: boolean
-  afterSanitize?: (html: string) => string
-  as?: "Fragment" | "div" | "span"
-  rawHTML: string
-}
+type Props = {
+  __dangerouslyDisableSanitizer?: boolean;
+  afterSanitize?: (html: string) => string;
+  as?: "Fragment" | "div" | "span";
+  rawHTML: string;
+} & Omit<JSXProps<"div", "astro">, "set:html">;
 
 const {
   __dangerouslyDisableSanitizer = false,
@@ -16,12 +16,14 @@ const {
   as = "div",
   rawHTML,
   ...props
-} = Astro.props
+} = Astro.props;
 
-const safeHTML = __dangerouslyDisableSanitizer ? rawHTML : sanitizeHTML(rawHTML)
-const finalHTML = afterSanitize ? afterSanitize(safeHTML) : safeHTML
+const safeHTML = __dangerouslyDisableSanitizer
+  ? rawHTML
+  : sanitizeHTML(rawHTML);
+const finalHTML = afterSanitize ? afterSanitize(safeHTML) : safeHTML;
 
-const Component = as === "Fragment" ? Fragment : as
+const Component = as === "Fragment" ? Fragment : as;
 ---
 
 {/* eslint-disable-next-line astro/no-set-html-directive */}

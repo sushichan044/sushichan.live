@@ -1,12 +1,12 @@
 ---
-import Card, { type CardProps } from "@/components/common/Card.astro"
-import Timeline from "@/components/ui/twitter/Timeline.astro"
+import Card, { type CardProps } from "@/components/common/Card.astro";
+import Timeline from "@/components/ui/twitter/Timeline.astro";
 
 interface Props extends CardProps {
-  id: string
+  id: string;
 }
 
-const { id, ...props } = Astro.props
+const { id, ...props } = Astro.props;
 ---
 
 <Card {...props}>
