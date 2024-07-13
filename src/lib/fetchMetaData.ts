@@ -8,7 +8,7 @@ type ImageData = {
   width: string | undefined;
 };
 
-type MetaData = {
+export type MetaData = {
   description: string | undefined;
   icon: string | undefined;
   image: ImageData | undefined;
