@@ -3,7 +3,7 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import { defineConfig, envField, passthroughImageService } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import AutoImport from "astro-auto-import";
 import expressiveCode from "astro-expressive-code";
 import rehypeKatex from "rehype-katex";
@@ -40,7 +40,7 @@ const mdxIntegrations = [
 
 // https://astro.build/config
 export default defineConfig({
-  adapter: cloudflare(),
+  adapter: cloudflare({ imageService: "passthrough" }),
   cacheDir: "./.astro-cache",
   experimental: {
     clientPrerender: true,
@@ -60,7 +60,6 @@ export default defineConfig({
         protocol: "https",
       },
     ],
-    service: passthroughImageService(),
   },
   integrations: [
     // expressiveCode config is moved to ec.config.mjs
