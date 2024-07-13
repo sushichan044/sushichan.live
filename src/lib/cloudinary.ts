@@ -22,7 +22,7 @@ type ImageLoaderOption = {
   width: number;
 };
 
-export const getCloudinaryIdentifier = (src: string) => {
+const getCloudinaryIdentifier = (src: string) => {
   return src.replace("https://res.cloudinary.com/sushi-chan/image/upload/", "");
 };
 
@@ -51,23 +51,13 @@ const cloudinaryLoaderBase = ({
   )}/${imageIdentifier}`;
 };
 
-export const cloudinaryMetadataLoader = (src: string) => {
+const cloudinaryMetadataLoader = (src: string) => {
   const imageIdentifier = getCloudinaryIdentifier(src);
   return `https://res.cloudinary.com/sushi-chan/image/upload/fl_getinfo/${imageIdentifier}`;
 };
 
 export function cloudinaryLoader({ quality, src, width }: ImageLoaderOption) {
   return cloudinaryLoaderBase({ quality, src, width });
-}
-
-export function cloudinaryOGPLoader(src: string) {
-  return cloudinaryLoaderBase({
-    crop: "lfill",
-    height: 630,
-    quality: 80,
-    src,
-    width: 1200,
-  });
 }
 
 const IMAGE_SIZE_CACHE = new Map<string, { height: number; width: number }>();

@@ -1,7 +1,6 @@
 import type { CollectionEntry } from "astro:content";
 
 import { Resvg } from "@resvg/resvg-js";
-import React from "react";
 import satori from "satori";
 
 type Options = {

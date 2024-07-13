@@ -1,13 +1,11 @@
 ---
-import type { Metadata } from "fetch-site-metadata";
+import type { MetaData } from "@/lib/fetchMetaData";
 
 import Card, { type CardProps } from "@/components/common/Card.astro";
 import Link from "@/components/element/Link.astro";
 import { fetchMetaData } from "@/lib/fetchMetaData";
-// import { fetchMetaDataWithOGS } from "@/lib/fetchMetaData"
 import { declareLet } from "@/utils/declareLet";
 import { isInternalLink } from "@/utils/helper";
-// import ogs from "open-graph-scraper"
 import { tv } from "tailwind-variants";
 
 interface Props extends CardProps {
@@ -19,7 +17,7 @@ const { round = true, shadow = true, url: rawUrl, ...props } = Astro.props;
 const getImage = ({
   image,
   title,
-}: Metadata): Metadata["image"] | undefined => {
+}: MetaData): MetaData["image"] | undefined => {
   if (image) {
     const { alt, ...rest } = image;
     return {

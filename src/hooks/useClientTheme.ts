@@ -1,29 +1,11 @@
-import { useCallback, useEffect, useState } from "react";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
-const useClientTheme = () => {
-  const [theme, setTheme] = useState<"dark" | "light">("light");
+type ClientTheme = "dark" | "light";
+type UseClientTheme = () => { theme: ClientTheme };
 
-  const setDark = useCallback(() => setTheme("dark"), []);
-  const setLight = useCallback(() => setTheme("light"), []);
-  const toggleTheme = useCallback(
-    () => setTheme(theme === "light" ? "dark" : "light"),
-    [theme],
-  );
-
-  useEffect(() => {
-    const onChange = (e: MediaQueryListEvent) => {
-      setTheme(e.matches ? "dark" : "light");
-    };
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    mediaQuery.addEventListener("change", onChange);
-
-    // set initial value
-    setTheme(mediaQuery.matches ? "dark" : "light");
-    // clean up
-    return () => mediaQuery.removeEventListener("change", onChange);
-  }, []);
-
-  return { setDark, setLight, theme, toggleTheme };
+const useClientTheme: UseClientTheme = () => {
+  const isDark = useMediaQuery("(prefers-color-scheme: dark)");
+  return { theme: isDark ? "dark" : "light" };
 };
 
 export default useClientTheme;

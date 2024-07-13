@@ -23,4 +23,4 @@ const roundReadTime = (
   return rounded === 0 ? 1 : rounded;
 };
 
-export { parseMarkdown, parseMarkdownArray, roundReadTime };
+export { parseMarkdownArray, roundReadTime };
