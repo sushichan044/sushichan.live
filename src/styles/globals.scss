@@ -15,15 +15,6 @@ body {
   display: flex;
   flex-flow: column nowrap;
   min-height: 100vh;
-
-  @supports (min-height: 100dvh) {
-    min-height: 100dvh;
-  }
-
-  @supports (text-size-adjust: 100%) {
-    text-size-adjust: 100%;
-  }
-
   font-family:
     Roboto,
     "Noto Sans JP",
@@ -38,9 +29,25 @@ body {
     "Helvetica Neue",
     sans-serif;
 
-  @include base.typography;
-  @include base.base-color;
-  @include mixin.smooth-scroll;
+  & {
+    @include mixin.smooth-scroll;
+  }
+
+  & {
+    @include base.typography;
+  }
+
+  & {
+    @include base.base-color;
+  }
+
+  @supports (min-height: 100dvh) {
+    min-height: 100dvh;
+  }
+
+  @supports (text-size-adjust: 100%) {
+    text-size-adjust: 100%;
+  }
 }
 
 * {
