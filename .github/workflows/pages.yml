@@ -13,6 +13,9 @@ on:
       - opened
       - reopened
       - synchronize
+    paths-ignore:
+      - ".github/**"
+      - "!.github/workflows/pages.yml"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
