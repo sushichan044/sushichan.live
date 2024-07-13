@@ -1,7 +1,7 @@
 import type { YouTubeConfig } from "react-player/youtube";
 
 import { declareLet } from "@/utils/declareLet";
-import React, { useId } from "react";
+import { useId } from "react";
 import ReactPlayer from "react-player";
 
 type Props = {
