@@ -27,7 +27,7 @@ jobs:
         id: check_behind
         run: |
           git fetch origin beta:beta
-          if git merge-base --is-ancestor beta main; then
+          if git diff --quiet $(git merge-base main beta); then
             echo "Beta is behind main"
             echo "is-behind=TRUE" >> $GITHUB_OUTPUT
           else
@@ -59,9 +59,14 @@ jobs:
         id: branch_name
         run: echo "BRANCH_NAME=autosync/${{ steps.date.outputs.DATE }}" >> $GITHUB_OUTPUT
 
+      - name: Set git identity
+        run: |
+          git config --global user.name github-actions[bot]
+          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
+
       - name: Merge main into beta
         run: |
-          git fetch origin main:main beta:beta
+          git fetch origin main:main
           git merge main --no-commit --no-ff
 
       - name: Create Pull Request
