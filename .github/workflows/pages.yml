@@ -28,7 +28,6 @@ jobs:
     timeout-minutes: 5
     permissions:
       contents: read
-      deployments: write
 
     steps:
       - name: Checkout
