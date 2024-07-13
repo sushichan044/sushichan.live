@@ -43,7 +43,7 @@ const cloudinaryLoaderBase = ({
     `q_${quality ?? "auto"}`,
     "f_webp",
   ];
-  if (height) params.push(`h_${height}`);
+  if (height != null) params.push(`h_${height}`);
   if (blur) params.push("e_blur:1600");
   if (extraParams.length > 0) params.push(...extraParams);
   return `https://res.cloudinary.com/sushi-chan/image/upload/${params.join(
@@ -87,9 +87,8 @@ export const getCloudinaryImageSize = async (
           "Mozilla/5.0 (Macintosh; U; +Intel Mac OS X 10_6_8; de-at) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1",
       },
     });
-    const isJson = res.headers
-      .get("content-type")
-      ?.includes("application/json");
+    const isJson =
+      res.headers.get("content-type")?.includes("application/json") ?? false;
     const data = isJson ? await res.json() : await res.text();
     if (res.ok && isJson) {
       const width = declareLet(() => {

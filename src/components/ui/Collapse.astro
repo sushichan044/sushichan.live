@@ -5,14 +5,14 @@ interface Props {
   title?: string;
 }
 
-const { title } = Astro.props;
+const { title = null } = Astro.props;
 ---
 
 <details
   class="collapse collapse-arrow border border-gray-200 p-2 shadow transition-shadow duration-700 hocus:shadow-md dark:border-zinc-600"
 >
   <summary class="collapse-title text-xl font-medium">
-    {title ? <BudouX>{title}</BudouX> : <slot name="title" />}
+    {title != null ? <BudouX>{title}</BudouX> : <slot name="title" />}
   </summary>
   <div class="collapse-content flex flex-col flex-nowrap gap-4">
     <slot />

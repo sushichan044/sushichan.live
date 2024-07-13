@@ -39,7 +39,7 @@ const getImage = ({ icon, image, title }: Metadata): ImageSet | undefined => {
     };
   }
 
-  if (icon) {
+  if (icon != null) {
     return {
       alt: `icon of ${title}`,
       src: icon,
@@ -98,7 +98,7 @@ const imageSet = getImage(metaData);
           class="relative bottom-1 start-1 flex flex-row flex-nowrap place-items-center gap-1 justify-self-end [&>*]:min-w-0"
         >
           {
-            metaData.icon && (
+            metaData.icon != null && (
               <img
                 alt={metaData.title}
                 class="rounded-sm"
