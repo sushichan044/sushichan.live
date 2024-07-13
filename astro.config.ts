@@ -42,8 +42,8 @@ const mdxIntegrations = [
 // https://astro.build/config
 export default defineConfig({
   adapter: cloudflare({
-    runtime: {
-      mode: "off",
+    platformProxy: {
+      enabled: true,
     },
   }),
   cacheDir: "./.astro-cache",
@@ -118,6 +118,7 @@ export default defineConfig({
       }),
     ],
     ssr: {
+      external: ["@resvg/resvg-js"],
       noExternal: ["react-tweet"],
     },
   },
