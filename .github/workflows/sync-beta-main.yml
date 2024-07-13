@@ -1,0 +1,78 @@
+name: autosync
+
+on:
+  schedule:
+    - cron: "05 0 * * 1" # 毎週月曜日の9:05 JST
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Check
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    outputs:
+      is-behind: ${{ steps.check_behind.outputs.is-behind }}
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+        with:
+          ref: main
+
+      - name: Check if beta is behind main
+        id: check_behind
+        run: |
+          git fetch origin main:main beta:beta
+          if git merge-base --is-ancestor beta main; then
+            echo "Beta is behind main"
+            echo "is-behind=TRUE" >> $GITHUB_OUTPUT
+          else
+            echo "Beta is up-to-date with main"
+            echo "is-behind=FALSE" >> $GITHUB_OUTPUT
+          fi
+
+  sync:
+    name: Sync
+    runs-on: ubuntu-22.04
+    needs: check
+    if: ${{ needs.check.outputs.is-behind == 'TRUE' }}
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+        with:
+          ref: beta
+
+      - name: Get date
+        id: date
+        run: echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+      - name: Define branch name
+        id: branch_name
+        run: echo "BRANCH_NAME=autosync/${{ steps.date.outputs.DATE }}" >> $GITHUB_OUTPUT
+
+      - name: Merge main into beta
+        run: |
+          git fetch origin main:main beta:beta
+          git merge main --no-commit --no-ff
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@c5a7806660adbe173f04e3e038b0ccdcd758773c # v6.1.0
+        with:
+          title: "[Auto Generated] Sync main branch to beta"
+          branch: ${{ steps.branch_name.outputs.BRANCH_NAME }}
+          commit-message: "${{ steps.date.outputs.DATE }}: Sync main branch to beta"
+          labels: |
+            automated
+          reviewers: |
+            sushi-chaaaan
