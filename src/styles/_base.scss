@@ -7,7 +7,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  @include mix.budoux;
+  & {
+    @include mix.budoux;
+  }
 }
 
 @mixin base-color {
@@ -33,13 +35,13 @@
 }
 
 @mixin base-content-margin {
+  > span {
+    display: block;
+  }
+
   > * {
     margin-top: var.$content-margin;
     margin-bottom: var.$content-margin;
-  }
-
-  > span {
-    display: block;
   }
 }
 
