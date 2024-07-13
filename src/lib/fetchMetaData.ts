@@ -56,14 +56,21 @@ const fetchMetaData = async (url: string): Promise<MetaData> => {
     return {
       alt: "",
       height: img.height?.toString(),
-      src: img.url,
+      src: new URL(img.url, url).toString(),
       width: img.width?.toString(),
     };
   });
 
+  const faviconUrl = declareLet(() => {
+    if (res.result.favicon == null || res.result.favicon === "") {
+      return undefined;
+    }
+    return new URL(res.result.favicon, url).toString();
+  });
+
   const response = {
     description: res.result.ogDescription,
-    icon: res.result.favicon,
+    icon: faviconUrl,
     image: imageInfo,
     title: res.result.ogTitle,
   };

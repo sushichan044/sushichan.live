@@ -3,7 +3,7 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import { defineConfig, passthroughImageService } from "astro/config";
+import { defineConfig, envField, passthroughImageService } from "astro/config";
 import AutoImport from "astro-auto-import";
 import expressiveCode from "astro-expressive-code";
 import rehypeKatex from "rehype-katex";
@@ -40,19 +40,15 @@ const mdxIntegrations = [
 
 // https://astro.build/config
 export default defineConfig({
-  adapter: cloudflare({
-    platformProxy: {
-      enabled: true,
-    },
-  }),
+  adapter: cloudflare(),
   cacheDir: "./.astro-cache",
   experimental: {
     clientPrerender: true,
     contentCollectionCache: true,
     contentCollectionJsonSchema: true,
-    security: {
-      csrfProtection: {
-        origin: true,
+    env: {
+      schema: {
+        TWEET_API_URL: envField.string({ access: "secret", context: "server" }),
       },
     },
   },
@@ -99,6 +95,9 @@ export default defineConfig({
   output: "hybrid",
   prefetch: {
     defaultStrategy: "hover",
+  },
+  security: {
+    checkOrigin: true,
   },
   server: {
     host: true,

@@ -33,3 +33,4 @@ pnpm-debug.log*
 
 # user cache dir for astro
 .astro-cache/
+.dev.vars
