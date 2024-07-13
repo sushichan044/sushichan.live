@@ -27,7 +27,7 @@ jobs:
         id: check_behind
         run: |
           git fetch origin beta:beta
-          if git diff --quiet $(git merge-base main beta);
+          if git diff --quiet $(git merge-base main beta); then
             echo "Beta is behind main"
             echo "is-behind=TRUE" >> $GITHUB_OUTPUT
           else
