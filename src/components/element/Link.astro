@@ -49,7 +49,7 @@ const { href: refinedHref, isExternal }: hrefInfo = declareLet(() => {
   }
   return { href: url, isExternal };
 });
-const refinedTarget = target ?? isExternal ? "_blank" : "_self";
+const refinedTarget = target != null || isExternal ? "_blank" : "_self";
 const rel = isExternal ? "noopener noreferrer" : undefined;
 
 const mergedClass = clsx(className, classList);

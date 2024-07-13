@@ -28,7 +28,7 @@ type Props = {
 const { entry } = Astro.props;
 const renderResult = await entry.render();
 
-const showAlert = entry.data.alert && entry.data.alert.length > 0;
+const showAlert = (entry.data.alert && entry.data.alert.length > 0) ?? false;
 
 const readTime = renderResult.remarkPluginFrontmatter.minutesRead as
   | ReadTimeResults

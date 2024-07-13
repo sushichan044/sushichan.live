@@ -55,6 +55,6 @@ const iconHTML = await getIconSvg(icon);
 <SafeHTML
   __dangerouslyDisableSanitizer
   as={as}
-  class:list={[style(props), className && className, "inline-block"]}
+  class:list={[style(props), className != null && className, "inline-block"]}
   rawHTML={iconHTML}
 />
