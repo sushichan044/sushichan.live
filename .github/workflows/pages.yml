@@ -1,4 +1,4 @@
-name: deploy to Cloudflare Pages
+name: deploy
 
 on:
   push:
@@ -23,7 +23,7 @@ env:
 
 jobs:
   build:
-    name: Build Astro App
+    name: Build and Deploy Astro App
     runs-on: ubuntu-22.04
     timeout-minutes: 5
     permissions:
