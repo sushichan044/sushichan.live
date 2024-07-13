@@ -26,7 +26,7 @@ jobs:
       - name: Check if beta is behind main
         id: check_behind
         run: |
-          git fetch origin main:main beta:beta
+          git fetch origin beta:beta
           if git merge-base --is-ancestor beta main; then
             echo "Beta is behind main"
             echo "is-behind=TRUE" >> $GITHUB_OUTPUT
