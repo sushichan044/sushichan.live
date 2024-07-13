@@ -61,7 +61,7 @@ jobs:
 
       - name: Merge main into beta
         run: |
-          git fetch origin main:main beta:beta
+          git fetch origin main:main
           git merge main --no-commit --no-ff
 
       - name: Create Pull Request
