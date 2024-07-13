@@ -1,5 +1,5 @@
 ---
-import type { JSXProps } from "@/utils/@types/jsxProps";
+import type { HTMLAttributes } from "astro/types";
 
 import { sanitizeHTML } from "@/utils/html";
 
@@ -8,7 +8,7 @@ type Props = {
   afterSanitize?: (html: string) => string;
   as?: "Fragment" | "div" | "span";
   rawHTML: string;
-} & Omit<JSXProps<"div", "astro">, "set:html">;
+} & Omit<HTMLAttributes<"div">, "set:html">;
 
 const {
   __dangerouslyDisableSanitizer = false,
