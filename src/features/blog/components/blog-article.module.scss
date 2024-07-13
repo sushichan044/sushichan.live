@@ -1,9 +1,9 @@
 @use "../../../styles/base" as base;
 
 .root {
-  @include base.base-content-margin;
-
   line-height: 2;
+
+  @include base.base-content-margin;
 }
 
 .large-heading-margin {
