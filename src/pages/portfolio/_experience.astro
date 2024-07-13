@@ -1,7 +1,6 @@
 ---
 import type { Experience } from "@/pages/portfolio/_data";
 
-import BudouX from "@/components/common/BudouX.astro";
 import { tv } from "tailwind-variants";
 
 type Props = {
@@ -17,10 +16,11 @@ const timeRight = time.range ? time.data.to : null;
 const style = tv({
   slots: {
     date: "mb-1 text-sm font-normal leading-none text-blue-600 dark:text-blue-400",
-    description: "mb-2 text-base font-normal text-gray-600 dark:text-gray-400",
+    description:
+      "mb-2 text-base font-normal text-gray-600 dark:text-gray-400 text-balance",
     marker:
       "absolute -start-1.5 mt-[8px] size-3 rounded-full bg-blue-600 dark:bg-blue-400",
-    title: "mb-1 text-lg font-semibold",
+    title: "mb-1 text-lg font-semibold text-balance",
     wrapper: "mb-8 ms-4 last:mb-4",
   },
 })();
@@ -38,10 +38,10 @@ const style = tv({
     }</span
   >
   <h3 class:list={style.title()}>
-    <BudouX>{title}</BudouX>
+    {title}
   </h3>
   <p class:list={style.description()}>
-    <BudouX>{description}</BudouX>
+    {description}
   </p>
   <slot />
 </li>

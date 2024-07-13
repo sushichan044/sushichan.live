@@ -1,28 +1,75 @@
-import type { Metadata } from "fetch-site-metadata";
+import { declareLet } from "@/utils/declareLet";
+import ogs from "open-graph-scraper-lite";
 
-import scrape from "fetch-site-metadata";
+type ImageData = {
+  alt: string | undefined;
+  height: string | undefined;
+  src: string;
+  width: string | undefined;
+};
 
-const METADATA_CACHE = new Map<string, Metadata>();
+type MetaData = {
+  description: string | undefined;
+  icon: string | undefined;
+  image: ImageData | undefined;
+  title: string | undefined;
+};
 
-const fetchMetaData = async (url: string) => {
+const METADATA_CACHE = new Map<string, MetaData>();
+
+const fetchMetaData = async (url: string): Promise<MetaData> => {
   const cached = METADATA_CACHE.get(url);
   if (cached) {
     return cached;
   }
 
-  const metaDataResponse = await scrape(
-    url,
-    //    {
-    //   headers: {
-    //     "User-Agent":
-    //       "Mozilla/5.0 (Macintosh; U; +Intel Mac OS X 10_6_8; de-at) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1",
-    //   },
-    //   suppressAdditionalRequest: true,
-    // }
-  );
+  let html: string | null = null;
+  try {
+    const res = await fetch(url, {
+      headers: {
+        "Accept": "text/html",
+        "User-Agent":
+          "Mozilla/5.0 (Macintosh; U; +Intel Mac OS X 10_6_8; de-at) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1",
+      },
+    });
+    html = await res.text();
+  } catch (error) {
+    console.error(error);
+  }
 
-  METADATA_CACHE.set(url, metaDataResponse);
-  return metaDataResponse;
+  if (html == null) {
+    throw new Error("Failed to fetch metadata");
+  }
+
+  const res = await ogs({
+    html,
+  });
+  if (res.error) {
+    throw new Error("Failed to fetch metadata");
+  }
+
+  const imageInfo = declareLet<ImageData | undefined>(() => {
+    const img = res.result.ogImage?.at(0);
+    if (img == null) {
+      return undefined;
+    }
+    return {
+      alt: "",
+      height: img.height?.toString(),
+      src: img.url,
+      width: img.width?.toString(),
+    };
+  });
+
+  const response = {
+    description: res.result.ogDescription,
+    icon: res.result.favicon,
+    image: imageInfo,
+    title: res.result.ogTitle,
+  };
+
+  METADATA_CACHE.set(url, response);
+  return response;
 };
 
 export { fetchMetaData };

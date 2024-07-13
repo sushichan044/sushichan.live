@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
-import BudouX from "@/components/common/BudouX.astro";
 import Link from "@/components/element/Link.astro";
 import CloudinaryImage from "@/components/ui/CloudinaryImage.astro";
 import { dtTool } from "@/lib/date";
@@ -26,7 +25,7 @@ const styles = tv({
     imageWrapper: "aspect-16/9 overflow-hidden rounded-t-[calc(0.5rem-1px)]",
     innerWrapper: "flex flex-col flex-nowrap gap-2 pb-5 text-center",
     root: "group/article overflow-hidden rounded-lg outline outline-1 outline-zinc-300 dark:outline-zinc-600",
-    title: "inline-block px-2 text-xl font-bold",
+    title: "inline-block px-2 text-xl font-bold text-balance",
   },
   variants: {
     status: {
@@ -64,9 +63,7 @@ const styles = tv({
         transition:animate="fade"
         transition:name={`title-${slug}`}
       >
-        <BudouX>
-          {data.title}
-        </BudouX>
+        {data.title}
       </h2>
     </div>
   </Link>

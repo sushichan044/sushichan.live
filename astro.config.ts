@@ -20,7 +20,6 @@ import { remarkReadingTime } from "./src/lib/remarkReadingTime.mjs";
 const mdxIntegrations = [
   AutoImport({
     imports: [
-      "./src/components/common/BudouX.astro",
       "./src/components/common/Icon.astro",
       "./src/components/element/Link.astro",
       "./src/components/ui/Message.astro",
