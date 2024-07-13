@@ -2,13 +2,13 @@
 import type { Tweet } from "react-tweet/api";
 
 import { declareLet } from "@/utils/declareLet";
+import { TWEET_API_URL } from "astro:env/server";
 import { EmbeddedTweet } from "react-tweet";
 type Props = {
   id: string;
 };
 
 const { id } = Astro.props;
-const TWEET_API_URL = import.meta.env.TWEET_API_URL;
 
 const tweet = await declareLet(async () => {
   let tw: Tweet | undefined = undefined;
