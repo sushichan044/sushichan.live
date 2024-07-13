@@ -41,21 +41,16 @@ $spoiler-color-dark: #4d4d5d;
 
 .root[aria-expanded="true"] {
   color: var.$text-color-dark;
+  cursor: auto;
 
   @include mix.scheme("dark") {
     color: var.$text-color-dark;
   }
 
-  cursor: auto;
-
   .content * {
     visibility: visible;
     animation: fade-in 0.1s ease-in-out;
   }
-}
-
-.content {
-  // @include mix.content-margin;
 }
 
 @keyframes fade-in {
