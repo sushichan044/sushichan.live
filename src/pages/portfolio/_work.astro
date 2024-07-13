@@ -1,5 +1,4 @@
 ---
-import BudouX from "@/components/common/BudouX.astro";
 import Link from "@/components/element/Link.astro";
 import { tv } from "tailwind-variants";
 type Props = {
@@ -21,7 +20,7 @@ const style = tv({
     slotWrapper: "flex flex-col gap-y-4",
     tagBadge: "badge bg-blue-600 text-custom-theme-light",
     tags: "mt-2 flex flex-row flex-wrap gap-1",
-    title: "text-lg font-semibold",
+    title: "text-lg font-semibold text-balance",
     wrapper: "rounded-lg border border-gray-200 p-4 dark:border-zinc-600",
   },
 })();
@@ -30,7 +29,7 @@ const style = tv({
 <div class:list={style.wrapper()}>
   <div class:list={style.info()}>
     <h3 class:list={style.title()}>
-      <BudouX>{title}</BudouX>
+      {title}
     </h3>
     {
       tags.length > 0 && (
@@ -44,19 +43,13 @@ const style = tv({
   </div>
   <div class:list={style.description()}>
     {descriptionFromSlot && <slot name="description" />}
-    {
-      !descriptionFromSlot && (
-        <p>
-          <BudouX>{description}</BudouX>
-        </p>
-      )
-    }
+    {!descriptionFromSlot && <p>{description}</p>}
   </div>
   <div class:list={style.slotWrapper()}>
     <slot />
   </div>
   {
-    repoUrl && (
+    repoUrl != null && (
       <Link class:list={style.repoLink()} href={repoUrl}>
         GitHubリポジトリ
       </Link>

@@ -7,7 +7,7 @@ export type CaptionProps = {
 
 type Props = CaptionProps;
 
-const { caption, isFigure } = Astro.props;
+const { caption = null, isFigure = false } = Astro.props;
 const CaptionTag = isFigure ? "figcaption" : "span";
 
 const styles = tv({
@@ -20,5 +20,9 @@ const styles = tv({
 
 <div class:list={styles.root()}>
   <slot />
-  {caption && <CaptionTag class:list={styles.caption()}>{caption}</CaptionTag>}
+  {
+    caption != null && (
+      <CaptionTag class:list={styles.caption()}>{caption}</CaptionTag>
+    )
+  }
 </div>

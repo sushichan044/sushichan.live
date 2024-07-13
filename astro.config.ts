@@ -3,7 +3,7 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import { defineConfig, passthroughImageService } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import AutoImport from "astro-auto-import";
 import expressiveCode from "astro-expressive-code";
 import rehypeKatex from "rehype-katex";
@@ -20,7 +20,6 @@ import { remarkReadingTime } from "./src/lib/remarkReadingTime.mjs";
 const mdxIntegrations = [
   AutoImport({
     imports: [
-      "./src/components/common/BudouX.astro",
       "./src/components/common/Icon.astro",
       "./src/components/element/Link.astro",
       "./src/components/ui/Message.astro",
@@ -41,19 +40,15 @@ const mdxIntegrations = [
 
 // https://astro.build/config
 export default defineConfig({
-  adapter: cloudflare({
-    runtime: {
-      mode: "off",
-    },
-  }),
+  adapter: cloudflare({ imageService: "passthrough" }),
   cacheDir: "./.astro-cache",
   experimental: {
     clientPrerender: true,
     contentCollectionCache: true,
     contentCollectionJsonSchema: true,
-    security: {
-      csrfProtection: {
-        origin: true,
+    env: {
+      schema: {
+        TWEET_API_URL: envField.string({ access: "secret", context: "server" }),
       },
     },
   },
@@ -65,7 +60,6 @@ export default defineConfig({
         protocol: "https",
       },
     ],
-    service: passthroughImageService(),
   },
   integrations: [
     // expressiveCode config is moved to ec.config.mjs
@@ -101,6 +95,9 @@ export default defineConfig({
   prefetch: {
     defaultStrategy: "hover",
   },
+  security: {
+    checkOrigin: true,
+  },
   server: {
     host: true,
   },
@@ -118,6 +115,7 @@ export default defineConfig({
       }),
     ],
     ssr: {
+      external: ["@resvg/resvg-js"],
       noExternal: ["react-tweet"],
     },
   },

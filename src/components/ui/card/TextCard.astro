@@ -1,25 +1,15 @@
 ---
-import BudouX from "@/components/common/BudouX.astro";
 import Card, { type CardProps } from "@/components/common/Card.astro";
-interface Props extends CardProps {
-  useBudouX?: boolean;
-}
 
-const { useBudouX = true, ...props } = Astro.props;
+type Props = CardProps;
+
+const props = Astro.props;
 ---
 
 <Card {...props}>
   <span
     class="text-center [font-size:_clamp(1.5rem,1.3503rem+0.9581vw,2.5rem)]"
   >
-    {
-      useBudouX ? (
-        <BudouX>
-          <slot />
-        </BudouX>
-      ) : (
-        <slot />
-      )
-    }
+    <slot />
   </span>
 </Card>

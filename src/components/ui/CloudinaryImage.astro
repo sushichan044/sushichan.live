@@ -10,7 +10,7 @@ type ImgProps = Omit<
   "alt" | "height" | "priority" | "quality" | "src" | "width"
 >;
 
-interface Props extends ImgProps {
+export interface Props extends ImgProps {
   alt?: string;
   priority?: boolean;
   quality?: number;
