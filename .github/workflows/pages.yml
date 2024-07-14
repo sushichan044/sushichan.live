@@ -59,8 +59,12 @@ jobs:
       - name: Build
         run: pnpm run build
         env:
-          TWEET_API_URL: ${{ secrets.TWEET_API_URL }}
+          CLOUDINARY_CLOUD_NAME: ${{secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{secrets.CLOUDINARY_API_SECRET }}
+
           SHOW_DRAFT_POST: ${{ github.ref_name != 'main' && github.ref_name != 'beta' }}
+          TWEET_API_URL: ${{ secrets.TWEET_API_URL }}
 
       - name: Cache Astro Assets
         id: cache-astro-assets

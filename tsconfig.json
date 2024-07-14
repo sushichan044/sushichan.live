@@ -1,22 +1,13 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  "extends": "@virtual-live-lab/tsconfig/astro",
   "compilerOptions": {
-    "strictNullChecks": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "incremental": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
       "@public/*": ["./public/*"],
       "@root/*": ["./*"]
     },
-    "types": ["vitest/globals", "unplugin-icons/types/astro"],
-    "plugins": [
-      {
-        "name": "@astrojs/ts-plugin"
-      }
-    ]
+    "types": ["vitest/globals", "unplugin-icons/types/astro"]
   },
 
   "exclude": ["node_modules", "dist", "public"]
