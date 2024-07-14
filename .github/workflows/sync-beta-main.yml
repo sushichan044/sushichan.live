@@ -74,6 +74,7 @@ jobs:
         with:
           title: "[Auto Generated] Sync main branch to beta"
           branch: ${{ steps.branch_name.outputs.BRANCH_NAME }}
+          delete-branch: true
           commit-message: "${{ steps.date.outputs.DATE }}: Sync main branch to beta"
           labels: |
             automated

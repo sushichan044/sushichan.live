@@ -18,7 +18,7 @@ type ClockTimeRange = {
   startAt: ClockTime;
 };
 
-export interface ClockProps extends Partial<ClockTimeRange> {
+interface ClockProps extends Partial<ClockTimeRange> {
   className?: string | undefined;
   /**
    * The progress of the clock, must be `MotionValue<number>` and between 0 and 1.

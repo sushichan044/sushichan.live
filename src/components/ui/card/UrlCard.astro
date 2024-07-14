@@ -1,13 +1,9 @@
 ---
-import type { Metadata } from "fetch-site-metadata";
-
 import Card, { type CardProps } from "@/components/common/Card.astro";
 import Link from "@/components/element/Link.astro";
-import { fetchMetaData } from "@/lib/fetchMetaData";
-// import { fetchMetaDataWithOGS } from "@/lib/fetchMetaData"
+import { type MetaData, fetchMetaData } from "@/lib/fetchMetaData";
 import { declareLet } from "@/utils/declareLet";
 import { isInternalLink } from "@/utils/helper";
-// import ogs from "open-graph-scraper"
 import { tv } from "tailwind-variants";
 
 interface Props extends CardProps {
@@ -31,7 +27,7 @@ const style = tv({
   variants: {},
 })();
 
-const getImage = ({ icon, image, title }: Metadata): ImageSet | undefined => {
+const getImage = ({ icon, image, title }: MetaData): ImageSet | undefined => {
   if (image) {
     return {
       alt: image.alt ?? `ogp of ${title}`,
