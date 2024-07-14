@@ -28,6 +28,7 @@ const updatedAtDate = declareLet(() => {
   if (entry.data.updatedAt) {
     return dtTool.replaceUtcWithJst(entry.data.updatedAt);
   }
+  return undefined;
 });
 const OGPUrl = getPostOgpImage(entry.slug, {
   baseUrl: Astro.url,

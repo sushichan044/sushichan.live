@@ -48,6 +48,18 @@ export default defineConfig({
     contentCollectionJsonSchema: true,
     env: {
       schema: {
+        CLOUDINARY_API_KEY: envField.string({
+          access: "secret",
+          context: "server",
+        }),
+        CLOUDINARY_API_SECRET: envField.string({
+          access: "secret",
+          context: "server",
+        }),
+        CLOUDINARY_CLOUD_NAME: envField.string({
+          access: "public",
+          context: "server",
+        }),
         TWEET_API_URL: envField.string({ access: "secret", context: "server" }),
       },
     },
@@ -115,7 +127,7 @@ export default defineConfig({
       }),
     ],
     ssr: {
-      external: ["@resvg/resvg-js"],
+      external: ["@resvg/resvg-js", "cloudinary"],
       noExternal: ["react-tweet"],
     },
   },
