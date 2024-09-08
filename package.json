@@ -50,7 +50,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^11.5.4",
     "katex": "^0.16.11",
-    "marked": "^12.0.2",
+    "marked": "^14.0.0",
     "mdast-util-to-string": "^4.0.0",
     "nprogress": "^0.2.0",
     "open-graph-scraper-lite": "^2.1.0",
