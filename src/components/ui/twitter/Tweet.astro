@@ -1,34 +1,13 @@
 ---
-import type { Tweet } from "react-tweet/api";
+import { Tweet as TweetBase } from "astro-embed";
 
-import { declareLet } from "@/utils/declareLet";
-import { TWEET_API_URL } from "astro:env/server";
-import { EmbeddedTweet } from "react-tweet";
 type Props = {
   id: string;
 };
 
 const { id } = Astro.props;
-
-const tweet = await declareLet(async () => {
-  let tw: Tweet | undefined = undefined;
-  try {
-    const res = await fetch(`${TWEET_API_URL}/tweet/${id}`);
-    const isJson = res.headers
-      .get("content-type")
-      ?.includes("application/json");
-    const data = isJson ? await res.json() : undefined;
-    if (res.ok) {
-      tw = data;
-    }
-  } catch (e) {
-    console.error(e);
-    tw = undefined;
-  }
-  return tw;
-});
 ---
 
-<div class="flex justify-center">
-  {tweet && <EmbeddedTweet client:only="react" tweet={tweet} />}
-</div>
+<TweetBase server:defer id={id} />
+
+<!-- <script async is:inline src="https://platform.twitter.com/widgets.js"></script> -->
