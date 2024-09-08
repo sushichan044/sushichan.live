@@ -26,4 +26,13 @@ const parseBoolean = (str: string | null | undefined): boolean => {
   return false;
 };
 
-export { parseBoolean };
+type TrimExtension<T extends string> = T extends `${infer U}.${infer _}`
+  ? U
+  : T;
+
+const trimExtension = <T extends string>(str: T): TrimExtension<T> => {
+  return str.replace(/\.[^/.]+$/, "") as TrimExtension<T>;
+};
+
+export { parseBoolean, trimExtension };
+export type { TrimExtension };

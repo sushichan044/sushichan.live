@@ -1,19 +1,23 @@
 import { declareLet } from "@/utils/declareLet";
+import { TrimExtension } from "@/utils/string";
 import { type CollectionEntry, getCollection } from "astro:content";
+import { SHOW_DRAFT_POST } from "astro:env/server";
 
 type sortAction = (
   a: CollectionEntry<"posts">,
   b: CollectionEntry<"posts">,
 ) => number;
 
-const getAllPosts = async (sortAction?: sortAction) => {
+type GetAllPostsOption = {
+  sortAction?: sortAction;
+};
+
+const getAllPosts = async (options?: GetAllPostsOption) => {
+  const { sortAction } = options ?? {};
+
   const posts = await getCollection("posts", ({ data }) => {
     if (import.meta.env.DEV) return true;
-
-    if (
-      import.meta.env.SHOW_DRAFT_POST === true ||
-      import.meta.env.SHOW_DRAFT_POST === "true"
-    ) {
+    if (SHOW_DRAFT_POST) {
       return data.status !== "private" && data.status !== "preview";
     }
 
@@ -43,7 +47,7 @@ const getPostsByTags = async (
   tags: string[] | undefined,
   sortAction?: sortAction,
 ) => {
-  const posts = await getAllPosts();
+  const posts = await getAllPosts({ sortAction });
   if (tags === undefined) {
     return posts;
   }
@@ -54,9 +58,6 @@ const getPostsByTags = async (
     return tags.some((tag) => postTags.includes(tag));
   });
 
-  if (sortAction !== undefined) {
-    return postsWithTag.sort(sortAction);
-  }
   return postsWithTag;
 };
 
@@ -77,7 +78,7 @@ type GetOgpImageOptions = {
 };
 
 const getPostOgpImage = (
-  slug: string,
+  slug: TrimExtension<CollectionEntry<"posts">["id"]>,
   { baseUrl, extension }: GetOgpImageOptions,
 ) => {
   const origin =

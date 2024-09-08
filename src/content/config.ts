@@ -1,5 +1,7 @@
 import { defineCollection, reference, z } from "astro:content";
 
+import { glob } from "astro/loaders";
+
 const baseSchema = z.object({
   createdAt: z.coerce.date(),
   tags: z.array(z.string()).optional(),
@@ -23,7 +25,8 @@ const posts = defineCollection({
       type: z.literal("blog").optional().default("blog"),
     }),
   ),
-  type: "content",
+  // type: "content",
+  loader: glob({ pattern: "**/[^_]*.mdx?", base: "./src/content/posts" }),
 });
 
 const presentations = defineCollection({

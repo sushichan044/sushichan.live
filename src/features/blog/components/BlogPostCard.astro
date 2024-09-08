@@ -5,14 +5,17 @@ import Link from "@/components/element/Link.astro";
 import CloudinaryImage from "@/components/ui/CloudinaryImage.astro";
 import { dtTool } from "@/lib/date";
 import { tv } from "tailwind-variants";
+import { trimExtension } from "@/utils/string";
 
 type Props = {
   post: CollectionEntry<"posts">;
 };
 
 const {
-  post: { data, slug },
+  post: { data, id },
 } = Astro.props;
+
+const slug = trimExtension(id);
 
 const createdAt = dtTool.replaceUtcWithJst(data.createdAt);
 const createdAtSring = dtTool.formatInJst(createdAt, "YYYY/MM/DD");
