@@ -21,17 +21,14 @@
   ],
   "markuplint.enable": true,
   "stylelint.validate": ["css", "scss", "astro"],
-  "textlint.languages": ["markdown", "mdx"],
   "prettier.documentSelectors": ["**/*.astro"],
   "emmet.includeLanguages": {
     "mdx": "html"
-  },
-  "eslint.options": {
-    "overrideConfigFile": "eslint.config.mjs"
   },
   "eslint.workingDirectories": [
     {
       "mode": "auto"
     }
-  ]
+  ],
+  "astro.content-intellisense": true
 }

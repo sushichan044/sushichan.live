@@ -12,9 +12,7 @@ import remarkMath from "remark-math";
 import remarkUnwrapImages from "remark-unwrap-images";
 import Icons from "unplugin-icons/vite";
 
-// eslint-disable-next-line no-restricted-imports
 import { SITE_URL } from "./src/consts";
-// eslint-disable-next-line no-restricted-imports
 import { remarkReadingTime } from "./src/lib/remarkReadingTime.mjs";
 
 const mdxIntegrations = [
@@ -45,7 +43,7 @@ export default defineConfig({
   experimental: {
     clientPrerender: true,
     contentCollectionCache: true,
-    contentCollectionJsonSchema: true,
+    contentIntellisense: true,
     env: {
       schema: {
         CLOUDINARY_API_KEY: envField.string({
@@ -64,6 +62,7 @@ export default defineConfig({
       },
       validateSecrets: true,
     },
+    serverIslands: true,
   },
   image: {
     remotePatterns: [
