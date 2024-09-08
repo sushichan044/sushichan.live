@@ -1,5 +1,5 @@
 ---
-import { Tweet as TweetBase } from "astro-embed";
+import TweetBase from "@/components/ui/twitter/TweetBase.astro";
 
 type Props = {
   id: string;
@@ -9,5 +9,3 @@ const { id } = Astro.props;
 ---
 
 <TweetBase server:defer id={id} />
-
-<!-- <script async is:inline src="https://platform.twitter.com/widgets.js"></script> -->

@@ -147,8 +147,7 @@ blockquote {
   @apply bg-gray-200 dark:bg-zinc-700;
 }
 
-// react-tweetのコンポーネント自身がmarginを持っているので、
-// それを無効化するために、ここでmarginを0にしている。
-.react-tweet-theme {
-  --tweet-container-margin: 0 !important;
+.twitter-tweet {
+  overflow: hidden;
+  border-radius: 12px;
 }
