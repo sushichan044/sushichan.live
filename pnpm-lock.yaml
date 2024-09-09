@@ -10,13 +10,13 @@ importers:
     dependencies:
       '@astrojs/check':
         specifier: ^0.9.3
-        version: 0.9.3(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.5.4)
+        version: 0.9.3(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.6.2)
       '@astrojs/cloudflare':
         specifier: ^11.0.4
-        version: 11.0.4(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))
+        version: 11.0.4(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))
       '@astrojs/mdx':
         specifier: 3.1.2
-        version: 3.1.2(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))
+        version: 3.1.2(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))
       '@astrojs/react':
         specifier: ^3.6.2
         version: 3.6.2(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.4.3(@types/node@20.12.12)(sass@1.78.0))
@@ -28,7 +28,7 @@ importers:
         version: 3.1.6
       '@astrojs/tailwind':
         specifier: ^5.1.0
-        version: 5.1.0(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))(tailwindcss@3.4.10)
+        version: 5.1.0(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))(tailwindcss@3.4.10)
       '@astrojs/ts-plugin':
         specifier: ^1.10.2
         version: 1.10.2
@@ -55,19 +55,19 @@ importers:
         version: 0.61.3
       astro:
         specifier: ^4.15.4
-        version: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4)
+        version: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2)
       astro-auto-import:
         specifier: ^0.4.2
-        version: 0.4.2(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))
+        version: 0.4.2(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))
       astro-embed:
         specifier: ^0.7.2
-        version: 0.7.2(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))
+        version: 0.7.2(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))
       astro-expressive-code:
         specifier: ^0.36.1
-        version: 0.36.1(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))
+        version: 0.36.1(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))
       astro-seo:
         specifier: ^0.8.4
-        version: 0.8.4(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.5.4)
+        version: 0.8.4(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.6.2)
       cloudinary:
         specifier: ^2.4.0
         version: 2.4.0
@@ -146,7 +146,7 @@ importers:
         version: 4.20240903.0
       '@double-great/stylelint-a11y':
         specifier: ^3.0.2
-        version: 3.0.2(stylelint@16.9.0(typescript@5.5.4))
+        version: 3.0.2(stylelint@16.9.0(typescript@5.6.2))
       '@iconify/json':
         specifier: ^2.2.245
         version: 2.2.245
@@ -173,19 +173,19 @@ importers:
         version: 2.13.0
       '@virtual-live-lab/eslint-config':
         specifier: ^2.1.2
-        version: 2.1.2(astro-eslint-parser@1.0.2(typescript@5.5.4))(eslint@9.10.0(jiti@1.21.0))(tailwindcss@3.4.10)(typescript@5.5.4)
+        version: 2.1.2(astro-eslint-parser@1.0.2(typescript@5.6.2))(eslint@9.10.0(jiti@1.21.0))(tailwindcss@3.4.10)(typescript@5.6.2)
       '@virtual-live-lab/prettier-config':
         specifier: ^2.0.5
         version: 2.0.5(prettier@3.3.3)
       '@virtual-live-lab/stylelint-config':
         specifier: ^2.0.5
-        version: 2.0.5(postcss-html@1.7.0)(postcss@8.4.39)(stylelint@16.9.0(typescript@5.5.4))
+        version: 2.0.5(postcss-html@1.7.0)(postcss@8.4.39)(stylelint@16.9.0(typescript@5.6.2))
       '@virtual-live-lab/tsconfig':
         specifier: ^2.1.4
         version: 2.1.4(@cloudflare/workers-types@4.20240903.0)
       astro-eslint-parser:
         specifier: ^1.0.2
-        version: 1.0.2(typescript@5.5.4)
+        version: 1.0.2(typescript@5.6.2)
       daisyui:
         specifier: ^4.12.10
         version: 4.12.10(postcss@8.4.39)
@@ -212,31 +212,31 @@ importers:
         version: 1.78.0
       stylelint:
         specifier: ^16.9.0
-        version: 16.9.0(typescript@5.5.4)
+        version: 16.9.0(typescript@5.6.2)
       stylelint-config-html:
         specifier: ^1.1.0
-        version: 1.1.0(postcss-html@1.7.0)(stylelint@16.9.0(typescript@5.5.4))
+        version: 1.1.0(postcss-html@1.7.0)(stylelint@16.9.0(typescript@5.6.2))
       stylelint-config-recess-order:
         specifier: ^5.1.0
-        version: 5.1.0(stylelint@16.9.0(typescript@5.5.4))
+        version: 5.1.0(stylelint@16.9.0(typescript@5.6.2))
       stylelint-config-recommended:
         specifier: ^14.0.1
-        version: 14.0.1(stylelint@16.9.0(typescript@5.5.4))
+        version: 14.0.1(stylelint@16.9.0(typescript@5.6.2))
       stylelint-config-sass-guidelines:
         specifier: ^12.0.0
-        version: 12.0.0(postcss@8.4.39)(stylelint@16.9.0(typescript@5.5.4))
+        version: 12.0.0(postcss@8.4.39)(stylelint@16.9.0(typescript@5.6.2))
       stylelint-config-standard:
         specifier: ^36.0.1
-        version: 36.0.1(stylelint@16.9.0(typescript@5.5.4))
+        version: 36.0.1(stylelint@16.9.0(typescript@5.6.2))
       stylelint-config-standard-scss:
         specifier: ^13.1.0
-        version: 13.1.0(postcss@8.4.39)(stylelint@16.9.0(typescript@5.5.4))
+        version: 13.1.0(postcss@8.4.39)(stylelint@16.9.0(typescript@5.6.2))
       stylelint-declaration-block-no-ignored-properties:
         specifier: ^2.8.0
-        version: 2.8.0(stylelint@16.9.0(typescript@5.5.4))
+        version: 2.8.0(stylelint@16.9.0(typescript@5.6.2))
       stylelint-value-no-unknown-custom-properties:
         specifier: ^6.0.1
-        version: 6.0.1(stylelint@16.9.0(typescript@5.5.4))
+        version: 6.0.1(stylelint@16.9.0(typescript@5.6.2))
       textlint:
         specifier: ^14.2.0
         version: 14.2.0
@@ -248,13 +248,13 @@ importers:
         version: 4.19.0
       typescript:
         specifier: ^5.5.4
-        version: 5.5.4
+        version: 5.6.2
       typescript-eslint:
         specifier: ^8.4.0
-        version: 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4)
+        version: 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2)
       typescript-eslint-parser-for-extra-files:
         specifier: ^0.7.0
-        version: 0.7.0(@typescript-eslint/parser@8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4))(astrojs-compiler-sync@1.0.0(@astrojs/compiler@2.7.0))(typescript@5.5.4)
+        version: 0.7.0(@typescript-eslint/parser@8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2))(astrojs-compiler-sync@1.0.0(@astrojs/compiler@2.7.0))(typescript@5.6.2)
       unplugin-icons:
         specifier: ^0.19.3
         version: 0.19.3(webpack-sources@3.2.3)
@@ -2905,8 +2905,8 @@ packages:
   cssom@0.5.0:
     resolution: {integrity: sha512-iKuQcq+NdHqlAcwUY0o/HL69XQrUaQdMjmStJ8JFmUaiiQErlhrmuigkg/CU4E2J0IyUKUrMAgl36TvN67MqTw==}
 
-  cssstyle@4.0.1:
-    resolution: {integrity: sha512-8ZYiJ3A/3OkDd093CBT/0UKDWry7ak4BdPTFP2+QEP7cmhouyq/Up709ASSj2cK02BbZiMgk7kYjZNS4QP5qrQ==}
+  cssstyle@4.1.0:
+    resolution: {integrity: sha512-h66W1URKpBS5YMI/V8PyXvTMFT8SupJ1IzoIV8IeBC/ji8WVmrO8dGlTi+2dh6whmdk6BiKJLD/ZBkhWbcg6nA==}
     engines: {node: '>=18'}
 
   csstype@3.1.3:
@@ -5375,6 +5375,9 @@ packages:
   rrweb-cssom@0.6.0:
     resolution: {integrity: sha512-APM0Gt1KoXBz0iIkkdB/kfvGOwC4UuJFeG/c+yV7wSc7q96cG/kJ0HiYCnzivD9SB53cLV1MlHFNfOuPaadYSw==}
 
+  rrweb-cssom@0.7.1:
+    resolution: {integrity: sha512-TrEMa7JGdVm0UThDJSx7ddw5nVm3UJS9o9CCIZ72B1vSyEZoziDqBYP3XIoi/12lKrJR8rE3jeFHMok2F/Mnsg==}
+
   run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
 
@@ -6022,8 +6025,8 @@ packages:
       typescript:
         optional: true
 
-  typescript@5.5.4:
-    resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==}
+  typescript@5.6.2:
+    resolution: {integrity: sha512-NW8ByodCSNCwZeghjN3o+JX5OFH0Ojg6sadjEKY4huZ52TqbJTJnDo5+Tw98lSy63NZvi4n+ez5m2u5d4PkZyw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -6703,71 +6706,71 @@ snapshots:
 
   '@antfu/utils@0.7.10': {}
 
-  '@astro-community/astro-embed-integration@0.7.1(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))':
+  '@astro-community/astro-embed-integration@0.7.1(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))':
     dependencies:
       '@astro-community/astro-embed-link-preview': 0.2.1
-      '@astro-community/astro-embed-twitter': 0.5.4(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))
-      '@astro-community/astro-embed-vimeo': 0.3.8(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))
-      '@astro-community/astro-embed-youtube': 0.5.3(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))
+      '@astro-community/astro-embed-twitter': 0.5.4(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))
+      '@astro-community/astro-embed-vimeo': 0.3.8(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))
+      '@astro-community/astro-embed-youtube': 0.5.3(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))
       '@types/unist': 2.0.10
-      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4)
-      astro-auto-import: 0.4.2(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))
+      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2)
+      astro-auto-import: 0.4.2(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))
       unist-util-select: 4.0.3
 
   '@astro-community/astro-embed-link-preview@0.2.1':
     dependencies:
       '@astro-community/astro-embed-utils': 0.1.3
 
-  '@astro-community/astro-embed-twitter@0.5.4(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))':
+  '@astro-community/astro-embed-twitter@0.5.4(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))':
     dependencies:
       '@astro-community/astro-embed-utils': 0.1.3
-      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4)
+      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2)
 
   '@astro-community/astro-embed-utils@0.1.3':
     dependencies:
       linkedom: 0.14.26
 
-  '@astro-community/astro-embed-vimeo@0.3.8(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))':
+  '@astro-community/astro-embed-vimeo@0.3.8(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))':
     dependencies:
       '@astro-community/astro-embed-utils': 0.1.3
-      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4)
+      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2)
 
-  '@astro-community/astro-embed-youtube@0.5.3(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))':
+  '@astro-community/astro-embed-youtube@0.5.3(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))':
     dependencies:
-      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4)
+      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2)
       lite-youtube-embed: 0.3.3
 
-  '@astrojs/check@0.5.10(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.5.4)':
+  '@astrojs/check@0.5.10(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.6.2)':
     dependencies:
-      '@astrojs/language-server': 2.11.1(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.5.4)
+      '@astrojs/language-server': 2.11.1(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.6.2)
       chokidar: 3.6.0
       fast-glob: 3.3.2
       kleur: 4.1.5
-      typescript: 5.5.4
+      typescript: 5.6.2
       yargs: 17.7.2
     transitivePeerDependencies:
       - prettier
       - prettier-plugin-astro
 
-  '@astrojs/check@0.9.3(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.5.4)':
+  '@astrojs/check@0.9.3(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.6.2)':
     dependencies:
-      '@astrojs/language-server': 2.14.2(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.5.4)
+      '@astrojs/language-server': 2.14.2(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.6.2)
       chokidar: 3.6.0
       fast-glob: 3.3.2
       kleur: 4.1.5
-      typescript: 5.5.4
+      typescript: 5.6.2
       yargs: 17.7.2
     transitivePeerDependencies:
       - prettier
       - prettier-plugin-astro
 
-  '@astrojs/cloudflare@11.0.4(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))':
+  '@astrojs/cloudflare@11.0.4(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))':
     dependencies:
       '@astrojs/internal-helpers': 0.4.1
       '@astrojs/underscore-redirects': 0.3.4
       '@cloudflare/workers-types': 4.20240903.0
-      '@inox-tools/astro-when': 0.2.2(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))
-      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4)
+      '@inox-tools/astro-when': 0.2.2(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))
+      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2)
       esbuild: 0.22.0
       estree-walker: 3.0.3
       magic-string: 0.30.10
@@ -6787,11 +6790,11 @@ snapshots:
 
   '@astrojs/internal-helpers@0.4.1': {}
 
-  '@astrojs/language-server@2.11.1(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.5.4)':
+  '@astrojs/language-server@2.11.1(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.6.2)':
     dependencies:
       '@astrojs/compiler': 2.8.2
       '@jridgewell/sourcemap-codec': 1.4.15
-      '@volar/kit': 2.4.0-alpha.15(typescript@5.5.4)
+      '@volar/kit': 2.4.0-alpha.15(typescript@5.6.2)
       '@volar/language-core': 2.4.0-alpha.15
       '@volar/language-server': 2.4.0-alpha.15
       '@volar/language-service': 2.4.0-alpha.15
@@ -6812,12 +6815,12 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@astrojs/language-server@2.14.2(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.5.4)':
+  '@astrojs/language-server@2.14.2(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.6.2)':
     dependencies:
       '@astrojs/compiler': 2.10.3
       '@astrojs/yaml2ts': 0.2.1
       '@jridgewell/sourcemap-codec': 1.4.15
-      '@volar/kit': 2.4.4(typescript@5.5.4)
+      '@volar/kit': 2.4.4(typescript@5.6.2)
       '@volar/language-core': 2.4.4
       '@volar/language-server': 2.4.4
       '@volar/language-service': 2.4.4
@@ -6885,12 +6888,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@3.1.2(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))':
+  '@astrojs/mdx@3.1.2(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))':
     dependencies:
       '@astrojs/markdown-remark': 5.1.1
       '@mdx-js/mdx': 3.0.1
       acorn: 8.12.1
-      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4)
+      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2)
       es-module-lexer: 1.5.4
       estree-util-visit: 2.0.0
       github-slugger: 2.0.0
@@ -6933,9 +6936,9 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.23.8
 
-  '@astrojs/tailwind@5.1.0(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))(tailwindcss@3.4.10)':
+  '@astrojs/tailwind@5.1.0(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))(tailwindcss@3.4.10)':
     dependencies:
-      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4)
+      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2)
       autoprefixer: 10.4.16(postcss@8.4.35)
       postcss: 8.4.35
       postcss-load-config: 4.0.2(postcss@8.4.35)
@@ -7308,10 +7311,10 @@ snapshots:
 
   '@ctrl/tinycolor@4.1.0': {}
 
-  '@double-great/stylelint-a11y@3.0.2(stylelint@16.9.0(typescript@5.5.4))':
+  '@double-great/stylelint-a11y@3.0.2(stylelint@16.9.0(typescript@5.6.2))':
     dependencies:
       postcss: 8.4.38
-      stylelint: 16.9.0(typescript@5.5.4)
+      stylelint: 16.9.0(typescript@5.6.2)
 
   '@dual-bundle/import-meta-resolve@4.1.0': {}
 
@@ -7808,10 +7811,10 @@ snapshots:
   '@img/sharp-win32-x64@0.33.3':
     optional: true
 
-  '@inox-tools/astro-when@0.2.2(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))':
+  '@inox-tools/astro-when@0.2.2(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))':
     dependencies:
-      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4)
-      astro-integration-kit: 0.16.1(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))
+      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2)
+      astro-integration-kit: 0.16.1(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))
       debug: 4.3.7
     transitivePeerDependencies:
       - supports-color
@@ -8210,10 +8213,10 @@ snapshots:
 
   '@sindresorhus/is@4.6.0': {}
 
-  '@stylistic/eslint-plugin-ts@2.7.2(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4)':
+  '@stylistic/eslint-plugin-ts@2.7.2(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2)':
     dependencies:
       '@types/eslint': 9.6.1
-      '@typescript-eslint/utils': 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4)
+      '@typescript-eslint/utils': 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2)
       eslint: 9.10.0(jiti@1.21.0)
       eslint-visitor-keys: 4.0.0
       espree: 10.1.0
@@ -8221,7 +8224,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@stylistic/stylelint-plugin@2.1.3(stylelint@16.9.0(typescript@5.5.4))':
+  '@stylistic/stylelint-plugin@2.1.3(stylelint@16.9.0(typescript@5.6.2))':
     dependencies:
       '@csstools/css-parser-algorithms': 2.7.1(@csstools/css-tokenizer@2.4.1)
       '@csstools/css-tokenizer': 2.4.1
@@ -8230,7 +8233,7 @@ snapshots:
       postcss-selector-parser: 6.1.2
       postcss-value-parser: 4.2.0
       style-search: 0.1.0
-      stylelint: 16.9.0(typescript@5.5.4)
+      stylelint: 16.9.0(typescript@5.6.2)
 
   '@swc/helpers@0.5.3':
     dependencies:
@@ -8487,34 +8490,34 @@ snapshots:
 
   '@types/unist@3.0.2': {}
 
-  '@typescript-eslint/eslint-plugin@8.4.0(@typescript-eslint/parser@8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4))(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4)':
+  '@typescript-eslint/eslint-plugin@8.4.0(@typescript-eslint/parser@8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2))(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2)':
     dependencies:
       '@eslint-community/regexpp': 4.10.0
-      '@typescript-eslint/parser': 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4)
+      '@typescript-eslint/parser': 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2)
       '@typescript-eslint/scope-manager': 8.4.0
-      '@typescript-eslint/type-utils': 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4)
-      '@typescript-eslint/utils': 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4)
+      '@typescript-eslint/type-utils': 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2)
+      '@typescript-eslint/utils': 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2)
       '@typescript-eslint/visitor-keys': 8.4.0
       eslint: 9.10.0(jiti@1.21.0)
       graphemer: 1.4.0
       ignore: 5.3.1
       natural-compare: 1.4.0
-      ts-api-utils: 1.3.0(typescript@5.5.4)
+      ts-api-utils: 1.3.0(typescript@5.6.2)
     optionalDependencies:
-      typescript: 5.5.4
+      typescript: 5.6.2
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/parser@8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4)':
+  '@typescript-eslint/parser@8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2)':
     dependencies:
       '@typescript-eslint/scope-manager': 8.4.0
       '@typescript-eslint/types': 8.4.0
-      '@typescript-eslint/typescript-estree': 8.4.0(typescript@5.5.4)
+      '@typescript-eslint/typescript-estree': 8.4.0(typescript@5.6.2)
       '@typescript-eslint/visitor-keys': 8.4.0
       debug: 4.3.5
       eslint: 9.10.0(jiti@1.21.0)
     optionalDependencies:
-      typescript: 5.5.4
+      typescript: 5.6.2
     transitivePeerDependencies:
       - supports-color
 
@@ -8528,14 +8531,14 @@ snapshots:
       '@typescript-eslint/types': 8.4.0
       '@typescript-eslint/visitor-keys': 8.4.0
 
-  '@typescript-eslint/type-utils@8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4)':
+  '@typescript-eslint/type-utils@8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2)':
     dependencies:
-      '@typescript-eslint/typescript-estree': 8.4.0(typescript@5.5.4)
-      '@typescript-eslint/utils': 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4)
+      '@typescript-eslint/typescript-estree': 8.4.0(typescript@5.6.2)
+      '@typescript-eslint/utils': 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2)
       debug: 4.3.5
-      ts-api-utils: 1.3.0(typescript@5.5.4)
+      ts-api-utils: 1.3.0(typescript@5.6.2)
     optionalDependencies:
-      typescript: 5.5.4
+      typescript: 5.6.2
     transitivePeerDependencies:
       - eslint
       - supports-color
@@ -8546,7 +8549,7 @@ snapshots:
 
   '@typescript-eslint/types@8.4.0': {}
 
-  '@typescript-eslint/typescript-estree@7.9.0(typescript@5.5.4)':
+  '@typescript-eslint/typescript-estree@7.9.0(typescript@5.6.2)':
     dependencies:
       '@typescript-eslint/types': 7.9.0
       '@typescript-eslint/visitor-keys': 7.9.0
@@ -8555,13 +8558,13 @@ snapshots:
       is-glob: 4.0.3
       minimatch: 9.0.4
       semver: 7.6.0
-      ts-api-utils: 1.3.0(typescript@5.5.4)
+      ts-api-utils: 1.3.0(typescript@5.6.2)
     optionalDependencies:
-      typescript: 5.5.4
+      typescript: 5.6.2
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/typescript-estree@8.4.0(typescript@5.5.4)':
+  '@typescript-eslint/typescript-estree@8.4.0(typescript@5.6.2)':
     dependencies:
       '@typescript-eslint/types': 8.4.0
       '@typescript-eslint/visitor-keys': 8.4.0
@@ -8570,18 +8573,18 @@ snapshots:
       is-glob: 4.0.3
       minimatch: 9.0.4
       semver: 7.6.2
-      ts-api-utils: 1.3.0(typescript@5.5.4)
+      ts-api-utils: 1.3.0(typescript@5.6.2)
     optionalDependencies:
-      typescript: 5.5.4
+      typescript: 5.6.2
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/utils@8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4)':
+  '@typescript-eslint/utils@8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2)':
     dependencies:
       '@eslint-community/eslint-utils': 4.4.0(eslint@9.10.0(jiti@1.21.0))
       '@typescript-eslint/scope-manager': 8.4.0
       '@typescript-eslint/types': 8.4.0
-      '@typescript-eslint/typescript-estree': 8.4.0(typescript@5.5.4)
+      '@typescript-eslint/typescript-estree': 8.4.0(typescript@5.6.2)
       eslint: 9.10.0(jiti@1.21.0)
     transitivePeerDependencies:
       - supports-color
@@ -8601,24 +8604,24 @@ snapshots:
 
   '@unocss/reset@0.61.3': {}
 
-  '@virtual-live-lab/eslint-config@2.1.2(astro-eslint-parser@1.0.2(typescript@5.5.4))(eslint@9.10.0(jiti@1.21.0))(tailwindcss@3.4.10)(typescript@5.5.4)':
+  '@virtual-live-lab/eslint-config@2.1.2(astro-eslint-parser@1.0.2(typescript@5.6.2))(eslint@9.10.0(jiti@1.21.0))(tailwindcss@3.4.10)(typescript@5.6.2)':
     dependencies:
       '@eslint/compat': 1.1.1
       '@eslint/eslintrc': 3.1.0
       '@eslint/js': 9.10.0
-      '@stylistic/eslint-plugin-ts': 2.7.2(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4)
+      '@stylistic/eslint-plugin-ts': 2.7.2(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2)
       eslint: 9.10.0(jiti@1.21.0)
       eslint-config-flat-gitignore: 0.1.8
       eslint-config-prettier: 9.1.0(eslint@9.10.0(jiti@1.21.0))
-      eslint-plugin-astro: 1.2.3(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4)
+      eslint-plugin-astro: 1.2.3(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2)
       eslint-plugin-jsx-a11y: 6.9.0(eslint@9.10.0(jiti@1.21.0))
-      eslint-plugin-perfectionist: 3.5.0(astro-eslint-parser@1.0.2(typescript@5.5.4))(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4)
+      eslint-plugin-perfectionist: 3.5.0(astro-eslint-parser@1.0.2(typescript@5.6.2))(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2)
       eslint-plugin-react: 7.35.2(eslint@9.10.0(jiti@1.21.0))
       eslint-plugin-react-hooks: 4.6.2(eslint@9.10.0(jiti@1.21.0))
       eslint-plugin-tailwindcss: 3.17.4(tailwindcss@3.4.10)
       globals: 15.9.0
       pkg-dir: 8.0.0
-      typescript-eslint: 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4)
+      typescript-eslint: 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2)
     transitivePeerDependencies:
       - astro-eslint-parser
       - supports-color
@@ -8632,18 +8635,18 @@ snapshots:
     dependencies:
       prettier: 3.3.3
 
-  '@virtual-live-lab/stylelint-config@2.0.5(postcss-html@1.7.0)(postcss@8.4.39)(stylelint@16.9.0(typescript@5.5.4))':
+  '@virtual-live-lab/stylelint-config@2.0.5(postcss-html@1.7.0)(postcss@8.4.39)(stylelint@16.9.0(typescript@5.6.2))':
     dependencies:
-      '@double-great/stylelint-a11y': 3.0.2(stylelint@16.9.0(typescript@5.5.4))
+      '@double-great/stylelint-a11y': 3.0.2(stylelint@16.9.0(typescript@5.6.2))
       postcss-html: 1.7.0
-      stylelint: 16.9.0(typescript@5.5.4)
-      stylelint-config-html: 1.1.0(postcss-html@1.7.0)(stylelint@16.9.0(typescript@5.5.4))
-      stylelint-config-recess-order: 5.1.0(stylelint@16.9.0(typescript@5.5.4))
-      stylelint-config-sass-guidelines: 11.1.0(postcss@8.4.39)(stylelint@16.9.0(typescript@5.5.4))
-      stylelint-config-standard: 36.0.1(stylelint@16.9.0(typescript@5.5.4))
-      stylelint-config-standard-scss: 13.1.0(postcss@8.4.39)(stylelint@16.9.0(typescript@5.5.4))
-      stylelint-declaration-block-no-ignored-properties: 2.8.0(stylelint@16.9.0(typescript@5.5.4))
-      stylelint-value-no-unknown-custom-properties: 6.0.1(stylelint@16.9.0(typescript@5.5.4))
+      stylelint: 16.9.0(typescript@5.6.2)
+      stylelint-config-html: 1.1.0(postcss-html@1.7.0)(stylelint@16.9.0(typescript@5.6.2))
+      stylelint-config-recess-order: 5.1.0(stylelint@16.9.0(typescript@5.6.2))
+      stylelint-config-sass-guidelines: 11.1.0(postcss@8.4.39)(stylelint@16.9.0(typescript@5.6.2))
+      stylelint-config-standard: 36.0.1(stylelint@16.9.0(typescript@5.6.2))
+      stylelint-config-standard-scss: 13.1.0(postcss@8.4.39)(stylelint@16.9.0(typescript@5.6.2))
+      stylelint-declaration-block-no-ignored-properties: 2.8.0(stylelint@16.9.0(typescript@5.6.2))
+      stylelint-value-no-unknown-custom-properties: 6.0.1(stylelint@16.9.0(typescript@5.6.2))
     transitivePeerDependencies:
       - postcss
 
@@ -8695,21 +8698,21 @@ snapshots:
       loupe: 3.1.1
       tinyrainbow: 1.2.0
 
-  '@volar/kit@2.4.0-alpha.15(typescript@5.5.4)':
+  '@volar/kit@2.4.0-alpha.15(typescript@5.6.2)':
     dependencies:
       '@volar/language-service': 2.4.0-alpha.15
       '@volar/typescript': 2.4.0-alpha.15
       typesafe-path: 0.2.2
-      typescript: 5.5.4
+      typescript: 5.6.2
       vscode-languageserver-textdocument: 1.0.11
       vscode-uri: 3.0.8
 
-  '@volar/kit@2.4.4(typescript@5.5.4)':
+  '@volar/kit@2.4.4(typescript@5.6.2)':
     dependencies:
       '@volar/language-service': 2.4.4
       '@volar/typescript': 2.4.4
       typesafe-path: 0.2.2
-      typescript: 5.5.4
+      typescript: 5.6.2
       vscode-languageserver-textdocument: 1.0.11
       vscode-uri: 3.0.8
 
@@ -8951,27 +8954,27 @@ snapshots:
 
   astring@1.8.6: {}
 
-  astro-auto-import@0.4.2(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4)):
+  astro-auto-import@0.4.2(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2)):
     dependencies:
       '@types/node': 18.19.33
       acorn: 8.11.3
-      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4)
+      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2)
 
-  astro-embed@0.7.2(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4)):
+  astro-embed@0.7.2(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2)):
     dependencies:
-      '@astro-community/astro-embed-integration': 0.7.1(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))
+      '@astro-community/astro-embed-integration': 0.7.1(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))
       '@astro-community/astro-embed-link-preview': 0.2.1
-      '@astro-community/astro-embed-twitter': 0.5.4(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))
-      '@astro-community/astro-embed-vimeo': 0.3.8(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))
-      '@astro-community/astro-embed-youtube': 0.5.3(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4))
-      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4)
+      '@astro-community/astro-embed-twitter': 0.5.4(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))
+      '@astro-community/astro-embed-vimeo': 0.3.8(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))
+      '@astro-community/astro-embed-youtube': 0.5.3(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2))
+      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2)
 
-  astro-eslint-parser@1.0.2(typescript@5.5.4):
+  astro-eslint-parser@1.0.2(typescript@5.6.2):
     dependencies:
       '@astrojs/compiler': 2.7.0
       '@typescript-eslint/scope-manager': 7.9.0
       '@typescript-eslint/types': 7.9.0
-      '@typescript-eslint/typescript-estree': 7.9.0(typescript@5.5.4)
+      '@typescript-eslint/typescript-estree': 7.9.0(typescript@5.6.2)
       astrojs-compiler-sync: 1.0.0(@astrojs/compiler@2.7.0)
       debug: 4.3.4
       entities: 4.5.0
@@ -8985,26 +8988,26 @@ snapshots:
       - supports-color
       - typescript
 
-  astro-expressive-code@0.36.1(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4)):
+  astro-expressive-code@0.36.1(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2)):
     dependencies:
-      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4)
+      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2)
       rehype-expressive-code: 0.36.1
 
-  astro-integration-kit@0.16.1(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4)):
+  astro-integration-kit@0.16.1(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2)):
     dependencies:
-      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4)
+      astro: 4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2)
       pathe: 1.1.2
       recast: 0.23.9
 
-  astro-seo@0.8.4(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.5.4):
+  astro-seo@0.8.4(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.6.2):
     dependencies:
-      '@astrojs/check': 0.5.10(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.5.4)
+      '@astrojs/check': 0.5.10(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.6.2)
     transitivePeerDependencies:
       - prettier
       - prettier-plugin-astro
       - typescript
 
-  astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.5.4):
+  astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.2):
     dependencies:
       '@astrojs/compiler': 2.10.3
       '@astrojs/internal-helpers': 0.4.1
@@ -9061,7 +9064,7 @@ snapshots:
       string-width: 7.2.0
       strip-ansi: 7.1.0
       tinyexec: 0.3.0
-      tsconfck: 3.1.3(typescript@5.5.4)
+      tsconfck: 3.1.3(typescript@5.6.2)
       unist-util-visit: 5.0.0
       vfile: 6.0.3
       vite: 5.4.3(@types/node@20.12.12)(sass@1.78.0)
@@ -9071,7 +9074,7 @@ snapshots:
       yargs-parser: 21.1.1
       zod: 3.23.8
       zod-to-json-schema: 3.23.2(zod@3.23.8)
-      zod-to-ts: 1.2.0(typescript@5.5.4)(zod@3.23.8)
+      zod-to-ts: 1.2.0(typescript@5.6.2)(zod@3.23.8)
     optionalDependencies:
       sharp: 0.33.3
     transitivePeerDependencies:
@@ -9386,14 +9389,14 @@ snapshots:
 
   cookie@0.6.0: {}
 
-  cosmiconfig@9.0.0(typescript@5.5.4):
+  cosmiconfig@9.0.0(typescript@5.6.2):
     dependencies:
       env-paths: 2.2.1
       import-fresh: 3.3.0
       js-yaml: 4.1.0
       parse-json: 5.2.0
     optionalDependencies:
-      typescript: 5.5.4
+      typescript: 5.6.2
 
   cross-spawn@7.0.3:
     dependencies:
@@ -9445,9 +9448,9 @@ snapshots:
 
   cssom@0.5.0: {}
 
-  cssstyle@4.0.1:
+  cssstyle@4.1.0:
     dependencies:
-      rrweb-cssom: 0.6.0
+      rrweb-cssom: 0.7.1
     optional: true
 
   csstype@3.1.3: {}
@@ -9885,12 +9888,12 @@ snapshots:
     dependencies:
       eslint: 9.10.0(jiti@1.21.0)
 
-  eslint-plugin-astro@1.2.3(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4):
+  eslint-plugin-astro@1.2.3(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2):
     dependencies:
       '@eslint-community/eslint-utils': 4.4.0(eslint@9.10.0(jiti@1.21.0))
       '@jridgewell/sourcemap-codec': 1.4.15
       '@typescript-eslint/types': 7.16.0
-      astro-eslint-parser: 1.0.2(typescript@5.5.4)
+      astro-eslint-parser: 1.0.2(typescript@5.6.2)
       eslint: 9.10.0(jiti@1.21.0)
       eslint-compat-utils: 0.5.0(eslint@9.10.0(jiti@1.21.0))
       globals: 15.9.0
@@ -9920,15 +9923,15 @@ snapshots:
       safe-regex-test: 1.0.3
       string.prototype.includes: 2.0.0
 
-  eslint-plugin-perfectionist@3.5.0(astro-eslint-parser@1.0.2(typescript@5.5.4))(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4):
+  eslint-plugin-perfectionist@3.5.0(astro-eslint-parser@1.0.2(typescript@5.6.2))(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2):
     dependencies:
       '@typescript-eslint/types': 8.4.0
-      '@typescript-eslint/utils': 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4)
+      '@typescript-eslint/utils': 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2)
       eslint: 9.10.0(jiti@1.21.0)
       minimatch: 9.0.5
       natural-compare-lite: 1.4.0
     optionalDependencies:
-      astro-eslint-parser: 1.0.2(typescript@5.5.4)
+      astro-eslint-parser: 1.0.2(typescript@5.6.2)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -10905,7 +10908,7 @@ snapshots:
 
   jsdom@24.0.0:
     dependencies:
-      cssstyle: 4.0.1
+      cssstyle: 4.1.0
       data-urls: 5.0.0
       decimal.js: 10.4.3
       form-data: 4.0.0
@@ -12778,6 +12781,9 @@ snapshots:
   rrweb-cssom@0.6.0:
     optional: true
 
+  rrweb-cssom@0.7.1:
+    optional: true
+
   run-parallel@1.2.0:
     dependencies:
       queue-microtask: 1.2.3
@@ -13146,83 +13152,83 @@ snapshots:
     dependencies:
       inline-style-parser: 0.2.3
 
-  stylelint-config-html@1.1.0(postcss-html@1.7.0)(stylelint@16.9.0(typescript@5.5.4)):
+  stylelint-config-html@1.1.0(postcss-html@1.7.0)(stylelint@16.9.0(typescript@5.6.2)):
     dependencies:
       postcss-html: 1.7.0
-      stylelint: 16.9.0(typescript@5.5.4)
+      stylelint: 16.9.0(typescript@5.6.2)
 
-  stylelint-config-recess-order@5.1.0(stylelint@16.9.0(typescript@5.5.4)):
+  stylelint-config-recess-order@5.1.0(stylelint@16.9.0(typescript@5.6.2)):
     dependencies:
-      stylelint: 16.9.0(typescript@5.5.4)
-      stylelint-order: 6.0.4(stylelint@16.9.0(typescript@5.5.4))
+      stylelint: 16.9.0(typescript@5.6.2)
+      stylelint-order: 6.0.4(stylelint@16.9.0(typescript@5.6.2))
 
-  stylelint-config-recommended-scss@14.0.0(postcss@8.4.39)(stylelint@16.9.0(typescript@5.5.4)):
+  stylelint-config-recommended-scss@14.0.0(postcss@8.4.39)(stylelint@16.9.0(typescript@5.6.2)):
     dependencies:
       postcss-scss: 4.0.9(postcss@8.4.39)
-      stylelint: 16.9.0(typescript@5.5.4)
-      stylelint-config-recommended: 14.0.1(stylelint@16.9.0(typescript@5.5.4))
-      stylelint-scss: 6.3.0(stylelint@16.9.0(typescript@5.5.4))
+      stylelint: 16.9.0(typescript@5.6.2)
+      stylelint-config-recommended: 14.0.1(stylelint@16.9.0(typescript@5.6.2))
+      stylelint-scss: 6.3.0(stylelint@16.9.0(typescript@5.6.2))
     optionalDependencies:
       postcss: 8.4.39
 
-  stylelint-config-recommended@14.0.1(stylelint@16.9.0(typescript@5.5.4)):
+  stylelint-config-recommended@14.0.1(stylelint@16.9.0(typescript@5.6.2)):
     dependencies:
-      stylelint: 16.9.0(typescript@5.5.4)
+      stylelint: 16.9.0(typescript@5.6.2)
 
-  stylelint-config-sass-guidelines@11.1.0(postcss@8.4.39)(stylelint@16.9.0(typescript@5.5.4)):
+  stylelint-config-sass-guidelines@11.1.0(postcss@8.4.39)(stylelint@16.9.0(typescript@5.6.2)):
     dependencies:
       postcss: 8.4.39
       postcss-scss: 4.0.9(postcss@8.4.39)
-      stylelint: 16.9.0(typescript@5.5.4)
-      stylelint-scss: 6.3.0(stylelint@16.9.0(typescript@5.5.4))
+      stylelint: 16.9.0(typescript@5.6.2)
+      stylelint-scss: 6.3.0(stylelint@16.9.0(typescript@5.6.2))
 
-  stylelint-config-sass-guidelines@12.0.0(postcss@8.4.39)(stylelint@16.9.0(typescript@5.5.4)):
+  stylelint-config-sass-guidelines@12.0.0(postcss@8.4.39)(stylelint@16.9.0(typescript@5.6.2)):
     dependencies:
-      '@stylistic/stylelint-plugin': 2.1.3(stylelint@16.9.0(typescript@5.5.4))
+      '@stylistic/stylelint-plugin': 2.1.3(stylelint@16.9.0(typescript@5.6.2))
       postcss: 8.4.39
       postcss-scss: 4.0.9(postcss@8.4.39)
-      stylelint: 16.9.0(typescript@5.5.4)
-      stylelint-scss: 6.3.0(stylelint@16.9.0(typescript@5.5.4))
+      stylelint: 16.9.0(typescript@5.6.2)
+      stylelint-scss: 6.3.0(stylelint@16.9.0(typescript@5.6.2))
 
-  stylelint-config-standard-scss@13.1.0(postcss@8.4.39)(stylelint@16.9.0(typescript@5.5.4)):
+  stylelint-config-standard-scss@13.1.0(postcss@8.4.39)(stylelint@16.9.0(typescript@5.6.2)):
     dependencies:
-      stylelint: 16.9.0(typescript@5.5.4)
-      stylelint-config-recommended-scss: 14.0.0(postcss@8.4.39)(stylelint@16.9.0(typescript@5.5.4))
-      stylelint-config-standard: 36.0.1(stylelint@16.9.0(typescript@5.5.4))
+      stylelint: 16.9.0(typescript@5.6.2)
+      stylelint-config-recommended-scss: 14.0.0(postcss@8.4.39)(stylelint@16.9.0(typescript@5.6.2))
+      stylelint-config-standard: 36.0.1(stylelint@16.9.0(typescript@5.6.2))
     optionalDependencies:
       postcss: 8.4.39
 
-  stylelint-config-standard@36.0.1(stylelint@16.9.0(typescript@5.5.4)):
+  stylelint-config-standard@36.0.1(stylelint@16.9.0(typescript@5.6.2)):
     dependencies:
-      stylelint: 16.9.0(typescript@5.5.4)
-      stylelint-config-recommended: 14.0.1(stylelint@16.9.0(typescript@5.5.4))
+      stylelint: 16.9.0(typescript@5.6.2)
+      stylelint-config-recommended: 14.0.1(stylelint@16.9.0(typescript@5.6.2))
 
-  stylelint-declaration-block-no-ignored-properties@2.8.0(stylelint@16.9.0(typescript@5.5.4)):
+  stylelint-declaration-block-no-ignored-properties@2.8.0(stylelint@16.9.0(typescript@5.6.2)):
     dependencies:
-      stylelint: 16.9.0(typescript@5.5.4)
+      stylelint: 16.9.0(typescript@5.6.2)
 
-  stylelint-order@6.0.4(stylelint@16.9.0(typescript@5.5.4)):
+  stylelint-order@6.0.4(stylelint@16.9.0(typescript@5.6.2)):
     dependencies:
       postcss: 8.4.39
       postcss-sorting: 8.0.2(postcss@8.4.39)
-      stylelint: 16.9.0(typescript@5.5.4)
+      stylelint: 16.9.0(typescript@5.6.2)
 
-  stylelint-scss@6.3.0(stylelint@16.9.0(typescript@5.5.4)):
+  stylelint-scss@6.3.0(stylelint@16.9.0(typescript@5.6.2)):
     dependencies:
       known-css-properties: 0.30.0
       postcss-media-query-parser: 0.2.3
       postcss-resolve-nested-selector: 0.1.1
       postcss-selector-parser: 6.0.16
       postcss-value-parser: 4.2.0
-      stylelint: 16.9.0(typescript@5.5.4)
+      stylelint: 16.9.0(typescript@5.6.2)
 
-  stylelint-value-no-unknown-custom-properties@6.0.1(stylelint@16.9.0(typescript@5.5.4)):
+  stylelint-value-no-unknown-custom-properties@6.0.1(stylelint@16.9.0(typescript@5.6.2)):
     dependencies:
       postcss-value-parser: 4.2.0
       resolve: 1.22.8
-      stylelint: 16.9.0(typescript@5.5.4)
+      stylelint: 16.9.0(typescript@5.6.2)
 
-  stylelint@16.9.0(typescript@5.5.4):
+  stylelint@16.9.0(typescript@5.6.2):
     dependencies:
       '@csstools/css-parser-algorithms': 3.0.1(@csstools/css-tokenizer@3.0.1)
       '@csstools/css-tokenizer': 3.0.1
@@ -13231,7 +13237,7 @@ snapshots:
       '@dual-bundle/import-meta-resolve': 4.1.0
       balanced-match: 2.0.0
       colord: 2.9.3
-      cosmiconfig: 9.0.0(typescript@5.5.4)
+      cosmiconfig: 9.0.0(typescript@5.6.2)
       css-functions-list: 3.2.2
       css-tree: 2.3.1
       debug: 4.3.7
@@ -13537,15 +13543,15 @@ snapshots:
 
   try-resolve@1.0.1: {}
 
-  ts-api-utils@1.3.0(typescript@5.5.4):
+  ts-api-utils@1.3.0(typescript@5.6.2):
     dependencies:
-      typescript: 5.5.4
+      typescript: 5.6.2
 
   ts-interface-checker@0.1.13: {}
 
-  tsconfck@3.1.3(typescript@5.5.4):
+  tsconfck@3.1.3(typescript@5.6.2):
     optionalDependencies:
-      typescript: 5.5.4
+      typescript: 5.6.2
 
   tslib@2.6.2: {}
 
@@ -13600,27 +13606,27 @@ snapshots:
     dependencies:
       semver: 7.6.2
 
-  typescript-eslint-parser-for-extra-files@0.7.0(@typescript-eslint/parser@8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4))(astrojs-compiler-sync@1.0.0(@astrojs/compiler@2.7.0))(typescript@5.5.4):
+  typescript-eslint-parser-for-extra-files@0.7.0(@typescript-eslint/parser@8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2))(astrojs-compiler-sync@1.0.0(@astrojs/compiler@2.7.0))(typescript@5.6.2):
     dependencies:
-      '@typescript-eslint/parser': 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4)
+      '@typescript-eslint/parser': 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2)
       globby: 11.1.0
       is-glob: 4.0.3
     optionalDependencies:
       astrojs-compiler-sync: 1.0.0(@astrojs/compiler@2.7.0)
-      typescript: 5.5.4
+      typescript: 5.6.2
 
-  typescript-eslint@8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4):
+  typescript-eslint@8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2):
     dependencies:
-      '@typescript-eslint/eslint-plugin': 8.4.0(@typescript-eslint/parser@8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4))(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4)
-      '@typescript-eslint/parser': 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4)
-      '@typescript-eslint/utils': 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.5.4)
+      '@typescript-eslint/eslint-plugin': 8.4.0(@typescript-eslint/parser@8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2))(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2)
+      '@typescript-eslint/parser': 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2)
+      '@typescript-eslint/utils': 8.4.0(eslint@9.10.0(jiti@1.21.0))(typescript@5.6.2)
     optionalDependencies:
-      typescript: 5.5.4
+      typescript: 5.6.2
     transitivePeerDependencies:
       - eslint
       - supports-color
 
-  typescript@5.5.4: {}
+  typescript@5.6.2: {}
 
   ufo@1.5.3: {}
 
@@ -14335,9 +14341,9 @@ snapshots:
     dependencies:
       zod: 3.23.8
 
-  zod-to-ts@1.2.0(typescript@5.5.4)(zod@3.23.8):
+  zod-to-ts@1.2.0(typescript@5.6.2)(zod@3.23.8):
     dependencies:
-      typescript: 5.5.4
+      typescript: 5.6.2
       zod: 3.23.8
 
   zod@3.23.8: {}
