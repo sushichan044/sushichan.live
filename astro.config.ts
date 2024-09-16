@@ -65,7 +65,6 @@ export default defineConfig({
           default: false,
           optional: true,
         }),
-        TWEET_API_URL: envField.string({ access: "secret", context: "server" }),
       },
       validateSecrets: true,
     },
