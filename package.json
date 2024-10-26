@@ -64,7 +64,7 @@
     "rehype-katex": "7.0.1",
     "remark-emoji": "5.0.1",
     "remark-math": "6.0.0",
-    "remark-unwrap-images": "4.0.1",
+    "remark-unwrap-images": "5.0.0",
     "sanitize-html": "2.13.1",
     "satori": "0.11.2",
     "tailwind-merge": "2.5.4",

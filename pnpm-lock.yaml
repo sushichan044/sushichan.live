@@ -114,8 +114,8 @@ importers:
         specifier: 6.0.0
         version: 6.0.0
       remark-unwrap-images:
-        specifier: 4.0.1
-        version: 4.0.1
+        specifier: 5.0.0
+        version: 5.0.0
       sanitize-html:
         specifier: 2.13.1
         version: 2.13.1
@@ -4928,8 +4928,9 @@ packages:
   remark-stringify@11.0.0:
     resolution: {integrity: sha512-1OSmLd3awB/t8qdoEOMazZkNsfVTeY4fTsgzcQFdXNq8ToTN4ZGwrMnlda4K6smTFKD+GRV6O48i6Z4iKgPPpw==}
 
-  remark-unwrap-images@4.0.1:
-    resolution: {integrity: sha512-J9HibCHx0/X7ovgqaFe0otizCHpbb1s6Jh3IeiD5ibQm2Oz/OhCDXSKMEW5T54iBw5CxuqRL6BrYp+jLLdqBOw==}
+  remark-unwrap-images@5.0.0:
+    resolution: {integrity: sha512-s7WSIA6s98ywa93v/5x+wFeGgJSl1VJnNYgg//0MUgu12CyxVMi+vcCifXFEUtQfnnWSTXWOH6f8LkDBNLthrg==}
+    deprecated: 'Deprecated: use `rehype-unwrap-images` instead'
 
   repeat-string@1.6.1:
     resolution: {integrity: sha512-PV0dzCYDNfRi1jCDbJzpW7jNNDRuCOG/jI5ctQcGKt/clZD+YcPS3yIlWuTJMmESC8aevCFmWJy5wjAFgNqN6w==}
@@ -11834,11 +11835,7 @@ snapshots:
       mdast-util-to-markdown: 2.1.0
       unified: 11.0.5
 
-  remark-unwrap-images@4.0.1:
-    dependencies:
-      '@types/mdast': 4.0.4
-      hast-util-whitespace: 3.0.0
-      unist-util-visit: 5.0.0
+  remark-unwrap-images@5.0.0: {}
 
   repeat-string@1.6.1: {}
 
