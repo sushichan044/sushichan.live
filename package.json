@@ -3,7 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "pnpm run /^dev:.*/",
+    "dev:astro": "astro dev",
+    "dev:hcm": "pnpm run typegen:css --watch",
     "start": "astro dev",
     "astro": "astro",
     "build": "astro build",
@@ -19,6 +21,7 @@
     "typegen": "pnpm run /^typegen:.*/",
     "typegen:astro": "astro sync",
     "typegen:cf": "wrangler types",
+    "typegen:css": "hcm 'src/**/*.module.{css,scss,less}' --logLevel=silent",
     "postinstall": "pnpm run typegen"
   },
   "packageManager": "pnpm@9.12.2",
@@ -89,6 +92,8 @@
     "astro-eslint-parser": "^1.0.3",
     "daisyui": "^4.12.10",
     "eslint": "^9.13.0",
+    "happy-css-modules": "^3.1.1",
+    "postcss": "^8.4.47",
     "postcss-html": "^1.7.0",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
