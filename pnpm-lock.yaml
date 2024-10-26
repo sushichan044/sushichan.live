@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@astrojs/check':
-        specifier: ^0.9.3
-        version: 0.9.3(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.6.3)
       '@astrojs/cloudflare':
         specifier: ^11.0.4
         version: 11.0.4(astro@4.15.4(@types/node@20.12.12)(rollup@4.21.2)(sass@1.78.0)(typescript@5.6.3))
@@ -131,16 +128,13 @@ importers:
       tailwind-variants:
         specifier: ^0.2.1
         version: 0.2.1(tailwindcss@3.4.10)
-      tailwindcss:
-        specifier: ^3.4.10
-        version: 3.4.10
       undici:
         specifier: ^6.19.8
         version: 6.19.8
-      wrangler:
-        specifier: ^3.75.0
-        version: 3.75.0(@cloudflare/workers-types@4.20241022.0)
     devDependencies:
+      '@astrojs/check':
+        specifier: ^0.9.3
+        version: 0.9.3(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.6.3)
       '@cloudflare/workers-types':
         specifier: ^4.20241022.0
         version: 4.20241022.0
@@ -237,6 +231,9 @@ importers:
       stylelint-value-no-unknown-custom-properties:
         specifier: ^6.0.1
         version: 6.0.1(stylelint@16.10.0(typescript@5.6.3))
+      tailwindcss:
+        specifier: ^3.4.10
+        version: 3.4.10
       textlint:
         specifier: ^14.3.0
         version: 14.3.0
@@ -261,6 +258,9 @@ importers:
       vitest:
         specifier: ^2.1.3
         version: 2.1.3(@types/node@20.12.12)(jsdom@24.0.0)(sass@1.78.0)
+      wrangler:
+        specifier: ^3.75.0
+        version: 3.75.0(@cloudflare/workers-types@4.20241022.0)
 
 packages:
 
