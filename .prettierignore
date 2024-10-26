@@ -1,3 +1,4 @@
 **/*.md
 **/*.mdx
 pnpm-lock.yaml
+worker-configuration.d.ts
