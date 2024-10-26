@@ -1,4 +1,49 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"]
+  "$schema": "https://json.schemastore.org/renovate.json",
+  "extends": ["config:best-practices"],
+  "schedule": ["before 4:00am on Monday"],
+  "timezone": "Asia/Tokyo",
+  "prHourlyLimit": 0,
+  "automerge": false,
+  "rangeStrategy": "bump",
+  "branchConcurrentLimit": 0,
+  "enabledManagers": ["github-actions", "npm"],
+  "labels": ["renovate"],
+  "packageRules": [
+    {
+      "groupName": "mdx",
+      "commitMessageSuffix": "(mdx)",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": [
+        "astro-expressive-code",
+        "/^@expressive-code/",
+        "katex",
+        "markwd",
+        "mdast-util-to-string",
+        "reading-time",
+        "/^remark-/",
+        "/^rehype-/"
+      ]
+    },
+    {
+      "groupName": "astro",
+      "commitMessageSuffix": "(astro)",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["/astro/"]
+    },
+    {
+      "groupName": "environment",
+      "matchPackageNames": ["node", "pnpm"],
+      "matchUpdateTypes": ["minor", "patch"]
+    },
+    {
+      "groupName": "devDependencies",
+      "matchDepTypes": ["devDependencies"],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "groupName": "GitHub Actions",
+      "matchDatasources": ["github-actions"]
+    }
+  ]
 }
