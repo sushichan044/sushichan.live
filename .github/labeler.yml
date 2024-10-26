@@ -1,0 +1,9 @@
+astro:
+  - changed-files:
+      - any-glob-to-any-file: "src/**"
+
+CI:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/workflows/**"
+          - ".github/labeler.yml"

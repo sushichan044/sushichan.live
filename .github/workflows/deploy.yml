@@ -1,0 +1,120 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - main
+      - beta
+  pull_request:
+    branches:
+      - main
+      - beta
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths-ignore:
+      - ".github/**"
+      - "!.github/workflows/pages.yml"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  eslint:
+    name: ESLint
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4.2.1
+
+      - name: Setup Node.js and pnpm
+        uses: ./.github/common/setup-node-pnpm
+
+      - name: Run ESLint
+        run: pnpm run lint:check
+
+  tsc:
+    name: tsc
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4.2.1
+
+      - name: Setup Node.js and pnpm
+        uses: ./.github/common/setup-node-pnpm
+
+      - name: Run tsc
+        run: pnpm run typecheck
+
+  prettier:
+    name: Prettier
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4.2.1
+
+      - name: Setup Node.js and pnpm
+        uses: ./.github/common/setup-node-pnpm
+
+      - name: Run Prettier
+        run: pnpm run format:check
+
+  build:
+    name: Build and Deploy Astro App
+    needs: [eslint, tsc, prettier]
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Setup Node.js and pnpm
+        uses: ./.github/common/setup-node-pnpm
+
+      - name: Restore cached Astro Assets
+        id: restore-astro-assets
+        uses: actions/cache/restore@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
+        with:
+          path: |
+            .astro-cache
+          key: ${{ runner.os }}-astro-assets-${{ hashFiles('.astro-cache/assets/**') }}
+          restore-keys: |
+            ${{ runner.os }}-astro-assets-
+
+      - name: Build
+        run: pnpm run build
+        env:
+          CLOUDINARY_CLOUD_NAME: ${{secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{secrets.CLOUDINARY_API_SECRET }}
+
+          SHOW_DRAFT_POST: ${{ github.ref_name != 'main' && github.ref_name != 'beta' }}
+
+      - name: Cache Astro Assets
+        id: cache-astro-assets
+        uses: actions/cache/save@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
+        with:
+          path: |
+            .astro-cache
+          key: ${{ runner.os }}-astro-assets-${{ hashFiles('.astro-cache/assets/**') }}
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/wrangler-action@b2a0191ce60d21388e1a8dcc968b4e9966f938e1 # v3.11.0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy
