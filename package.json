@@ -78,7 +78,7 @@
     "@iconify/json": "^2.2.264",
     "@textlint/textlint-plugin-markdown": "^14.3.0",
     "@types/eslint": "8.56.10",
-    "@types/node": "20.12.12",
+    "@types/node": "20.17.1",
     "@types/nprogress": "^0.2.3",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
