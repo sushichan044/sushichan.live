@@ -1,8 +1,9 @@
+import type { TrimExtension } from "@/utils/string";
 import type { APIRoute } from "astro";
 
 import { getAllPosts, getAllPreviewPosts } from "@/features/blog/utils/post";
+import { trimExtension } from "@/utils/string";
 import { type CollectionEntry, getEntry } from "astro:content";
-import { TrimExtension, trimExtension } from "@/utils/string";
 
 export async function getStaticPaths() {
   const blogEntries = await getAllPosts();

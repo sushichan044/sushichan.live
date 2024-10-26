@@ -9,7 +9,7 @@ import { isInternalLink } from "@/utils/helper";
 import { tv } from "tailwind-variants";
 
 interface Props extends CardProps {
-  url: URL | string;
+  url: string | URL;
 }
 
 const { round = true, shadow = true, url: rawUrl, ...props } = Astro.props;

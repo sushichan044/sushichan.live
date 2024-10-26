@@ -1,8 +1,10 @@
 "use client";
 
+import type React from "react";
+
 import styles from "@/components/react/utils/spoiler/spoiler.module.scss";
 import { parseBoolean } from "@/utils/string";
-import React, { useId, useRef } from "react";
+import { useId, useRef } from "react";
 
 type Props = {
   children: React.ReactNode;
@@ -36,7 +38,7 @@ const Spoiler = ({ children }: Props) => {
       aria-controls={id}
       aria-expanded="false"
       aria-label="Spoiler"
-      className={styles.root}
+      className={styles["root"]}
       onClick={onClick}
       onKeyDown={onKeyDown}
       ref={wrapperRef}
@@ -44,7 +46,7 @@ const Spoiler = ({ children }: Props) => {
       tabIndex={0}
       title="クリックして表示/非表示を切り替え"
     >
-      <span aria-hidden className={styles.content} id={id} ref={contentRef}>
+      <span aria-hidden className={styles["content"]} id={id} ref={contentRef}>
         {children}
       </span>
     </span>

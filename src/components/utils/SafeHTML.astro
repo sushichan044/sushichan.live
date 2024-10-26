@@ -3,12 +3,12 @@ import type { HTMLAttributes } from "astro/types";
 
 import { sanitizeHTML } from "@/utils/html";
 
-type Props = {
+interface Props extends Omit<HTMLAttributes<"div">, "set:html"> {
   __dangerouslyDisableSanitizer?: boolean;
   afterSanitize?: (html: string) => string;
-  as?: "Fragment" | "div" | "span";
+  as?: "div" | "Fragment" | "span";
   rawHTML: string;
-} & Omit<HTMLAttributes<"div">, "set:html">;
+}
 
 const {
   __dangerouslyDisableSanitizer = false,
@@ -23,6 +23,7 @@ const safeHTML = __dangerouslyDisableSanitizer
   : sanitizeHTML(rawHTML);
 const finalHTML = afterSanitize ? afterSanitize(safeHTML) : safeHTML;
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 const Component = as === "Fragment" ? Fragment : as;
 ---
 

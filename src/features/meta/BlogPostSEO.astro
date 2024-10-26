@@ -3,8 +3,8 @@ import type { CollectionEntry } from "astro:content";
 
 import { getPostOgpImage } from "@/features/blog/utils/post";
 import { dtTool } from "@/lib/date";
-import { SEO } from "astro-seo";
 import { trimExtension } from "@/utils/string";
+import { SEO } from "astro-seo";
 
 type Props = {
   entry: CollectionEntry<"posts">;

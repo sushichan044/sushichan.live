@@ -9,7 +9,7 @@ async function parseMarkdown(markdown: string) {
 }
 
 async function parseMarkdownArray(array: string[]) {
-  return await Promise.all(array.map((item) => parseMarkdown(item)));
+  return await Promise.all(array.map(async (item) => parseMarkdown(item)));
 }
 
 const roundReadTime = (

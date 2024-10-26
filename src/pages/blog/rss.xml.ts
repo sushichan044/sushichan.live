@@ -2,8 +2,8 @@ import type { APIRoute } from "astro";
 
 import { SITE_URL } from "@/consts";
 import { getAllPosts } from "@/features/blog/utils/post";
-import rss from "@astrojs/rss";
 import { trimExtension } from "@/utils/string";
+import rss from "@astrojs/rss";
 
 export const GET: APIRoute = async () => {
   const posts = await getAllPosts();

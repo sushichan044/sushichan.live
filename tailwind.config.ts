@@ -15,11 +15,11 @@ const config: Config = {
   } satisfies DaisyConfig,
   plugins: [
     daisyui,
-    createPlugin(({ addVariant }) => {
-      addVariant("hocus", ["&:hover", "&:focus"]);
+    createPlugin((api) => {
+      api.addVariant("hocus", ["&:hover", "&:focus"]);
     }),
-    createPlugin(({ addUtilities }) => {
-      addUtilities({
+    createPlugin((api) => {
+      api.addUtilities({
         ".content-visibility-auto": {
           "content-visibility": "auto",
         },
@@ -31,8 +31,8 @@ const config: Config = {
         },
       });
     }),
-    createPlugin(({ addComponents }) => {
-      addComponents({
+    createPlugin((api) => {
+      api.addComponents({
         ".visually-hidden": {
           border: "0",
           clip: "rect(0, 0, 0, 0)",

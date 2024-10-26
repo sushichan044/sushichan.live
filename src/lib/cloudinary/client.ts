@@ -13,10 +13,10 @@ type CloudinaryCredentials = {
 };
 
 class CloudinarySingleton {
+  private static instance: CloudinarySingleton | null = null;
   private cloudinary: typeof cloudinaryV2;
   private imageSizeMap: Map<string, { height: number; width: number }> =
     new Map();
-  private static instance: CloudinarySingleton | null = null;
 
   private constructor(options: CloudinaryCredentials) {
     this.cloudinary = cloudinaryV2;

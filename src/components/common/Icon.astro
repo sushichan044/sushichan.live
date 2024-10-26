@@ -1,10 +1,10 @@
 ---
 import SafeHTML from "@/components/utils/SafeHTML.astro";
 import Iconify from "@iconify/iconify";
-import { type VariantProps, tv } from "tailwind-variants";
+import { tv, type VariantProps } from "tailwind-variants";
 
 type Props = {
-  as?: "Fragment" | "div" | "span";
+  as?: "div" | "Fragment" | "span";
   class?: string;
   icon: string;
 } & VariantProps<typeof style>;

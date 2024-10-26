@@ -1,10 +1,10 @@
 "use client";
 import type { ComponentProps } from "react";
+import type React from "react";
 
 import styles from "@/components/react/layout/navigation/styles.module.scss";
 import LinkStyle from "@/components/style/link";
 import * as NavMenu from "@radix-ui/react-navigation-menu";
-import React from "react";
 
 type NavLinkProps = {
   topPath: string;
@@ -21,7 +21,7 @@ const NavLink: React.FC<NavLinkProps> = ({
     <NavMenu.Link
       active={isActive}
       asChild
-      className={styles.indicator}
+      className={styles["indicator"]}
       {...props}
     >
       <a
