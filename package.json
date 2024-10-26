@@ -89,8 +89,6 @@
     "astro-eslint-parser": "^1.0.3",
     "daisyui": "^4.12.10",
     "eslint": "^9.13.0",
-    "husky": "^9.1.5",
-    "lint-staged": "^15.2.10",
     "postcss-html": "^1.7.0",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
