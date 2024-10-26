@@ -40,7 +40,6 @@ const mdxIntegrations = [
 // https://astro.build/config
 export default defineConfig({
   adapter: cloudflare({ imageService: "passthrough" }),
-  cacheDir: "./.astro-cache",
   experimental: {
     clientPrerender: true,
     contentCollectionCache: true,
