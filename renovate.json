@@ -28,13 +28,17 @@
     {
       "groupName": "astro",
       "commitMessageSuffix": "(astro)",
-      "matchDatasources": ["npm"],
       "matchPackageNames": ["/astro/"]
     },
     {
       "groupName": "environment",
       "matchPackageNames": ["node", "pnpm"],
       "matchUpdateTypes": ["minor", "patch"]
+    },
+    {
+      "groupName": "dependencies",
+      "matchDepTypes": ["dependencies"],
+      "matchDatasources": ["npm"]
     },
     {
       "groupName": "devDependencies",
