@@ -22,7 +22,7 @@
     "markuplint:check": "markuplint --no-color --problem-only \"./**/*.{jsx,tsx,astro}\"",
     "test": "vitest"
   },
-  "packageManager": "pnpm@9.9.0",
+  "packageManager": "pnpm@9.12.2",
   "engines": {
     "node": ">=20 <21"
   },
