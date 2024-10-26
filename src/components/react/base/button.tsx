@@ -6,8 +6,12 @@ import type { VariantProps } from "tailwind-variants";
 import ButtonStyle from "@/components/style/button";
 
 type ButtonProps = {
-  role: React.HTMLAttributes<HTMLButtonElement>["role"];
-} & Omit<React.ComponentProps<"button">, "role">;
+  role: React.ButtonHTMLAttributes<HTMLButtonElement>["role"];
+  type: Exclude<
+    React.ButtonHTMLAttributes<HTMLButtonElement>["type"],
+    undefined
+  >;
+} & Omit<React.ComponentProps<"button">, "role" | "type">;
 
 type ButtonVariantProps = VariantProps<typeof ButtonStyle>;
 
@@ -20,6 +24,8 @@ const Button = ({
   children,
   className,
   onClick,
+  role,
+  type,
   variants,
   ...props
 }: Props) => {
@@ -27,6 +33,9 @@ const Button = ({
     <button
       className={ButtonStyle({ ...variants, className })}
       onClick={onClick}
+      role={role}
+      // eslint-disable-next-line react/button-has-type
+      type={type}
       {...props}
     >
       {children}

@@ -21,7 +21,7 @@ const NavLink: React.FC<NavLinkProps> = ({
     <NavMenu.Link
       active={isActive}
       asChild
-      className={styles.indicator}
+      className={styles["indicator"]}
       {...props}
     >
       <a

@@ -33,7 +33,7 @@ const Player = ({ muted = true, url }: Props) => {
 
       return {
         ...baseConfig,
-        playerVars: { list: groups?.id, listType: "playlist" },
+        playerVars: { list: groups?.["id"], listType: "playlist" },
       };
     }
 

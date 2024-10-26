@@ -130,7 +130,8 @@ async function fetchFont(
     throw new Error("Failed to fetch font");
   }
 
-  const res = await fetch(resource[1]);
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const res = await fetch(resource[1]!);
 
   return res.arrayBuffer();
 }
