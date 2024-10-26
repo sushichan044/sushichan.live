@@ -7,9 +7,9 @@ import { defineConfig, envField } from "astro/config";
 import AutoImport from "astro-auto-import";
 import expressiveCode from "astro-expressive-code";
 import rehypeKatex from "rehype-katex";
+import rehypeUnwrapImages from "rehype-unwrap-images";
 import remarkEmoji from "remark-emoji";
 import remarkMath from "remark-math";
-import remarkUnwrapImages from "remark-unwrap-images";
 import Icons from "unplugin-icons/vite";
 
 import { SITE_URL } from "./src/consts";
@@ -89,13 +89,8 @@ export default defineConfig({
   ],
   markdown: {
     gfm: true,
-    rehypePlugins: [rehypeKatex],
-    remarkPlugins: [
-      remarkEmoji,
-      remarkMath,
-      remarkUnwrapImages,
-      remarkReadingTime,
-    ],
+    rehypePlugins: [rehypeUnwrapImages, rehypeKatex],
+    remarkPlugins: [remarkEmoji, remarkMath, remarkReadingTime],
     remarkRehype: {
       footnoteBackLabel: "本文へ戻る",
       footnoteLabel: "脚注",
