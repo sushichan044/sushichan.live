@@ -39,7 +39,7 @@
     "@expressive-code/plugin-collapsible-sections": "0.36.1",
     "@formkit/tempo": "0.1.2",
     "@iconify/iconify": "3.1.1",
-    "@radix-ui/react-navigation-menu": "1.2.0",
+    "@radix-ui/react-navigation-menu": "1.2.1",
     "@radix-ui/react-slot": "1.1.0",
     "@resvg/resvg-js": "2.6.2",
     "@unocss/reset": "0.61.3",
