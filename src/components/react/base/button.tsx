@@ -1,9 +1,9 @@
 "use client";
 
+import type React from "react";
 import type { VariantProps } from "tailwind-variants";
 
 import ButtonStyle from "@/components/style/button";
-import React from "react";
 
 type ButtonProps = {
   role: React.HTMLAttributes<HTMLButtonElement>["role"];

@@ -6,7 +6,7 @@ import { sanitizeHTML } from "@/utils/html";
 type Props = {
   __dangerouslyDisableSanitizer?: boolean;
   afterSanitize?: (html: string) => string;
-  as?: "Fragment" | "div" | "span";
+  as?: "div" | "Fragment" | "span";
   rawHTML: string;
 } & Omit<HTMLAttributes<"div">, "set:html">;
 

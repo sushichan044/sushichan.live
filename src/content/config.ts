@@ -1,6 +1,5 @@
-import { defineCollection, reference, z } from "astro:content";
-
 import { glob } from "astro/loaders";
+import { defineCollection, reference, z } from "astro:content";
 
 const baseSchema = z.object({
   createdAt: z.coerce.date(),
@@ -26,7 +25,7 @@ const posts = defineCollection({
     }),
   ),
   // type: "content",
-  loader: glob({ pattern: "**/[^_]*.mdx?", base: "./src/content/posts" }),
+  loader: glob({ base: "./src/content/posts", pattern: "**/[^_]*.mdx?" }),
 });
 
 const presentations = defineCollection({

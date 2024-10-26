@@ -1,11 +1,12 @@
+import type React from "react";
+
 import { cn } from "@/lib/cn";
 import {
-  type MotionValue,
   motion,
+  type MotionValue,
   useMotionTemplate,
   useTransform,
 } from "framer-motion";
-import React from "react";
 import { tv } from "tailwind-variants";
 
 type ClockTime = {

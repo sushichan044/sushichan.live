@@ -1,8 +1,10 @@
 "use client";
 
+import type React from "react";
+
 import styles from "@/components/react/utils/spoiler/spoiler.module.scss";
 import { parseBoolean } from "@/utils/string";
-import React, { useId, useRef } from "react";
+import { useId, useRef } from "react";
 
 type Props = {
   children: React.ReactNode;

@@ -2,8 +2,6 @@
 import type { CollectionEntry } from "astro:content";
 import type { ReadTimeResults } from "reading-time";
 
-import { render } from "astro:content";
-
 import ContentLayout from "@/components/common/ContentLayout.astro";
 import PageAlertWrapper from "@/components/ui/PageAlertWrapper.astro";
 import SafeHTML from "@/components/utils/SafeHTML.astro";
@@ -15,6 +13,7 @@ import BlogPostSEO from "@/features/meta/BlogPostSEO.astro";
 import BlogLayout from "@/layouts/BlogLayout.astro";
 import { parseMarkdownArray } from "@/utils/markdown";
 import { trimExtension } from "@/utils/string";
+import { render } from "astro:content";
 
 export async function getStaticPaths() {
   const blogEntries = await getAllPosts();
@@ -33,7 +32,7 @@ const renderResult = await render(entry);
 
 const showAlert = (entry.data.alert && entry.data.alert.length > 0) ?? false;
 
-const readTime = renderResult.remarkPluginFrontmatter["minutesRead"] as
+const readTime = renderResult.remarkPluginFrontmatter.minutesRead as
   | ReadTimeResults
   | undefined;
 const alerts = entry.data.alert ?? [];
@@ -48,7 +47,7 @@ const parsedAlerts = await parseMarkdownArray(alerts);
       {
         showAlert && (
           // HACK: https://github.com/withastro/astro/issues/3884
-          // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+
           <ul slot={showAlert && "alert"}>
             {parsedAlerts.map((n) => (
               <li>

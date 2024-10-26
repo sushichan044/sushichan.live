@@ -1,5 +1,6 @@
+import type { TrimExtension } from "@/utils/string";
+
 import { declareLet } from "@/utils/declareLet";
-import { TrimExtension } from "@/utils/string";
 import { type CollectionEntry, getCollection } from "astro:content";
 import { SHOW_DRAFT_POST } from "astro:env/server";
 
@@ -73,7 +74,7 @@ const getAllTags = async () => {
 };
 
 type GetOgpImageOptions = {
-  baseUrl: URL | string;
+  baseUrl: string | URL;
   extension?: string;
 };
 

@@ -32,7 +32,7 @@ const { href: refinedHref, isExternal }: hrefInfo = declareLet(() => {
       isExternal: false,
     };
 
-  let url: URL | string;
+  let url: string | URL;
   let isExternal: boolean;
 
   if (typeof href === "string") {
