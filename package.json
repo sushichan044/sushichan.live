@@ -42,7 +42,7 @@
     "@radix-ui/react-navigation-menu": "1.2.0",
     "@radix-ui/react-slot": "1.1.0",
     "@resvg/resvg-js": "2.6.2",
-    "@unocss/reset": "0.61.3",
+    "@unocss/reset": "0.63.6",
     "astro": "4.16.1",
     "astro-auto-import": "0.4.2",
     "astro-embed": "0.7.2",
