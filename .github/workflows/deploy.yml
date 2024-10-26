@@ -5,17 +5,9 @@ on:
     branches:
       - main
       - beta
-  pull_request:
-    branches:
-      - main
-      - beta
-    types:
-      - opened
-      - reopened
-      - synchronize
     paths-ignore:
       - ".github/**"
-      - "!.github/workflows/pages.yml"
+      - "!.github/workflows/deploy.yml"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -71,10 +63,10 @@ jobs:
       - name: Run Prettier
         run: pnpm run format:check
 
-  build:
+  deploy:
     name: Build and Deploy Astro App
     needs: [eslint, tsc, prettier]
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     permissions:
       contents: read
