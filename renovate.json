@@ -13,7 +13,7 @@
     {
       "groupName": "mdx",
       "commitMessageSuffix": "(mdx)",
-      "matchDatasources": ["npm"],
+      "matchDepTypes": ["dependencies", "devDependencies"],
       "matchPackageNames": [
         "astro-expressive-code",
         "/^@expressive-code/",
@@ -28,7 +28,8 @@
     {
       "groupName": "astro",
       "commitMessageSuffix": "(astro)",
-      "matchPackageNames": ["/astro/"]
+      "matchDepTypes": ["dependencies", "devDependencies"],
+      "matchPackageNames": ["/^astro/", "/^@astrojs/"]
     },
     {
       "groupName": "environment",
