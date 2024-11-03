@@ -26,7 +26,7 @@
   },
   "packageManager": "pnpm@9.12.2",
   "engines": {
-    "node": ">=20 <21"
+    "node": ">=20 <23"
   },
   "dependencies": {
     "@astrojs/cloudflare": "11.1.0",
