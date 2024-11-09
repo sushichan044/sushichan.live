@@ -24,7 +24,7 @@
     "typegen:css": "hcm 'src/**/*.module.{css,scss,less}' --logLevel=silent",
     "postinstall": "pnpm run typegen"
   },
-  "packageManager": "pnpm@9.12.2",
+  "packageManager": "pnpm@9.12.3",
   "engines": {
     "node": ">=20 <21"
   },
