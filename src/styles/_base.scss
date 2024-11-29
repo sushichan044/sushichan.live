@@ -7,9 +7,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  & {
-    @include mix.budoux;
-  }
+  @include mix.budoux;
 }
 
 @mixin base-color {

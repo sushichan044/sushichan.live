@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "sass:meta";
+
 $breakpoints: (
   "sm": 576px,
   "md": 768px,
@@ -7,7 +10,7 @@ $breakpoints: (
 );
 
 @mixin mq($size, $range: min) {
-  @media screen and (#{$range}-width: #{map-get($breakpoints, $size)}) {
+  @media screen and (#{$range}-width: #{map.get($breakpoints, $size)}) {
     @content;
   }
 }
@@ -26,7 +29,7 @@ $breakpoints: (
 
 @mixin line-clamp($count: 3) {
   // 引数が数値以外だったらエラーを返す
-  @if type-of($count) != "number" {
+  @if meta.type-of($count) != "number" {
     @error 'line-clampの引数は必ず数値で指定してください';
   }
 
@@ -35,11 +38,10 @@ $breakpoints: (
     text-overflow: ellipsis;
     white-space: nowrap;
   } @else {
-    /* stylelint-disable-next-line value-no-vendor-prefix */
     display: -webkit-box;
+    overflow: hidden;
     -webkit-line-clamp: $count;
     -webkit-box-orient: vertical;
-    overflow: hidden;
   }
 }
 

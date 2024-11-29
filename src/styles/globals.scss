@@ -29,17 +29,9 @@ body {
     "Helvetica Neue",
     sans-serif;
 
-  & {
-    @include mixin.smooth-scroll;
-  }
-
-  & {
-    @include base.typography;
-  }
-
-  & {
-    @include base.base-color;
-  }
+  @include mixin.smooth-scroll;
+  @include base.typography;
+  @include base.base-color;
 
   @supports (min-height: 100dvh) {
     min-height: 100dvh;
