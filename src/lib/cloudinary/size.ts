@@ -1,4 +1,4 @@
-import { getCloudinary } from "@/lib/cloudinary";
+import { getCloudinary } from "./client";
 
 const IMAGE_SIZE_CACHE = new Map<string, { height: number; width: number }>();
 

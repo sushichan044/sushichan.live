@@ -1,7 +1,7 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-import { sanitizeHTML } from "@/utils/html";
+import { sanitizeHTML } from "../../utils/html";
 
 interface Props extends Omit<HTMLAttributes<"div">, "set:html"> {
   __dangerouslyDisableSanitizer?: boolean;

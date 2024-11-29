@@ -1,12 +1,12 @@
 ---
-import ContentLayout from "@/components/common/ContentLayout.astro";
-import MDXRenderer from "@/components/mdx/Renderer.astro";
-import BlogStyle from "@/features/blog/components/BlogStyle.astro";
-import BaseSEO from "@/features/meta/BaseSEO.astro";
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import AboutContent from "@/pages/about/_about.mdx";
-import CodeContent from "@/pages/about/_code.mdx";
-import SNS from "@/pages/about/_sns.astro";
+import ContentLayout from "../../components/common/ContentLayout.astro";
+import Renderer from "../../components/mdx/Renderer.astro";
+import BlogStyle from "../../features/blog/components/BlogStyle.astro";
+import BaseSEO from "../../features/meta/BaseSEO.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import AboutContent from "./_about.mdx";
+import CodeContent from "./_code.mdx";
+import SNS from "./_sns.astro";
 ---
 
 <BaseLayout>
@@ -14,13 +14,13 @@ import SNS from "@/pages/about/_sns.astro";
   <ContentLayout>
     <BlogStyle colorHeading={["h2"]}>
       <h1>About me</h1>
-      <MDXRenderer Content={CodeContent} />
+      <Renderer Content={CodeContent} />
       <SNS />
       <div>
         <p>インターネットの片隅で音楽を聴いて生きています。</p>
         <p>2022年からプログラミングも始めました。</p>
       </div>
-      <MDXRenderer Content={AboutContent} />
+      <Renderer Content={AboutContent} />
     </BlogStyle>
   </ContentLayout>
 </BaseLayout>

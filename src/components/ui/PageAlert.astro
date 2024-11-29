@@ -63,7 +63,7 @@ const { backIfNewTab = "/" } = Astro.props;
       const backButton = this.querySelector(".btn-error");
       const acceptButton = this.querySelector(".btn-success");
       const content = this.querySelector("div[data-content]");
-      const backTo = this.dataset.backTo ?? "/";
+      const backTo = this.dataset["backTo"] ?? "/";
 
       dialog?.addEventListener("close", () => {
         const returnValue = dialog.returnValue;

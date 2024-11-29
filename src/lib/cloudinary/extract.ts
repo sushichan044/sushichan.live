@@ -1,4 +1,4 @@
-import { CLOUDINARY_URL } from "@/lib/cloudinary";
+import { CLOUDINARY_URL } from ".";
 
 /**
  *  Extract public id from cloudinary url.

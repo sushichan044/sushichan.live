@@ -2,8 +2,8 @@
 import type { MarkdownHeading } from "astro";
 import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 
-import Renderer from "@/components/mdx/Renderer.astro";
-import Toc from "@/features/blog/components/Toc.astro";
+import Renderer from "../../../components/mdx/Renderer.astro";
+import Toc from "./Toc.astro";
 
 type Props = {
   Content: AstroComponentFactory;

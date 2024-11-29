@@ -1,8 +1,9 @@
-import type { TrimExtension } from "@/utils/string";
-
-import { declareLet } from "@/utils/declareLet";
 import { type CollectionEntry, getCollection } from "astro:content";
 import { SHOW_DRAFT_POST } from "astro:env/server";
+
+import type { TrimExtension } from "../../../utils/string";
+
+import { declareLet } from "../../../utils/declareLet";
 
 type sortAction = (
   a: CollectionEntry<"posts">,

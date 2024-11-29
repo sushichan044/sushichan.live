@@ -1,10 +1,10 @@
 ---
-import type { RequiredKey } from "@/utils/@types/requiredKey";
-
 import Fa6SolidCircleExclamation from "~icons/fa6-solid/circle-exclamation";
 import Fa6SolidCircleInfo from "~icons/fa6-solid/circle-info";
 import Fa6SolidTriangleExclamation from "~icons/fa6-solid/triangle-exclamation";
 import { tv, type VariantProps } from "tailwind-variants";
+
+import type { RequiredKey } from "../../utils/@types/requiredKey";
 
 interface Props extends RequiredKey<VariantProps<typeof styles>, "type"> {
   title?: string | undefined;

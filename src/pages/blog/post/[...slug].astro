@@ -2,18 +2,19 @@
 import type { CollectionEntry } from "astro:content";
 import type { ReadTimeResults } from "reading-time";
 
-import ContentLayout from "@/components/common/ContentLayout.astro";
-import PageAlertWrapper from "@/components/ui/PageAlertWrapper.astro";
-import SafeHTML from "@/components/utils/SafeHTML.astro";
-import BlogFrontMatter from "@/features/blog/components/BlogFrontMatter.astro";
-import BlogRenderer from "@/features/blog/components/BlogRenderer.astro";
-import BlogStyle from "@/features/blog/components/BlogStyle.astro";
-import { getAllPosts } from "@/features/blog/utils/post";
-import BlogPostSEO from "@/features/meta/BlogPostSEO.astro";
-import BlogLayout from "@/layouts/BlogLayout.astro";
-import { parseMarkdownArray } from "@/utils/markdown";
-import { trimExtension } from "@/utils/string";
 import { render } from "astro:content";
+
+import ContentLayout from "../../../components/common/ContentLayout.astro";
+import PageAlertWrapper from "../../../components/ui/PageAlertWrapper.astro";
+import SafeHTML from "../../../components/utils/SafeHTML.astro";
+import BlogFrontMatter from "../../../features/blog/components/BlogFrontMatter.astro";
+import BlogRenderer from "../../../features/blog/components/BlogRenderer.astro";
+import BlogStyle from "../../../features/blog/components/BlogStyle.astro";
+import { getAllPosts } from "../../../features/blog/utils/post";
+import BlogPostSEO from "../../../features/meta/BlogPostSEO.astro";
+import BlogLayout from "../../../layouts/BlogLayout.astro";
+import { parseMarkdownArray } from "../../../utils/markdown";
+import { trimExtension } from "../../../utils/string";
 
 export async function getStaticPaths() {
   const blogEntries = await getAllPosts();
@@ -32,7 +33,7 @@ const renderResult = await render(entry);
 
 const showAlert = (entry.data.alert && entry.data.alert.length > 0) ?? false;
 
-const readTime = renderResult.remarkPluginFrontmatter.minutesRead as
+const readTime = renderResult.remarkPluginFrontmatter["minutesRead"] as
   | ReadTimeResults
   | undefined;
 const alerts = entry.data.alert ?? [];

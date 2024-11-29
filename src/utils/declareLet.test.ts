@@ -1,4 +1,4 @@
-import { declareLet } from "@/utils/declareLet";
+import { declareLet } from "./declareLet";
 
 test("declare let", () => {
   expect(

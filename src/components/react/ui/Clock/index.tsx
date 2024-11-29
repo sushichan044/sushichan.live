@@ -1,6 +1,5 @@
 import type React from "react";
 
-import { cn } from "@/lib/cn";
 import {
   motion,
   type MotionValue,
@@ -8,6 +7,8 @@ import {
   useTransform,
 } from "framer-motion";
 import { tv } from "tailwind-variants";
+
+import { cn } from "../../../../lib/cn";
 
 type ClockTime = {
   hour: number;

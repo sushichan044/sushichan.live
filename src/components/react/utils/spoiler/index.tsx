@@ -2,9 +2,10 @@
 
 import type React from "react";
 
-import styles from "@/components/react/utils/spoiler/spoiler.module.scss";
-import { parseBoolean } from "@/utils/string";
 import { useId, useRef } from "react";
+
+import { parseBoolean } from "../../../../utils/string";
+import styles from "./spoiler.module.scss";
 
 type Props = {
   children: React.ReactNode;

@@ -1,8 +1,9 @@
 import type { ReadTimeResults } from "reading-time";
 
-import { declareLet } from "@/utils/declareLet";
-import { roundToNearestMultiple } from "@/utils/number";
 import { marked } from "marked";
+
+import { declareLet } from "./declareLet";
+import { roundToNearestMultiple } from "./number";
 
 async function parseMarkdown(markdown: string) {
   return await marked(markdown, { async: true });

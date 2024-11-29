@@ -1,11 +1,11 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
-import { getPostOgpImage } from "@/features/blog/utils/post";
-import { trimExtension } from "@/utils/string";
 import { SEO } from "astro-seo";
 
 import { replaceUtcWithJst } from "../../lib/date";
+import { trimExtension } from "../../utils/string";
+import { getPostOgpImage } from "../blog/utils/post";
 
 type Props = {
   entry: CollectionEntry<"posts">;
