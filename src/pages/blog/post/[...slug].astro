@@ -16,6 +16,12 @@ import BlogLayout from "../../../layouts/BlogLayout.astro";
 import { parseMarkdownArray } from "../../../utils/markdown";
 import { trimExtension } from "../../../utils/string";
 
+interface Props {
+  entry: CollectionEntry<"posts">;
+}
+
+const { entry } = Astro.props;
+
 export async function getStaticPaths() {
   const blogEntries = await getAllPosts();
   return blogEntries.map((entry) => ({
@@ -24,11 +30,6 @@ export async function getStaticPaths() {
   }));
 }
 
-type Props = {
-  entry: CollectionEntry<"posts">;
-};
-
-const { entry } = Astro.props;
 const renderResult = await render(entry);
 
 const showAlert = (entry.data.alert && entry.data.alert.length > 0) ?? false;
