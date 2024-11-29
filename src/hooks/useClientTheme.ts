@@ -1,4 +1,4 @@
-import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useMediaQuery } from "./useMediaQuery";
 
 type ClientTheme = "dark" | "light";
 type UseClientTheme = () => { theme: ClientTheme };

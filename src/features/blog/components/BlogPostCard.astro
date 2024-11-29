@@ -3,9 +3,10 @@ import type { CollectionEntry } from "astro:content";
 
 import Link from "@/components/element/Link.astro";
 import CloudinaryImage from "@/components/ui/CloudinaryImage.astro";
-import { dtTool } from "@/lib/date";
 import { trimExtension } from "@/utils/string";
 import { tv } from "tailwind-variants";
+
+import { formatInJst, replaceUtcWithJst } from "../../../lib/date";
 
 type Props = {
   post: CollectionEntry<"posts">;
@@ -17,8 +18,8 @@ const {
 
 const slug = trimExtension(id);
 
-const createdAt = dtTool.replaceUtcWithJst(data.createdAt);
-const createdAtSring = dtTool.formatInJst(createdAt, "YYYY/MM/DD");
+const createdAt = replaceUtcWithJst(data.createdAt);
+const createdAtString = formatInJst(createdAt, "YYYY/MM/DD");
 
 const styles = tv({
   slots: {
@@ -59,7 +60,7 @@ const styles = tv({
         />
       </div>
       <time class:list={styles.date()} datetime={createdAt.toISOString()}
-        >{createdAtSring}</time
+        >{createdAtString}</time
       >
       <h2
         class:list={styles.title()}

@@ -15,7 +15,7 @@
  * parseBoolean('ABCDEF') // error and return false
  * parseBoolean(null) // false
  */
-const parseBoolean = (str: string | null | undefined): boolean => {
+export const parseBoolean = (str: string | null | undefined): boolean => {
   if (str === null || str === undefined) return false;
 
   const parsed = str.toLowerCase();
@@ -26,11 +26,10 @@ const parseBoolean = (str: string | null | undefined): boolean => {
   return false;
 };
 
-type TrimExtension<T extends string> = T extends `${infer U}.${string}` ? U : T;
+export type TrimExtension<T extends string> = T extends `${infer U}.${string}`
+  ? U
+  : T;
 
-const trimExtension = <T extends string>(str: T): TrimExtension<T> => {
+export const trimExtension = <T extends string>(str: T): TrimExtension<T> => {
   return str.replace(/\.[^/.]+$/, "") as TrimExtension<T>;
 };
-
-export { parseBoolean, trimExtension };
-export type { TrimExtension };

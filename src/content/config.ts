@@ -8,37 +8,19 @@ const baseSchema = z.object({
   updatedAt: z.coerce.date().optional(),
 });
 
+const blogSpecificSchema = z.object({
+  alert: z.array(z.string()).optional(),
+  description: z.string(),
+  relatedPosts: reference("posts").array().optional(),
+  status: z.enum(["draft", "published", "private", "preview"]).default("draft"),
+  thumbnail: z.string().url(),
+});
+
+const blogSchema = baseSchema.merge(blogSpecificSchema);
+
 const posts = defineCollection({
-  schema: baseSchema.merge(
-    z.object({
-      alert: z.array(z.string()).optional(),
-      description: z.string(),
-      relatedPosts: reference("posts").array().optional(),
-      status: z
-        .enum(["draft", "published", "private", "preview"])
-        .default("draft"),
-      thumbnail: z.string().url(),
-      // 記事ファイルすべてにtypeフィールドを追加するのが苦しいので、
-      // 暗黙的にblogを追加する
-      // .default()は暗黙的にundefinedを許容するので、optional()で明示的に許容する
-      type: z.literal("blog").optional().default("blog"),
-    }),
-  ),
-  // type: "content",
-  loader: glob({ base: "./src/content/posts", pattern: "**/[^_]*.mdx?" }),
+  loader: glob({ base: "./src/content/posts", pattern: "**/*.mdx?" }),
+  schema: blogSchema,
 });
 
-const presentations = defineCollection({
-  schema: baseSchema.merge(
-    z.object({
-      // 登壇ファイルすべてにtypeフィールドを追加するのが苦しいので、
-      // 暗黙的にpresentationを追加する
-      // .default()は暗黙的にundefinedを許容するので、optional()で明示的に許容する
-      type: z.literal("presentation").optional().default("presentation"),
-      url: z.string().url(),
-    }),
-  ),
-  type: "data",
-});
-
-export const collections = { posts: posts, presentations: presentations };
+export const collections = { posts: posts };

@@ -2,9 +2,10 @@
 import type { CollectionEntry } from "astro:content";
 
 import { getPostOgpImage } from "@/features/blog/utils/post";
-import { dtTool } from "@/lib/date";
 import { trimExtension } from "@/utils/string";
 import { SEO } from "astro-seo";
+
+import { replaceUtcWithJst } from "../../lib/date";
 
 type Props = {
   entry: CollectionEntry<"posts">;
@@ -18,9 +19,9 @@ const {
 
 const slug = trimExtension(id);
 
-const createdAt = dtTool.replaceUtcWithJst(data.createdAt).toISOString();
+const createdAt = replaceUtcWithJst(data.createdAt).toISOString();
 const updatedAt = data.updatedAt
-  ? dtTool.replaceUtcWithJst(data.updatedAt).toISOString()
+  ? replaceUtcWithJst(data.updatedAt).toISOString()
   : undefined;
 
 const OGPUrl = getPostOgpImage(slug, {
