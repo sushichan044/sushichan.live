@@ -1,89 +1,51 @@
 {
   "$schema": "https://json.schemastore.org/renovate.json",
-  "extends": [
-    "config:best-practices"
-  ],
-  "schedule": [
-    "before 4:00am on Monday"
-  ],
+  "extends": ["config:best-practices"],
+  "schedule": ["before 4:00am on Monday"],
   "timezone": "Asia/Tokyo",
   "prHourlyLimit": 0,
   "automerge": false,
   "rangeStrategy": "bump",
   "branchConcurrentLimit": 0,
-  "enabledManagers": [
-    "github-actions",
-    "npm"
-  ],
-  "labels": [
-    "renovate"
-  ],
+  "enabledManagers": ["github-actions", "npm"],
+  "labels": ["renovate"],
   "packageRules": [
     {
       "groupName": "GitHub Actions",
-      "matchDatasources": [
-        "github-actions"
-      ]
+      "matchDatasources": ["github-actions"]
     },
     {
       "groupName": "devDependencies",
-      "matchDepTypes": [
-        "devDependencies"
-      ],
-      "matchDatasources": [
-        "npm"
-      ]
+      "matchDepTypes": ["devDependencies"],
+      "matchDatasources": ["npm"]
     },
     {
       "groupName": "root dependencies",
-      "matchDatasources": [
-        "npm"
-      ],
-      "matchFileNames": [
-        "package.json"
-      ]
+      "matchDatasources": ["npm"],
+      "matchFileNames": ["package.json"]
     },
     {
       "groupName": "astro",
       "additionalBranchPrefix": "{{parentDir}}-",
       "commitMessageSuffix": "({{parentDir}})",
-      "matchDatasources": [
-        "npm"
-      ],
-      "matchDepTypes": [
-        "dependencies"
-      ],
-      "matchFileNames": [
-        "packages/sushichan.live/**"
-      ]
+      "matchDatasources": ["npm"],
+      "matchDepTypes": ["dependencies"],
+      "matchFileNames": ["packages/sushichan.live/**"]
     },
     {
       "groupName": "astro-dev",
       "additionalBranchPrefix": "{{parentDir}}-",
       "commitMessageSuffix": "({{parentDir}})",
-      "matchDatasources": [
-        "npm"
-      ],
-      "matchDepTypes": [
-        "devDependencies"
-      ],
-      "matchFileNames": [
-        "packages/sushichan.live/**"
-      ]
+      "matchDatasources": ["npm"],
+      "matchDepTypes": ["devDependencies"],
+      "matchFileNames": ["packages/sushichan.live/**"]
     },
     {
       "groupName": "astro-markdown",
       "commitMessageSuffix": "(astro-markdown)",
-      "matchDatasources": [
-        "npm"
-      ],
-      "matchDepTypes": [
-        "dependencies",
-        "devDependencies"
-      ],
-      "matchFileNames": [
-        "packages/sushichan.live/**"
-      ],
+      "matchDatasources": ["npm"],
+      "matchDepTypes": ["dependencies", "devDependencies"],
+      "matchFileNames": ["packages/sushichan.live/**"],
       "matchPackageNames": [
         "astro-expressive-code",
         "/^@expressive-code/",
