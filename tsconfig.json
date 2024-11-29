@@ -1,12 +1,6 @@
 {
   "extends": "@virtual-live-lab/tsconfig/astro",
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"],
-      "@public/*": ["./public/*"],
-      "@root/*": ["./*"]
-    },
     "types": ["vitest/globals", "unplugin-icons/types/astro"]
   },
 

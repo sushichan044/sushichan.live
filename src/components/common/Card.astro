@@ -1,8 +1,8 @@
 ---
-import WithCaption, {
-  type CaptionProps,
-} from "@/components/common/WithCaption.astro";
 import { tv, type VariantProps } from "tailwind-variants";
+
+import WithCaption, { type CaptionProps } from "../common/WithCaption.astro";
+
 export type CardProps = CaptionProps & VariantProps<typeof style>;
 
 type Props = CardProps;

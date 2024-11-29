@@ -1,6 +1,8 @@
 ---
-import Card, { type CardProps } from "@/components/common/Card.astro";
-import Tweet from "@/components/ui/twitter/Tweet.astro";
+import type { CardProps } from "../../common/Card.astro";
+
+import Card from "../../common/Card.astro";
+import Tweet from "../twitter/Tweet.astro";
 
 interface Props extends CardProps {
   id: string;

@@ -1,5 +1,6 @@
-import { declareLet } from "@/utils/declareLet";
 import ogs from "open-graph-scraper-lite";
+
+import { declareLet } from "../utils/declareLet";
 
 type ImageData = {
   alt: string | undefined;

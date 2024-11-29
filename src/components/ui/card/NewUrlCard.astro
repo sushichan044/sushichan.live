@@ -1,12 +1,14 @@
 ---
-import type { MetaData } from "@/lib/fetchMetaData";
-
-import Card, { type CardProps } from "@/components/common/Card.astro";
-import Link from "@/components/element/Link.astro";
-import { fetchMetaData } from "@/lib/fetchMetaData";
-import { declareLet } from "@/utils/declareLet";
-import { isInternalLink } from "@/utils/helper";
 import { tv } from "tailwind-variants";
+
+import type { MetaData } from "../../../lib/fetchMetaData";
+import type { CardProps } from "../../common/Card.astro";
+
+import { fetchMetaData } from "../../../lib/fetchMetaData";
+import { declareLet } from "../../../utils/declareLet";
+import { isInternalLink } from "../../../utils/helper";
+import Card from "../../common/Card.astro";
+import Link from "../../element/Link.astro";
 
 interface Props extends CardProps {
   url: string | URL;

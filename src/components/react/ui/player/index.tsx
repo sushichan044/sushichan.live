@@ -1,8 +1,9 @@
 import type { YouTubeConfig } from "react-player/youtube";
 
-import { declareLet } from "@/utils/declareLet";
 import { useId } from "react";
 import ReactPlayer from "react-player";
+
+import { declareLet } from "../../../../utils/declareLet";
 
 type Props = {
   muted?: boolean;

@@ -1,5 +1,5 @@
 ---
-import "@/components/utils/transition-progress.css";
+import "./transition-progress.css";
 ---
 
 <div id="progress-container"></div>
@@ -15,7 +15,7 @@ import "@/components/utils/transition-progress.css";
   let intervalId: number | undefined = undefined;
 
   const startProgress = () => {
-    if (N.isStarted()) return false;
+    if (N.isStarted()) return;
 
     N.start();
     intervalId = window.setInterval(() => {

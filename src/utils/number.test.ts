@@ -1,4 +1,4 @@
-import { roundToNearestMultiple, zeroPadding } from "@/utils/number";
+import { roundToNearestMultiple, zeroPadding } from "./number";
 
 test("zeroPadding with single digit number", () => {
   expect(zeroPadding(5, 3)).toBe("005");

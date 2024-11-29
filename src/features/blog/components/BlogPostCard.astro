@@ -1,12 +1,12 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
-import Link from "@/components/element/Link.astro";
-import CloudinaryImage from "@/components/ui/CloudinaryImage.astro";
-import { trimExtension } from "@/utils/string";
 import { tv } from "tailwind-variants";
 
+import Link from "../../../components/element/Link.astro";
+import CloudinaryImage from "../../../components/ui/CloudinaryImage.astro";
 import { formatInJst, replaceUtcWithJst } from "../../../lib/date";
+import { trimExtension } from "../../../utils/string";
 
 type Props = {
   post: CollectionEntry<"posts">;

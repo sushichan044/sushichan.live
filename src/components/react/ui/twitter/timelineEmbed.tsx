@@ -1,7 +1,7 @@
 "use client";
 
-import Timeline from "@/components/react/ui/twitter/timeline";
-import useClientTheme from "@/hooks/useClientTheme";
+import useClientTheme from "../../../../hooks/useClientTheme";
+import Timeline from "./timeline";
 
 const TimelineEmbed = ({ id }: { id: string }) => {
   const { theme } = useClientTheme();

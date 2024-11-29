@@ -1,4 +1,4 @@
-import { extractPublicId } from "@/lib/cloudinary";
+import { extractPublicId } from "./extract";
 
 type ImageLoaderOption = {
   blur?: boolean;

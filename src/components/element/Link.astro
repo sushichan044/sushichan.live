@@ -2,10 +2,11 @@
 import type { HTMLAttributes } from "astro/types";
 import type { VariantProps } from "tailwind-variants";
 
-import LinkStyle from "@/components/style/link";
-import { declareLet } from "@/utils/declareLet";
-import { isInternalLink } from "@/utils/helper";
 import { clsx } from "clsx";
+
+import { declareLet } from "../../utils/declareLet";
+import { isInternalLink } from "../../utils/helper";
+import LinkStyle from "../style/link";
 
 interface Props extends HTMLAttributes<"a"> {
   variants?: VariantProps<typeof LinkStyle>;

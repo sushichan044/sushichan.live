@@ -1,7 +1,8 @@
 import type React from "react";
 
-import Clock from "@/components/react/ui/Clock";
 import { useScroll } from "framer-motion";
+
+import Clock from "../../ui/Clock";
 
 export default function HistoryLayout({
   children,

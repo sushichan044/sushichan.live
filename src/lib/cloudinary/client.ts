@@ -1,10 +1,11 @@
-import { extractAndDecodePublicId } from "@/lib/cloudinary";
 import {
   CLOUDINARY_API_KEY,
   CLOUDINARY_API_SECRET,
   CLOUDINARY_CLOUD_NAME,
 } from "astro:env/server";
 import { v2 as cloudinaryV2 } from "cloudinary";
+
+import { extractAndDecodePublicId } from "./extract";
 
 type CloudinaryCredentials = {
   api_key: string;

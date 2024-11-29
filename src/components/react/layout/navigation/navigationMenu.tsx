@@ -2,9 +2,10 @@
 import type { ComponentProps } from "react";
 import type React from "react";
 
-import styles from "@/components/react/layout/navigation/styles.module.scss";
-import LinkStyle from "@/components/style/link";
 import * as NavMenu from "@radix-ui/react-navigation-menu";
+
+import LinkStyle from "../../../style/link";
+import styles from "./styles.module.scss";
 
 type NavLinkProps = {
   topPath: string;
