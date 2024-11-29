@@ -7,6 +7,13 @@
   "engines": {
     "node": ">=22 <23"
   },
+  "scripts": {
+    "dev": "turbo dev",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "format": "prettier --write .",
+    "format:check": "prettier --ignore-path .gitignore --ignore-path .prettierignore --ignore-path .ci.prettierignore --check ."
+  },
   "devDependencies": {
     "@textlint/textlint-plugin-markdown": "14.3.0",
     "@virtual-live-lab/eslint-config": "2.2.13",
