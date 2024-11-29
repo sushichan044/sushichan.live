@@ -1,14 +1,7 @@
 import { toString } from "mdast-util-to-string";
 import getReadingTime from "reading-time";
 
-/**
- *
- * @returns {import('unified').Plugin}
- */
 export function remarkReadingTime() {
-  /**
-   * @param {import('mdast').Root} tree
-   */
   return function (tree, { data }) {
     const textOnPage = toString(tree);
     const readingTime = getReadingTime(textOnPage);
