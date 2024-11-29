@@ -2,3 +2,4 @@ pnpm-lock.yaml
 pnpm-workspace.yaml
 *.md
 *.mdx
+worker-configuration.d.ts
