@@ -50,13 +50,3 @@ const cloudinaryLoaderBase = ({
 export function cloudinaryLoader({ quality, src, width }: ImageLoaderOption) {
   return cloudinaryLoaderBase({ quality, src, width });
 }
-
-export function cloudinaryOGPLoader(src: string) {
-  return cloudinaryLoaderBase({
-    crop: "lfill",
-    height: 630,
-    quality: 80,
-    src,
-    width: 1200,
-  });
-}

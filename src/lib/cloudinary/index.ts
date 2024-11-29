@@ -3,5 +3,5 @@ export const CLOUDINARY_URL = "https://res.cloudinary.com/sushi-chan";
 
 export { getCloudinary } from "./client";
 export { extractAndDecodePublicId, extractPublicId } from "./extract";
-export { cloudinaryLoader, cloudinaryOGPLoader } from "./loader";
+export { cloudinaryLoader } from "./loader";
 export { getCloudinaryImageSize } from "./size";
