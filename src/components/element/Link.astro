@@ -4,7 +4,6 @@ import type { VariantProps } from "tailwind-variants";
 
 import { clsx } from "clsx";
 
-import { declareLet } from "../../utils/declareLet";
 import { isInternalLink } from "../../utils/helper";
 import LinkStyle from "../style/link";
 
@@ -26,7 +25,7 @@ const {
   ...props
 } = Astro.props;
 
-const { href: refinedHref, isExternal }: hrefInfo = declareLet(() => {
+const { href: refinedHref, isExternal }: hrefInfo = (() => {
   if (href == null)
     return {
       href: href,
@@ -49,7 +48,7 @@ const { href: refinedHref, isExternal }: hrefInfo = declareLet(() => {
     isExternal = url.host !== Astro.url.host;
   }
   return { href: url, isExternal };
-});
+})();
 const refinedTarget = target != null || isExternal ? "_blank" : "_self";
 const rel = isExternal ? "noopener noreferrer" : undefined;
 

@@ -3,8 +3,6 @@ import type { YouTubeConfig } from "react-player/youtube";
 import { useId } from "react";
 import ReactPlayer from "react-player";
 
-import { declareLet } from "../../../../utils/declareLet";
-
 type Props = {
   muted?: boolean;
   url: string;
@@ -17,7 +15,7 @@ const playlistRegex =
 // add lazy load
 const Player = ({ muted = true, url }: Props) => {
   const twitchPlayerId = useId();
-  const youtubePlayerOptions = declareLet<YouTubeConfig>(() => {
+  const youtubePlayerOptions = (() => {
     const baseConfig: YouTubeConfig = {
       embedOptions: {
         autoplay: 0,
@@ -39,7 +37,8 @@ const Player = ({ muted = true, url }: Props) => {
     }
 
     return baseConfig;
-  });
+  })();
+
   return (
     <ReactPlayer
       className="aspect-16/9 rounded-lg [&>*]:rounded-lg [&_iframe]:rounded-lg"

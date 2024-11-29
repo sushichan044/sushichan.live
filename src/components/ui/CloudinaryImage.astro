@@ -2,7 +2,6 @@
 import type { HTMLAttributes } from "astro/types";
 
 import { cloudinaryLoader, getCloudinaryImageSize } from "../../lib/cloudinary";
-import { declareLet } from "../../utils/declareLet";
 import Image from "../element/Image.astro";
 
 type ImgProps = Omit<
@@ -22,7 +21,7 @@ const { alt, quality = 75, src, ...props } = Astro.props;
 const rawSize = await getCloudinaryImageSize(src);
 const altIsEmpty = alt === "" || alt === undefined;
 
-const size = declareLet(() => {
+const size = (() => {
   const MAX_WIDTH = 840;
   let w = rawSize.width;
   let h = rawSize.height;
@@ -31,7 +30,7 @@ const size = declareLet(() => {
     w = MAX_WIDTH;
   }
   return { height: h, width: w };
-});
+})();
 
 const optimizedSrc = cloudinaryLoader({
   quality: quality,

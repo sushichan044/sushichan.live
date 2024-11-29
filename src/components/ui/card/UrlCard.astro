@@ -5,7 +5,6 @@ import type { MetaData } from "../../../lib/fetchMetaData";
 import type { CardProps } from "../../common/Card.astro";
 
 import { fetchMetaData } from "../../../lib/fetchMetaData";
-import { declareLet } from "../../../utils/declareLet";
 import { isInternalLink } from "../../../utils/helper";
 import Card from "../../common/Card.astro";
 import Link from "../../element/Link.astro";
@@ -49,13 +48,13 @@ const getImage = ({ icon, image, title }: MetaData): ImageSet | undefined => {
   return undefined;
 };
 
-const url = declareLet(() => {
+const url = (() => {
   if (typeof rawUrl === "string" && isInternalLink(rawUrl)) {
     return new URL(rawUrl, Astro.url);
   }
 
   return new URL(rawUrl);
-});
+})();
 const metaData = await fetchMetaData(url.toString());
 
 // const metaData = await fetchMetaDataWithOGS(url.toString())

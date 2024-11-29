@@ -11,7 +11,6 @@ import Link from "../../../components/element/Link.astro";
 import CloudinaryImage from "../../../components/ui/CloudinaryImage.astro";
 import Message from "../../../components/ui/Message.astro";
 import { formatInJst, replaceUtcWithJst } from "../../../lib/date";
-import { declareLet } from "../../../utils/declareLet";
 import { roundReadTime } from "../../../utils/markdown";
 import { trimExtension } from "../../../utils/string";
 import { getPostOgpImage } from "../utils/post";
@@ -26,12 +25,9 @@ const { entry, readTime } = Astro.props;
 
 const roundedMinutesRead = roundReadTime(readTime, 1);
 const createdAtDate = replaceUtcWithJst(entry.data.createdAt);
-const updatedAtDate = declareLet(() => {
-  if (entry.data.updatedAt) {
-    return replaceUtcWithJst(entry.data.updatedAt);
-  }
-  return undefined;
-});
+const updatedAtDate = entry.data.updatedAt
+  ? replaceUtcWithJst(entry.data.updatedAt)
+  : undefined;
 
 const slug = trimExtension(entry.id);
 

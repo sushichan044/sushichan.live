@@ -2,7 +2,6 @@ import type { ReadTimeResults } from "reading-time";
 
 import { marked } from "marked";
 
-import { declareLet } from "./declareLet";
 import { roundToNearestMultiple } from "./number";
 
 async function parseMarkdown(markdown: string) {
@@ -17,10 +16,10 @@ const roundReadTime = (
   readTime?: ReadTimeResults,
   multiple?: number,
 ): number | undefined => {
-  const rounded = declareLet(() => {
-    if (readTime === undefined) return undefined;
-    return roundToNearestMultiple(readTime.minutes, multiple ?? 5);
-  });
+  const rounded = readTime
+    ? roundToNearestMultiple(readTime.minutes, multiple ?? 5)
+    : 0;
+
   return rounded === 0 ? 1 : rounded;
 };
 

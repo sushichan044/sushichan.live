@@ -3,8 +3,6 @@ import { SHOW_DRAFT_POST } from "astro:env/server";
 
 import type { TrimExtension } from "../../../utils/string";
 
-import { declareLet } from "../../../utils/declareLet";
-
 type sortAction = (
   a: CollectionEntry<"posts">,
   b: CollectionEntry<"posts">,
@@ -86,13 +84,13 @@ const getPostOgpImage = (
   const origin =
     baseUrl instanceof URL ? baseUrl.origin : new URL(baseUrl).origin;
   const OgpUrlObj = new URL(`/blog/og-image/${slug}`, origin);
-  const OgpUrl = declareLet(() => {
+  const OgpUrl = (() => {
     const urlString = OgpUrlObj.toString();
     if (extension != null) {
       return `${urlString}.${extension}`;
     }
     return urlString;
-  });
+  })();
   return OgpUrl;
 };
 

@@ -1,7 +1,5 @@
 import ogs from "open-graph-scraper-lite";
 
-import { declareLet } from "../utils/declareLet";
-
 type ImageData = {
   alt: string | undefined;
   height: string | undefined;
@@ -49,7 +47,7 @@ const fetchMetaData = async (url: string): Promise<MetaData> => {
     throw new Error("Failed to fetch metadata");
   }
 
-  const imageInfo = declareLet<ImageData | undefined>(() => {
+  const imageInfo = (() => {
     const img = res.result.ogImage?.at(0);
     if (img == null) {
       return undefined;
@@ -60,14 +58,14 @@ const fetchMetaData = async (url: string): Promise<MetaData> => {
       src: new URL(img.url, url).toString(),
       width: img.width?.toString(),
     };
-  });
+  })();
 
-  const faviconUrl = declareLet(() => {
+  const faviconUrl = (() => {
     if (res.result.favicon == null || res.result.favicon === "") {
       return undefined;
     }
     return new URL(res.result.favicon, url).toString();
-  });
+  })();
 
   const response = {
     description: res.result.ogDescription,

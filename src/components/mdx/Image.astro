@@ -1,5 +1,4 @@
 ---
-import { declareLet } from "../../utils/declareLet";
 import WithCaption from "../common/WithCaption.astro";
 import CloudinaryImage, {
   type Props as CloudinaryImageProps,
@@ -9,12 +8,12 @@ type Props = CloudinaryImageProps;
 
 const { alt: rawAlt, src, title: rawTitle, ...props } = Astro.props;
 
-const { alt, title } = declareLet(() => {
+const { alt, title } = (() => {
   const typeSafeTitle = rawTitle === null ? undefined : rawTitle;
   const alt = rawAlt;
   const title = typeSafeTitle;
   return { alt, title };
-});
+})();
 ---
 
 <WithCaption caption={title} isFigure={false}>
