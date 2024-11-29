@@ -1,3 +1,5 @@
+import { expect, test } from "vitest";
+
 import { roundToNearestMultiple, zeroPadding } from "./number";
 
 test("zeroPadding with single digit number", () => {
