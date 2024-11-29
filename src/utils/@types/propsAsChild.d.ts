@@ -17,7 +17,7 @@ export type PropsWithAsChild<
     } & Props &
       SlotProps) // asChild が true の時
   // Slot の Props が指定できる
-  | ({
-      asChild?: false;
-    } & ComponentPropsWithoutRef<DefaultElement> &
-      Props);
+  | (ComponentPropsWithoutRef<DefaultElement> &
+      Props & {
+        asChild?: false;
+      });

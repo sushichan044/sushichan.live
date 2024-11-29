@@ -7,9 +7,9 @@ import * as NavMenu from "@radix-ui/react-navigation-menu";
 import LinkStyle from "../../../style/link";
 import styles from "./styles.module.scss";
 
-type NavLinkProps = {
+type NavLinkProps = ComponentProps<typeof NavMenu.Link> & {
   topPath: string;
-} & ComponentProps<typeof NavMenu.Link>;
+};
 const NavLink: React.FC<NavLinkProps> = ({
   children,
   href,

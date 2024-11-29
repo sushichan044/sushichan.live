@@ -15,7 +15,11 @@ type CloudinaryCredentials = {
 
 class CloudinarySingleton {
   private static instance: CloudinarySingleton | null = null;
+  get client() {
+    return this.cloudinary;
+  }
   private cloudinary: typeof cloudinaryV2;
+
   private imageSizeMap: Map<string, { height: number; width: number }> =
     new Map();
 
@@ -61,10 +65,6 @@ class CloudinarySingleton {
     }
 
     return size;
-  }
-
-  get client() {
-    return this.cloudinary;
   }
 }
 

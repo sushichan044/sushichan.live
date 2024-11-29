@@ -3,9 +3,9 @@ import { Image as AstroImage, type LocalImageProps } from "astro:assets";
 
 const MAX_WIDTH = 840;
 
-type Props = {
+type Props = LocalImageProps & {
   priority?: boolean;
-} & LocalImageProps;
+};
 
 const {
   alt = "image alt",

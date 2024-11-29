@@ -10,8 +10,8 @@ type Options = {
 const GOOGLE_FONT_NAME = "Zen+Maru+Gothic";
 const FONT_FAMILY = "Zen Maru Gothic";
 const FONT_WEIGHT = 700;
-const WIDTH = 1200;
-const HEIGHT = 630;
+const OGP_W = 1200;
+const OGP_H = 630;
 const DEFAULT_TEXTS = ["すしにっき"] as const;
 
 const getText = (text: string) => {
@@ -95,8 +95,8 @@ export async function getBlogOGImage({ post }: Options) {
           weight: FONT_WEIGHT,
         },
       ],
-      height: HEIGHT,
-      width: WIDTH,
+      height: OGP_H,
+      width: OGP_W,
     },
   );
 
