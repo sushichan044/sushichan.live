@@ -1,9 +1,10 @@
 astro:
   - changed-files:
-      - any-glob-to-any-file: "src/**"
+      - any-glob-to-any-file: "packages/sushichan.live/**"
 
 CI:
   - changed-files:
       - any-glob-to-any-file:
+          - ".github/**/action.yml"
           - ".github/workflows/**"
           - ".github/labeler.yml"

@@ -13,8 +13,7 @@ import remarkMath from "remark-math";
 import Icons from "unplugin-icons/vite";
 
 import { SITE_URL } from "./src/consts";
-// @ts-expect-error no types
-import { remarkReadingTime } from "./src/lib/remarkReadingTime.mjs";
+import { remarkReadingTime } from "./src/lib/remarkReadingTime.js";
 
 const mdxIntegrations = [
   AutoImport({

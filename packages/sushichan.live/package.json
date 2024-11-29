@@ -1,5 +1,5 @@
 {
-  "name": "@sushichan-live/astro-web",
+  "name": "sushichan.live",
   "type": "module",
   "version": "0.0.1",
   "private": true,
@@ -58,19 +58,22 @@
     "reading-time": "1.5.0",
     "rehype-katex": "7.0.1",
     "rehype-unwrap-images": "1.0.0",
+    "remark": "15.0.1",
     "remark-emoji": "5.0.1",
     "remark-math": "6.0.0",
     "sanitize-html": "2.13.1",
     "satori": "0.12.0",
     "tailwind-merge": "2.5.5",
     "tailwind-variants": "0.3.0",
-    "undici": "7.0.0"
+    "undici": "7.0.0",
+    "unified": "11.0.5"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "1.10.4",
     "@cloudflare/workers-types": "4.20241127.0",
     "@double-great/stylelint-a11y": "3.0.2",
     "@iconify/json": "2.2.277",
+    "@types/mdast": "4.0.4",
     "@types/node": "22.10.1",
     "@types/nprogress": "0.2.3",
     "@types/react": "18.3.12",
