@@ -1,7 +1,7 @@
 import {
-  CLOUDINARY_API_KEY,
   CLOUDINARY_API_SECRET,
-  CLOUDINARY_CLOUD_NAME,
+  PUBLIC_CLOUDINARY_API_KEY,
+  PUBLIC_CLOUDINARY_CLOUD_NAME,
 } from "astro:env/server";
 import { v2 as cloudinaryV2 } from "cloudinary";
 
@@ -70,9 +70,9 @@ class CloudinarySingleton {
 
 const getCloudinary = () => {
   return CloudinarySingleton.getInstance({
-    api_key: CLOUDINARY_API_KEY,
+    api_key: PUBLIC_CLOUDINARY_API_KEY,
     api_secret: CLOUDINARY_API_SECRET,
-    cloud_name: CLOUDINARY_CLOUD_NAME,
+    cloud_name: PUBLIC_CLOUDINARY_CLOUD_NAME,
   });
 };
 
