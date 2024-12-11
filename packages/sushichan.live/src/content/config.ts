@@ -1,3 +1,4 @@
+import { cldAssetsLoader } from "astro-cloudinary/loaders";
 import { glob } from "astro/loaders";
 import { defineCollection, reference, z } from "astro:content";
 
@@ -23,4 +24,8 @@ const posts = defineCollection({
   schema: blogSchema,
 });
 
-export const collections = { posts: posts };
+const cldImages = defineCollection({
+  loader: cldAssetsLoader(),
+});
+
+export const collections = { cldImages: cldImages, posts: posts };
