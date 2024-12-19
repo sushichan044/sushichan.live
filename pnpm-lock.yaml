@@ -114,11 +114,11 @@ importers:
         specifier: 11.15.0
         version: 11.15.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       katex:
-        specifier: 0.16.11
-        version: 0.16.11
+        specifier: 0.16.18
+        version: 0.16.18
       marked:
-        specifier: 15.0.3
-        version: 15.0.3
+        specifier: 15.0.4
+        version: 15.0.4
       mdast-util-to-string:
         specifier: 4.0.0
         version: 4.0.0
@@ -3865,8 +3865,8 @@ packages:
     resolution: {integrity: sha512-ZZow9HBI5O6EPgSJLUb8n2NKgmVWTwCvHGwFuJlMjvLFqlGG6pjirPhtdsseaLZjSibD8eegzmYpUZwoIlj2cQ==}
     engines: {node: '>=4.0'}
 
-  katex@0.16.11:
-    resolution: {integrity: sha512-RQrI8rlHY92OLf3rho/Ts8i/XvjgguEjOkO1BEXcU3N8BqPpSzBNwV/G0Ukr+P/l3ivvJUE/Fa/CwbS6HesGNQ==}
+  katex@0.16.18:
+    resolution: {integrity: sha512-LRuk0rPdXrecAFwQucYjMiIs0JFefk6N1q/04mlw14aVIVgxq1FO0MA9RiIIGVaKOB5GIP5GH4aBBNraZERmaQ==}
     hasBin: true
 
   keyv@4.5.4:
@@ -4035,8 +4035,8 @@ packages:
   markdown-table@3.0.3:
     resolution: {integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw==}
 
-  marked@15.0.3:
-    resolution: {integrity: sha512-Ai0cepvl2NHnTcO9jYDtcOEtVBNVYR31XnEA3BndO7f5As1wzpcOceSUM8FDkNLJNIODcLpDTWay/qQhqbuMvg==}
+  marked@15.0.4:
+    resolution: {integrity: sha512-TCHvDqmb3ZJ4PWG7VEGVgtefA5/euFmsIhxtD0XsBxI39gUSKL81mIRFdt0AiNQozUahd4ke98ZdirExd/vSEw==}
     engines: {node: '>= 18'}
     hasBin: true
 
@@ -10336,7 +10336,7 @@ snapshots:
       object.assign: 4.1.5
       object.values: 1.2.0
 
-  katex@0.16.11:
+  katex@0.16.18:
     dependencies:
       commander: 8.3.0
 
@@ -10506,7 +10506,7 @@ snapshots:
 
   markdown-table@3.0.3: {}
 
-  marked@15.0.3: {}
+  marked@15.0.4: {}
 
   match-index@1.0.3:
     dependencies:
@@ -10908,7 +10908,7 @@ snapshots:
     dependencies:
       '@types/katex': 0.16.7
       devlop: 1.1.0
-      katex: 0.16.11
+      katex: 0.16.18
       micromark-factory-space: 2.0.0
       micromark-util-character: 2.1.0
       micromark-util-symbol: 2.0.0
@@ -11856,7 +11856,7 @@ snapshots:
       '@types/katex': 0.16.7
       hast-util-from-html-isomorphic: 2.0.0
       hast-util-to-text: 4.0.2
-      katex: 0.16.11
+      katex: 0.16.18
       unist-util-visit-parents: 6.0.1
       vfile: 6.0.3
 
