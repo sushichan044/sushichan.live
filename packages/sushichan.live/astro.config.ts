@@ -38,35 +38,32 @@ const mdxIntegrations = [
 // https://astro.build/config
 export default defineConfig({
   adapter: cloudflare({ imageService: "passthrough" }),
+  env: {
+    schema: {
+      CLOUDINARY_API_KEY: envField.string({
+        access: "secret",
+        context: "server",
+      }),
+      CLOUDINARY_API_SECRET: envField.string({
+        access: "secret",
+        context: "server",
+      }),
+      CLOUDINARY_CLOUD_NAME: envField.string({
+        access: "public",
+        context: "server",
+      }),
+      SHOW_DRAFT_POST: envField.boolean({
+        access: "public",
+        context: "server",
+        default: false,
+        optional: true,
+      }),
+    },
+    validateSecrets: true,
+  },
   experimental: {
     clientPrerender: true,
-    contentCollectionCache: true,
     contentIntellisense: true,
-    contentLayer: true,
-    env: {
-      schema: {
-        CLOUDINARY_API_KEY: envField.string({
-          access: "secret",
-          context: "server",
-        }),
-        CLOUDINARY_API_SECRET: envField.string({
-          access: "secret",
-          context: "server",
-        }),
-        CLOUDINARY_CLOUD_NAME: envField.string({
-          access: "public",
-          context: "server",
-        }),
-        SHOW_DRAFT_POST: envField.boolean({
-          access: "public",
-          context: "server",
-          default: false,
-          optional: true,
-        }),
-      },
-      validateSecrets: true,
-    },
-    serverIslands: true,
   },
   image: {
     remotePatterns: [
@@ -102,7 +99,7 @@ export default defineConfig({
     // },
   },
   outDir: "./dist",
-  output: "hybrid",
+  output: "static",
   prefetch: {
     defaultStrategy: "hover",
   },
