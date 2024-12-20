@@ -40,15 +40,15 @@ export default defineConfig({
   adapter: cloudflare({ imageService: "passthrough" }),
   env: {
     schema: {
-      CLOUDINARY_API_KEY: envField.string({
-        access: "secret",
-        context: "server",
-      }),
       CLOUDINARY_API_SECRET: envField.string({
         access: "secret",
         context: "server",
       }),
-      CLOUDINARY_CLOUD_NAME: envField.string({
+      PUBLIC_CLOUDINARY_API_KEY: envField.string({
+        access: "secret",
+        context: "server",
+      }),
+      PUBLIC_CLOUDINARY_CLOUD_NAME: envField.string({
         access: "public",
         context: "server",
       }),
@@ -64,31 +64,6 @@ export default defineConfig({
   experimental: {
     clientPrerender: true,
     contentIntellisense: true,
-    contentLayer: true,
-    env: {
-      schema: {
-        CLOUDINARY_API_SECRET: envField.string({
-          access: "secret",
-          context: "server",
-        }),
-        PUBLIC_CLOUDINARY_API_KEY: envField.string({
-          access: "secret",
-          context: "server",
-        }),
-        PUBLIC_CLOUDINARY_CLOUD_NAME: envField.string({
-          access: "public",
-          context: "server",
-        }),
-        SHOW_DRAFT_POST: envField.boolean({
-          access: "public",
-          context: "server",
-          default: false,
-          optional: true,
-        }),
-      },
-      validateSecrets: true,
-    },
-    serverIslands: true,
   },
   image: {
     remotePatterns: [
