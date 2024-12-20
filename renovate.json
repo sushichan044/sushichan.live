@@ -41,6 +41,14 @@
       "matchFileNames": ["packages/sushichan.live/**"]
     },
     {
+      "groupName": "astro-react",
+      "commitMessageSuffix": "(astro-react)",
+      "matchDatasources": ["npm"],
+      "matchDepTypes": ["dependencies", "devDependencies"],
+      "matchFileNames": ["packages/sushichan.live/**"],
+      "matchPackageNames": ["/react/", "/react-dom/"]
+    },
+    {
       "groupName": "astro-markdown",
       "commitMessageSuffix": "(astro-markdown)",
       "matchDatasources": ["npm"],
