@@ -1,13 +1,11 @@
 ---
-import type { HTMLAttributes } from "astro/types";
+import type { CldImageProps } from "astro-cloudinary";
 
-import { cloudinaryLoader, getCloudinaryImageSize } from "../../lib/cloudinary";
-import Image from "../element/Image.astro";
+import { getPublicId } from "@cloudinary-util/util";
+import { CldImage } from "astro-cloudinary";
+import { getEntry } from "astro:content";
 
-type ImgProps = Omit<
-  HTMLAttributes<"img">,
-  "alt" | "height" | "priority" | "quality" | "src" | "width"
->;
+type ImgProps = CldImageProps;
 
 export interface Props extends ImgProps {
   alt?: string;
@@ -18,31 +16,22 @@ export interface Props extends ImgProps {
 
 const { alt, quality = 75, src, ...props } = Astro.props;
 
-const rawSize = await getCloudinaryImageSize(src);
+const pubId = getPublicId(src) ?? "";
+
+const asset = await getEntry("cldImages", pubId);
+
 const altIsEmpty = alt === "" || alt === undefined;
-
-const size = (() => {
-  const MAX_WIDTH = 840;
-  let w = rawSize.width;
-  let h = rawSize.height;
-  if (w > MAX_WIDTH) {
-    h *= MAX_WIDTH / w;
-    w = MAX_WIDTH;
-  }
-  return { height: h, width: w };
-})();
-
-const optimizedSrc = cloudinaryLoader({
-  quality: quality,
-  src,
-  width: size.width,
-});
 ---
 
-<Image
-  alt={altIsEmpty ? "" : alt}
-  height={size.height}
-  src={optimizedSrc}
-  width={size.width}
-  {...props}
-/>
+{
+  asset && (
+    <CldImage
+      alt={altIsEmpty ? "" : alt}
+      height={asset.data.height}
+      quality={quality}
+      src={asset.data.public_id}
+      width={asset.data.width}
+      {...props}
+    />
+  )
+}

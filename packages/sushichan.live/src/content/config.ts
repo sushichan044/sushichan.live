@@ -25,7 +25,7 @@ const posts = defineCollection({
 });
 
 const cldImages = defineCollection({
-  loader: cldAssetsLoader(),
+  loader: cldAssetsLoader({ limit: 2000 }),
 });
 
 export const collections = { cldImages: cldImages, posts: posts };
