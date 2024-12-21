@@ -82,6 +82,9 @@ export default defineConfig({
     react(),
     tailwind(),
   ],
+  legacy: {
+    collections: true,
+  },
   markdown: {
     gfm: true,
     rehypePlugins: [rehypeUnwrapImages, rehypeKatex],
