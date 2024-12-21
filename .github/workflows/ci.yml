@@ -59,6 +59,10 @@ jobs:
       - name: Run ESLint on Astro
         if: ${{ needs.paths-filter.outputs.astro == 'true' }}
         run: pnpm run --filter=sushichan.live lint:check
+        env:
+          PUBLIC_CLOUDINARY_API_KEY: ${{ secrets.PUBLIC_CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+          PUBLIC_CLOUDINARY_CLOUD_NAME: ${{ secrets.PUBLIC_CLOUDINARY_CLOUD_NAME }}
 
   tsc:
     name: tsc
@@ -77,6 +81,10 @@ jobs:
       - name: Run tsc on Astro
         if: ${{ needs.paths-filter.outputs.astro == 'true' }}
         run: pnpm run --filter=sushichan.live typecheck
+        env:
+          PUBLIC_CLOUDINARY_API_KEY: ${{ secrets.PUBLIC_CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+          PUBLIC_CLOUDINARY_CLOUD_NAME: ${{ secrets.PUBLIC_CLOUDINARY_CLOUD_NAME }}
 
   prettier:
     name: Prettier
@@ -117,6 +125,10 @@ jobs:
       - name: Run Vitest on Astro
         if: ${{ needs.paths-filter.outputs.astro == 'true' }}
         run: pnpm run test --project sushichan.live
+        env:
+          PUBLIC_CLOUDINARY_API_KEY: ${{ secrets.PUBLIC_CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+          PUBLIC_CLOUDINARY_CLOUD_NAME: ${{ secrets.PUBLIC_CLOUDINARY_CLOUD_NAME }}
 
   astro-check:
     name: Astro Check
@@ -135,3 +147,7 @@ jobs:
       - name: Run Astro Check
         if: ${{ needs.paths-filter.outputs.astro == 'true' }}
         run: pnpm --filter sushichan.live run check:astro
+        env:
+          PUBLIC_CLOUDINARY_API_KEY: ${{ secrets.PUBLIC_CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+          PUBLIC_CLOUDINARY_CLOUD_NAME: ${{ secrets.PUBLIC_CLOUDINARY_CLOUD_NAME }}
