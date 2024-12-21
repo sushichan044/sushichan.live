@@ -1,4 +1,3 @@
-import cloudflare from "@astrojs/cloudflare";
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
@@ -37,7 +36,6 @@ const mdxIntegrations = [
 
 // https://astro.build/config
 export default defineConfig({
-  adapter: cloudflare({ imageService: "passthrough" }),
   env: {
     schema: {
       CLOUDINARY_API_SECRET: envField.string({
@@ -64,6 +62,7 @@ export default defineConfig({
   experimental: {
     clientPrerender: true,
     contentIntellisense: true,
+    svg: true,
   },
   image: {
     remotePatterns: [
@@ -125,9 +124,5 @@ export default defineConfig({
         compiler: "astro",
       }),
     ],
-    ssr: {
-      external: ["@resvg/resvg-js", "cloudinary"],
-      noExternal: ["react-tweet"],
-    },
   },
 });
