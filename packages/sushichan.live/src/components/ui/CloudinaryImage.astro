@@ -8,10 +8,7 @@ import { getEntry } from "astro:content";
 type ImgProps = CldImageProps;
 
 export interface Props extends ImgProps {
-  alt?: string;
-  priority?: boolean;
-  quality?: number;
-  src: string;
+  alt: string;
 }
 
 const { alt, quality = 75, src, ...props } = Astro.props;
@@ -19,14 +16,12 @@ const { alt, quality = 75, src, ...props } = Astro.props;
 const pubId = getPublicId(src) ?? "";
 
 const asset = await getEntry("cldImages", pubId);
-
-const altIsEmpty = alt === "" || alt === undefined;
 ---
 
 {
   asset && (
     <CldImage
-      alt={altIsEmpty ? "" : alt}
+      alt={alt}
       height={asset.data.height}
       quality={quality}
       src={asset.data.public_id}

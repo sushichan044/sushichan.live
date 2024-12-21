@@ -1,7 +1,6 @@
 ---
 import ContentLayout from "../../components/common/ContentLayout.astro";
 import Link from "../../components/element/Link.astro";
-import LocalImage from "../../components/element/LocalImage.astro";
 import UrlCard from "../../components/ui/card/UrlCard.astro";
 import BlogStyle from "../../features/blog/components/BlogStyle.astro";
 import BaseSEO from "../../features/meta/BaseSEO.astro";
@@ -44,13 +43,9 @@ import Work from "./_work.astro";
         </div>
         <div>
           <h2 class="mb-2" id="skills">⚙️ Skills</h2>
-          <LocalImage
-            alt="skills: html,css,tailwind,js,ts,nextjs,react,astro,nodejs,vite,workers,cloudflare,py,docker,git,github,githubactions,discord,twitter,vscode"
-            class="mx-auto"
-            height={SkillsSvg.height}
-            priority
-            src={SkillsSvg}
-            width={SkillsSvg.width}
+          <SkillsSvg
+            aria-label="skills: html,css,tailwind,js,ts,nextjs,react,astro,nodejs,vite,workers,cloudflare,py,docker,git,github,githubactions,discord,twitter,vscode"
+            role="img"
           />
         </div>
         <div>
