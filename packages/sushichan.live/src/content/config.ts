@@ -1,5 +1,4 @@
 import { cldAssetsLoader } from "astro-cloudinary/loaders";
-import { glob } from "astro/loaders";
 import { defineCollection, reference, z } from "astro:content";
 
 const baseSchema = z.object({
@@ -19,9 +18,11 @@ const blogSpecificSchema = z.object({
 
 const blogSchema = baseSchema.merge(blogSpecificSchema);
 
+// see: https://github.com/withastro/astro/issues/12784
+// somehow new glob loader is broken
 const posts = defineCollection({
-  loader: glob({ base: "./src/content/posts", pattern: "**/*.mdx?" }),
   schema: blogSchema,
+  type: "content",
 });
 
 const cldImages = defineCollection({
