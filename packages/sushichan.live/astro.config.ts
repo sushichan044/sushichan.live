@@ -9,10 +9,14 @@ import rehypeKatex from "rehype-katex";
 import rehypeUnwrapImages from "rehype-unwrap-images";
 import remarkEmoji from "remark-emoji";
 import remarkMath from "remark-math";
+import nodeExternals from "rollup-plugin-node-externals";
 import Icons from "unplugin-icons/vite";
 
 import { SITE_URL } from "./src/consts";
 import { remarkReadingTime } from "./src/lib/remarkReadingTime.js";
+
+// Cloudflare adapter: Enable when doing SSR
+// import cloudflare from "@astrojs/cloudflare";
 
 const mdxIntegrations = [
   AutoImport({
@@ -36,6 +40,7 @@ const mdxIntegrations = [
 
 // https://astro.build/config
 export default defineConfig({
+  // adapter: cloudflare({ platformProxy: { enabled: true } }),
   env: {
     schema: {
       CLOUDINARY_API_SECRET: envField.string({
@@ -120,6 +125,9 @@ export default defineConfig({
       exclude: ["@resvg/resvg-js"],
     },
     plugins: [
+      // Make sure to place nodeExternals first
+      nodeExternals({ deps: false, include: ["@resvg/resvg-js"] }),
+      // Then place other plugins below
       Icons({
         compiler: "astro",
       }),
