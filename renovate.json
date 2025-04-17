@@ -8,7 +8,7 @@
   "rangeStrategy": "bump",
   "branchConcurrentLimit": 0,
   "enabledManagers": ["github-actions", "npm"],
-  "labels": ["renovate"],
+  "labels": ["dependencies"],
   "packageRules": [
     {
       "groupName": "GitHub Actions",
@@ -26,44 +26,43 @@
     },
     {
       "groupName": "astro",
-      "additionalBranchPrefix": "{{parentDir}}-",
-      "commitMessageSuffix": "({{parentDir}})",
-      "matchDatasources": ["npm"],
-      "matchDepTypes": ["dependencies"],
-      "matchFileNames": ["packages/sushichan.live/**"]
+      "matchDepTypes": ["pnpm.catalog.astro"]
     },
     {
-      "groupName": "astro-dev",
-      "additionalBranchPrefix": "{{parentDir}}-",
-      "commitMessageSuffix": "({{parentDir}})",
-      "matchDatasources": ["npm"],
-      "matchDepTypes": ["devDependencies"],
-      "matchFileNames": ["packages/sushichan.live/**"]
+      "groupName": "eslint",
+      "matchDepTypes": ["pnpm.catalog.eslint"]
     },
     {
-      "groupName": "astro-react",
-      "commitMessageSuffix": "(astro-react)",
-      "matchDatasources": ["npm"],
-      "matchDepTypes": ["dependencies", "devDependencies"],
-      "matchFileNames": ["packages/sushichan.live/**"],
-      "matchPackageNames": ["/react/", "/react-dom/"]
+      "groupName": "expressive-code",
+      "matchDepTypes": ["pnpm.catalog.expressive-code"]
     },
     {
-      "groupName": "astro-markdown",
-      "commitMessageSuffix": "(astro-markdown)",
-      "matchDatasources": ["npm"],
-      "matchDepTypes": ["dependencies", "devDependencies"],
-      "matchFileNames": ["packages/sushichan.live/**"],
-      "matchPackageNames": [
-        "astro-expressive-code",
-        "/^@expressive-code/",
-        "katex",
-        "marked",
-        "/^mdast/",
-        "reading-time",
-        "/^remark-/",
-        "/^rehype-/"
-      ]
+      "groupName": "markdown",
+      "matchDepTypes": ["pnpm.catalog.markdown"]
+    },
+    {
+      "groupName": "prettier",
+      "matchDepTypes": ["pnpm.catalog.prettier"]
+    },
+    {
+      "groupName": "stylelint",
+      "matchDepTypes": ["pnpm.catalog.stylelint"]
+    },
+    {
+      "groupName": "textlint",
+      "matchDepTypes": ["pnpm.catalog.textlint"]
+    },
+    {
+      "groupName": "tsconfig",
+      "matchDepTypes": ["pnpm.catalog.tsconfig"]
+    },
+    {
+      "groupName": "typescript",
+      "matchDepTypes": ["pnpm.catalog.typescript"]
+    },
+    {
+      "groupName": "vitest",
+      "matchDepTypes": ["pnpm.catalog.vitest"]
     }
   ]
 }

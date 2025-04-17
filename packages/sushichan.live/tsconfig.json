@@ -1,11 +1,7 @@
 {
-  "extends": [
-    "@virtual-live-lab/tsconfig/astro",
-    "@virtual-live-lab/tsconfig/cloudflare-workers"
-  ],
+  "extends": "@virtual-live-lab/tsconfig/astro",
   "compilerOptions": {
     "types": ["unplugin-icons/types/astro"]
   },
-
   "exclude": ["node_modules", "dist", "public"]
 }

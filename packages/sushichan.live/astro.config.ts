@@ -15,9 +15,6 @@ import Icons from "unplugin-icons/vite";
 import { SITE_URL } from "./src/consts";
 import { remarkReadingTime } from "./src/lib/remarkReadingTime.js";
 
-// Cloudflare adapter: Enable when doing SSR
-// import cloudflare from "@astrojs/cloudflare";
-
 const mdxIntegrations = [
   AutoImport({
     imports: [
@@ -40,7 +37,6 @@ const mdxIntegrations = [
 
 // https://astro.build/config
 export default defineConfig({
-  // adapter: cloudflare({ platformProxy: { enabled: true } }),
   env: {
     schema: {
       CLOUDINARY_API_SECRET: envField.string({
@@ -67,7 +63,6 @@ export default defineConfig({
   experimental: {
     clientPrerender: true,
     contentIntellisense: true,
-    svg: true,
   },
   image: {
     remotePatterns: [
@@ -132,5 +127,15 @@ export default defineConfig({
         compiler: "astro",
       }),
     ],
+    resolve: {
+      // Cloudflare での SSR 時に React がおかしくなるので対策しておく
+      ...(import.meta.env.PROD
+        ? {
+            alias: {
+              "react-dom/server": "react-dom/server.edge",
+            },
+          }
+        : {}),
+    },
   },
 });

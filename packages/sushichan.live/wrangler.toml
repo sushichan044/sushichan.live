@@ -1,8 +1,0 @@
-name = "sushichan-live"
-pages_build_output_dir = "dist"
-
-compatibility_date = "2024-11-30"
-compatibility_flags = [ "nodejs_compat" ]
-
-[vars]
-NODE_VERSION = "22.11"
