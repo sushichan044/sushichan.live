@@ -54,7 +54,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Setup Node.js and pnpm
-        uses: ./.github/common/setup-node-pnpm
+        uses: ./.github/workflows/composite/setup
 
       - name: Run ESLint on Astro
         if: ${{ needs.paths-filter.outputs.astro == 'true' }}
@@ -76,7 +76,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Setup Node.js and pnpm
-        uses: ./.github/common/setup-node-pnpm
+        uses: ./.github/workflows/composite/setup
 
       - name: Run tsc on Astro
         if: ${{ needs.paths-filter.outputs.astro == 'true' }}
@@ -98,7 +98,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Setup Node.js and pnpm
-        uses: ./.github/common/setup-node-pnpm
+        uses: ./.github/workflows/composite/setup
 
       - name: Run Prettier on Astro
         if: ${{ needs.paths-filter.outputs.astro == 'true' }}
@@ -120,7 +120,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Setup Node.js and pnpm
-        uses: ./.github/common/setup-node-pnpm
+        uses: ./.github/workflows/composite/setup
 
       - name: Run Vitest on Astro
         if: ${{ needs.paths-filter.outputs.astro == 'true' }}
@@ -142,7 +142,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Setup Node.js and pnpm
-        uses: ./.github/common/setup-node-pnpm
+        uses: ./.github/workflows/composite/setup
 
       - name: Run Astro Check
         if: ${{ needs.paths-filter.outputs.astro == 'true' }}
