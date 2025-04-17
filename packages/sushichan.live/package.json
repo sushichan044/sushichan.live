@@ -71,7 +71,7 @@
   "devDependencies": {
     "@astrojs/ts-plugin": "catalog:astro",
     "@double-great/stylelint-a11y": "catalog:stylelint",
-    "@iconify/json": "2.2.298",
+    "@iconify/json": "2.2.329",
     "@types/mdast": "catalog:markdown",
     "@types/node": "22.10.7",
     "@types/nprogress": "0.2.3",
