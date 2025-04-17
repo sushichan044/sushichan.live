@@ -45,6 +45,10 @@
       "matchDepTypes": ["pnpm.catalog.prettier"]
     },
     {
+      "groupName": "react",
+      "matchDepTypes": ["pnpm.catalog.react"]
+    },
+    {
       "groupName": "stylelint",
       "matchDepTypes": ["pnpm.catalog.stylelint"]
     },
