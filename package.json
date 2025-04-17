@@ -8,7 +8,7 @@
     "dev": "turbo dev",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "format": "prettier --write .",
+    "format": "prettier --ignore-path .gitignore --ignore-path .prettierignore --ignore-path .ci.prettierignore --write .",
     "format:check": "prettier --ignore-path .gitignore --ignore-path .prettierignore --ignore-path .ci.prettierignore --check ."
   },
   "devDependencies": {

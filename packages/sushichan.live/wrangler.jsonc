@@ -3,5 +3,5 @@
   "name": "sushichan-live",
   "pages_build_output_dir": "dist",
   "compatibility_date": "2025-04-17",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": ["nodejs_compat"]
 }
