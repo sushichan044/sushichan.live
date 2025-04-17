@@ -33,7 +33,6 @@
     "@cloudinary-util/util": "4.1.0",
     "@expressive-code/plugin-collapsible-sections": "catalog:expressive-code",
     "@formkit/tempo": "0.1.2",
-    "@iconify/iconify": "3.1.1",
     "@radix-ui/react-navigation-menu": "1.2.3",
     "@radix-ui/react-slot": "1.1.1",
     "@resvg/resvg-js": "2.6.2",

@@ -165,7 +165,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-worker-configuration.d.ts
 
 # happy-css-modules
 *.module.css.d.ts
