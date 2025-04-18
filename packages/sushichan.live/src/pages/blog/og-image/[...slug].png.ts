@@ -6,8 +6,6 @@ import type { TrimExtension } from "../../../utils/string";
 
 import { getBlogOGImage } from "./_getImage";
 
-export const prerender = false;
-
 export const GET: APIRoute<
   Record<string, never>,
   { slug: TrimExtension<CollectionEntry<"posts">["id"]> }

@@ -1,8 +1,7 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import type { ReadTimeResults } from "reading-time";
 
-import { render } from "astro:content";
+import { getEntry, render } from "astro:content";
 
 import ContentLayout from "../../../components/common/ContentLayout.astro";
 import PageAlertWrapper from "../../../components/ui/PageAlertWrapper.astro";
@@ -10,26 +9,16 @@ import SafeHTML from "../../../components/utils/SafeHTML.astro";
 import BlogFrontMatter from "../../../features/blog/components/BlogFrontMatter.astro";
 import BlogRenderer from "../../../features/blog/components/BlogRenderer.astro";
 import BlogStyle from "../../../features/blog/components/BlogStyle.astro";
-import { getAllPreviewPosts } from "../../../features/blog/utils/post";
 import BlogPostSEO from "../../../features/meta/BlogPostSEO.astro";
 import BlogLayout from "../../../layouts/BlogLayout.astro";
 import { parseMarkdownArray } from "../../../utils/markdown";
-import { trimExtension } from "../../../utils/string";
 
-interface Props {
-  entry: CollectionEntry<"posts">;
+const { slug } = Astro.params;
+
+const entry = await getEntry("posts", slug);
+if (!entry) {
+  return Astro.rewrite("/404");
 }
-
-const { entry } = Astro.props;
-
-export const prerender = false;
-// export async function getStaticPaths() {
-//   const blogEntries = await getAllPreviewPosts();
-//   return blogEntries.map((entry) => ({
-//     params: { slug: trimExtension(entry.id) },
-//     props: { entry },
-//   }));
-// }
 
 const renderResult = await render(entry);
 

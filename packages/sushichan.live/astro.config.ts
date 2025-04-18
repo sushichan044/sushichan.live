@@ -117,7 +117,7 @@ export default defineConfig({
   },
 
   outDir: "./dist",
-  output: "static",
+  output: "server",
 
   prefetch: {
     defaultStrategy: "hover",
