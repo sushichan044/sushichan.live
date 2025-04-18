@@ -3,7 +3,7 @@ title: 第73回調布祭Webサイトを支えた技術
 description: 各方面に感謝を込めて
 createdAt: 2023-12-01
 updatedAt: 2024-03-03
-thumbnail: https://res.cloudinary.com/sushi-chan/image/upload/v1701280464/tech/chofusai-2023-website/IMG_0645_mix7iv_qkbnco.jpg
+thumbnail: https://res.cloudinary.com/sushichan044/image/upload/v1701280464/tech/chofusai-2023-website/IMG_0645_mix7iv_qkbnco.jpg
 tags:
   - 雑記
   - 技術
@@ -140,7 +140,7 @@ CDNというのはContent Delivery Networkの略で、コンテンツをユー�
 実際にした設定は多数あるため割愛しますが、複数の最適化により<span class="text-xl font-bold">75%</span>のアクセスをCDNで処理できました。
 また、当然CDNからのレスポンスはVercel上のNext.jsサーバーからのものより速く、パフォーマンスの向上に繋がりました。
 
-![Cloudflareの帯域幅分析。総トラフィック約30GBのうち22.5GBをCDN上のキャッシュでさばいている。](https://res.cloudinary.com/sushi-chan/image/upload/v1701318570/tech/chofusai-2023-website/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2023-11-30_132841_iomalu.png "オリジンへ飛ぶ帯域幅を22.5GB削減できました。")
+![Cloudflareの帯域幅分析。総トラフィック約30GBのうち22.5GBをCDN上のキャッシュでさばいている。](https://res.cloudinary.com/sushichan044/image/upload/v1701318570/tech/chofusai-2023-website/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2023-11-30_132841_iomalu.png "オリジンへ飛ぶ帯域幅を22.5GB削減できました。")
 
 <Message type="info">
   VercelでもCDNが使われていますが、VercelのCDNを通過した分も使用帯域幅に含まれるので、
