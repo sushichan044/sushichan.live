@@ -12,7 +12,7 @@
     "lint": "pnpm run typegen && eslint",
     "lint:check": "pnpm run lint --max-warnings 0",
     "build": "pnpm run typegen && astro build",
-    "preview": "wrangler pages dev ./dist",
+    "preview": "wrangler dev",
     "astro": "astro",
     "typecheck": "pnpm run typegen && tsc --noEmit",
     "typegen": "pnpm run /^typegen:.*/",
