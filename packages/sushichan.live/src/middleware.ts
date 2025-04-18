@@ -4,6 +4,7 @@ const redirectIfNotFound = defineMiddleware(async (c, next) => {
   const res = await next();
 
   if (c.url.pathname !== "/404" && res.status === 404) {
+    console.log("Redirecting to 404 page");
     return c.rewrite("/404");
   }
 
