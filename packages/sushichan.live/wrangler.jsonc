@@ -8,6 +8,9 @@
     "binding": "ASSETS",
     "directory": "./dist"
   },
+  "vars": {
+    "PUBLIC_CLOUDINARY_CLOUD_NAME": "sushichan044"
+  },
   "routes": [
     {
       "custom_domain": true,
