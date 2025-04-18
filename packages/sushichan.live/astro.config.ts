@@ -10,6 +10,8 @@ import rehypeUnwrapImages from "rehype-unwrap-images";
 import remarkEmoji from "remark-emoji";
 import remarkMath from "remark-math";
 import nodeExternals from "rollup-plugin-node-externals";
+import cloudflare from "@astrojs/cloudflare";
+import { cloudflare as cloudflareVite } from "@cloudflare/vite-plugin";
 import Icons from "unplugin-icons/vite";
 
 import { SITE_URL } from "./src/consts";
@@ -37,6 +39,14 @@ const mdxIntegrations = [
 
 // https://astro.build/config
 export default defineConfig({
+  adapter: cloudflare({
+    platformProxy: {
+      enabled: true,
+      configPath: "./wrangler.jsonc",
+    },
+    imageService: "compile",
+  }),
+
   env: {
     schema: {
       CLOUDINARY_API_SECRET: envField.string({
@@ -60,10 +70,12 @@ export default defineConfig({
     },
     validateSecrets: true,
   },
+
   experimental: {
     clientPrerender: true,
     contentIntellisense: true,
   },
+
   image: {
     remotePatterns: [
       {
@@ -73,6 +85,7 @@ export default defineConfig({
       },
     ],
   },
+
   integrations: [
     // expressiveCode config is moved to ec.config.mjs
     expressiveCode(),
@@ -81,9 +94,11 @@ export default defineConfig({
     react(),
     tailwind(),
   ],
+
   legacy: {
     collections: true,
   },
+
   markdown: {
     gfm: true,
     rehypePlugins: [rehypeUnwrapImages, rehypeKatex],
@@ -100,28 +115,31 @@ export default defineConfig({
     //   theme: "one-dark-pro",
     // },
   },
+
   outDir: "./dist",
   output: "static",
+
   prefetch: {
     defaultStrategy: "hover",
   },
+
   security: {
     checkOrigin: true,
   },
+
   server: {
     host: true,
   },
+
   site: SITE_URL,
+
   vite: {
     build: {
       minify: false,
     },
-    optimizeDeps: {
-      exclude: ["@resvg/resvg-js"],
-    },
     plugins: [
       // Make sure to place nodeExternals first
-      nodeExternals({ deps: false, include: ["@resvg/resvg-js"] }),
+      nodeExternals({ deps: false }),
       // Then place other plugins below
       Icons({
         compiler: "astro",

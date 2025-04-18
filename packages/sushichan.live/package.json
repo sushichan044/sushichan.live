@@ -4,9 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "pnpm run /^dev:.*/",
-    "dev:astro": "pnpm run typegen:astro && pnpm run typegen:cf && astro dev",
-    "dev:hcm": "pnpm run typegen:css --watch",
+    "dev": "astro dev",
     "start": "pnpm run typegen && astro dev",
     "check:astro": "pnpm run typegen && astro check",
     "lint": "pnpm run typegen && eslint",
@@ -18,7 +16,6 @@
     "typegen": "pnpm run /^typegen:.*/",
     "typegen:astro": "astro sync",
     "typegen:cf": "wrangler types",
-    "typegen:css": "hcm 'src/**/*.module.{css,scss,less}' --logLevel=silent",
     "test": "pnpm run typegen && vitest",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
@@ -63,13 +60,16 @@
     "remark-math": "catalog:markdown",
     "sanitize-html": "2.14.0",
     "satori": "0.12.1",
+    "svg2png-wasm": "1.4.1",
     "tailwind-merge": "2.6.0",
     "tailwind-variants": "0.3.1",
     "undici": "7.3.0",
-    "unified": "catalog:markdown"
+    "unified": "catalog:markdown",
+    "yoga-wasm-web": "0.3.3"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "catalog:astro",
+    "@cloudflare/vite-plugin": "1.0.8",
     "@double-great/stylelint-a11y": "catalog:stylelint",
     "@iconify/json": "2.2.329",
     "@types/mdast": "catalog:markdown",

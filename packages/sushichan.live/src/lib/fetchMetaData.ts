@@ -37,7 +37,7 @@ const fetchMetaData = async (url: string): Promise<MetaData> => {
   }
 
   if (html == null) {
-    throw new Error("Failed to fetch metadata");
+    throw new Error(`Failed to fetch Metadata from ${url}`);
   }
 
   const res = await ogs({

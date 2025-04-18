@@ -15,20 +15,29 @@ import BlogPostSEO from "../../../features/meta/BlogPostSEO.astro";
 import BlogLayout from "../../../layouts/BlogLayout.astro";
 import { parseMarkdownArray } from "../../../utils/markdown";
 import { trimExtension } from "../../../utils/string";
+import { getEntry } from "astro:content";
 
 interface Props {
   entry: CollectionEntry<"posts">;
 }
 
-const { entry } = Astro.props;
+const { slug } = Astro.params;
 
-export async function getStaticPaths() {
-  const blogEntries = await getAllPosts();
-  return blogEntries.map((entry) => ({
-    params: { slug: trimExtension(entry.id) },
-    props: { entry },
-  }));
+const entry = await getEntry("posts", slug);
+if (!entry) {
+  return Astro.redirect("/404");
 }
+
+// const { entry } = Astro.props;
+
+export const prerender = false;
+// export async function getStaticPaths() {
+//   const blogEntries = await getAllPosts();
+//   return blogEntries.map((entry) => ({
+//     params: { slug: trimExtension(entry.id) },
+//     props: { entry },
+//   }));
+// }
 
 const renderResult = await render(entry);
 

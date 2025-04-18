@@ -22,13 +22,14 @@ interface Props {
 
 const { entry } = Astro.props;
 
-export async function getStaticPaths() {
-  const previewEntries = await getAllPreviewPosts();
-  return previewEntries.map((entry) => ({
-    params: { slug: trimExtension(entry.id) },
-    props: { entry },
-  }));
-}
+export const prerender = false;
+// export async function getStaticPaths() {
+//   const blogEntries = await getAllPreviewPosts();
+//   return blogEntries.map((entry) => ({
+//     params: { slug: trimExtension(entry.id) },
+//     props: { entry },
+//   }));
+// }
 
 const renderResult = await render(entry);
 

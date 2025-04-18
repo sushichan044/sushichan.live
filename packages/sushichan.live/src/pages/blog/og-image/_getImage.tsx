@@ -1,7 +1,13 @@
 import type { CollectionEntry } from "astro:content";
 
-import { Resvg } from "@resvg/resvg-js";
-import satori from "satori";
+import satori, { init } from "satori/wasm";
+import initYoga from "yoga-wasm-web";
+import yogaWasm from "yoga-wasm-web/dist/yoga.wasm";
+import { svg2png, initialize as initializeSvg2Wasm } from "svg2png-wasm";
+import svg2pngWasm from "svg2png-wasm/svg2png_wasm_bg.wasm";
+
+init(await initYoga(yogaWasm));
+await initializeSvg2Wasm(svg2pngWasm);
 
 type Options = {
   post: CollectionEntry<"posts">;
@@ -77,7 +83,7 @@ export async function getBlogOGImage({ post }: Options) {
         <img
           alt="favicon"
           height={48}
-          src="https://www.sushichan.live/favicons/android-chrome-192x192.png"
+          src="https://assets.sushichan044.workers.dev/icon-transparent.png"
           style={{
             top: "6px",
           }}
@@ -100,9 +106,7 @@ export async function getBlogOGImage({ post }: Options) {
     },
   );
 
-  const resvg = new Resvg(svg);
-
-  return resvg.render().asPng();
+  return await svg2png(svg);
 }
 
 async function fetchFont(

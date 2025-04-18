@@ -4,16 +4,9 @@ import { type CollectionEntry, getEntry } from "astro:content";
 
 import type { TrimExtension } from "../../../utils/string";
 
-import { getAllPosts } from "../../../features/blog/utils/post";
-import { trimExtension } from "../../../utils/string";
 import { getBlogOGImage } from "./_getImage";
 
-export async function getStaticPaths() {
-  const blogEntries = await getAllPosts();
-  return blogEntries.map(({ id }) => ({
-    params: { slug: trimExtension(id) },
-  }));
-}
+export const prerender = false;
 
 export const GET: APIRoute<
   Record<string, never>,
