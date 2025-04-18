@@ -68,7 +68,7 @@ export default defineConfig({
     remotePatterns: [
       {
         hostname: "res.cloudinary.com",
-        pathname: "/sushi-chan/**",
+        pathname: "/sushichan044/**",
         protocol: "https",
       },
     ],
