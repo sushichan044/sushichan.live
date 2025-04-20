@@ -33,7 +33,7 @@
     "@radix-ui/react-navigation-menu": "1.2.3",
     "@radix-ui/react-slot": "1.1.1",
     "@resvg/resvg-js": "2.6.2",
-    "@unocss/reset": "65.4.3",
+    "@unocss/reset": "65.5.0",
     "astro": "catalog:astro",
     "astro-auto-import": "catalog:astro",
     "astro-cloudinary": "catalog:astro",
