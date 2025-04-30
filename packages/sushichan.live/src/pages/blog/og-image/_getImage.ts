@@ -2,8 +2,10 @@ import type { CollectionEntry } from "astro:content";
 
 import satori, { init } from "satori/wasm";
 import initYoga from "yoga-wasm-web";
+// @ts-expect-error wasm not typed
 import yogaWasm from "yoga-wasm-web/dist/yoga.wasm";
 import { svg2png, initialize as initializeSvg2Wasm } from "svg2png-wasm";
+// @ts-expect-error wasm not typed
 import svg2pngWasm from "svg2png-wasm/svg2png_wasm_bg.wasm";
 import { getOptimizedFontUrl } from "../../../lib/google-font";
 import { BlogOGP } from "./_BlogOGP";
