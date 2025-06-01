@@ -38,8 +38,8 @@ catalogs:
     prettier: 3.5.3
     prettier-plugin-astro: 0.14.1
   react:
-    '@types/react': 19.1.2
-    '@types/react-dom': 19.1.2
+    '@types/react': 19.1.6
+    '@types/react-dom': 19.1.5
     react: 19.1.0
     react-dom: 19.1.0
   stylelint:
