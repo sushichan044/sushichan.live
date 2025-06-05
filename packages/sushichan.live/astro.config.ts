@@ -74,6 +74,7 @@ export default defineConfig({
   experimental: {
     clientPrerender: true,
     contentIntellisense: true,
+    csp: true,
   },
 
   image: {
