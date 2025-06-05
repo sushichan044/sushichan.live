@@ -142,6 +142,7 @@ export default defineConfig({
       // Make sure to place nodeExternals first
       nodeExternals({ deps: false }),
       // Then place other plugins below
+      // @ts-expect-error type mismatch
       Icons({
         compiler: "astro",
       }),
