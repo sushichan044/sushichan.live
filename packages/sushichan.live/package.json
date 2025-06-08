@@ -47,7 +47,7 @@
     "mdast-util-to-string": "catalog:markdown",
     "nprogress": "0.2.0",
     "open-graph-scraper-lite": "2.1.0",
-    "pkg-dir": "8.0.0",
+    "pkg-dir": "9.0.0",
     "react": "catalog:react",
     "react-dom": "catalog:react",
     "react-player": "2.16.0",
