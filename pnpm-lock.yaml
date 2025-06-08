@@ -256,8 +256,8 @@ importers:
         specifier: 2.6.2
         version: 2.6.2
       '@unocss/reset':
-        specifier: 65.4.3
-        version: 65.4.3
+        specifier: 66.1.4
+        version: 66.1.4
       astro:
         specifier: catalog:astro
         version: 5.9.0(@types/node@22.10.7)(jiti@2.4.2)(rollup@4.40.0)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(typescript@5.8.3)(yaml@2.6.1)
@@ -2085,8 +2085,8 @@ packages:
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
-  '@unocss/reset@65.4.3':
-    resolution: {integrity: sha512-f9QnMtY1yPS1HEIkeKmSwUYcp4QS6zdo9ZcIFE9PDSLOcns3v+M1lTQg8mLChxJHVl73Cf6PofWVh5tmnxV53Q==}
+  '@unocss/reset@66.1.4':
+    resolution: {integrity: sha512-lxLx1jw14wwgYWhO3c68hkh/f9UuGGmb97NsNOO9ZZ06yaafRiAxicUhCEU/FqjdVLKfoWEN9FNnGQbIpxi6lA==}
 
   '@unpic/astro@0.0.47':
     resolution: {integrity: sha512-V35x+L8hzJ0w+VnoaCNjXOMYbm5B+WTKa3RQxYUw2/hJZ4Jo4a1uqYbiORJO77eGSaJGQBOGB9RT0BWMOmEz9Q==}
@@ -8399,7 +8399,7 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@unocss/reset@65.4.3': {}
+  '@unocss/reset@66.1.4': {}
 
   '@unpic/astro@0.0.47(astro@5.9.0(@types/node@22.10.7)(jiti@2.4.2)(rollup@4.40.0)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(typescript@5.8.3)(yaml@2.6.1))':
     dependencies:
