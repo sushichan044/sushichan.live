@@ -352,8 +352,8 @@ importers:
         specifier: catalog:markdown
         version: 11.0.5
       unifont:
-        specifier: 0.4.1
-        version: 0.4.1
+        specifier: 0.5.2
+        version: 0.5.2
       unstorage:
         specifier: 1.16.0
         version: 1.16.0
@@ -5956,11 +5956,8 @@ packages:
   unified@9.2.2:
     resolution: {integrity: sha512-Sg7j110mtefBD+qunSLO1lqOEKdrwBFBrR6Qd8f4uwkhWNlbkaqwHse6e7QvD3AP/MNoJdEDLaf8OxYyoWgorQ==}
 
-  unifont@0.4.1:
-    resolution: {integrity: sha512-zKSY9qO8svWYns+FGKjyVdLvpGPwqmsCjeJLN1xndMiqxHWBAhoWDMYMG960MxeV48clBmG+fDP59dHY1VoZvg==}
-
-  unifont@0.5.0:
-    resolution: {integrity: sha512-4DueXMP5Hy4n607sh+vJ+rajoLu778aU3GzqeTCqsD/EaUcvqZT9wPC8kgK6Vjh22ZskrxyRCR71FwNOaYn6jA==}
+  unifont@0.5.2:
+    resolution: {integrity: sha512-LzR4WUqzH9ILFvjLAUU7dK3Lnou/qd5kD+IakBtBK4S15/+x2y9VX+DcWQv6s551R6W+vzwgVS6tFg3XggGBgg==}
 
   unique-concat@0.2.2:
     resolution: {integrity: sha512-nFT3frbsvTa9rrc71FJApPqXF8oIhVHbX3IWgObQi1mF7WrW48Ys70daL7o4evZUtmUf6Qn6WK0LbHhyO0hpXw==}
@@ -8866,7 +8863,7 @@ snapshots:
       tinyglobby: 0.2.12
       tsconfck: 3.1.5(typescript@5.8.3)
       ultrahtml: 1.6.0
-      unifont: 0.5.0
+      unifont: 0.5.2
       unist-util-visit: 5.0.0
       unstorage: 1.16.0
       vfile: 6.0.3
@@ -13518,14 +13515,10 @@ snapshots:
       trough: 1.0.5
       vfile: 4.2.1
 
-  unifont@0.4.1:
+  unifont@0.5.2:
     dependencies:
       css-tree: 3.1.0
-      ohash: 2.0.11
-
-  unifont@0.5.0:
-    dependencies:
-      css-tree: 3.1.0
+      ofetch: 1.4.1
       ohash: 2.0.11
 
   unique-concat@0.2.2: {}
