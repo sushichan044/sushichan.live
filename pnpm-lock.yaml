@@ -159,8 +159,8 @@ catalogs:
       version: 10.0.4
   tsconfig:
     '@virtual-live-lab/tsconfig':
-      specifier: 2.1.20
-      version: 2.1.20
+      specifier: 2.1.21
+      version: 2.1.21
   typescript:
     typescript:
       specifier: 5.8.3
@@ -188,7 +188,7 @@ importers:
         version: 2.0.19(prettier-plugin-astro@0.14.1)(prettier@3.5.3)
       '@virtual-live-lab/tsconfig':
         specifier: catalog:tsconfig
-        version: 2.1.20(typescript@5.8.3)
+        version: 2.1.21(typescript@5.8.3)
       '@vitest/coverage-v8':
         specifier: catalog:vitest
         version: 3.1.1(vitest@3.1.1(@types/debug@4.1.12)(@types/node@22.10.7)(jiti@2.4.2)(jsdom@24.0.0)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.6.1))
@@ -402,7 +402,7 @@ importers:
         version: 3.0.4(postcss-html@1.8.0)(postcss@8.5.1)(stylelint@16.18.0(typescript@5.8.3))
       '@virtual-live-lab/tsconfig':
         specifier: catalog:tsconfig
-        version: 2.1.20(typescript@5.8.3)
+        version: 2.1.21(typescript@5.8.3)
       '@vitest/coverage-v8':
         specifier: catalog:vitest
         version: 3.1.1(vitest@3.1.1(@types/debug@4.1.12)(@types/node@22.10.7)(jiti@2.4.2)(jsdom@24.0.0)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.6.1))
@@ -2123,8 +2123,8 @@ packages:
       postcss-html: ^1.0.0
       stylelint: ^16.0.0
 
-  '@virtual-live-lab/tsconfig@2.1.20':
-    resolution: {integrity: sha512-hACjT2pdyNgvqpQIhWJzKrTI+SQQzwTZJirob2r0ctnwOialUyE6cqk+nvw/vFs96nnxY0K3BtNwc93dtnBC6A==}
+  '@virtual-live-lab/tsconfig@2.1.21':
+    resolution: {integrity: sha512-AV4Am2jyqpUHoxtYZQ39/dinekkB1X5M5u35xI7dA8lYpmSculhf5JLKeuxAiGCWAPGoeoYkvZEbujNNrbZKzw==}
     peerDependencies:
       typescript: ^5.0.0
 
@@ -5613,6 +5613,7 @@ packages:
 
   svg2png-wasm@1.4.1:
     resolution: {integrity: sha512-ZFy1NtwZVAsslaTQoI+/QqX2sg0vjmgJ/jGAuLZZvYcRlndI54hLPiwLC9JzXlFBerfxN5JiS7kpEUG0mrXS3Q==}
+    deprecated: svg2png-wasm is no longer supported. Please use the resvg-js package instead.
 
   swr@2.2.4:
     resolution: {integrity: sha512-njiZ/4RiIhoOlAaLYDqwz5qH/KZXVilRLvomrx83HjzCWTfa+InyfAjv05PSFxnmLzZkNO9ZfvgoqzAaEI4sGQ==}
@@ -8479,7 +8480,7 @@ snapshots:
     transitivePeerDependencies:
       - postcss
 
-  '@virtual-live-lab/tsconfig@2.1.20(typescript@5.8.3)':
+  '@virtual-live-lab/tsconfig@2.1.21(typescript@5.8.3)':
     dependencies:
       typescript: 5.8.3
 

@@ -59,7 +59,7 @@ catalogs:
     textlint: 14.6.0
     textlint-rule-preset-japanese: 10.0.4
   tsconfig:
-    '@virtual-live-lab/tsconfig': 2.1.20
+    '@virtual-live-lab/tsconfig': 2.1.21
   typescript:
     typescript: 5.8.3
   vitest:
