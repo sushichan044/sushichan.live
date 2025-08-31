@@ -92,11 +92,11 @@ catalogs:
       version: 11.0.5
   prettier:
     '@virtual-live-lab/prettier-config':
-      specifier: 2.0.19
-      version: 2.0.19
+      specifier: 2.0.22
+      version: 2.0.22
     prettier:
-      specifier: 3.5.3
-      version: 3.5.3
+      specifier: 3.6.2
+      version: 3.6.2
     prettier-plugin-astro:
       specifier: 0.14.1
       version: 0.14.1
@@ -185,7 +185,7 @@ importers:
         version: 2.2.21(@typescript-eslint/parser@8.30.1(eslint@9.24.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.2))(tailwindcss@3.4.17)(typescript@5.8.3)
       '@virtual-live-lab/prettier-config':
         specifier: catalog:prettier
-        version: 2.0.19(prettier-plugin-astro@0.14.1)(prettier@3.5.3)
+        version: 2.0.22(prettier-plugin-astro@0.14.1)(prettier@3.6.2)
       '@virtual-live-lab/tsconfig':
         specifier: catalog:tsconfig
         version: 2.1.20(typescript@5.8.3)
@@ -197,7 +197,7 @@ importers:
         version: 9.24.0(jiti@2.4.2)
       prettier:
         specifier: catalog:prettier
-        version: 3.5.3
+        version: 3.6.2
       prettier-plugin-astro:
         specifier: catalog:prettier
         version: 0.14.1
@@ -275,7 +275,7 @@ importers:
         version: 0.41.1(astro@5.9.0(@types/node@22.10.7)(jiti@2.4.2)(rollup@4.40.0)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(typescript@5.8.3)(yaml@2.6.1))
       astro-seo:
         specifier: catalog:astro
-        version: 0.8.4(prettier-plugin-astro@0.14.1)(prettier@3.5.3)(typescript@5.8.3)
+        version: 0.8.4(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.8.3)
       clsx:
         specifier: 2.1.1
         version: 2.1.1
@@ -396,7 +396,7 @@ importers:
         version: 2.2.21(@typescript-eslint/parser@8.30.1(eslint@9.24.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.24.0(jiti@2.4.2))(tailwindcss@3.4.17)(typescript@5.8.3)
       '@virtual-live-lab/prettier-config':
         specifier: catalog:prettier
-        version: 2.0.19(prettier-plugin-astro@0.14.1)(prettier@3.5.3)
+        version: 2.0.22(prettier-plugin-astro@0.14.1)(prettier@3.6.2)
       '@virtual-live-lab/stylelint-config':
         specifier: catalog:stylelint
         version: 3.0.4(postcss-html@1.8.0)(postcss@8.5.1)(stylelint@16.18.0(typescript@5.8.3))
@@ -423,7 +423,7 @@ importers:
         version: 1.8.0
       prettier:
         specifier: catalog:prettier
-        version: 3.5.3
+        version: 3.6.2
       prettier-plugin-astro:
         specifier: catalog:prettier
         version: 0.14.1
@@ -2108,8 +2108,8 @@ packages:
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
 
-  '@virtual-live-lab/prettier-config@2.0.19':
-    resolution: {integrity: sha512-z4bzX8j2kxWyYzLZAZYFj1APgvrUbY+Jmgqf2oZUINqWueVrPuLMId+7DP0h+9gbXtzVmixNc/8LU9qv4uu/9Q==}
+  '@virtual-live-lab/prettier-config@2.0.22':
+    resolution: {integrity: sha512-3E4DxOg+UPED3MFDiVtG2EtDJRbBom6SOJY7PFGNpANkJW76BGKQQLQDXrpt48KvUCX7wDVk/2UXozwe1NLqzQ==}
     peerDependencies:
       prettier: ^3.0.0
       prettier-plugin-astro: '>=0.11.0 <0.15.0'
@@ -4921,8 +4921,8 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
 
-  prettier@3.5.3:
-    resolution: {integrity: sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==}
+  prettier@3.6.2:
+    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -5364,6 +5364,7 @@ packages:
   source-map@0.8.0-beta.0:
     resolution: {integrity: sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==}
     engines: {node: '>= 8'}
+    deprecated: The work that was done in this beta branch won't be included in future versions
 
   space-separated-tokens@1.1.5:
     resolution: {integrity: sha512-q/JSVd1Lptzhf5bkYm4ob4iWPjx0KiRe3sRFBNrVqbJkFaBm5vbbowy1mymoPNLRa52+oadOhJ+K49wsSeSjTA==}
@@ -5613,6 +5614,7 @@ packages:
 
   svg2png-wasm@1.4.1:
     resolution: {integrity: sha512-ZFy1NtwZVAsslaTQoI+/QqX2sg0vjmgJ/jGAuLZZvYcRlndI54hLPiwLC9JzXlFBerfxN5JiS7kpEUG0mrXS3Q==}
+    deprecated: svg2png-wasm is no longer supported. Please use the resvg-js package instead.
 
   swr@2.2.4:
     resolution: {integrity: sha512-njiZ/4RiIhoOlAaLYDqwz5qH/KZXVilRLvomrx83HjzCWTfa+InyfAjv05PSFxnmLzZkNO9ZfvgoqzAaEI4sGQ==}
@@ -6676,9 +6678,9 @@ snapshots:
       astro: 5.9.0(@types/node@22.10.7)(jiti@2.4.2)(rollup@4.40.0)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(typescript@5.8.3)(yaml@2.6.1)
       lite-youtube-embed: 0.3.3
 
-  '@astrojs/check@0.5.10(prettier-plugin-astro@0.14.1)(prettier@3.5.3)(typescript@5.8.3)':
+  '@astrojs/check@0.5.10(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.8.3)':
     dependencies:
-      '@astrojs/language-server': 2.15.4(prettier-plugin-astro@0.14.1)(prettier@3.5.3)(typescript@5.8.3)
+      '@astrojs/language-server': 2.15.4(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.8.3)
       chokidar: 3.6.0
       fast-glob: 3.3.3
       kleur: 4.1.5
@@ -6722,7 +6724,7 @@ snapshots:
 
   '@astrojs/internal-helpers@0.6.1': {}
 
-  '@astrojs/language-server@2.15.4(prettier-plugin-astro@0.14.1)(prettier@3.5.3)(typescript@5.8.3)':
+  '@astrojs/language-server@2.15.4(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.8.3)':
     dependencies:
       '@astrojs/compiler': 2.11.0
       '@astrojs/yaml2ts': 0.2.2
@@ -6736,14 +6738,14 @@ snapshots:
       volar-service-css: 0.0.62(@volar/language-service@2.4.8)
       volar-service-emmet: 0.0.62(@volar/language-service@2.4.8)
       volar-service-html: 0.0.62(@volar/language-service@2.4.8)
-      volar-service-prettier: 0.0.62(@volar/language-service@2.4.8)(prettier@3.5.3)
+      volar-service-prettier: 0.0.62(@volar/language-service@2.4.8)(prettier@3.6.2)
       volar-service-typescript: 0.0.62(@volar/language-service@2.4.8)
       volar-service-typescript-twoslash-queries: 0.0.62(@volar/language-service@2.4.8)
       volar-service-yaml: 0.0.62(@volar/language-service@2.4.8)
       vscode-html-languageservice: 5.3.0
       vscode-uri: 3.0.8
     optionalDependencies:
-      prettier: 3.5.3
+      prettier: 3.6.2
       prettier-plugin-astro: 0.14.1
     transitivePeerDependencies:
       - typescript
@@ -8455,10 +8457,10 @@ snapshots:
       - typescript
       - vue
 
-  '@virtual-live-lab/prettier-config@2.0.19(prettier-plugin-astro@0.14.1)(prettier@3.5.3)':
+  '@virtual-live-lab/prettier-config@2.0.22(prettier-plugin-astro@0.14.1)(prettier@3.6.2)':
     dependencies:
       defu: 6.1.4
-      prettier: 3.5.3
+      prettier: 3.6.2
     optionalDependencies:
       prettier-plugin-astro: 0.14.1
 
@@ -8807,9 +8809,9 @@ snapshots:
       astro: 5.9.0(@types/node@22.10.7)(jiti@2.4.2)(rollup@4.40.0)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(typescript@5.8.3)(yaml@2.6.1)
       rehype-expressive-code: 0.41.1
 
-  astro-seo@0.8.4(prettier-plugin-astro@0.14.1)(prettier@3.5.3)(typescript@5.8.3):
+  astro-seo@0.8.4(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.8.3):
     dependencies:
-      '@astrojs/check': 0.5.10(prettier-plugin-astro@0.14.1)(prettier@3.5.3)(typescript@5.8.3)
+      '@astrojs/check': 0.5.10(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.8.3)
     transitivePeerDependencies:
       - prettier
       - prettier-plugin-astro
@@ -12085,13 +12087,13 @@ snapshots:
   prettier-plugin-astro@0.14.1:
     dependencies:
       '@astrojs/compiler': 2.11.0
-      prettier: 3.5.3
+      prettier: 3.6.2
       sass-formatter: 0.7.8
 
   prettier@2.8.7:
     optional: true
 
-  prettier@3.5.3: {}
+  prettier@3.6.2: {}
 
   printable-characters@1.0.42: {}
 
@@ -13814,12 +13816,12 @@ snapshots:
     optionalDependencies:
       '@volar/language-service': 2.4.8
 
-  volar-service-prettier@0.0.62(@volar/language-service@2.4.8)(prettier@3.5.3):
+  volar-service-prettier@0.0.62(@volar/language-service@2.4.8)(prettier@3.6.2):
     dependencies:
       vscode-uri: 3.0.8
     optionalDependencies:
       '@volar/language-service': 2.4.8
-      prettier: 3.5.3
+      prettier: 3.6.2
 
   volar-service-typescript-twoslash-queries@0.0.62(@volar/language-service@2.4.8):
     dependencies:
