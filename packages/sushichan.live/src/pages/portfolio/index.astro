@@ -2,6 +2,7 @@
 import ContentLayout from "../../components/common/ContentLayout.astro";
 import Link from "../../components/element/Link.astro";
 import UrlCard from "../../components/ui/card/UrlCard.astro";
+import Message from "../../components/ui/Message.astro";
 import BlogStyle from "../../features/blog/components/BlogStyle.astro";
 import BaseSEO from "../../features/meta/BaseSEO.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
@@ -21,13 +22,16 @@ import Work from "./_work.astro";
   <ContentLayout>
     <BlogStyle colorHeading={[]} headingMargin="normal">
       <h1>Portfolio</h1>
+
+      <Message type="info">
+        更新が滞っており、申し訳ありません。<br />
+        最新の情報は <Link href="https://www.linkedin.com/in/sushichan044/"
+          >LinkedIn</Link
+        > または <Link href="https://github.com/sushichan044">GitHub</Link> をご覧ください。
+      </Message>
+
       <p>
         今までやってきたことや作ってきたものをまとめています。<br />
-        <span>
-          GitHubはこちら ▶<Link href="https://github.com/sushichan044">
-            My GitHub
-          </Link></span
-        >
       </p>
       <div class="space-y-12">
         <div>

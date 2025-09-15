@@ -1,6 +1,7 @@
 ---
 import ContentLayout from "../components/common/ContentLayout.astro";
 import Link from "../components/element/Link.astro";
+import Message from "../components/ui/Message.astro";
 import BlogStyle from "../features/blog/components/BlogStyle.astro";
 import BaseSEO from "../features/meta/BaseSEO.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -13,10 +14,12 @@ export const prerender = true;
   <ContentLayout>
     <BlogStyle colorHeading={[]}>
       <h1>Welcome!</h1>
-      <span class="text-lg">
-        自己紹介はこちら ▶
-        <Link href="/about">About</Link></span
-      >
+
+      <Message type="info">
+        現在、多忙につきサイトの更新を停止しております。<br />
+        最近は <Link href="https://sushichan044.hateblo.jp/">はてなブログ</Link>
+        を主に更新しています。<br />
+      </Message>
 
       <div>
         <h2>Blog</h2>
