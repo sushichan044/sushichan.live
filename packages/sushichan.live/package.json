@@ -71,7 +71,7 @@
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "catalog:astro",
-    "@cloudflare/vite-plugin": "1.0.8",
+    "@cloudflare/vite-plugin": "1.6.0",
     "@double-great/stylelint-a11y": "catalog:stylelint",
     "@iconify/json": "2.2.329",
     "@types/mdast": "catalog:markdown",
