@@ -25,7 +25,9 @@ export const getOptimizedFontUrl = async (
       }),
     ],
     {
-      storage: createFSStorage("unifont-google"),
+      storage: import.meta.env.DEV
+        ? createFSStorage("unifont-google")
+        : undefined,
     },
   );
 
