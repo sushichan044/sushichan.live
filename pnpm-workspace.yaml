@@ -7,7 +7,7 @@ catalogs:
     '@astrojs/mdx': 5.0.0-alpha.0
     '@astrojs/react': 5.0.0-alpha.0
     '@astrojs/rss': 4.0.14
-    '@astrojs/sitemap': 3.6.0
+    '@astrojs/sitemap': 3.6.1-alpha.1
     '@astrojs/tailwind': 6.0.2
     '@astrojs/ts-plugin': 1.10.6
     astro: 6.0.0-alpha.4
@@ -71,3 +71,6 @@ onlyBuiltDependencies:
   - esbuild
   - sharp
   - workerd
+
+overrides:
+  wrangler: 4.56.0
