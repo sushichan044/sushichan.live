@@ -176,6 +176,11 @@ catalogs:
 overrides:
   wrangler: 4.56.0
 
+patchedDependencies:
+  jpeg-js:
+    hash: 99d09a3ad650a9eab4242d30b92029fbb7cb4df72b2cc5b0caca08995e0f9811
+    path: patches/jpeg-js.patch
+
 importers:
 
   .:
@@ -241,8 +246,8 @@ importers:
         specifier: catalog:astro
         version: 6.0.2(astro@6.0.0-alpha.4(@types/node@22.10.7)(jiti@2.4.2)(rollup@4.54.0)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(typescript@5.9.3)(yaml@2.8.2))(tailwindcss@3.4.17)
       '@cloudinary-util/util':
-        specifier: 4.1.0
-        version: 4.1.0
+        specifier: 4.2.0
+        version: 4.2.0
       '@expressive-code/plugin-collapsible-sections':
         specifier: catalog:expressive-code
         version: 0.41.1
@@ -285,6 +290,9 @@ importers:
       framer-motion:
         specifier: 12.0.1
         version: 12.0.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      hono:
+        specifier: 4.11.3
+        version: 4.11.3
       katex:
         specifier: catalog:markdown
         version: 0.16.22
@@ -804,6 +812,9 @@ packages:
 
   '@cloudinary-util/util@4.1.0':
     resolution: {integrity: sha512-01k2FWwxhVSauFGi3yJhz20WJ7M/l4ytJDHaBVDTIJlxQLNs36p24kynppgE44jn0dNa1DgYhCXB6BFmqUmfJA==}
+
+  '@cloudinary-util/util@4.2.0':
+    resolution: {integrity: sha512-3qD0+crtnrP1HUjtDoA3JqOesDndzBMqdD6vUSxpyQX6JO2g73DVNUdvK/YFcvT/vnWVTnLM67Im3dQlk4BtlA==}
 
   '@cloudinary/transformation-builder-sdk@1.21.2':
     resolution: {integrity: sha512-ehOgKUaP+Nvuf7B0TosmB8iilL0kdiVjzjl8tIK06cjvsNnwSJI3xP9nEJmKkvqNxwwFwvYXT+mxUTqnSv9JOA==}
@@ -4146,6 +4157,10 @@ packages:
   hex-rgb@4.3.0:
     resolution: {integrity: sha512-Ox1pJVrDCyGHMG9CFg1tmrRUMRPRsAWYc/PinY0XzJU4K7y7vjNoLKIQ7BR5UJMCxNN8EM1MNDmHWA/B3aZUuw==}
     engines: {node: '>=6'}
+
+  hono@4.11.3:
+    resolution: {integrity: sha512-PmQi306+M/ct/m5s66Hrg+adPnkD5jiO6IjA7WhWw0gSBSo1EcRegwuI1deZ+wd5pzCGynCcn2DprnE4/yEV4w==}
+    engines: {node: '>=16.9.0'}
 
   hookified@1.7.0:
     resolution: {integrity: sha512-XQdMjqC1AyeOzfs+17cnIk7Wdfu1hh2JtcyNfBf5u9jHrT3iZUlGHxLTntFBuk5lwkqJ6l3+daeQdHK5yByHVA==}
@@ -7817,6 +7832,8 @@ snapshots:
 
   '@cloudinary-util/util@4.1.0': {}
 
+  '@cloudinary-util/util@4.2.0': {}
+
   '@cloudinary/transformation-builder-sdk@1.21.2':
     dependencies:
       '@cloudinary/url-gen': 1.22.0
@@ -9399,7 +9416,7 @@ snapshots:
   '@unpic/pixels@1.3.0':
     dependencies:
       '@types/pngjs': 6.0.5
-      jpeg-js: 0.4.4
+      jpeg-js: 0.4.4(patch_hash=99d09a3ad650a9eab4242d30b92029fbb7cb4df72b2cc5b0caca08995e0f9811)
       pngjs: 7.0.0
 
   '@unpic/placeholder@0.1.2':
@@ -9749,7 +9766,7 @@ snapshots:
     dependencies:
       '@cloudinary-util/types': 1.6.0
       '@cloudinary-util/url-loader': 6.0.0
-      '@cloudinary-util/util': 4.1.0
+      '@cloudinary-util/util': 4.2.0
       '@cloudinary/url-gen': 1.22.0
       '@unpic/astro': 0.0.47(astro@6.0.0-alpha.4(@types/node@22.10.7)(jiti@2.4.2)(rollup@4.54.0)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(typescript@5.9.3)(yaml@2.8.2))
       '@unpic/core': 0.0.49
@@ -11542,6 +11559,8 @@ snapshots:
 
   hex-rgb@4.3.0: {}
 
+  hono@4.11.3: {}
+
   hookified@1.7.0: {}
 
   hookified@1.8.2: {}
@@ -11835,7 +11854,7 @@ snapshots:
 
   joycon@3.1.1: {}
 
-  jpeg-js@0.4.4: {}
+  jpeg-js@0.4.4(patch_hash=99d09a3ad650a9eab4242d30b92029fbb7cb4df72b2cc5b0caca08995e0f9811): {}
 
   js-tokens@4.0.0: {}
 

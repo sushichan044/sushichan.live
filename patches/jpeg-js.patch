@@ -1,0 +1,35 @@
+diff --git a/index.cjs b/index.cjs
+new file mode 100644
+index 0000000000000000000000000000000000000000..e45a1675fbf301c1436754b641e9438b28b7a314
+--- /dev/null
++++ b/index.cjs
+@@ -0,0 +1,7 @@
++var encode = require('.pnpm_patches/jpeg-js@0.4.4/lib/encoder'),
++    decode = require('.pnpm_patches/jpeg-js@0.4.4/lib/decoder');
++
++module.exports = {
++  encode: encode,
++  decode: decode
++};
+diff --git a/index.js b/index.js
+deleted file mode 100644
+index 237348490701e852d45d12dffd020723da323d5d..0000000000000000000000000000000000000000
+diff --git a/package.json b/package.json
+index c19658ccec15d47fe6cf0987b07bb758026c3c44..e4127a51571c13a5fdc9afc8ac26ed7e2b66a3b3 100644
+--- a/package.json
++++ b/package.json
+@@ -2,7 +2,13 @@
+   "name": "jpeg-js",
+   "version": "0.4.4",
+   "description": "A pure javascript JPEG encoder and decoder",
+-  "main": "index.js",
++  "main": "index.cjs",
++  "exports": {
++    ".": {
++      "types": "./index.d.ts",
++      "require": "./index.cjs"
++    }
++  },
+   "scripts": {
+     "test": "jest --testMatch=**/test/*.js"
+   },

@@ -15,7 +15,7 @@ const blogSpecificSchema = z.object({
   description: z.string(),
   relatedPosts: reference("posts").array().optional(),
   status: z.enum(["draft", "published", "private", "preview"]).default("draft"),
-  thumbnail: z.url()
+  thumbnail: z.url(),
 });
 
 const blogSchema = baseSchema.extend(blogSpecificSchema.shape);

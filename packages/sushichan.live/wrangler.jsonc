@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "sushichan-live",
-  "main": "@astrojs/cloudflare/entrypoints/server",
+  "main": "./server/index.ts",
   "compatibility_date": "2025-12-28",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": {

@@ -1,7 +1,7 @@
 {
   "extends": "@virtual-live-lab/tsconfig/astro",
   "compilerOptions": {
-    "types": ["unplugin-icons/types/astro"]
+    "types": ["unplugin-icons/types/astro", "./worker-configuration.d.ts"]
   },
   "exclude": ["node_modules", "dist", "public"]
 }

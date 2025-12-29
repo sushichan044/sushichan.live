@@ -74,3 +74,6 @@ onlyBuiltDependencies:
 
 overrides:
   wrangler: 4.56.0
+
+patchedDependencies:
+  jpeg-js: patches/jpeg-js.patch
