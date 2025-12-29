@@ -1,4 +1,4 @@
-import { createUnifont, providers } from "unifont";
+import { createUnifont, providers, ResolveFontOptions } from "unifont";
 
 import { createFSStorage } from "./unstorage";
 
@@ -6,7 +6,7 @@ type FontOptions = {
   fontFamily: string;
   glyphs: string[];
   weights: string[];
-  format?: string;
+  format?: ResolveFontOptions["formats"][number];
 };
 
 export const getOptimizedFontUrl = async (
@@ -29,7 +29,10 @@ export const getOptimizedFontUrl = async (
     },
   );
 
-  const font = await unifont.resolveFont(fontFamily, { weights });
+  const font = await unifont.resolveFont(fontFamily, {
+    weights,
+    formats: format ? [format] : undefined,
+  });
 
   const remoteSources = font.fonts.flatMap((f) => {
     return f.src.filter((src) => {
@@ -37,13 +40,5 @@ export const getOptimizedFontUrl = async (
     });
   });
 
-  if (format == null) {
-    return remoteSources.at(0)?.url ?? null;
-  }
-
-  return (
-    remoteSources.find((src) => {
-      return src.format?.toLowerCase() === format?.toLowerCase();
-    })?.url ?? null
-  );
+  return remoteSources.at(0)?.url ?? null;
 };

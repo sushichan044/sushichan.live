@@ -30,7 +30,7 @@ export async function getBlogOGImage({ post }: Options) {
     fontFamily: FONT_FAMILY,
     glyphs: [title, ...DEFAULT_TEXTS],
     weights: ["700"],
-    format: "WOFF",
+    format: "woff",
   });
 
   if (optimizedFontUrl == null) {

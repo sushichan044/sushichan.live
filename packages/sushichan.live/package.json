@@ -65,7 +65,7 @@
     "tailwind-variants": "0.3.1",
     "undici": "7.3.0",
     "unified": "catalog:markdown",
-    "unifont": "0.4.1",
+    "unifont": "0.7.1",
     "unstorage": "1.16.0",
     "yoga-wasm-web": "0.3.3"
   },
