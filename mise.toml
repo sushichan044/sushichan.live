@@ -1,0 +1,5 @@
+[env]
+# sushichan044 installes libvips globally.
+# This will break installation of sharp.
+# So we ignore the global libvips.
+SHARP_IGNORE_GLOBAL_LIBVIPS = 1
