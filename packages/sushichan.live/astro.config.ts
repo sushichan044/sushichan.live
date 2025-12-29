@@ -11,7 +11,6 @@ import remarkEmoji from "remark-emoji";
 import remarkMath from "remark-math";
 import nodeExternals from "rollup-plugin-node-externals";
 import cloudflare from "@astrojs/cloudflare";
-import { cloudflare as cloudflareVite } from "@cloudflare/vite-plugin";
 import Icons from "unplugin-icons/vite";
 
 import { SITE_URL } from "./src/consts";
@@ -40,10 +39,6 @@ const mdxIntegrations = [
 // https://astro.build/config
 export default defineConfig({
   adapter: cloudflare({
-    platformProxy: {
-      enabled: true,
-      configPath: "./wrangler.jsonc",
-    },
     imageService: "compile",
   }),
 
@@ -74,7 +69,6 @@ export default defineConfig({
   experimental: {
     clientPrerender: true,
     contentIntellisense: true,
-    csp: true,
   },
 
   image: {
@@ -95,10 +89,6 @@ export default defineConfig({
     react(),
     tailwind(),
   ],
-
-  legacy: {
-    collections: true,
-  },
 
   markdown: {
     gfm: true,
@@ -142,7 +132,6 @@ export default defineConfig({
       // Make sure to place nodeExternals first
       nodeExternals({ deps: false }),
       // Then place other plugins below
-      // @ts-expect-error type mismatch
       Icons({
         compiler: "astro",
       }),
