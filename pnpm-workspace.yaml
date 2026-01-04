@@ -61,7 +61,7 @@ catalogs:
   tsconfig:
     '@virtual-live-lab/tsconfig': 2.1.20
   typescript:
-    typescript: 5.8.3
+    typescript: 5.9.3
   vitest:
     '@vitest/coverage-v8': 3.1.1
     vitest: 3.1.1
