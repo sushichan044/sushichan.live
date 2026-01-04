@@ -244,8 +244,8 @@ importers:
         specifier: catalog:expressive-code
         version: 0.41.1
       '@formkit/tempo':
-        specifier: 0.1.2
-        version: 0.1.2
+        specifier: 1.0.0
+        version: 1.0.0
       '@radix-ui/react-navigation-menu':
         specifier: 1.2.3
         version: 1.2.3(@types/react-dom@19.1.2(@types/react@19.1.2))(@types/react@19.1.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -366,7 +366,7 @@ importers:
         version: 1.10.6
       '@cloudflare/vite-plugin':
         specifier: 1.19.0
-        version: 1.19.0(vite@6.4.1(@types/node@22.10.7)(jiti@2.4.2)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2))(workerd@1.20250416.0)(wrangler@4.12.0(@cloudflare/workers-types@4.20251229.0))
+        version: 1.19.0(vite@6.4.1(@types/node@22.10.7)(jiti@2.4.2)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2))(workerd@1.20251118.0)(wrangler@4.12.0(@cloudflare/workers-types@4.20251229.0))
       '@double-great/stylelint-a11y':
         specifier: catalog:stylelint
         version: 3.0.3(stylelint@16.18.0(typescript@5.8.3))
@@ -1708,8 +1708,8 @@ packages:
     resolution: {integrity: sha512-br+OW3lqXXtwTOGt6RdX5KsF5y0EpaZ5AHLOkofl10SNYaCyOXvg15d6dd6mwrzBkq0RK78c+3B2ZUeRxF5+vg==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
 
-  '@formkit/tempo@0.1.2':
-    resolution: {integrity: sha512-jNPPbjL8oj7hK3eHX++CwbR6X4GKQt+x00/q4yeXkwynXHGKL27dylYhpEgwrmediPP4y7s0XtN1if/M/JYujg==}
+  '@formkit/tempo@1.0.0':
+    resolution: {integrity: sha512-2jhR8jnWFt4ajtbpHL2ZvJJ+ofj/XpAumb1OLmsY7U5iwCjGKuk0wqLR7dGsZfyvJeivfWLD9vzj9cdkUUWzyg==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -6713,6 +6713,7 @@ packages:
 
   svg2png-wasm@1.4.1:
     resolution: {integrity: sha512-ZFy1NtwZVAsslaTQoI+/QqX2sg0vjmgJ/jGAuLZZvYcRlndI54hLPiwLC9JzXlFBerfxN5JiS7kpEUG0mrXS3Q==}
+    deprecated: svg2png-wasm is no longer supported. Please use the resvg-js package instead.
 
   svgo@4.0.0:
     resolution: {integrity: sha512-VvrHQ+9uniE+Mvx3+C9IEe/lWasXCU0nXMY2kZeLrHNICuRiC8uMPyM14UEaMOFA5mhyQqEkB02VoQ16n3DLaw==}
@@ -8301,15 +8302,15 @@ snapshots:
     optionalDependencies:
       workerd: 1.20251118.0
 
-  '@cloudflare/unenv-preset@2.7.13(unenv@2.0.0-rc.24)(workerd@1.20250416.0)':
+  '@cloudflare/unenv-preset@2.7.13(unenv@2.0.0-rc.24)(workerd@1.20251118.0)':
     dependencies:
       unenv: 2.0.0-rc.24
     optionalDependencies:
-      workerd: 1.20250416.0
+      workerd: 1.20251118.0
 
-  '@cloudflare/vite-plugin@1.19.0(vite@6.4.1(@types/node@22.10.7)(jiti@2.4.2)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2))(workerd@1.20250416.0)(wrangler@4.12.0(@cloudflare/workers-types@4.20251229.0))':
+  '@cloudflare/vite-plugin@1.19.0(vite@6.4.1(@types/node@22.10.7)(jiti@2.4.2)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2))(workerd@1.20251118.0)(wrangler@4.12.0(@cloudflare/workers-types@4.20251229.0))':
     dependencies:
-      '@cloudflare/unenv-preset': 2.7.13(unenv@2.0.0-rc.24)(workerd@1.20250416.0)
+      '@cloudflare/unenv-preset': 2.7.13(unenv@2.0.0-rc.24)(workerd@1.20251118.0)
       '@remix-run/node-fetch-server': 0.8.1
       defu: 6.1.4
       get-port: 7.1.0
@@ -8901,7 +8902,7 @@ snapshots:
     dependencies:
       resolve: 1.22.8
 
-  '@formkit/tempo@0.1.2': {}
+  '@formkit/tempo@1.0.0': {}
 
   '@humanfs/core@0.19.1': {}
 
