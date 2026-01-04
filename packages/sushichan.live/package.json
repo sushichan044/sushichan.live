@@ -27,7 +27,7 @@
     "@astrojs/rss": "catalog:astro",
     "@astrojs/sitemap": "catalog:astro",
     "@astrojs/tailwind": "catalog:astro",
-    "@cloudinary-util/util": "4.1.0",
+    "@cloudinary-util/util": "4.2.0",
     "@expressive-code/plugin-collapsible-sections": "catalog:expressive-code",
     "@formkit/tempo": "0.1.2",
     "@radix-ui/react-navigation-menu": "1.2.3",
