@@ -64,11 +64,11 @@ catalogs:
       specifier: 4.0.4
       version: 4.0.4
     katex:
-      specifier: 0.16.22
-      version: 0.16.22
+      specifier: 0.16.27
+      version: 0.16.27
     marked:
-      specifier: 15.0.8
-      version: 15.0.8
+      specifier: 15.0.12
+      version: 15.0.12
     mdast-util-to-string:
       specifier: 4.0.0
       version: 4.0.0
@@ -82,8 +82,8 @@ catalogs:
       specifier: 15.0.1
       version: 15.0.1
     remark-emoji:
-      specifier: 5.0.1
-      version: 5.0.1
+      specifier: 5.0.2
+      version: 5.0.2
     remark-math:
       specifier: 6.0.0
       version: 6.0.0
@@ -284,10 +284,10 @@ importers:
         version: 12.0.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       katex:
         specifier: catalog:markdown
-        version: 0.16.22
+        version: 0.16.27
       marked:
         specifier: catalog:markdown
-        version: 15.0.8
+        version: 15.0.12
       mdast-util-to-string:
         specifier: catalog:markdown
         version: 4.0.0
@@ -326,7 +326,7 @@ importers:
         version: 15.0.1
       remark-emoji:
         specifier: catalog:markdown
-        version: 5.0.1
+        version: 5.0.2
       remark-math:
         specifier: catalog:markdown
         version: 6.0.0
@@ -366,7 +366,7 @@ importers:
         version: 1.10.6
       '@cloudflare/vite-plugin':
         specifier: 1.19.0
-        version: 1.19.0(vite@6.4.1(@types/node@22.10.7)(jiti@2.4.2)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2))(workerd@1.20250416.0)(wrangler@4.12.0(@cloudflare/workers-types@4.20251229.0))
+        version: 1.19.0(vite@6.4.1(@types/node@22.10.7)(jiti@2.4.2)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2))(workerd@1.20251118.0)(wrangler@4.12.0(@cloudflare/workers-types@4.20251229.0))
       '@double-great/stylelint-a11y':
         specifier: catalog:stylelint
         version: 3.0.3(stylelint@16.18.0(typescript@5.8.3))
@@ -4887,8 +4887,8 @@ packages:
     resolution: {integrity: sha512-ZZow9HBI5O6EPgSJLUb8n2NKgmVWTwCvHGwFuJlMjvLFqlGG6pjirPhtdsseaLZjSibD8eegzmYpUZwoIlj2cQ==}
     engines: {node: '>=4.0'}
 
-  katex@0.16.22:
-    resolution: {integrity: sha512-XCHRdUw4lf3SKBaJe4EvgqIuWwkPSo9XoeO8GjQW94Bp7TWv9hNhzZjZ+OH9yf1UmLygb7DIT5GSFQiyt16zYg==}
+  katex@0.16.27:
+    resolution: {integrity: sha512-aeQoDkuRWSqQN6nSvVCEFvfXdqo1OQiCmmW1kc9xSdjutPv7BGO7pqY9sQRJpMOGrEdfDgF2TfRXe5eUAD2Waw==}
     hasBin: true
 
   keyv@4.5.4:
@@ -5068,8 +5068,8 @@ packages:
   markdown-table@3.0.4:
     resolution: {integrity: sha512-wiYz4+JrLyb/DqW2hkFJxP7Vd7JuTDm77fvbM8VfEQdmSMqcImWeeRbHwZjBjIFki/VaMK2BhFi7oUUZeM5bqw==}
 
-  marked@15.0.8:
-    resolution: {integrity: sha512-rli4l2LyZqpQuRve5C0rkn6pj3hT8EWPC+zkAxFTAJLxRbENfTAhEQq9itrmf1Y81QtAX5D/MYlGlIomNgj9lA==}
+  marked@15.0.12:
+    resolution: {integrity: sha512-8dD6FusOQSrpv9Z1rdNMdlSgQOIP880DHqnohobOmYLElGEqAL/JvxvuxZO16r4HtjTlfPRDC1hbvxC9dPN2nA==}
     engines: {node: '>= 18'}
     hasBin: true
 
@@ -5091,9 +5091,6 @@ packages:
 
   mdast-util-find-and-replace@1.1.1:
     resolution: {integrity: sha512-9cKl33Y21lyckGzpSmEQnIDjEfeeWelN5s1kUW1LwdB0Fkuq2u+4GdqcGEygYxJE8GVqCl0741bYXHgamfWAZA==}
-
-  mdast-util-find-and-replace@3.0.1:
-    resolution: {integrity: sha512-SG21kZHGC3XRTSUhtofZkBzZTJNM5ecCi0SK2IMKmSXR8vO3peL+kb1O0z7Zl83jKtutG4k5Wv/W7V3/YHvzPA==}
 
   mdast-util-find-and-replace@3.0.2:
     resolution: {integrity: sha512-Tmd1Vg/m3Xz43afeNxDIhWRtFZgM2VLyaf4vSTYwudTyeuTneoL3qtWMA5jeLyz/O1vDJmmV4QuScFCA2tBPwg==}
@@ -6167,8 +6164,8 @@ packages:
   rehype@13.0.2:
     resolution: {integrity: sha512-j31mdaRFrwFRUIlxGeuPXXKWQxet52RBQRvCmzl5eCefn/KGbomK5GMHNMsOJf55fgo3qw5tST5neDuarDYR2A==}
 
-  remark-emoji@5.0.1:
-    resolution: {integrity: sha512-QCqTSvcZ65Ym+P+VyBKd4JfJfh7icMl7cIOGVmPMzWkDtdD8pQ0nQG7yxGolVIiMzSx90EZ7SwNiVpYpfTxn7w==}
+  remark-emoji@5.0.2:
+    resolution: {integrity: sha512-IyIqGELcyK5AVdLFafoiNww+Eaw/F+rGrNSXoKucjo95uL267zrddgxGM83GN1wFIb68pyDuAsY3m5t2Cav1pQ==}
     engines: {node: '>=18'}
 
   remark-footnotes@3.0.0:
@@ -6713,6 +6710,7 @@ packages:
 
   svg2png-wasm@1.4.1:
     resolution: {integrity: sha512-ZFy1NtwZVAsslaTQoI+/QqX2sg0vjmgJ/jGAuLZZvYcRlndI54hLPiwLC9JzXlFBerfxN5JiS7kpEUG0mrXS3Q==}
+    deprecated: svg2png-wasm is no longer supported. Please use the resvg-js package instead.
 
   svgo@4.0.0:
     resolution: {integrity: sha512-VvrHQ+9uniE+Mvx3+C9IEe/lWasXCU0nXMY2kZeLrHNICuRiC8uMPyM14UEaMOFA5mhyQqEkB02VoQ16n3DLaw==}
@@ -8301,15 +8299,15 @@ snapshots:
     optionalDependencies:
       workerd: 1.20251118.0
 
-  '@cloudflare/unenv-preset@2.7.13(unenv@2.0.0-rc.24)(workerd@1.20250416.0)':
+  '@cloudflare/unenv-preset@2.7.13(unenv@2.0.0-rc.24)(workerd@1.20251118.0)':
     dependencies:
       unenv: 2.0.0-rc.24
     optionalDependencies:
-      workerd: 1.20250416.0
+      workerd: 1.20251118.0
 
-  '@cloudflare/vite-plugin@1.19.0(vite@6.4.1(@types/node@22.10.7)(jiti@2.4.2)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2))(workerd@1.20250416.0)(wrangler@4.12.0(@cloudflare/workers-types@4.20251229.0))':
+  '@cloudflare/vite-plugin@1.19.0(vite@6.4.1(@types/node@22.10.7)(jiti@2.4.2)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2))(workerd@1.20251118.0)(wrangler@4.12.0(@cloudflare/workers-types@4.20251229.0))':
     dependencies:
-      '@cloudflare/unenv-preset': 2.7.13(unenv@2.0.0-rc.24)(workerd@1.20250416.0)
+      '@cloudflare/unenv-preset': 2.7.13(unenv@2.0.0-rc.24)(workerd@1.20251118.0)
       '@remix-run/node-fetch-server': 0.8.1
       defu: 6.1.4
       get-port: 7.1.0
@@ -12671,7 +12669,7 @@ snapshots:
       object.assign: 4.1.7
       object.values: 1.2.1
 
-  katex@0.16.22:
+  katex@0.16.27:
     dependencies:
       commander: 8.3.0
 
@@ -12846,7 +12844,7 @@ snapshots:
 
   markdown-table@3.0.4: {}
 
-  marked@15.0.8: {}
+  marked@15.0.12: {}
 
   match-index@1.0.3:
     dependencies:
@@ -12873,13 +12871,6 @@ snapshots:
       escape-string-regexp: 4.0.0
       unist-util-is: 4.1.0
       unist-util-visit-parents: 3.1.1
-
-  mdast-util-find-and-replace@3.0.1:
-    dependencies:
-      '@types/mdast': 4.0.4
-      escape-string-regexp: 5.0.0
-      unist-util-is: 6.0.0
-      unist-util-visit-parents: 6.0.1
 
   mdast-util-find-and-replace@3.0.2:
     dependencies:
@@ -13095,7 +13086,7 @@ snapshots:
   mdast-util-phrasing@4.0.0:
     dependencies:
       '@types/mdast': 4.0.4
-      unist-util-is: 6.0.0
+      unist-util-is: 6.0.1
 
   mdast-util-phrasing@4.1.0:
     dependencies:
@@ -13323,7 +13314,7 @@ snapshots:
     dependencies:
       '@types/katex': 0.16.7
       devlop: 1.1.0
-      katex: 0.16.22
+      katex: 0.16.27
       micromark-factory-space: 2.0.0
       micromark-util-character: 2.1.0
       micromark-util-symbol: 2.0.0
@@ -14435,7 +14426,7 @@ snapshots:
       '@types/katex': 0.16.7
       hast-util-from-html-isomorphic: 2.0.0
       hast-util-to-text: 4.0.2
-      katex: 0.16.22
+      katex: 0.16.27
       unist-util-visit-parents: 6.0.1
       vfile: 6.0.3
 
@@ -14485,11 +14476,11 @@ snapshots:
       rehype-stringify: 10.0.1
       unified: 11.0.5
 
-  remark-emoji@5.0.1:
+  remark-emoji@5.0.2:
     dependencies:
       '@types/mdast': 4.0.4
       emoticon: 4.0.1
-      mdast-util-find-and-replace: 3.0.1
+      mdast-util-find-and-replace: 3.0.2
       node-emoji: 2.1.3
       unified: 11.0.5
 
@@ -15935,7 +15926,7 @@ snapshots:
 
   vfile-location@5.0.2:
     dependencies:
-      '@types/unist': 3.0.2
+      '@types/unist': 3.0.3
       vfile: 6.0.3
 
   vfile-location@5.0.3:

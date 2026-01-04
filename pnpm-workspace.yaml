@@ -24,13 +24,13 @@ catalogs:
     astro-expressive-code: 0.41.5
   markdown:
     '@types/mdast': 4.0.4
-    katex: 0.16.22
-    marked: 15.0.8
+    katex: 0.16.27
+    marked: 15.0.12
     mdast-util-to-string: 4.0.0
     rehype-katex: 7.0.1
     rehype-unwrap-images: 1.0.0
     remark: 15.0.1
-    remark-emoji: 5.0.1
+    remark-emoji: 5.0.2
     remark-math: 6.0.0
     unified: 11.0.5
   prettier:
