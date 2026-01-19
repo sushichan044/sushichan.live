@@ -59,7 +59,7 @@
     "remark-emoji": "catalog:markdown",
     "remark-math": "catalog:markdown",
     "sanitize-html": "2.14.0",
-    "satori": "0.12.1",
+    "satori": "0.19.1",
     "svg2png-wasm": "1.4.1",
     "tailwind-merge": "2.6.0",
     "tailwind-variants": "0.3.1",
