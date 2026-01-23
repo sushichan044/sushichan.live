@@ -108,6 +108,6 @@
     "typescript-eslint": "catalog:eslint",
     "unplugin-icons": "22.1.0",
     "vitest": "catalog:vitest",
-    "wrangler": "4.12.0"
+    "wrangler": "4.59.1"
   }
 }
