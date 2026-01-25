@@ -34,8 +34,8 @@ catalogs:
     remark-math: 6.0.0
     unified: 11.0.5
   prettier:
-    '@virtual-live-lab/prettier-config': 2.0.19
-    prettier: 3.5.3
+    '@virtual-live-lab/prettier-config': 2.0.22
+    prettier: 3.8.1
     prettier-plugin-astro: 0.14.1
   react:
     '@types/react': 19.1.2
