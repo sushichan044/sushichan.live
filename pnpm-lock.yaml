@@ -167,8 +167,8 @@ catalogs:
       version: 5.8.3
   vitest:
     '@vitest/coverage-v8':
-      specifier: 3.1.1
-      version: 3.1.1
+      specifier: 3.2.7
+      version: 3.2.7
     vitest:
       specifier: 3.1.1
       version: 3.1.1
@@ -191,7 +191,7 @@ importers:
         version: 2.1.20(typescript@5.8.3)
       '@vitest/coverage-v8':
         specifier: catalog:vitest
-        version: 3.1.1(vitest@3.1.1(@types/debug@4.1.12)(@types/node@22.10.7)(jiti@2.4.2)(jsdom@24.0.0)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2))
+        version: 3.2.7(vitest@3.1.1(@types/debug@4.1.12)(@types/node@22.10.7)(jiti@2.4.2)(jsdom@24.0.0)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2))
       eslint:
         specifier: catalog:eslint
         version: 9.24.0(jiti@2.4.2)
@@ -366,7 +366,7 @@ importers:
         version: 1.10.6
       '@cloudflare/vite-plugin':
         specifier: 1.19.0
-        version: 1.19.0(vite@6.4.1(@types/node@22.10.7)(jiti@2.4.2)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2))(workerd@1.20250416.0)(wrangler@4.12.0(@cloudflare/workers-types@4.20251229.0))
+        version: 1.19.0(vite@6.4.1(@types/node@22.10.7)(jiti@2.4.2)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2))(workerd@1.20251118.0)(wrangler@4.12.0(@cloudflare/workers-types@4.20251229.0))
       '@double-great/stylelint-a11y':
         specifier: catalog:stylelint
         version: 3.0.3(stylelint@16.18.0(typescript@5.8.3))
@@ -405,7 +405,7 @@ importers:
         version: 2.1.20(typescript@5.8.3)
       '@vitest/coverage-v8':
         specifier: catalog:vitest
-        version: 3.1.1(vitest@3.1.1(@types/debug@4.1.12)(@types/node@22.10.7)(jiti@2.4.2)(jsdom@24.0.0)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2))
+        version: 3.2.7(vitest@3.1.1(@types/debug@4.1.12)(@types/node@22.10.7)(jiti@2.4.2)(jsdom@24.0.0)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2))
       daisyui:
         specifier: 4.12.23
         version: 4.12.23(postcss@8.5.1)
@@ -685,10 +685,6 @@ packages:
     resolution: {integrity: sha512-1gn1Up5YXka3YYAHGKpbideQ5Yjf1tDa9qYcgysz+cNCXukyLl6DjPXhD3VRwSb8c0J9tA4b2+rHEZtc6R0tlw==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/helper-string-parser@7.25.9':
-    resolution: {integrity: sha512-4A/SCr/2KLd5jrtOMFzaKjVtAei3+2r/NChoBNoZ3EyP/+GlhoaEGoWOZUmFmoITP7zOJyHIMm+DYRd8o3PvHA==}
-    engines: {node: '>=6.9.0'}
-
   '@babel/helper-string-parser@7.27.1':
     resolution: {integrity: sha512-qMlSxKbpRlAridDExk92nSobyDdpPijUq2DW6oDnUqd0iOGxmQjyqhMIihI9+zv4LPyZdRje2cavWPbCbWm3eA==}
     engines: {node: '>=6.9.0'}
@@ -708,11 +704,6 @@ packages:
   '@babel/helpers@7.28.4':
     resolution: {integrity: sha512-HFN59MmQXGHVyYadKLVumYsA9dBFun/ldYxipEjzA4196jpLZd8UjEEBLkbEkvfYreDqJhZxYAWFPtrfhNpj4w==}
     engines: {node: '>=6.9.0'}
-
-  '@babel/parser@7.26.2':
-    resolution: {integrity: sha512-DWMCZH9WA4Maitz2q21SRKHo9QXZxkDsbNZoVD62gusNtNBBqDg9i7uOhASfTfIGNzW+O+r7+jAlM8dwphcJKQ==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
 
   '@babel/parser@7.28.5':
     resolution: {integrity: sha512-KKBU1VGYR7ORr3At5HAtUQ+TV3SzRCXmA/8OdDZiLDBIZxVyzXuztPjfLd3BV1PRAQGCMWWSHYhL0F8d5uHBDQ==}
@@ -737,10 +728,6 @@ packages:
 
   '@babel/traverse@7.28.5':
     resolution: {integrity: sha512-TCCj4t55U90khlYkVV/0TfkJkAkUg3jZFA3Neb7unZT8CPok7iiRfaX0F+WnqWqt7OxhOn0uBKXCw4lbL8W0aQ==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/types@7.26.0':
-    resolution: {integrity: sha512-Z/yiTPj+lDVnF7lWeKCIJzaIkI0vYO87dMpZ4bg4TDrFe4XXLFWL1TbXU27gBP3QccxV9mZICCrnjnYlJjXHOA==}
     engines: {node: '>=6.9.0'}
 
   '@babel/types@7.28.5':
@@ -2017,9 +2004,6 @@ packages:
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
 
-  '@jridgewell/trace-mapping@0.3.25':
-    resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
-
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
@@ -2924,9 +2908,11 @@ packages:
 
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
+    deprecated: Potential CWE-502 - Update to 1.3.1 or higher
 
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
+    deprecated: Potential CWE-502 - Update to 1.3.1 or higher
 
   '@unocss/reset@65.4.3':
     resolution: {integrity: sha512-f9QnMtY1yPS1HEIkeKmSwUYcp4QS6zdo9ZcIFE9PDSLOcns3v+M1lTQg8mLChxJHVl73Cf6PofWVh5tmnxV53Q==}
@@ -2977,11 +2963,11 @@ packages:
     peerDependencies:
       vite: ^4.2.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
 
-  '@vitest/coverage-v8@3.1.1':
-    resolution: {integrity: sha512-MgV6D2dhpD6Hp/uroUoAIvFqA8AuvXEFBC2eepG3WFc1pxTfdk1LEqqkWoWhjz+rytoqrnUUCdf6Lzco3iHkLQ==}
+  '@vitest/coverage-v8@3.2.7':
+    resolution: {integrity: sha512-NEGWJS2XNu2PfRLQwOO3CTKj1tTETxNBdk454vDxVBhxJYhPaA/eS0nAI0c+1El1P7a60z8+i+ZrQoGESweGKg==}
     peerDependencies:
-      '@vitest/browser': 3.1.1
-      vitest: 3.1.1
+      '@vitest/browser': 3.2.7
+      vitest: 3.2.7
     peerDependenciesMeta:
       '@vitest/browser':
         optional: true
@@ -3174,6 +3160,9 @@ packages:
 
   ast-types-flow@0.0.8:
     resolution: {integrity: sha512-OH/2E5Fg20h2aPrbe+QL8JZQFko0YZaF+j4mnQ7BGhfavO7OpSLa8a0y9sBwomHdSbkhTS8TQNayBfnW5DwbvQ==}
+
+  ast-v8-to-istanbul@0.3.12:
+    resolution: {integrity: sha512-BRRC8VRZY2R4Z4lFIL35MwNXmwVqBityvOIwETtsCSwvjl0IdgFsy9NhdaA6j74nUdtJJlIypeRhpDam19Wq3g==}
 
   astral-regex@2.0.0:
     resolution: {integrity: sha512-Z7tMw1ytTXt5jqMcOP+OQteU1VuNK9Y02uuJtKQ1Sv69jXQKKg5cibLwGJow8yzZP+eAc18EmLGPal0bp36rvQ==}
@@ -4337,6 +4326,7 @@ packages:
 
   glob@10.4.5:
     resolution: {integrity: sha512-7Bv8RF0k6xjo7d4A/PxYLbUCfb6c+Vpd2/mB2yRDlew7Jb5hEXiCD9ibfO7wpk8i4sevK6DFny9h7EYbM3/sHg==}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     hasBin: true
 
   global-modules@2.0.0:
@@ -4821,6 +4811,9 @@ packages:
 
   jpeg-js@0.4.4:
     resolution: {integrity: sha512-WZzeDOEtTOBK4Mdsar0IqEU5sMr3vSV2RqkAIzUEV2BHnUfKGyswWFPFwK5EeDo93K3FohSHbLAjj0s1Wzd+dg==}
+
+  js-tokens@10.0.0:
+    resolution: {integrity: sha512-lM/UBzQmfJRo9ABXbPWemivdCW8V2G8FHaHdypQaIy523snUjog0W71ayWXTjiR+ixeMyVHN2XcpnTd/liPg/Q==}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -6713,6 +6706,7 @@ packages:
 
   svg2png-wasm@1.4.1:
     resolution: {integrity: sha512-ZFy1NtwZVAsslaTQoI+/QqX2sg0vjmgJ/jGAuLZZvYcRlndI54hLPiwLC9JzXlFBerfxN5JiS7kpEUG0mrXS3Q==}
+    deprecated: svg2png-wasm is no longer supported. Please use the resvg-js package instead.
 
   svgo@4.0.0:
     resolution: {integrity: sha512-VvrHQ+9uniE+Mvx3+C9IEe/lWasXCU0nXMY2kZeLrHNICuRiC8uMPyM14UEaMOFA5mhyQqEkB02VoQ16n3DLaw==}
@@ -6899,6 +6893,7 @@ packages:
   tsconfck@3.1.6:
     resolution: {integrity: sha512-ks6Vjr/jEw0P1gmOVwutM3B7fWxoWBL2KRDb1JfqGVawBmO5UsvmWOQFGHBPl5yxYz4eERr19E6L7NMv+Fej4w==}
     engines: {node: ^18 || >=20}
+    deprecated: unmaintained
     hasBin: true
     peerDependencies:
       typescript: ^5.0.0
@@ -7829,8 +7824,8 @@ snapshots:
 
   '@ampproject/remapping@2.3.0':
     dependencies:
-      '@jridgewell/gen-mapping': 0.3.5
-      '@jridgewell/trace-mapping': 0.3.25
+      '@jridgewell/gen-mapping': 0.3.13
+      '@jridgewell/trace-mapping': 0.3.31
 
   '@antfu/install-pkg@1.0.0':
     dependencies:
@@ -7952,7 +7947,7 @@ snapshots:
     dependencies:
       '@astrojs/compiler': 2.11.0
       '@astrojs/yaml2ts': 0.2.2
-      '@jridgewell/sourcemap-codec': 1.5.0
+      '@jridgewell/sourcemap-codec': 1.5.5
       '@volar/kit': 2.4.8(typescript@5.8.3)
       '@volar/language-core': 2.4.8
       '@volar/language-server': 2.4.8
@@ -8218,8 +8213,6 @@ snapshots:
 
   '@babel/helper-plugin-utils@7.27.1': {}
 
-  '@babel/helper-string-parser@7.25.9': {}
-
   '@babel/helper-string-parser@7.27.1': {}
 
   '@babel/helper-validator-identifier@7.25.9': {}
@@ -8232,10 +8225,6 @@ snapshots:
     dependencies:
       '@babel/template': 7.27.2
       '@babel/types': 7.28.5
-
-  '@babel/parser@7.26.2':
-    dependencies:
-      '@babel/types': 7.26.0
 
   '@babel/parser@7.28.5':
     dependencies:
@@ -8269,11 +8258,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/types@7.26.0':
-    dependencies:
-      '@babel/helper-string-parser': 7.25.9
-      '@babel/helper-validator-identifier': 7.25.9
-
   '@babel/types@7.28.5':
     dependencies:
       '@babel/helper-string-parser': 7.27.1
@@ -8301,15 +8285,15 @@ snapshots:
     optionalDependencies:
       workerd: 1.20251118.0
 
-  '@cloudflare/unenv-preset@2.7.13(unenv@2.0.0-rc.24)(workerd@1.20250416.0)':
+  '@cloudflare/unenv-preset@2.7.13(unenv@2.0.0-rc.24)(workerd@1.20251118.0)':
     dependencies:
       unenv: 2.0.0-rc.24
     optionalDependencies:
-      workerd: 1.20250416.0
+      workerd: 1.20251118.0
 
-  '@cloudflare/vite-plugin@1.19.0(vite@6.4.1(@types/node@22.10.7)(jiti@2.4.2)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2))(workerd@1.20250416.0)(wrangler@4.12.0(@cloudflare/workers-types@4.20251229.0))':
+  '@cloudflare/vite-plugin@1.19.0(vite@6.4.1(@types/node@22.10.7)(jiti@2.4.2)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2))(workerd@1.20251118.0)(wrangler@4.12.0(@cloudflare/workers-types@4.20251229.0))':
     dependencies:
-      '@cloudflare/unenv-preset': 2.7.13(unenv@2.0.0-rc.24)(workerd@1.20250416.0)
+      '@cloudflare/unenv-preset': 2.7.13(unenv@2.0.0-rc.24)(workerd@1.20251118.0)
       '@remix-run/node-fetch-server': 0.8.1
       defu: 6.1.4
       get-port: 7.1.0
@@ -8928,7 +8912,7 @@ snapshots:
       '@antfu/install-pkg': 1.0.0
       '@antfu/utils': 8.1.1
       '@iconify/types': 2.0.0
-      debug: 4.4.0
+      debug: 4.4.3
       globals: 15.14.0
       kolorist: 1.8.0
       local-pkg: 1.1.1
@@ -9127,8 +9111,8 @@ snapshots:
   '@jridgewell/gen-mapping@0.3.5':
     dependencies:
       '@jridgewell/set-array': 1.2.1
-      '@jridgewell/sourcemap-codec': 1.5.0
-      '@jridgewell/trace-mapping': 0.3.25
+      '@jridgewell/sourcemap-codec': 1.5.5
+      '@jridgewell/trace-mapping': 0.3.31
 
   '@jridgewell/remapping@2.3.5':
     dependencies:
@@ -9148,11 +9132,6 @@ snapshots:
   '@jridgewell/sourcemap-codec@1.5.0': {}
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
-
-  '@jridgewell/trace-mapping@0.3.25':
-    dependencies:
-      '@jridgewell/resolve-uri': 3.1.2
-      '@jridgewell/sourcemap-codec': 1.5.0
 
   '@jridgewell/trace-mapping@0.3.31':
     dependencies:
@@ -9706,7 +9685,7 @@ snapshots:
   '@textlint/ast-tester@14.6.0':
     dependencies:
       '@textlint/ast-node-types': 14.6.0
-      debug: 4.4.0
+      debug: 4.4.3
     transitivePeerDependencies:
       - supports-color
 
@@ -9721,7 +9700,7 @@ snapshots:
       '@textlint/resolver': 14.6.0
       '@textlint/types': 14.6.0
       '@textlint/utils': 14.6.0
-      debug: 4.4.0
+      debug: 4.4.3
       rc-config-loader: 4.1.3
     transitivePeerDependencies:
       - supports-color
@@ -9734,7 +9713,7 @@ snapshots:
       '@textlint/resolver': 14.6.0
       '@textlint/types': 14.6.0
       chalk: 4.1.2
-      debug: 4.4.0
+      debug: 4.4.3
       diff: 5.2.0
       string-width: 4.2.3
       strip-ansi: 6.0.1
@@ -9751,7 +9730,7 @@ snapshots:
       '@textlint/source-code-fixer': 14.6.0
       '@textlint/types': 14.6.0
       '@textlint/utils': 14.6.0
-      debug: 4.4.0
+      debug: 4.4.3
       fast-equals: 4.0.3
       structured-source: 4.0.0
     transitivePeerDependencies:
@@ -9765,7 +9744,7 @@ snapshots:
       '@textlint/resolver': 14.6.0
       '@textlint/types': 14.6.0
       chalk: 4.1.2
-      debug: 4.4.0
+      debug: 4.4.3
       js-yaml: 3.14.1
       lodash: 4.17.21
       pluralize: 2.0.0
@@ -9779,7 +9758,7 @@ snapshots:
   '@textlint/markdown-to-ast@14.6.0':
     dependencies:
       '@textlint/ast-node-types': 14.6.0
-      debug: 4.4.0
+      debug: 4.4.3
       mdast-util-gfm-autolink-literal: 0.1.3
       neotraverse: 0.6.18
       remark-footnotes: 3.0.0
@@ -9806,7 +9785,7 @@ snapshots:
   '@textlint/source-code-fixer@14.6.0':
     dependencies:
       '@textlint/types': 14.6.0
-      debug: 4.4.0
+      debug: 4.4.3
     transitivePeerDependencies:
       - supports-color
 
@@ -9969,7 +9948,7 @@ snapshots:
       '@typescript-eslint/types': 8.29.1
       '@typescript-eslint/typescript-estree': 8.29.1(typescript@5.8.3)
       '@typescript-eslint/visitor-keys': 8.29.1
-      debug: 4.4.0
+      debug: 4.4.3
       eslint: 9.24.0(jiti@2.4.2)
       typescript: 5.8.3
     transitivePeerDependencies:
@@ -9981,7 +9960,7 @@ snapshots:
       '@typescript-eslint/types': 8.30.1
       '@typescript-eslint/typescript-estree': 8.30.1(typescript@5.8.3)
       '@typescript-eslint/visitor-keys': 8.30.1
-      debug: 4.4.0
+      debug: 4.4.3
       eslint: 9.24.0(jiti@2.4.2)
       typescript: 5.8.3
     transitivePeerDependencies:
@@ -10001,7 +9980,7 @@ snapshots:
     dependencies:
       '@typescript-eslint/typescript-estree': 8.29.1(typescript@5.8.3)
       '@typescript-eslint/utils': 8.29.1(eslint@9.24.0(jiti@2.4.2))(typescript@5.8.3)
-      debug: 4.4.0
+      debug: 4.4.3
       eslint: 9.24.0(jiti@2.4.2)
       ts-api-utils: 2.1.0(typescript@5.8.3)
       typescript: 5.8.3
@@ -10012,7 +9991,7 @@ snapshots:
     dependencies:
       '@typescript-eslint/typescript-estree': 8.30.1(typescript@5.8.3)
       '@typescript-eslint/utils': 8.30.1(eslint@9.24.0(jiti@2.4.2))(typescript@5.8.3)
-      debug: 4.4.0
+      debug: 4.4.3
       eslint: 9.24.0(jiti@2.4.2)
       ts-api-utils: 2.1.0(typescript@5.8.3)
       typescript: 5.8.3
@@ -10027,7 +10006,7 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 8.29.1
       '@typescript-eslint/visitor-keys': 8.29.1
-      debug: 4.4.0
+      debug: 4.4.3
       fast-glob: 3.3.3
       is-glob: 4.0.3
       minimatch: 9.0.5
@@ -10041,7 +10020,7 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 8.30.1
       '@typescript-eslint/visitor-keys': 8.30.1
-      debug: 4.4.0
+      debug: 4.4.3
       fast-glob: 3.3.3
       is-glob: 4.0.3
       minimatch: 9.0.5
@@ -10183,16 +10162,17 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/coverage-v8@3.1.1(vitest@3.1.1(@types/debug@4.1.12)(@types/node@22.10.7)(jiti@2.4.2)(jsdom@24.0.0)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2))':
+  '@vitest/coverage-v8@3.2.7(vitest@3.1.1(@types/debug@4.1.12)(@types/node@22.10.7)(jiti@2.4.2)(jsdom@24.0.0)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 1.0.2
-      debug: 4.4.0
+      ast-v8-to-istanbul: 0.3.12
+      debug: 4.4.3
       istanbul-lib-coverage: 3.2.2
       istanbul-lib-report: 3.0.1
       istanbul-lib-source-maps: 5.0.6
       istanbul-reports: 3.1.7
-      magic-string: 0.30.17
+      magic-string: 0.30.21
       magicast: 0.3.5
       std-env: 3.9.0
       test-exclude: 7.0.1
@@ -10212,7 +10192,7 @@ snapshots:
     dependencies:
       '@vitest/spy': 3.1.1
       estree-walker: 3.0.3
-      magic-string: 0.30.17
+      magic-string: 0.30.21
     optionalDependencies:
       vite: 6.3.1(@types/node@22.10.7)(jiti@2.4.2)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2)
 
@@ -10228,7 +10208,7 @@ snapshots:
   '@vitest/snapshot@3.1.1':
     dependencies:
       '@vitest/pretty-format': 3.1.1
-      magic-string: 0.30.17
+      magic-string: 0.30.21
       pathe: 2.0.3
 
   '@vitest/spy@3.1.1':
@@ -10439,6 +10419,12 @@ snapshots:
   assertion-error@2.0.1: {}
 
   ast-types-flow@0.0.8: {}
+
+  ast-v8-to-istanbul@0.3.12:
+    dependencies:
+      '@jridgewell/trace-mapping': 0.3.31
+      estree-walker: 3.0.3
+      js-tokens: 10.0.0
 
   astral-regex@2.0.0: {}
 
@@ -12563,8 +12549,8 @@ snapshots:
 
   istanbul-lib-source-maps@5.0.6:
     dependencies:
-      '@jridgewell/trace-mapping': 0.3.25
-      debug: 4.4.0
+      '@jridgewell/trace-mapping': 0.3.31
+      debug: 4.4.3
       istanbul-lib-coverage: 3.2.2
     transitivePeerDependencies:
       - supports-color
@@ -12597,6 +12583,8 @@ snapshots:
   joycon@3.1.1: {}
 
   jpeg-js@0.4.4: {}
+
+  js-tokens@10.0.0: {}
 
   js-tokens@4.0.0: {}
 
@@ -12824,8 +12812,8 @@ snapshots:
 
   magicast@0.3.5:
     dependencies:
-      '@babel/parser': 7.26.2
-      '@babel/types': 7.26.0
+      '@babel/parser': 7.28.5
+      '@babel/types': 7.28.5
       source-map-js: 1.2.1
 
   magicast@0.5.1:
@@ -12836,7 +12824,7 @@ snapshots:
 
   make-dir@4.0.0:
     dependencies:
-      semver: 7.7.1
+      semver: 7.7.3
 
   markdown-extensions@2.0.0: {}
 
@@ -13588,7 +13576,7 @@ snapshots:
 
   micromark@2.11.4:
     dependencies:
-      debug: 4.4.0
+      debug: 4.4.3
       parse-entities: 2.0.0
     transitivePeerDependencies:
       - supports-color
@@ -13596,7 +13584,7 @@ snapshots:
   micromark@4.0.0:
     dependencies:
       '@types/debug': 4.1.12
-      debug: 4.4.0
+      debug: 4.4.3
       decode-named-character-reference: 1.0.2
       devlop: 1.1.0
       micromark-core-commonmark: 2.0.1
@@ -14302,7 +14290,7 @@ snapshots:
 
   rc-config-loader@4.1.3:
     dependencies:
-      debug: 4.4.0
+      debug: 4.4.3
       js-yaml: 4.1.0
       json5: 2.2.3
       require-from-string: 2.0.2
@@ -15973,7 +15961,7 @@ snapshots:
   vite-node@3.1.1(@types/node@22.10.7)(jiti@2.4.2)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2):
     dependencies:
       cac: 6.7.14
-      debug: 4.4.0
+      debug: 4.4.3
       es-module-lexer: 1.6.0
       pathe: 2.0.3
       vite: 6.3.1(@types/node@22.10.7)(jiti@2.4.2)(sass@1.83.4)(terser@5.37.0)(tsx@4.19.3)(yaml@2.8.2)
