@@ -36,7 +36,7 @@ catalogs:
   prettier:
     '@virtual-live-lab/prettier-config': 2.0.19
     prettier: 3.5.3
-    prettier-plugin-astro: 0.14.1
+    prettier-plugin-astro: 1.0.1
   react:
     '@types/react': 19.1.2
     '@types/react-dom': 19.1.2
