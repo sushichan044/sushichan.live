@@ -22,7 +22,7 @@ defaults:
 jobs:
   paths-filter:
     name: Changed Paths Filter
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       contents: read
       pull-requests: read
@@ -46,7 +46,7 @@ jobs:
     name: ESLint
     needs: paths-filter
     if: ${{ needs.paths-filter.outputs.astro == 'true'  }}
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
     permissions:
       contents: read
@@ -68,7 +68,7 @@ jobs:
     name: tsc
     needs: paths-filter
     if: ${{ needs.paths-filter.outputs.astro == 'true'  }}
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
     permissions:
       contents: read
@@ -90,7 +90,7 @@ jobs:
     name: Prettier
     needs: paths-filter
     if: ${{ needs.paths-filter.outputs.astro == 'true' || needs.paths-filter.outputs.root == 'true' }}
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 5
     permissions:
       contents: read
@@ -112,7 +112,7 @@ jobs:
     name: Vitest
     needs: paths-filter
     if: ${{ needs.paths-filter.outputs.astro == 'true'  }}
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 15
     permissions:
       contents: read
@@ -134,7 +134,7 @@ jobs:
     name: Astro Check
     needs: paths-filter
     if: ${{ needs.paths-filter.outputs.astro == 'true' }}
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 5
     permissions:
       contents: read
