@@ -24,7 +24,7 @@ catalogs:
     astro-expressive-code: 0.41.5
   markdown:
     '@types/mdast': 4.0.4
-    katex: 0.16.22
+    katex: 0.18.2
     marked: 15.0.8
     mdast-util-to-string: 4.0.0
     rehype-katex: 7.0.1
